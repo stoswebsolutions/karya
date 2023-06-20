@@ -41,6 +41,9 @@ $routes->group('/', ['filter' => 'noauth'], function ($routes) {
 $routes->group('/', ['filter' => 'auth'], function ($routes) {
     $routes->group('dashboard/', static function ($routes) {
         $routes->get('home', 'Dashboard::home');
+        $routes->get('status', 'Dashboard::status');
+        $routes->get('profile', 'Dashboard::profile');
+        $routes->get('explore', 'Dashboard::explore');
     });
 });
 
