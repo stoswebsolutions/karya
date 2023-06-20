@@ -12,7 +12,7 @@ $routes = Services::routes();
  */
 $routes->setDefaultNamespace('App\Controllers');
 $routes->setDefaultController('Home');
-$routes->setDefaultMethod('index');
+$routes->setDefaultMethod('home');
 $routes->setTranslateURIDashes(false);
 $routes->set404Override();
 // The Auto Routing (Legacy) is very dangerous. It is easy to create vulnerable apps
@@ -29,7 +29,28 @@ $routes->set404Override();
 
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
-$routes->get('/', 'Home::index');
+
+$routes->group('/', ['filter' => 'noauth'], function ($routes) {
+    $routes->get('', 'Home::home');
+    $routes->get('home', 'Home::home');
+    $routes->get('price', 'Home::price');
+    $routes->get('login', 'Home::login');
+    $routes->post('action', 'Home::action');
+});
+
+$routes->group('/', ['filter' => 'auth'], function ($routes) {
+    $routes->group('dashboard/', static function ($routes) {
+        $routes->get('home', 'Dashboard::home');
+    });
+});
+
+$routes->get('logout', 'Home::logout');
+
+// $routes->match(['get', 'post'], 'register', 'User::register', ['filter' => 'noauth']);
+// $routes->match(['get', 'post'], 'login', 'User::login', ['filter' => 'noauth']);
+// $routes->get('dashboard', 'Dashboard::index', ['filter' => 'auth']);
+// $routes->get('profile', 'User::profile', ['filter' => 'auth']);
+// $routes->get('index', 'Home::index');
 
 /*
  * --------------------------------------------------------------------
