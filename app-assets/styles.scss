@@ -1,13 +1,13 @@
 // fonts
 @font-face {
   font-family: 'Abeatbykai';
-  src: url('fonts/abeatbykai/abeatbyKaiRegular.otf');
+  src: url('../fonts/abeatbykai/abeatbyKaiRegular.otf');
 }
 
 /* Light */
 @font-face {
   font-family: 'CreatoDisplay';
-  src: url('fonts/creato_display/CreatoDisplay-Light.otf');
+  src: url('../fonts/creato_display/CreatoDisplay-Light.otf');
   font-style: normal;
   font-weight: 100;
 }
@@ -15,7 +15,7 @@
 /* Normal */
 @font-face {
   font-family: 'CreatoDisplay';
-  src: url('fonts/creato_display/CreatoDisplay-Regular.otf');
+  src: url('../fonts/creato_display/CreatoDisplay-Regular.otf');
   font-style: normal;
   font-weight: 400;
 }
@@ -23,7 +23,7 @@
 /* Medium */
 @font-face {
   font-family: 'CreatoDisplay';
-  src: url('fonts/creato_display/CreatoDisplay-Medium.otf');
+  src: url('../fonts/creato_display/CreatoDisplay-Medium.otf');
   font-style: normal;
   font-weight: 500;
 }
@@ -31,7 +31,7 @@
 /* Bold */
 @font-face {
   font-family: 'CreatoDisplay';
-  src: url('fonts/creato_display/CreatoDisplay-Bold.otf');
+  src: url('../fonts/creato_display/CreatoDisplay-Bold.otf');
   font-style: normal;
   font-weight: 700;
 }
@@ -39,10 +39,11 @@
 /* Extra Bold */
 @font-face {
   font-family: 'CreatoDisplay';
-  src: url('fonts/creato_display/CreatoDisplay-ExtraBold.otf');
+  src: url('../fonts/creato_display/CreatoDisplay-ExtraBold.otf');
   font-style: normal;
   font-weight: 900;
 }
+
 // fonts
 html,
 body {
@@ -60,35 +61,43 @@ body {
 }
 
 $primary-color: #263650;
+
 .pri-clr {
   color: $primary-color;
 }
+
 .pri-bg {
   background-color: $primary-color;
 }
 
 $secondary-color: #8dcdcb;
+
 .sec-clr {
   color: $secondary-color;
 }
+
 .sec-bg {
   background-color: $secondary-color;
 }
 
 $yellow-color: #f4d552;
+
 .yellow-clr {
   color: $yellow-color;
 }
+
 .yellow-bg {
   background-color: $yellow-color;
 }
 
 $lite-white: #f2f2f2;
+
 .lite-white {
   color: $lite-white;
 }
 
 $black-color: #000000;
+
 .black-clr {
   color: $black-color;
 }
@@ -156,6 +165,7 @@ $black-color: #000000;
 
 .anchor-link {
   text-decoration: none;
+
   &:hover {
     opacity: 0.7;
   }
@@ -166,11 +176,9 @@ $black-color: #000000;
 }
 
 // for sleek scorllbar
-@mixin scrollbars(
-  $size,
+@mixin scrollbars($size,
   $foreground-color,
-  $background-color: mix($foreground-color, white, 50%)
-) {
+  $background-color: mix($foreground-color, white, 50%)) {
   ::-webkit-scrollbar {
     width: $size;
     height: $size;
@@ -213,6 +221,7 @@ label {
 
 .hoverable {
   cursor: pointer;
+
   &:hover {
     opacity: 0.7;
   }
@@ -223,9 +232,11 @@ label {
   text-transform: uppercase;
   font-weight: 500;
   font-size: 1rem;
+
   &:hover {
     opacity: 0.7;
   }
+
   &:active {
     opacity: 0.6;
   }
@@ -247,14 +258,17 @@ label {
   display: flex;
   flex-direction: column;
   align-items: center;
+
   .circle-icon {
     display: flex;
     align-items: center;
     justify-content: center;
   }
+
   h1 {
     text-align: center;
   }
+
   h6 {
     text-align: center;
   }
@@ -269,9 +283,80 @@ label {
   color: $primary-color;
   font-size: 0.8rem;
   font-weight: 500;
+
   &:focus {
     box-shadow: none;
     border: 1px solid $secondary-color !important;
+  }
+}
+
+.role-card {
+  background-color: #f0f0f0;
+  padding: 0.5rem;
+
+  h6 {
+    font-size: 0.75rem;
+    font-weight: 600;
+    margin-bottom: 0.25rem;
+  }
+
+  .role {
+    color: #7a858b;
+  }
+
+  .company {
+    color: #999a9a;
+    text-decoration: underline;
+  }
+
+  .location,
+  .rm,
+  .expire-dets {
+    color: #fa43a6;
+  }
+
+  .expire-dets {
+    margin-bottom: 1.5rem;
+    font-weight: 400;
+
+    .date {
+      font-weight: 600;
+    }
+  }
+
+  .summary-dets {
+    margin-top: 1.2rem;
+
+    .title {
+      color: #fa43a6;
+    }
+
+    .summary {
+      margin-bottom: 0.25rem;
+      color: #52513e;
+      font-size: 0.72rem;
+      font-weight: 500;
+    }
+  }
+
+  .card-btn {
+    background-color: #337ab7;
+    border: 0;
+    text-transform: uppercase;
+    font-size: 0.7rem;
+    font-weight: 500;
+    border-radius: 0;
+    color: #e5f7fd;
+
+    &:hover {
+      opacity: 0.7;
+    }
+
+    &:active {
+      opacity: 0.5;
+      color: #e5f7fd !important;
+      background-color: #337ab7 !important;
+    }
   }
 }
 
@@ -289,6 +374,7 @@ label {
   .d-none-mobile {
     display: none;
   }
+
   .mobile-only {
     display: block;
   }
