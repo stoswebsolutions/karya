@@ -6,8 +6,8 @@ use App\Controllers\BaseController;
 
 class Dashboard extends BaseController
 {
-    public function index()
+    public function home()
     {
-        return view("dashboard");
+        return view("dashboard/home");
     }
 }
