@@ -1049,7 +1049,7 @@
                         <div class="col-6">
                             <div class="intervoew-qstns">
                                 <video controls class="w-100 hoverable">
-                                    <source src="../assets/images/video.mp4" type="video/mp4">
+                                    <source src="<?= site_url() ?>app-assets/images/video.mp4" type="video/mp4">
                                     Your browser does not support the video tag.
                                 </video>
                                 <h5 class="hdr">Your Video Job Application</h5>
@@ -1205,7 +1205,7 @@
                             <div class="col-12">
                                 <div class="intervoew-qstns">
                                     <video controls class="w-100 hoverable">
-                                        <source src="../assets/images/video.mp4" type="video/mp4">
+                                        <source src="<?= site_url() ?>app-assets/images/video.mp4" type="video/mp4">
                                         Your browser does not support the video tag.
                                     </video>
                                     <h5 class="hdr">Your Video Job Application</h5>
@@ -1242,7 +1242,7 @@
                     <div class="row g-2">
                         <div class="col-sm-6 col-lg-4 col-xl-3">
                             <div class="tech-card">
-                                <img src="../assets/images/company.jpg" alt="image">
+                                <img src="<?= site_url() ?>app-assets/images/company.jpg" alt="image">
                                 <h6 class="company">code life solution</h6>
                                 <h6 class="location">
                                     Kuala Lumpur, Wilayah Persekutuan
@@ -1261,7 +1261,7 @@
                         </div>
                         <div class="col-sm-6 col-lg-4 col-xl-3">
                             <div class="tech-card">
-                                <img src="../assets/images/no-profile.png" alt="image">
+                                <img src="<?= site_url() ?>app-assets/images/no-profile.png" alt="image">
                                 <h6 class="company">code life solution</h6>
                                 <h6 class="location">
                                     Kuala Lumpur, Wilayah Persekutuan
@@ -1280,7 +1280,7 @@
                         </div>
                         <div class="col-sm-6 col-lg-4 col-xl-3">
                             <div class="tech-card">
-                                <img src="../assets/images/company.jpg" alt="image">
+                                <img src="<?= site_url() ?>app-assets/images/company.jpg" alt="image">
                                 <h6 class="company">code life solution</h6>
                                 <h6 class="location">
                                     Kuala Lumpur, Wilayah Persekutuan
@@ -1299,7 +1299,7 @@
                         </div>
                         <div class="col-sm-6 col-lg-4 col-xl-3">
                             <div class="tech-card">
-                                <img src="../assets/images/company.jpg" alt="image">
+                                <img src="<?= site_url() ?>app-assets/images/company.jpg" alt="image">
                                 <h6 class="company">code life solution</h6>
                                 <h6 class="location">
                                     Kuala Lumpur, Wilayah Persekutuan
@@ -1318,7 +1318,7 @@
                         </div>
                         <div class="col-sm-6 col-lg-4 col-xl-3">
                             <div class="tech-card">
-                                <img src="../assets/images/no-profile.png" alt="image">
+                                <img src="<?= site_url() ?>app-assets/images/no-profile.png" alt="image">
                                 <h6 class="company">code life solution</h6>
                                 <h6 class="location">
                                     Kuala Lumpur, Wilayah Persekutuan
@@ -1353,7 +1353,7 @@
                         <div class="row g-2">
                             <div class="col-sm-6 col-lg-4 col-xl-3">
                                 <div class="tech-card">
-                                    <img src="../assets/images/company.jpg" alt="image">
+                                    <img src="<?= site_url() ?>app-assets/images/company.jpg" alt="image">
                                     <h6 class="company">code life solution</h6>
                                     <h6 class="location">
                                         Kuala Lumpur, Wilayah Persekutuan
@@ -1372,7 +1372,7 @@
                             </div>
                             <div class="col-sm-6 col-lg-4 col-xl-3">
                                 <div class="tech-card">
-                                    <img src="../assets/images/no-profile.png" alt="image">
+                                    <img src="<?= site_url() ?>app-assets/images/no-profile.png" alt="image">
                                     <h6 class="company">code life solution</h6>
                                     <h6 class="location">
                                         Kuala Lumpur, Wilayah Persekutuan
@@ -1391,7 +1391,7 @@
                             </div>
                             <div class="col-sm-6 col-lg-4 col-xl-3">
                                 <div class="tech-card">
-                                    <img src="../assets/images/no-profile.png" alt="image">
+                                    <img src="<?= site_url() ?>app-assets/images/no-profile.png" alt="image">
                                     <h6 class="company">code life solution</h6>
                                     <h6 class="location">
                                         Kuala Lumpur, Wilayah Persekutuan
@@ -1410,7 +1410,7 @@
                             </div>
                             <div class="col-sm-6 col-lg-4 col-xl-3">
                                 <div class="tech-card">
-                                    <img src="../assets/images/company.jpg" alt="image">
+                                    <img src="<?= site_url() ?>app-assets/images/company.jpg" alt="image">
                                     <h6 class="company">code life solution</h6>
                                     <h6 class="location">
                                         Kuala Lumpur, Wilayah Persekutuan
@@ -1429,7 +1429,7 @@
                             </div>
                             <div class="col-sm-6 col-lg-4 col-xl-3">
                                 <div class="tech-card">
-                                    <img src="../assets/images/company.jpg" alt="image">
+                                    <img src="<?= site_url() ?>app-assets/images/company.jpg" alt="image">
                                     <h6 class="company">code life solution</h6>
                                     <h6 class="location">
                                         Kuala Lumpur, Wilayah Persekutuan

@@ -44,6 +44,8 @@ $routes->group('/', ['filter' => 'auth'], function ($routes) {
         $routes->get('status', 'Dashboard::status');
         $routes->get('profile', 'Dashboard::profile');
         $routes->get('explore', 'Dashboard::explore');
+        $routes->get('companies', 'Dashboard::companies');
+        $routes->get('myaccount', 'Dashboard::myaccount');
     });
 });
 

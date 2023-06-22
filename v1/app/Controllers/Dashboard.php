@@ -46,4 +46,24 @@ class Dashboard extends BaseController
         );
         return view('dashboard/explore', $data);
     }
+    public function companies()
+    {
+        $data['pageTitle'] = 'Karya | Home';
+        $data['logo'] = 'app-assets/images/logo_karya.png';
+        $data['active'] = 'companies';
+        $data['css'] = array(
+            base_url('app-assets/hired/style.css')
+        );
+        return view('dashboard/companies', $data);
+    }
+    public function myaccount()
+    {
+        $data['pageTitle'] = 'Karya | Home';
+        $data['logo'] = 'app-assets/images/logo_karya.png';
+        $data['active'] = 'myaccount';
+        $data['css'] = array(
+            base_url('app-assets/hired/style.css')
+        );
+        return view('dashboard/myaccount', $data);
+    }
 }

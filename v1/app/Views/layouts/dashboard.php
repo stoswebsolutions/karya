@@ -133,10 +133,10 @@
                         <li class="text-uppercase menu-item black-clr exploreJobs <?= $active == 'explore' ? 'active' : '' ?>" name="exploreJobs">
                             <a href="explore" class="text-decoration-none">explore jobs</a>
                         </li>
-                        <li class="text-uppercase menu-item black-clr exploreCompanies" name="exploreCompanies">
-                            explore companies
+                        <li class="text-uppercase menu-item black-clr exploreCompanies <?= $active == 'companies' ? 'active' : '' ?>" name="exploreCompanies">
+                            <a href="companies" class="text-decoration-none">explore companies</a>
                         </li>
-                        <li class="text-uppercase menu-item black-clr myAccount" name="myAccount">
+                        <li class="text-uppercase menu-item black-clr myAccount <?= $active == 'myaccount' ? 'active' : '' ?>" name="myAccount">
                             <!-- my account -->
                             <div class="dropend myAcc-dropdown">
                                 <button class="btn btn-secondary dropdown-toggle text-uppercase myAcc-dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -145,7 +145,7 @@
                                 <ul class="dropdown-menu">
                                     <li>
                                         <button class="dropdown-item" type="button">
-                                            Technology
+                                            <a href="myaccount" class="text-decoration-none">Technology</a>
                                         </button>
                                     </li>
                                     <li>
