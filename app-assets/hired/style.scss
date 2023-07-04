@@ -1,11 +1,11 @@
 // styles
-@import '../assets/styles.scss';
+@import '../styles.scss';
 
 // nav
-@import '../assets/nav.scss';
+@import '../nav.scss';
 
 // stepper
-@import '../assets/stepper.scss';
+@import '../stepper.scss';
 
 .karya-container {
   scroll-snap-align: unset;
@@ -342,7 +342,7 @@
       .content-right {
         background: linear-gradient(rgba(60, 56, 55, 0.9),
             rgba(60, 56, 55, 0.9)),
-          url(../assets/images/dominant-person.jpg);
+          url(../images/dominant-person.jpg);
         background-size: cover;
         background-position: center;
         background-repeat: no-repeat;

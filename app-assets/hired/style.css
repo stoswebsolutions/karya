@@ -1783,7 +1783,7 @@ label {
 }
 
 .get-hired-section .dashboard .dominant-data .content-right {
-  background: linear-gradient(rgba(60, 56, 55, 0.9), rgba(60, 56, 55, 0.9)), url(../assets/images/dominant-person.jpg);
+  background: linear-gradient(rgba(60, 56, 55, 0.9), rgba(60, 56, 55, 0.9)), url(../images/dominant-person.jpg);
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
