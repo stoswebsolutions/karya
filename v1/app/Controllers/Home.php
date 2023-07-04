@@ -16,9 +16,12 @@ class Home extends BaseController
     public function action()
     {
         $number = $this->request->getVar('number');
-        if ($number == 'abc') {
+        if ($number == 'company') {
             session()->set('isLoggedIn', $number);
             return redirect()->to(base_url('dashboard/home'));
+        } else if ($number == 'talent') {
+            session()->set('isLoggedIn', $number);
+            return redirect()->to(base_url('talent/dashboard'));
         } else {
             return redirect()->back()->withInput();
         }

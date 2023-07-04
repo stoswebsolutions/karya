@@ -47,6 +47,12 @@ $routes->group('/', ['filter' => 'auth'], function ($routes) {
         $routes->get('companies', 'Dashboard::companies');
         $routes->get('myaccount', 'Dashboard::myaccount');
     });
+    $routes->group('talent/', static function ($routes) {
+        $routes->get('dashboard', 'Talent::dashboard');
+        $routes->get('status', 'Talent::status');
+        $routes->get('profile', 'Talent::profile');
+        $routes->get('cart', 'Talent::cart');
+    });
 });
 
 $routes->get('logout', 'Home::logout');
