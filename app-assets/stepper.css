@@ -2,6 +2,7 @@
   font-family: "Abeatbykai";
   src: url("fonts/abeatbykai/abeatbyKaiRegular.otf");
 }
+
 /* Light */
 @font-face {
   font-family: "CreatoDisplay";
@@ -9,6 +10,7 @@
   font-style: normal;
   font-weight: 100;
 }
+
 /* Normal */
 @font-face {
   font-family: "CreatoDisplay";
@@ -16,6 +18,7 @@
   font-style: normal;
   font-weight: 400;
 }
+
 /* Medium */
 @font-face {
   font-family: "CreatoDisplay";
@@ -23,6 +26,7 @@
   font-style: normal;
   font-weight: 500;
 }
+
 /* Bold */
 @font-face {
   font-family: "CreatoDisplay";
@@ -30,6 +34,7 @@
   font-style: normal;
   font-weight: 700;
 }
+
 /* Extra Bold */
 @font-face {
   font-family: "CreatoDisplay";
@@ -37,6 +42,7 @@
   font-style: normal;
   font-weight: 900;
 }
+
 html,
 body {
   font-family: "Abeatbykai", sans-serif;
@@ -148,6 +154,7 @@ body {
 .anchor-link {
   text-decoration: none;
 }
+
 .anchor-link:hover {
   opacity: 0.7;
 }
@@ -195,6 +202,7 @@ label {
 .hoverable {
   cursor: pointer;
 }
+
 .hoverable:hover {
   opacity: 0.7;
 }
@@ -205,9 +213,11 @@ label {
   font-weight: 500;
   font-size: 1rem;
 }
+
 .karya-btn:hover {
   opacity: 0.7;
 }
+
 .karya-btn:active {
   opacity: 0.6;
 }
@@ -229,14 +239,17 @@ label {
   flex-direction: column;
   align-items: center;
 }
+
 .info-card .circle-icon {
   display: flex;
   align-items: center;
   justify-content: center;
 }
+
 .info-card h1 {
   text-align: center;
 }
+
 .info-card h6 {
   text-align: center;
 }
@@ -251,6 +264,7 @@ label {
   font-size: 0.8rem;
   font-weight: 500;
 }
+
 .karya-select:focus {
   box-shadow: none;
   border: 1px solid #8dcdcb !important;
@@ -260,42 +274,52 @@ label {
   background-color: #f0f0f0;
   padding: 0.5rem;
 }
+
 .role-card h6 {
   font-size: 0.75rem;
   font-weight: 600;
   margin-bottom: 0.25rem;
 }
+
 .role-card .role {
   color: #7a858b;
 }
+
 .role-card .company {
   color: #999a9a;
   text-decoration: underline;
 }
+
 .role-card .location,
 .role-card .rm,
 .role-card .expire-dets {
   color: #fa43a6;
 }
+
 .role-card .expire-dets {
   margin-bottom: 1.5rem;
   font-weight: 400;
 }
+
 .role-card .expire-dets .date {
   font-weight: 600;
 }
+
 .role-card .summary-dets {
   margin-top: 1.2rem;
 }
+
 .role-card .summary-dets .title {
   color: #fa43a6;
 }
+
 .role-card .summary-dets .summary {
   margin-bottom: 0.25rem;
   color: #52513e;
   font-size: 0.72rem;
   font-weight: 500;
 }
+
 .role-card .card-btn {
   background-color: #337ab7;
   border: 0;
@@ -305,9 +329,11 @@ label {
   border-radius: 0;
   color: #e5f7fd;
 }
+
 .role-card .card-btn:hover {
   opacity: 0.7;
 }
+
 .role-card .card-btn:active {
   opacity: 0.5;
   color: #e5f7fd !important;
@@ -323,14 +349,17 @@ label {
     display: none;
   }
 }
+
 @media screen and (max-width: 576px) {
   .d-none-mobile {
     display: none;
   }
+
   .mobile-only {
     display: block;
   }
 }
+
 .stepper-container {
   display: flex;
   align-items: center;
@@ -339,29 +368,34 @@ label {
   border: 2px solid #263650;
   border-radius: 1.5rem;
 }
+
 .stepper-container .hor-line {
   display: block;
   width: 5rem;
   height: 0.1rem;
   background-color: #7f7f7f;
 }
+
 .stepper-container .ver-line {
   display: block;
   width: 0.16rem;
   height: 1rem;
   background-color: #7f7f7f;
 }
+
 .stepper-container .start {
   display: flex;
   align-items: center;
   margin-right: 0.3rem;
 }
+
 .stepper-container .start .txt {
   margin-right: 1rem;
   font-size: 0.75rem;
   font-weight: 500;
   color: #27364d;
 }
+
 .stepper-container .start .circle {
   width: 0.5rem;
   height: 0.5rem;
@@ -370,9 +404,11 @@ label {
   border-radius: 100%;
   box-shadow: 0px 0px 0px 0.35rem #f4d552;
 }
+
 .stepper-container .personal-info .progress-lines .hor-line {
   width: 2.5rem;
 }
+
 .stepper-container .personal-info:after {
   content: "Personal\aInformation";
   position: absolute;
@@ -384,6 +420,7 @@ label {
   line-height: 0.8rem;
   color: #2e3c53;
 }
+
 .stepper-container .upload-resume:after {
   content: "Upload\aResume";
   position: absolute;
@@ -395,6 +432,7 @@ label {
   line-height: 0.8rem;
   color: #2e3c53;
 }
+
 .stepper-container .personality-assessment:after {
   content: "Personality\a Assessment";
   position: absolute;
@@ -406,6 +444,7 @@ label {
   line-height: 0.8rem;
   color: #2e3c53;
 }
+
 .stepper-container .interview-prep:after {
   content: "Interview\aPreperation";
   position: absolute;
@@ -417,6 +456,7 @@ label {
   line-height: 0.8rem;
   color: #2e3c53;
 }
+
 .stepper-container .upload-vid:after {
   content: "Upload\aVideo";
   position: absolute;
@@ -428,19 +468,23 @@ label {
   line-height: 0.8rem;
   color: #2e3c53;
 }
+
 .stepper-container .incomplete {
   display: flex;
   align-items: center;
 }
+
 .stepper-container .incomplete .hor-line {
   width: 2.5rem;
 }
+
 .stepper-container .incomplete .txt {
   font-size: 0.75rem;
   font-weight: 500;
   margin-left: 1rem;
   color: #27364d;
 }
+
 .stepper-container .incomplete .circle {
   width: 0.5rem;
   height: 0.5rem;
@@ -449,17 +493,21 @@ label {
   border-radius: 100%;
   box-shadow: 0px 0px 0px 0.35rem #7f7f7f;
 }
+
 .stepper-container .complete .hor-line {
   background-color: #f4d552;
 }
+
 .stepper-container .complete .circle {
   background-color: #263650;
   box-shadow: 0px 0px 0px 0.35rem #f4d552;
 }
+
 .stepper-container .completed .hor-line,
 .stepper-container .completed .ver-line {
   background-color: #f4d552;
 }
+
 .stepper-container .company-info:after {
   content: "Company\aInformation";
   position: absolute;
@@ -471,6 +519,7 @@ label {
   line-height: 0.8rem;
   color: #2e3c53;
 }
+
 .stepper-container .upload-gallery:after {
   content: "Upload Video\a&Gallery";
   position: absolute;
@@ -482,6 +531,7 @@ label {
   line-height: 0.8rem;
   color: #2e3c53;
 }
+
 .stepper-container .engagement-assessment:after {
   content: "Engagement\a Assessment";
   position: absolute;
@@ -500,63 +550,77 @@ label {
     justify-content: unset !important;
   }
 }
+
 @media screen and (max-width: 768px) {
   .get-hired-section .dashboard .profile-data .for-stepper {
     overflow: auto;
     justify-content: center !important;
   }
 }
+
 @media screen and (max-width: 626px) {
   .get-hired-section .dashboard .profile-data .for-stepper {
     justify-content: unset !important;
   }
 }
+
 @media screen and (max-width: 576px) {
   .get-hired-section .dashboard .profile-data .for-stepper {
     justify-content: center !important;
   }
+
   .stepper-container {
     border: 1.5px solid #263650;
     padding: 0.5rem 0.5rem 1.5rem 0.5rem;
     border-radius: 0.5rem;
   }
+
   .stepper-container .hor-line {
     width: 3rem;
   }
+
   .stepper-container .ver-line {
     height: 0.6rem;
     width: 0.1rem;
   }
+
   .stepper-container .start {
     margin-right: 0.25rem;
   }
+
   .stepper-container .start .txt {
     font-size: 0.5rem;
     margin-right: 0.5rem;
   }
+
   .stepper-container .start .circle {
     width: 0.3rem;
     height: 0.3rem;
     box-shadow: 0px 0px 0px 0.25rem #f4d552;
   }
+
   .stepper-container .personal-info .progress-lines .hor-line {
     width: 1.5rem;
   }
+
   .stepper-container .personal-info:after {
     font-size: 0.5rem;
     line-height: 0.6rem;
     top: 0.7rem;
     left: 16%;
   }
+
   .stepper-container .company-info .progress-lines .hor-line {
     width: 1.5rem;
   }
+
   .stepper-container .company-info:after {
     font-size: 0.5rem;
     line-height: 0.6rem;
     top: 0.7rem;
     left: 51%;
   }
+
   .stepper-container .upload-resume:after {
     color: #2e3c53;
     font-size: 0.5rem;
@@ -564,6 +628,7 @@ label {
     top: 0.7rem;
     left: 68%;
   }
+
   .stepper-container .upload-gallery:after {
     color: #2e3c53;
     font-size: 0.5rem;
@@ -571,56 +636,69 @@ label {
     top: 0.7rem;
     left: 72%;
   }
+
   .stepper-container .personality-assessment:after {
     font-size: 0.5rem;
     line-height: 0.6rem;
     top: 0.7rem;
     left: 55%;
   }
+
   .stepper-container .interview-prep:after {
     font-size: 0.5rem;
     line-height: 0.6rem;
     top: 0.7rem;
     left: 59%;
   }
+
   .stepper-container .upload-vid:after {
     font-size: 0.5rem;
     line-height: 0.6rem;
     top: 0.7rem;
     left: 72%;
   }
+
   .stepper-container .engagement-assessment:after {
     font-size: 0.5rem;
     line-height: 0.6rem;
     top: 0.7rem;
     left: 62%;
   }
+
   .stepper-container .incomplete .hor-line {
     width: 1.5rem;
   }
+
   .stepper-container .incomplete .circle {
     width: 0.3rem;
     height: 0.3rem;
     box-shadow: 0px 0px 0px 0.25rem #7f7f7f;
   }
+
   .stepper-container .incomplete .txt {
     font-size: 0.5rem;
     margin-left: 0.5rem;
   }
+
   .stepper-container .complete .hor-line {
     width: 1.5rem;
   }
+
   .stepper-container .complete .circle {
     background-color: #263650;
     box-shadow: 0px 0px 0px 0.25rem #f4d552;
   }
+
   .stepper-container .complete .txt {
     font-size: 0.5rem;
     margin-left: 0.5rem;
   }
 }
+
 @media screen and (max-width: 398px) {
   .get-hired-section .dashboard .profile-data .for-stepper {
     justify-content: unset !important;
   }
-}/*# sourceMappingURL=stepper.css.map */
+}
+
+/*# sourceMappingURL=stepper.css.map */

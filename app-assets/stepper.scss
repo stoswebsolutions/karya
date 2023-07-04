@@ -8,28 +8,33 @@
   padding: 1.5rem 1.5rem 3.2rem 1.5rem;
   border: 2px solid #263650;
   border-radius: 1.5rem;
+
   .hor-line {
     display: block;
     width: 5rem;
     height: 0.1rem;
     background-color: #7f7f7f;
   }
+
   .ver-line {
     display: block;
     width: 0.16rem;
     height: 1rem;
     background-color: #7f7f7f;
   }
+
   .start {
     display: flex;
     align-items: center;
     margin-right: 0.3rem;
+
     .txt {
       margin-right: 1rem;
       font-size: 0.75rem;
       font-weight: 500;
       color: #27364d;
     }
+
     .circle {
       width: 0.5rem;
       height: 0.5rem;
@@ -39,12 +44,14 @@
       box-shadow: 0px 0px 0px 0.35rem $yellow-color;
     }
   }
+
   .personal-info {
     .progress-lines {
       .hor-line {
         width: 2.5rem;
       }
     }
+
     &:after {
       content: 'Personal\aInformation';
       position: absolute;
@@ -57,6 +64,7 @@
       color: #2e3c53;
     }
   }
+
   .upload-resume {
     &:after {
       content: 'Upload\aResume';
@@ -70,6 +78,7 @@
       color: #2e3c53;
     }
   }
+
   .personality-assessment {
     &:after {
       content: 'Personality\a Assessment';
@@ -83,6 +92,7 @@
       color: #2e3c53;
     }
   }
+
   .interview-prep {
     &:after {
       content: 'Interview\a Preperation';
@@ -96,6 +106,7 @@
       color: #2e3c53;
     }
   }
+
   .upload-vid {
     &:after {
       content: 'Upload\a Video';
@@ -109,18 +120,22 @@
       color: #2e3c53;
     }
   }
+
   .incomplete {
     display: flex;
     align-items: center;
+
     .hor-line {
       width: 2.5rem;
     }
+
     .txt {
       font-size: 0.75rem;
       font-weight: 500;
       margin-left: 1rem;
       color: #27364d;
     }
+
     .circle {
       width: 0.5rem;
       height: 0.5rem;
@@ -130,21 +145,26 @@
       box-shadow: 0px 0px 0px 0.35rem #7f7f7f;
     }
   }
+
   .complete {
     .hor-line {
       background-color: $yellow-color;
     }
+
     .circle {
       background-color: $primary-color;
       box-shadow: 0px 0px 0px 0.35rem $yellow-color;
     }
   }
+
   .completed {
+
     .hor-line,
     .ver-line {
       background-color: $yellow-color;
     }
   }
+
   .company-info {
     &:after {
       content: 'Company\aInformation';
@@ -158,6 +178,7 @@
       color: #2e3c53;
     }
   }
+
   .upload-gallery {
     &:after {
       content: 'Upload Video\a &Gallery';
@@ -171,6 +192,7 @@
       color: #2e3c53;
     }
   }
+
   .engagement-assessment {
     &:after {
       content: 'Engagement\a Assessment';
@@ -239,31 +261,38 @@
     border: 1.5px solid #263650;
     padding: 0.5rem 0.5rem 1.5rem 0.5rem;
     border-radius: 0.5rem;
+
     .hor-line {
       width: 3rem;
     }
+
     .ver-line {
       height: 0.6rem;
       width: 0.1rem;
     }
+
     .start {
       margin-right: 0.25rem;
+
       .txt {
         font-size: 0.5rem;
         margin-right: 0.5rem;
       }
+
       .circle {
         width: 0.3rem;
         height: 0.3rem;
         box-shadow: 0px 0px 0px 0.25rem $yellow-color;
       }
     }
+
     .personal-info {
       .progress-lines {
         .hor-line {
           width: 1.5rem;
         }
       }
+
       &:after {
         font-size: 0.5rem;
         line-height: 0.6rem;
@@ -271,12 +300,14 @@
         left: 16%;
       }
     }
+
     .company-info {
       .progress-lines {
         .hor-line {
           width: 1.5rem;
         }
       }
+
       &:after {
         font-size: 0.5rem;
         line-height: 0.6rem;
@@ -284,6 +315,7 @@
         left: 51%;
       }
     }
+
     .upload-resume {
       &:after {
         color: #2e3c53;
@@ -293,6 +325,7 @@
         left: 68%;
       }
     }
+
     .upload-gallery {
       &:after {
         color: #2e3c53;
@@ -302,6 +335,7 @@
         left: 72%;
       }
     }
+
     .personality-assessment {
       &:after {
         font-size: 0.5rem;
@@ -310,6 +344,7 @@
         left: 55%;
       }
     }
+
     .interview-prep {
       &:after {
         font-size: 0.5rem;
@@ -318,6 +353,7 @@
         left: 59%;
       }
     }
+
     .upload-vid {
       &:after {
         font-size: 0.5rem;
@@ -326,6 +362,7 @@
         left: 72%;
       }
     }
+
     .engagement-assessment {
       &:after {
         font-size: 0.5rem;
@@ -334,28 +371,34 @@
         left: 62%;
       }
     }
+
     .incomplete {
       .hor-line {
         width: 1.5rem;
       }
+
       .circle {
         width: 0.3rem;
         height: 0.3rem;
         box-shadow: 0px 0px 0px 0.25rem #7f7f7f;
       }
+
       .txt {
         font-size: 0.5rem;
         margin-left: 0.5rem;
       }
     }
+
     .complete {
       .hor-line {
         width: 1.5rem;
       }
+
       .circle {
         background-color: $primary-color;
         box-shadow: 0px 0px 0px 0.25rem $yellow-color;
       }
+
       .txt {
         font-size: 0.5rem;
         margin-left: 0.5rem;
