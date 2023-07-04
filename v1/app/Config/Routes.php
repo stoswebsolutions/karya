@@ -52,6 +52,9 @@ $routes->group('/', ['filter' => 'auth'], function ($routes) {
         $routes->get('status', 'Talent::status');
         $routes->get('profile', 'Talent::profile');
         $routes->get('cart', 'Talent::cart');
+        $routes->get('vacancies', 'Talent::vacancies');
+        $routes->get('explore', 'Talent::explore');
+        $routes->get('myaccount', 'Talent::myaccount');
     });
 });
 

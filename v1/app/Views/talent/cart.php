@@ -2,7 +2,7 @@
 <?= $this->section("body") ?>
 <!-- cart tab -->
 <div class="data cart-data">
-    <div class="table-container">
+    <div class="table-container cart-table-container">
         <table class="table table-striped table-hover table-bordered">
             <thead>
                 <tr>

@@ -97,12 +97,12 @@
                             <!-- profile -->
                             <div class="dropend profile-dropdown">
                                 <button class="btn btn-secondary dropdown-toggle text-uppercase profile-dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                    <a href="profile" class="text-decoration-none">profile</a>
+                                    profile
                                 </button>
                                 <ul class="dropdown-menu">
                                     <li>
                                         <button class="dropdown-item" type="button">
-                                            Update Corporate Information
+                                            <a href="profile" class="text-decoration-none">Update Corporate Information</a>
                                         </button>
                                     </li>
                                     <li>
@@ -123,14 +123,14 @@
                                 </ul>
                             </div>
                         </li>
-                        <li class="text-uppercase menu-item black-clr vacancies" name="vacancies">
-                            vacancies
+                        <li class="text-uppercase menu-item black-clr vacancies <?= $active == 'vacancies' ? 'active' : '' ?>" name="vacancies">
+                            <a href="vacancies" class="text-decoration-none">vacancies</a>
                         </li>
-                        <li class="text-uppercase menu-item black-clr exploreTalents" name="exploreTalents">
-                            explore talents
+                        <li class="text-uppercase menu-item black-clr exploreTalents <?= $active == 'explore' ? 'active' : '' ?>" name="exploreTalents">
+                            <a href="explore" class="text-decoration-none">explore talents</a>
                         </li>
-                        <li class="text-uppercase menu-item black-clr myAccount" name="myAccount">
-                            my account
+                        <li class="text-uppercase menu-item black-clr myAccount <?= $active == 'myaccount' ? 'active' : '' ?>" name="myAccount">
+                            <a href="myaccount" class="text-decoration-none">my account</a>
                         </li>
                         <li class="text-uppercase menu-item black-clr logout" name="logout">
                             <a href="../logout" class="text-decoration-none">log out</a>
