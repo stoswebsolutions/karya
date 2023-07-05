@@ -1,4 +1,5 @@
-<?php 
+<?php
+
 namespace App\Filters;
 
 use CodeIgniter\Filters\FilterInterface;
@@ -12,7 +13,6 @@ class Auth implements FilterInterface
         if (!session()->get('isLoggedIn')) {
             return redirect()->to(site_url('login'));
         }
-
     }
 
     public function after(RequestInterface $request, ResponseInterface $response, $arguments = null)

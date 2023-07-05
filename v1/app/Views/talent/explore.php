@@ -1,866 +1,1222 @@
 <?= $this->extend("layouts/talent") ?>
 <?= $this->section("body") ?>
-<!-- explore talents tab -->
-<div class="data explore-talents-data">
-    <!-- explore talents content -->
-    <div class="explore-talents-content d-none-mobile">
-        <ul class="nav nav-pills profile-nav-pills mb-3 d-flex justify-content-center mb-4" id="explore-talents-tab" role="tablist">
+<!-- explore jobs tab -->
+<div class="data explore-jobs-data">
+    <!-- career roles -->
+    <div class="career-roles d-none-mobile">
+        <ul class="nav nav-pills profile-nav-pills mb-3 d-flex justify-content-center mb-4" id="career-roles-tab" role="tablist">
             <li class="nav-item me-1" role="presentation">
-                <button class="nav-link active text-uppercase w-100" id="suitable-talents-tab" data-bs-toggle="pill" data-bs-target="#suitable-talents" type="button" role="tab" aria-controls="suitable-talents" aria-selected="true">
-                    suitable talents
+                <button class="nav-link active text-uppercase w-100" id="targeted-career-tab" data-bs-toggle="pill" data-bs-target="#targeted-career" type="button" role="tab" aria-controls="targeted-career" aria-selected="true">
+                    targeted career role
                 </button>
             </li>
             <li class="nav-item" role="presentation">
-                <button class="nav-link text-uppercase w-100" id="applicants-tab" data-bs-toggle="pill" data-bs-target="#applicants" type="button" role="tab" aria-controls="applicants" aria-selected="false">
-                    applicants
+                <button class="nav-link text-uppercase w-100" id="suitable-career-tab" data-bs-toggle="pill" data-bs-target="#suitable-career" type="button" role="tab" aria-controls="suitable-career" aria-selected="false">
+                    suitable career roles
                 </button>
             </li>
         </ul>
-        <div class="tab-content" id="explore-talents-tabContent">
-            <div class="tab-pane fade show active" id="suitable-talents" role="tabpanel" aria-labelledby="suitable-talents-tab" tabindex="0">
-                <div class="filter">
-                    <div class="vacant-role-container d-flex align-items-center justify-content-center">
-                        <div class="dropdown roles-dropdown p-1 d-flex align-items-center">
-                            <button class="btn get-talent-btn dropdown-toggle roles-dropdown-btn me-2" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                Vacant Role
-                            </button>
-                            <span class="label">
-                                Select a role based on the job posting
-                            </span>
-                            <ul class="dropdown-menu">
-                                <li>
-                                    <a class="dropdown-item" href="#">Corporate Finance Advisor</a>
-                                </li>
-                                <li>
-                                    <a class="dropdown-item" href="#">Equity Analyst</a>
-                                </li>
-                                <li>
-                                    <a class="dropdown-item" href="#">Marketing Manager</a>
-                                </li>
-                                <li>
-                                    <a class="dropdown-item" href="#">Events Coordinator</a>
-                                </li>
-                                <li>
-                                    <a class="dropdown-item" href="#">Marketing Executive</a>
-                                </li>
-                            </ul>
+        <div class="tab-content" id="career-roles-tabContent">
+            <div class="tab-pane fade show active" id="targeted-career" role="tabpanel" aria-labelledby="targeted-career-tab" tabindex="0">
+                <div class="roles-container bg-white">
+                    <div class="row gx-0">
+                        <div class="col-sm-6 col-lg-4 col-xl-3">
+                            <div class="role-card">
+                                <h6 class="role">Corporate Finance Advisor</h6>
+                                <h6 class="company">
+                                    Company:
+                                    <span class="name">Code Life Solution</span>
+                                </h6>
+                                <h6 class="location">Kuala Lumpur</h6>
+                                <h6 class="rm">
+                                    <span>RM 10000</span> -
+                                    <span>RM 20000</span>
+                                </h6>
+                                <div class="summary-dets">
+                                    <h6 class="title">Summary</h6>
+                                    <p class="summary">
+                                        Responsible for investment planning, analysis And
+                                        forecasting future investment returns...
+                                    </p>
+                                </div>
+                                <h6 class="expire-dets">
+                                    Expires on :
+                                    <span class="date">2023-04-30</span>
+                                </h6>
+                                <button class="btn card-btn">read more</button>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-lg-4 col-xl-3">
+                            <div class="role-card">
+                                <h6 class="role">Corporate Finance Advisor</h6>
+                                <h6 class="company">
+                                    Company:
+                                    <span class="name">Code Life Solution</span>
+                                </h6>
+                                <h6 class="location">Kuala Lumpur</h6>
+                                <h6 class="rm">
+                                    <span>RM 10000</span> -
+                                    <span>RM 20000</span>
+                                </h6>
+                                <div class="summary-dets">
+                                    <h6 class="title">Summary</h6>
+                                    <p class="summary">
+                                        Responsible for investment planning, analysis And
+                                        forecasting future investment returns...
+                                    </p>
+                                </div>
+                                <h6 class="expire-dets">
+                                    Expires on :
+                                    <span class="date">2023-04-30</span>
+                                </h6>
+                                <button class="btn card-btn">read more</button>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-lg-4 col-xl-3">
+                            <div class="role-card">
+                                <h6 class="role">Corporate Finance Advisor</h6>
+                                <h6 class="company">
+                                    Company:
+                                    <span class="name">Code Life Solution</span>
+                                </h6>
+                                <h6 class="location">Kuala Lumpur</h6>
+                                <h6 class="rm">
+                                    <span>RM 10000</span> -
+                                    <span>RM 20000</span>
+                                </h6>
+                                <div class="summary-dets">
+                                    <h6 class="title">Summary</h6>
+                                    <p class="summary">
+                                        Responsible for investment planning, analysis And
+                                        forecasting future investment returns...
+                                    </p>
+                                </div>
+                                <h6 class="expire-dets">
+                                    Expires on :
+                                    <span class="date">2023-04-30</span>
+                                </h6>
+                                <button class="btn card-btn">read more</button>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-lg-4 col-xl-3">
+                            <div class="role-card">
+                                <h6 class="role">Corporate Finance Advisor</h6>
+                                <h6 class="company">
+                                    Company:
+                                    <span class="name">Code Life Solution</span>
+                                </h6>
+                                <h6 class="location">Kuala Lumpur</h6>
+                                <h6 class="rm">
+                                    <span>RM 10000</span> -
+                                    <span>RM 20000</span>
+                                </h6>
+                                <div class="summary-dets">
+                                    <h6 class="title">Summary</h6>
+                                    <p class="summary">
+                                        Responsible for investment planning, analysis And
+                                        forecasting future investment returns...
+                                    </p>
+                                </div>
+                                <h6 class="expire-dets">
+                                    Expires on :
+                                    <span class="date">2023-04-30</span>
+                                </h6>
+                                <button class="btn card-btn">read more</button>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-lg-4 col-xl-3">
+                            <div class="role-card">
+                                <h6 class="role">Corporate Finance Advisor</h6>
+                                <h6 class="company">
+                                    Company:
+                                    <span class="name">Code Life Solution</span>
+                                </h6>
+                                <h6 class="location">Kuala Lumpur</h6>
+                                <h6 class="rm">
+                                    <span>RM 10000</span> -
+                                    <span>RM 20000</span>
+                                </h6>
+                                <div class="summary-dets">
+                                    <h6 class="title">Summary</h6>
+                                    <p class="summary">
+                                        Responsible for investment planning, analysis And
+                                        forecasting future investment returns...
+                                    </p>
+                                </div>
+                                <h6 class="expire-dets">
+                                    Expires on :
+                                    <span class="date">2023-04-30</span>
+                                </h6>
+                                <button class="btn card-btn">read more</button>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div class="talent-cards-container mt-2 pb-2">
-                    <div class="row m-0 gx-4 gy-3">
-                        <div class="col-12 col-md-6 col-xl-4">
-                            <div class="talent-card p-2 d-flex flex-column justify-content-center align-items-center">
-                                <img src="<?= site_url() ?>app-assets/images/sample-user-img.PNG" alt="profile pic" class="profile-img" />
-                                <h6 class="username mt-2 d-flex flex-column align-items-center">
-                                    <span class="first">ahba</span>
-                                    <span class="last">seremban</span>
-                                    <span class="percent">55%</span>
+            </div>
+            <div class="tab-pane fade suitable-career-tab-content" id="suitable-career" role="tabpanel" aria-labelledby="suitable-career-tab" tabindex="0">
+                <div class="roles-container bg-white">
+                    <div class="row gx-0">
+                        <div class="col-sm-6 col-lg-4 col-xl-3">
+                            <div class="role-card">
+                                <h6 class="role">Corporate Finance Advisor</h6>
+                                <h6 class="company">
+                                    Company:
+                                    <span class="name">Code Life Solution</span>
                                 </h6>
-                                <div class="action-btns mt-2">
-                                    <button class="btn get-talent-btn snap-btn">
-                                        Snapshot
-                                    </button>
-                                    <button class="btn get-talent-btn add-btn mx-1">
-                                        Add Cart
-                                    </button>
-                                    <button class="btn get-talent-btn save-btn">
-                                        Save for later
-                                    </button>
+                                <h6 class="location">Kuala Lumpur</h6>
+                                <h6 class="rm">
+                                    <span>RM 10000</span> -
+                                    <span>RM 20000</span>
+                                </h6>
+                                <div class="summary-dets">
+                                    <h6 class="title">Summary</h6>
+                                    <p class="summary">
+                                        Responsible for investment planning, analysis And
+                                        forecasting future investment returns...
+                                    </p>
                                 </div>
-                                <div class="offline-status mt-1">
-                                    <button class="btn get-talent-btn offline-btn">
-                                        Offline
-                                    </button>
-                                </div>
+                                <h6 class="expire-dets">
+                                    Expires on :
+                                    <span class="date">2023-04-30</span>
+                                </h6>
+                                <button class="btn card-btn">read more</button>
                             </div>
                         </div>
-
-                        <div class="col-12 col-sm-6 col-xl-4">
-                            <div class="talent-card p-2 d-flex flex-column justify-content-center align-items-center">
-                                <img src="<?= site_url() ?>app-assets/images/sample-user-img.PNG" alt="profile pic" class="profile-img" />
-                                <h6 class="username mt-2 d-flex flex-column align-items-center">
-                                    <span class="first">ahba</span>
-                                    <span class="last">seremban</span>
-                                    <span class="percent">55%</span>
+                        <div class="col-sm-6 col-lg-4 col-xl-3">
+                            <div class="role-card">
+                                <h6 class="role">Corporate Finance Advisor</h6>
+                                <h6 class="company">
+                                    Company:
+                                    <span class="name">Code Life Solution</span>
                                 </h6>
-                                <div class="action-btns mt-2">
-                                    <button class="btn get-talent-btn snap-btn">
-                                        Snapshot
-                                    </button>
-                                    <button class="btn get-talent-btn add-btn mx-1">
-                                        Add Cart
-                                    </button>
-                                    <button class="btn get-talent-btn save-btn">
-                                        Save for later
-                                    </button>
+                                <h6 class="location">Kuala Lumpur</h6>
+                                <h6 class="rm">
+                                    <span>RM 10000</span> -
+                                    <span>RM 20000</span>
+                                </h6>
+                                <div class="summary-dets">
+                                    <h6 class="title">Summary</h6>
+                                    <p class="summary">
+                                        Responsible for investment planning, analysis And
+                                        forecasting future investment returns...
+                                    </p>
                                 </div>
-                                <div class="offline-status mt-1">
-                                    <button class="btn get-talent-btn offline-btn">
-                                        Offline
-                                    </button>
-                                </div>
+                                <h6 class="expire-dets">
+                                    Expires on :
+                                    <span class="date">2023-04-30</span>
+                                </h6>
+                                <button class="btn card-btn">read more</button>
                             </div>
                         </div>
-
-                        <div class="col-12 col-sm-6 col-xl-4">
-                            <div class="talent-card p-2 d-flex flex-column justify-content-center align-items-center">
-                                <img src="<?= site_url() ?>app-assets/images/sample-user-img.PNG" alt="profile pic" class="profile-img" />
-                                <h6 class="username mt-2 d-flex flex-column align-items-center">
-                                    <span class="first">ahba</span>
-                                    <span class="last">seremban</span>
-                                    <span class="percent">55%</span>
+                        <div class="col-sm-6 col-lg-4 col-xl-3">
+                            <div class="role-card">
+                                <h6 class="role">Corporate Finance Advisor</h6>
+                                <h6 class="company">
+                                    Company:
+                                    <span class="name">Code Life Solution</span>
                                 </h6>
-                                <div class="action-btns mt-2">
-                                    <button class="btn get-talent-btn snap-btn">
-                                        Snapshot
-                                    </button>
-                                    <button class="btn get-talent-btn add-btn mx-1">
-                                        Add Cart
-                                    </button>
-                                    <button class="btn get-talent-btn save-btn">
-                                        Save for later
-                                    </button>
+                                <h6 class="location">Kuala Lumpur</h6>
+                                <h6 class="rm">
+                                    <span>RM 10000</span> -
+                                    <span>RM 20000</span>
+                                </h6>
+                                <div class="summary-dets">
+                                    <h6 class="title">Summary</h6>
+                                    <p class="summary">
+                                        Responsible for investment planning, analysis And
+                                        forecasting future investment returns...
+                                    </p>
                                 </div>
-                                <div class="offline-status mt-1">
-                                    <button class="btn get-talent-btn offline-btn">
-                                        Offline
-                                    </button>
-                                </div>
+                                <h6 class="expire-dets">
+                                    Expires on :
+                                    <span class="date">2023-04-30</span>
+                                </h6>
+                                <button class="btn card-btn">read more</button>
                             </div>
                         </div>
-
-                        <div class="col-12 col-sm-6 col-xl-4">
-                            <div class="talent-card p-2 d-flex flex-column justify-content-center align-items-center">
-                                <img src="<?= site_url() ?>app-assets/images/sample-user-img.PNG" alt="profile pic" class="profile-img" />
-                                <h6 class="username mt-2 d-flex flex-column align-items-center">
-                                    <span class="first">ahba</span>
-                                    <span class="last">seremban</span>
-                                    <span class="percent">55%</span>
-                                </h6>
-                                <div class="action-btns mt-2">
-                                    <button class="btn get-talent-btn snap-btn">
-                                        Snapshot
-                                    </button>
-                                    <button class="btn get-talent-btn add-btn mx-1">
-                                        Add Cart
-                                    </button>
-                                    <button class="btn get-talent-btn save-btn">
-                                        Save for later
-                                    </button>
-                                </div>
-                                <div class="offline-status mt-1">
-                                    <button class="btn get-talent-btn offline-btn">
-                                        Offline
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-12 col-sm-6 col-xl-4">
-                            <div class="talent-card p-2 d-flex flex-column justify-content-center align-items-center">
-                                <img src="<?= site_url() ?>app-assets/images/sample-user-img.PNG" alt="profile pic" class="profile-img" />
-                                <h6 class="username mt-2 d-flex flex-column align-items-center">
-                                    <span class="first">ahba</span>
-                                    <span class="last">seremban</span>
-                                    <span class="percent">55%</span>
-                                </h6>
-                                <div class="action-btns mt-2">
-                                    <button class="btn get-talent-btn snap-btn">
-                                        Snapshot
-                                    </button>
-                                    <button class="btn get-talent-btn add-btn mx-1">
-                                        Add Cart
-                                    </button>
-                                    <button class="btn get-talent-btn save-btn">
-                                        Save for later
-                                    </button>
-                                </div>
-                                <div class="offline-status mt-1">
-                                    <button class="btn get-talent-btn offline-btn">
-                                        Offline
-                                    </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="accordion profile-accordion roles-accordion mobile-only" id="roles-accordion">
+        <div class="accordion-item">
+            <h2 class="accordion-header" id="targeted-hdr">
+                <button class="accordion-button collapsed text-uppercase" type="button" data-bs-toggle="collapse" data-bs-target="#targeted-collapse" aria-expanded="false" aria-controls="targeted-collapse">
+                    targeted career role
+                </button>
+            </h2>
+            <div id="targeted-collapse" class="accordion-collapse collapse" aria-labelledby="targeted-hdr" data-bs-parent="#roles-accordion">
+                <div class="accordion-body p-0">
+                    <div class="roles-container bg-white">
+                        <div class="row gx-0">
+                            <div class="col-12">
+                                <div class="role-card">
+                                    <h6 class="role">Corporate Finance Advisor</h6>
+                                    <h6 class="company">
+                                        Company:
+                                        <span class="name">Code Life Solution</span>
+                                    </h6>
+                                    <h6 class="location">Kuala Lumpur</h6>
+                                    <h6 class="rm">
+                                        <span>RM 10000</span> -
+                                        <span>RM 20000</span>
+                                    </h6>
+                                    <div class="summary-dets">
+                                        <h6 class="title">Summary</h6>
+                                        <p class="summary">
+                                            Responsible for investment planning, analysis
+                                            And forecasting future investment returns...
+                                        </p>
+                                    </div>
+                                    <h6 class="expire-dets">
+                                        Expires on :
+                                        <span class="date">2023-04-30</span>
+                                    </h6>
+                                    <button class="btn card-btn">read more</button>
                                 </div>
                             </div>
-                        </div>
-
-                        <div class="col-12 col-sm-6 col-xl-4">
-                            <div class="talent-card p-2 d-flex flex-column justify-content-center align-items-center">
-                                <img src="<?= site_url() ?>app-assets/images/sample-user-img.PNG" alt="profile pic" class="profile-img" />
-                                <h6 class="username mt-2 d-flex flex-column align-items-center">
-                                    <span class="first">ahba</span>
-                                    <span class="last">seremban</span>
-                                    <span class="percent">55%</span>
-                                </h6>
-                                <div class="action-btns mt-2">
-                                    <button class="btn get-talent-btn snap-btn">
-                                        Snapshot
-                                    </button>
-                                    <button class="btn get-talent-btn add-btn mx-1">
-                                        Add Cart
-                                    </button>
-                                    <button class="btn get-talent-btn save-btn">
-                                        Save for later
-                                    </button>
+                            <div class="col-12">
+                                <div class="role-card">
+                                    <h6 class="role">Corporate Finance Advisor</h6>
+                                    <h6 class="company">
+                                        Company:
+                                        <span class="name">Code Life Solution</span>
+                                    </h6>
+                                    <h6 class="location">Kuala Lumpur</h6>
+                                    <h6 class="rm">
+                                        <span>RM 10000</span> -
+                                        <span>RM 20000</span>
+                                    </h6>
+                                    <div class="summary-dets">
+                                        <h6 class="title">Summary</h6>
+                                        <p class="summary">
+                                            Responsible for investment planning, analysis
+                                            And forecasting future investment returns...
+                                        </p>
+                                    </div>
+                                    <h6 class="expire-dets">
+                                        Expires on :
+                                        <span class="date">2023-04-30</span>
+                                    </h6>
+                                    <button class="btn card-btn">read more</button>
                                 </div>
-                                <div class="offline-status mt-1">
-                                    <button class="btn get-talent-btn offline-btn">
-                                        Offline
-                                    </button>
+                            </div>
+                            <div class="col-12">
+                                <div class="role-card">
+                                    <h6 class="role">Corporate Finance Advisor</h6>
+                                    <h6 class="company">
+                                        Company:
+                                        <span class="name">Code Life Solution</span>
+                                    </h6>
+                                    <h6 class="location">Kuala Lumpur</h6>
+                                    <h6 class="rm">
+                                        <span>RM 10000</span> -
+                                        <span>RM 20000</span>
+                                    </h6>
+                                    <div class="summary-dets">
+                                        <h6 class="title">Summary</h6>
+                                        <p class="summary">
+                                            Responsible for investment planning, analysis
+                                            And forecasting future investment returns...
+                                        </p>
+                                    </div>
+                                    <h6 class="expire-dets">
+                                        Expires on :
+                                        <span class="date">2023-04-30</span>
+                                    </h6>
+                                    <button class="btn card-btn">read more</button>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="role-card">
+                                    <h6 class="role">Corporate Finance Advisor</h6>
+                                    <h6 class="company">
+                                        Company:
+                                        <span class="name">Code Life Solution</span>
+                                    </h6>
+                                    <h6 class="location">Kuala Lumpur</h6>
+                                    <h6 class="rm">
+                                        <span>RM 10000</span> -
+                                        <span>RM 20000</span>
+                                    </h6>
+                                    <div class="summary-dets">
+                                        <h6 class="title">Summary</h6>
+                                        <p class="summary">
+                                            Responsible for investment planning, analysis
+                                            And forecasting future investment returns...
+                                        </p>
+                                    </div>
+                                    <h6 class="expire-dets">
+                                        Expires on :
+                                        <span class="date">2023-04-30</span>
+                                    </h6>
+                                    <button class="btn card-btn">read more</button>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="role-card">
+                                    <h6 class="role">Corporate Finance Advisor</h6>
+                                    <h6 class="company">
+                                        Company:
+                                        <span class="name">Code Life Solution</span>
+                                    </h6>
+                                    <h6 class="location">Kuala Lumpur</h6>
+                                    <h6 class="rm">
+                                        <span>RM 10000</span> -
+                                        <span>RM 20000</span>
+                                    </h6>
+                                    <div class="summary-dets">
+                                        <h6 class="title">Summary</h6>
+                                        <p class="summary">
+                                            Responsible for investment planning, analysis
+                                            And forecasting future investment returns...
+                                        </p>
+                                    </div>
+                                    <h6 class="expire-dets">
+                                        Expires on :
+                                        <span class="date">2023-04-30</span>
+                                    </h6>
+                                    <button class="btn card-btn">read more</button>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="tab-pane fade" id="applicants" role="tabpanel" aria-labelledby="applicants-tab" tabindex="0">
-                <div class="filter">
-                    <div class="vacant-role-container d-flex align-items-center justify-content-center">
-                        <div class="dropdown roles-dropdown p-1 d-flex align-items-center">
-                            <button class="btn get-talent-btn dropdown-toggle roles-dropdown-btn me-2" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                Vacant Role
-                            </button>
-                            <span class="label">
-                                Select a role based on the job posting
-                            </span>
-                            <ul class="dropdown-menu">
-                                <li>
-                                    <a class="dropdown-item" href="#">Corporate Finance Advisor</a>
-                                </li>
-                                <li>
-                                    <a class="dropdown-item" href="#">Equity Analyst</a>
-                                </li>
-                                <li>
-                                    <a class="dropdown-item" href="#">Marketing Manager</a>
-                                </li>
-                                <li>
-                                    <a class="dropdown-item" href="#">Events Coordinator</a>
-                                </li>
-                                <li>
-                                    <a class="dropdown-item" href="#">Marketing Executive</a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- talents cards -->
-                <div class="talent-cards-container mt-2 pb-2">
-                    <div class="row m-0 gx-4 gy-3">
-                        <div class="col-12 col-md-6 col-xl-4">
-                            <div class="talent-card p-2 d-flex flex-column justify-content-center align-items-center">
-                                <img src="<?= site_url() ?>app-assets/images/sample-user-img.PNG" alt="profile pic" class="profile-img" />
-                                <h6 class="username mt-2 d-flex flex-column align-items-center">
-                                    <span class="first">ahba</span>
-                                    <span class="last">seremban</span>
-                                    <span class="percent">55%</span>
-                                </h6>
-                                <div class="action-btns mt-2">
-                                    <button class="btn get-talent-btn snap-btn">
-                                        Snapshot
-                                    </button>
-                                    <button class="btn get-talent-btn view-btn ms-1">
-                                        View
-                                    </button>
-                                </div>
-                                <div class="offline-status mt-1">
-                                    <button class="btn get-talent-btn offline-btn">
-                                        Offline
-                                    </button>
+        </div>
+        <div class="accordion-item">
+            <h2 class="accordion-header" id="suitable-hdr">
+                <button class="accordion-button collapsed text-uppercase" type="button" data-bs-toggle="collapse" data-bs-target="#suitable-collapse" aria-expanded="false" aria-controls="suitable-collapse">
+                    suitable career roles
+                </button>
+            </h2>
+            <div id="suitable-collapse" class="accordion-collapse collapse" aria-labelledby="suitable-hdr" data-bs-parent="#roles-accordion">
+                <div class="accordion-body p-0">
+                    <div class="roles-container bg-white">
+                        <div class="row gx-0">
+                            <div class="col-12">
+                                <div class="role-card">
+                                    <h6 class="role">Corporate Finance Advisor</h6>
+                                    <h6 class="company">
+                                        Company:
+                                        <span class="name">Code Life Solution</span>
+                                    </h6>
+                                    <h6 class="location">Kuala Lumpur</h6>
+                                    <h6 class="rm">
+                                        <span>RM 10000</span> -
+                                        <span>RM 20000</span>
+                                    </h6>
+                                    <div class="summary-dets">
+                                        <h6 class="title">Summary</h6>
+                                        <p class="summary">
+                                            Responsible for investment planning, analysis
+                                            And forecasting future investment returns...
+                                        </p>
+                                    </div>
+                                    <h6 class="expire-dets">
+                                        Expires on :
+                                        <span class="date">2023-04-30</span>
+                                    </h6>
+                                    <button class="btn card-btn">read more</button>
                                 </div>
                             </div>
-                        </div>
-
-                        <div class="col-12 col-sm-6 col-xl-4">
-                            <div class="talent-card p-2 d-flex flex-column justify-content-center align-items-center">
-                                <img src="<?= site_url() ?>app-assets/images/sample-user-img.PNG" alt="profile pic" class="profile-img" />
-                                <h6 class="username mt-2 d-flex flex-column align-items-center">
-                                    <span class="first">ahba</span>
-                                    <span class="last">seremban</span>
-                                    <span class="percent">55%</span>
-                                </h6>
-                                <div class="action-btns mt-2">
-                                    <button class="btn get-talent-btn snap-btn">
-                                        Snapshot
-                                    </button>
-                                    <button class="btn get-talent-btn view-btn ms-1">
-                                        View
-                                    </button>
-                                </div>
-                                <div class="offline-status mt-1">
-                                    <button class="btn get-talent-btn offline-btn">
-                                        Offline
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-12 col-sm-6 col-xl-4">
-                            <div class="talent-card p-2 d-flex flex-column justify-content-center align-items-center">
-                                <img src="<?= site_url() ?>app-assets/images/sample-user-img.PNG" alt="profile pic" class="profile-img" />
-                                <h6 class="username mt-2 d-flex flex-column align-items-center">
-                                    <span class="first">ahba</span>
-                                    <span class="last">seremban</span>
-                                    <span class="percent">55%</span>
-                                </h6>
-                                <div class="action-btns mt-2">
-                                    <button class="btn get-talent-btn snap-btn">
-                                        Snapshot
-                                    </button>
-                                    <button class="btn get-talent-btn view-btn ms-1">
-                                        view
-                                    </button>
-                                </div>
-                                <div class="offline-status mt-1">
-                                    <button class="btn get-talent-btn offline-btn">
-                                        Offline
-                                    </button>
+                            <div class="col-12">
+                                <div class="role-card">
+                                    <h6 class="role">Corporate Finance Advisor</h6>
+                                    <h6 class="company">
+                                        Company:
+                                        <span class="name">Code Life Solution</span>
+                                    </h6>
+                                    <h6 class="location">Kuala Lumpur</h6>
+                                    <h6 class="rm">
+                                        <span>RM 10000</span> -
+                                        <span>RM 20000</span>
+                                    </h6>
+                                    <div class="summary-dets">
+                                        <h6 class="title">Summary</h6>
+                                        <p class="summary">
+                                            Responsible for investment planning, analysis
+                                            And forecasting future investment returns...
+                                        </p>
+                                    </div>
+                                    <h6 class="expire-dets">
+                                        Expires on :
+                                        <span class="date">2023-04-30</span>
+                                    </h6>
+                                    <button class="btn card-btn">read more</button>
                                 </div>
                             </div>
-                        </div>
-
-                        <div class="col-12 col-sm-6 col-xl-4">
-                            <div class="talent-card p-2 d-flex flex-column justify-content-center align-items-center">
-                                <img src="<?= site_url() ?>app-assets/images/sample-user-img.PNG" alt="profile pic" class="profile-img" />
-                                <h6 class="username mt-2 d-flex flex-column align-items-center">
-                                    <span class="first">ahba</span>
-                                    <span class="last">seremban</span>
-                                    <span class="percent">55%</span>
-                                </h6>
-                                <div class="action-btns mt-2">
-                                    <button class="btn get-talent-btn snap-btn">
-                                        Snapshot
-                                    </button>
-                                    <button class="btn get-talent-btn view-btn ms-1">
-                                        view
-                                    </button>
-                                </div>
-                                <div class="offline-status mt-1">
-                                    <button class="btn get-talent-btn offline-btn">
-                                        Offline
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-12 col-sm-6 col-xl-4">
-                            <div class="talent-card p-2 d-flex flex-column justify-content-center align-items-center">
-                                <img src="<?= site_url() ?>app-assets/images/sample-user-img.PNG" alt="profile pic" class="profile-img" />
-                                <h6 class="username mt-2 d-flex flex-column align-items-center">
-                                    <span class="first">ahba</span>
-                                    <span class="last">seremban</span>
-                                    <span class="percent">55%</span>
-                                </h6>
-                                <div class="action-btns mt-2">
-                                    <button class="btn get-talent-btn snap-btn">
-                                        Snapshot
-                                    </button>
-                                    <button class="btn get-talent-btn view-btn ms-1">
-                                        view
-                                    </button>
-                                </div>
-                                <div class="offline-status mt-1">
-                                    <button class="btn get-talent-btn offline-btn">
-                                        Offline
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-12 col-sm-6 col-xl-4">
-                            <div class="talent-card p-2 d-flex flex-column justify-content-center align-items-center">
-                                <img src="<?= site_url() ?>app-assets/images/sample-user-img.PNG" alt="profile pic" class="profile-img" />
-                                <h6 class="username mt-2 d-flex flex-column align-items-center">
-                                    <span class="first">ahba</span>
-                                    <span class="last">seremban</span>
-                                    <span class="percent">55%</span>
-                                </h6>
-                                <div class="action-btns mt-2">
-                                    <button class="btn get-talent-btn snap-btn">
-                                        Snapshot
-                                    </button>
-                                    <button class="btn get-talent-btn view-btn ms-1">
-                                        View
-                                    </button>
-                                </div>
-                                <div class="offline-status mt-1">
-                                    <button class="btn get-talent-btn offline-btn">
-                                        Offline
-                                    </button>
+                            <div class="col-12">
+                                <div class="role-card">
+                                    <h6 class="role">Corporate Finance Advisor</h6>
+                                    <h6 class="company">
+                                        Company:
+                                        <span class="name">Code Life Solution</span>
+                                    </h6>
+                                    <h6 class="location">Kuala Lumpur</h6>
+                                    <h6 class="rm">
+                                        <span>RM 10000</span> -
+                                        <span>RM 20000</span>
+                                    </h6>
+                                    <div class="summary-dets">
+                                        <h6 class="title">Summary</h6>
+                                        <p class="summary">
+                                            Responsible for investment planning, analysis
+                                            And forecasting future investment returns...
+                                        </p>
+                                    </div>
+                                    <h6 class="expire-dets">
+                                        Expires on :
+                                        <span class="date">2023-04-30</span>
+                                    </h6>
+                                    <button class="btn card-btn">read more</button>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <!-- ends::talents cards -->
-
-                <br />
-                <!-- user stats -->
-                <div class="user-stats">
-                    <h6 class="snapshot-txt">(Snapshot)</h6>
-                    <div class="ratings">
-                        <div class="row m-0 gx-4">
-                            <div class="col-3">
-                                <div class="ratings-card">
-                                    <h6 class="title">skills</h6>
-                                    <div class="rating high">
-                                        <span class="rate-block block1"></span>
-                                        <span class="rate-block block2"></span>
-                                        <span class="rate-block block3"></span>
-                                        <span class="rate-block block4"></span>
-                                    </div>
-                                    <span class="percent"> 100% </span>
+            </div>
+        </div>
+    </div>
+    <!-- ends::career roles -->
+    <br>
+    <!-- vacant & suitable jobs -->
+    <div class="vacant-suitable-jobs d-none-mobile">
+        <ul class="nav nav-pills profile-nav-pills mb-3 d-flex justify-content-center mb-4" id="vacant-suitable-jobs-tab" role="tablist">
+            <li class="nav-item me-1" role="presentation">
+                <button class="nav-link active text-uppercase w-100" id="targeted-vanacies-tab" data-bs-toggle="pill" data-bs-target="#targeted-vanacies" type="button" role="tab" aria-controls="targeted-vanacies" aria-selected="true">
+                    targeted vacant jobs
+                </button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link text-uppercase w-100" id="suitable-jobs-tab" data-bs-toggle="pill" data-bs-target="#suitable-jobs" type="button" role="tab" aria-controls="suitable-jobs" aria-selected="false">
+                    potentially suitable jobs
+                </button>
+            </li>
+        </ul>
+        <div class="tab-content" id="vacant-suitable-jobs-tabContent">
+            <div class="tab-pane fade show active" id="targeted-vanacies" role="tabpanel" aria-labelledby="targeted-vanacies-tab" tabindex="0">
+                <div class="jobs-container bg-white">
+                    <div class="row gx-0">
+                        <div class="col-sm-6 col-lg-4 col-xl-3">
+                            <div class="role-card">
+                                <h6 class="role">Web Editor</h6>
+                                <h6 class="company">
+                                    Company:
+                                    <span class="name">Code Life Solution</span>
+                                </h6>
+                                <h6 class="location">HYDD</h6>
+                                <h6 class="rm">
+                                    <span>RM 75000</span> -
+                                    <span>RM 85000</span>
+                                </h6>
+                                <div class="summary-dets">
+                                    <h6 class="title">Summary</h6>
+                                    <p class="summary">Application Designer</p>
                                 </div>
+                                <h6 class="expire-dets">
+                                    Expires on :
+                                    <span class="date">2023-02-24</span>
+                                </h6>
+                                <button class="btn card-btn">read more</button>
                             </div>
-                            <div class="col-3">
-                                <div class="ratings-card">
-                                    <h6 class="title">experience</h6>
-                                    <div class="rating medium">
-                                        <span class="rate-block block1"></span>
-                                        <span class="rate-block block2"></span>
-                                        <span class="rate-block block3"></span>
-                                        <span class="rate-block block4"></span>
-                                    </div>
-                                    <span class="percent"> 75% </span>
+                        </div>
+                        <div class="col-sm-6 col-lg-4 col-xl-3">
+                            <div class="role-card">
+                                <h6 class="role">Web Editor</h6>
+                                <h6 class="company">
+                                    Company:
+                                    <span class="name">Code Life Solution</span>
+                                </h6>
+                                <h6 class="location">HYDD</h6>
+                                <h6 class="rm">
+                                    <span>RM 75000</span> -
+                                    <span>RM 85000</span>
+                                </h6>
+                                <div class="summary-dets">
+                                    <h6 class="title">Summary</h6>
+                                    <p class="summary">Application Designer</p>
                                 </div>
+                                <h6 class="expire-dets">
+                                    Expires on :
+                                    <span class="date">2023-02-24</span>
+                                </h6>
+                                <button class="btn card-btn">read more</button>
                             </div>
-                            <div class="col-3">
-                                <div class="ratings-card">
-                                    <h6 class="title">qualification</h6>
-                                    <div class="rating average">
-                                        <span class="rate-block block1"></span>
-                                        <span class="rate-block block2"></span>
-                                        <span class="rate-block block3"></span>
-                                        <span class="rate-block block4"></span>
-                                    </div>
-                                    <span class="percent"> 50% </span>
+                        </div>
+                        <div class="col-sm-6 col-lg-4 col-xl-3">
+                            <div class="role-card">
+                                <h6 class="role">Web Editor</h6>
+                                <h6 class="company">
+                                    Company:
+                                    <span class="name">Code Life Solution</span>
+                                </h6>
+                                <h6 class="location">HYDD</h6>
+                                <h6 class="rm">
+                                    <span>RM 75000</span> -
+                                    <span>RM 85000</span>
+                                </h6>
+                                <div class="summary-dets">
+                                    <h6 class="title">Summary</h6>
+                                    <p class="summary">Application Designer</p>
                                 </div>
+                                <h6 class="expire-dets">
+                                    Expires on :
+                                    <span class="date">2023-02-24</span>
+                                </h6>
+                                <button class="btn card-btn">read more</button>
                             </div>
-                            <div class="col-3">
-                                <div class="ratings-card">
-                                    <h6 class="title">personality</h6>
-                                    <div class="rating low">
-                                        <span class="rate-block block1"></span>
-                                        <span class="rate-block block2"></span>
-                                        <span class="rate-block block3"></span>
-                                        <span class="rate-block block4"></span>
-                                    </div>
-                                    <span class="percent"> 25% </span>
+                        </div>
+                        <div class="col-sm-6 col-lg-4 col-xl-3">
+                            <div class="role-card">
+                                <h6 class="role">Web Editor</h6>
+                                <h6 class="company">
+                                    Company:
+                                    <span class="name">Code Life Solution</span>
+                                </h6>
+                                <h6 class="location">HYDD</h6>
+                                <h6 class="rm">
+                                    <span>RM 75000</span> -
+                                    <span>RM 85000</span>
+                                </h6>
+                                <div class="summary-dets">
+                                    <h6 class="title">Summary</h6>
+                                    <p class="summary">Application Designer</p>
                                 </div>
+                                <h6 class="expire-dets">
+                                    Expires on :
+                                    <span class="date">2023-02-24</span>
+                                </h6>
+                                <button class="btn card-btn">read more</button>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-lg-4 col-xl-3">
+                            <div class="role-card">
+                                <h6 class="role">Web Editor</h6>
+                                <h6 class="company">
+                                    Company:
+                                    <span class="name">Code Life Solution</span>
+                                </h6>
+                                <h6 class="location">HYDD</h6>
+                                <h6 class="rm">
+                                    <span>RM 75000</span> -
+                                    <span>RM 85000</span>
+                                </h6>
+                                <div class="summary-dets">
+                                    <h6 class="title">Summary</h6>
+                                    <p class="summary">Application Designer</p>
+                                </div>
+                                <h6 class="expire-dets">
+                                    Expires on :
+                                    <span class="date">2023-02-24</span>
+                                </h6>
+                                <button class="btn card-btn">read more</button>
                             </div>
                         </div>
                     </div>
-                    <div class="profile-and-graphs mt-3">
-                        <div class="row m-0 gx-4">
-                            <div class="col-12 col-xl-3">
-                                <div class="user-image">
-                                    <img src="<?= site_url() ?>app-assets/images/sample-user-img.PNG" alt="user img" />
-                                    <span class="username">A.R</span>
+                </div>
+            </div>
+            <div class="tab-pane fade suitable-jobs-tab-content" id="suitable-jobs" role="tabpanel" aria-labelledby="suitable-jobs-tab" tabindex="0">
+                <div class="jobs-container bg-white">
+                    <div class="row gx-0">
+                        <div class="col-sm-6 col-lg-4 col-xl-3">
+                            <div class="role-card">
+                                <h6 class="role">Web Editor</h6>
+                                <h6 class="company">
+                                    Company:
+                                    <span class="name">Code Life Solution</span>
+                                </h6>
+                                <h6 class="location">HYDD</h6>
+                                <h6 class="rm">
+                                    <span>RM 75000</span> -
+                                    <span>RM 85000</span>
+                                </h6>
+                                <div class="summary-dets">
+                                    <h6 class="title">Summary</h6>
+                                    <p class="summary">Application Designer</p>
                                 </div>
+                                <h6 class="expire-dets">
+                                    Expires on :
+                                    <span class="date">2023-02-24</span>
+                                </h6>
+                                <button class="btn card-btn">read more</button>
                             </div>
-                            <div class="col-12 col-xl-9">
-                                <div class="graph-container">
-                                    <div class="graph-card px-2">
-                                        <!-- add graph here -->
-                                        <img src="<?= site_url() ?>app-assets/images/intuition.PNG" alt="graph" />
-                                        <!-- ends::add graph here -->
-                                        <span class="title"> Intuition </span>
-                                    </div>
-                                    <div class="graph-card">
-                                        <!-- add graph here -->
-                                        <img src="<?= site_url() ?>app-assets/images/ambition.PNG" alt="graph" />
-                                        <!-- ends::add graph here -->
-                                        <span class="title"> Ambition </span>
-                                    </div>
-                                    <div class="graph-card">
-                                        <!-- add graph here -->
-                                        <img src="<?= site_url() ?>app-assets/images/persistence.PNG" alt="graph" />
-                                        <!-- ends::add graph here -->
-                                        <span class="title"> Persistence </span>
-                                    </div>
-                                    <div class="graph-card">
-                                        <!-- add graph here -->
-                                        <img src="<?= site_url() ?>app-assets/images/criticalThinking.PNG" alt="graph" />
-                                        <!-- ends::add graph here -->
-                                        <span class="title"> Critical Thinking </span>
-                                    </div>
-                                    <div class="graph-card">
-                                        <!-- add graph here -->
-                                        <img src="<?= site_url() ?>app-assets/images/growthMindset.PNG" alt="graph" />
-                                        <!-- ends::add graph here -->
-                                        <span class="title"> Growth Mindset </span>
-                                    </div>
+                        </div>
+                        <div class="col-sm-6 col-lg-4 col-xl-3">
+                            <div class="role-card">
+                                <h6 class="role">Web Editor</h6>
+                                <h6 class="company">
+                                    Company:
+                                    <span class="name">Code Life Solution</span>
+                                </h6>
+                                <h6 class="location">HYDD</h6>
+                                <h6 class="rm">
+                                    <span>RM 75000</span> -
+                                    <span>RM 85000</span>
+                                </h6>
+                                <div class="summary-dets">
+                                    <h6 class="title">Summary</h6>
+                                    <p class="summary">Application Designer</p>
                                 </div>
+                                <h6 class="expire-dets">
+                                    Expires on :
+                                    <span class="date">2023-02-24</span>
+                                </h6>
+                                <button class="btn card-btn">read more</button>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-lg-4 col-xl-3">
+                            <div class="role-card">
+                                <h6 class="role">Web Editor</h6>
+                                <h6 class="company">
+                                    Company:
+                                    <span class="name">Code Life Solution</span>
+                                </h6>
+                                <h6 class="location">HYDD</h6>
+                                <h6 class="rm">
+                                    <span>RM 75000</span> -
+                                    <span>RM 85000</span>
+                                </h6>
+                                <div class="summary-dets">
+                                    <h6 class="title">Summary</h6>
+                                    <p class="summary">Application Designer</p>
+                                </div>
+                                <h6 class="expire-dets">
+                                    Expires on :
+                                    <span class="date">2023-02-24</span>
+                                </h6>
+                                <button class="btn card-btn">read more</button>
                             </div>
                         </div>
                     </div>
-                    <div class="user-info mt-3">
-                        <div class="row m-0 gx-4">
-                            <div class="col-6 col-xl-3">
-                                <div class="user-info-card">
-                                    <ul class="mb-0 pb-0">
-                                        <li>Available for work</li>
-                                        <li>Top management level</li>
-                                        <li>20 years of experience</li>
-                                        <li>RM25,000/month</li>
-                                        <li>Full time position</li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="col-6 col-xl-6">
-                                <div class="user-info-card">
-                                    <ul class="mb-0 pb-0">
-                                        <li>Imaginar Sdn Bhd - Chief Strategist</li>
-                                        <li>Innovatis Sdn Bhd - Director/Co-Founder</li>
-                                        <li>PCM Sdn Bhd - Director/Fund Manager</li>
-                                        <li>
-                                            TA Futures & Options Sdn Bhd - Futures Dealer
-                                            Representative
-                                        </li>
-                                        <li>PFM Capital Sdn Bhd - Investment Analyst</li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="col-12 col-xl-3">
-                                <div class="graph-container ep-graph-container mt-2 mt-xl-0">
-                                    <div class="graph-card ep-graph">
-                                        <!-- add graph here -->
-                                        <img src="<?= site_url() ?>app-assets/images/englishProficiency.PNG" alt="graph" />
-                                        <!-- ends::add graph here -->
-                                        <span class="title text-center">
-                                            English Proficiency
-                                        </span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="accordion profile-accordion jobs-accordion mobile-only" id="jobs-accordion">
+        <div class="accordion-item">
+            <h2 class="accordion-header" id="vacant-jobs-hdr">
+                <button class="accordion-button collapsed text-uppercase" type="button" data-bs-toggle="collapse" data-bs-target="#vacant-jobs-collapse" aria-expanded="false" aria-controls="vacant-jobs-collapse">
+                    targeted vacant jobs
+                </button>
+            </h2>
+            <div id="vacant-jobs-collapse" class="accordion-collapse collapse" aria-labelledby="vacant-jobs-hdr" data-bs-parent="#jobs-accordion">
+                <div class="accordion-body p-0">
+                    <div class="jobs-container bg-white">
+                        <div class="row gx-0">
+                            <div class="col-sm-6 col-lg-4 col-xl-3">
+                                <div class="role-card">
+                                    <h6 class="role">Web Editor</h6>
+                                    <h6 class="company">
+                                        Company:
+                                        <span class="name">Code Life Solution</span>
+                                    </h6>
+                                    <h6 class="location">HYDD</h6>
+                                    <h6 class="rm">
+                                        <span>RM 75000</span> -
+                                        <span>RM 85000</span>
+                                    </h6>
+                                    <div class="summary-dets">
+                                        <h6 class="title">Summary</h6>
+                                        <p class="summary">Application Designer</p>
                                     </div>
+                                    <h6 class="expire-dets">
+                                        Expires on :
+                                        <span class="date">2023-02-24</span>
+                                    </h6>
+                                    <button class="btn card-btn">read more</button>
+                                </div>
+                            </div>
+                            <div class="col-sm-6 col-lg-4 col-xl-3">
+                                <div class="role-card">
+                                    <h6 class="role">Web Editor</h6>
+                                    <h6 class="company">
+                                        Company:
+                                        <span class="name">Code Life Solution</span>
+                                    </h6>
+                                    <h6 class="location">HYDD</h6>
+                                    <h6 class="rm">
+                                        <span>RM 75000</span> -
+                                        <span>RM 85000</span>
+                                    </h6>
+                                    <div class="summary-dets">
+                                        <h6 class="title">Summary</h6>
+                                        <p class="summary">Application Designer</p>
+                                    </div>
+                                    <h6 class="expire-dets">
+                                        Expires on :
+                                        <span class="date">2023-02-24</span>
+                                    </h6>
+                                    <button class="btn card-btn">read more</button>
+                                </div>
+                            </div>
+                            <div class="col-sm-6 col-lg-4 col-xl-3">
+                                <div class="role-card">
+                                    <h6 class="role">Web Editor</h6>
+                                    <h6 class="company">
+                                        Company:
+                                        <span class="name">Code Life Solution</span>
+                                    </h6>
+                                    <h6 class="location">HYDD</h6>
+                                    <h6 class="rm">
+                                        <span>RM 75000</span> -
+                                        <span>RM 85000</span>
+                                    </h6>
+                                    <div class="summary-dets">
+                                        <h6 class="title">Summary</h6>
+                                        <p class="summary">Application Designer</p>
+                                    </div>
+                                    <h6 class="expire-dets">
+                                        Expires on :
+                                        <span class="date">2023-02-24</span>
+                                    </h6>
+                                    <button class="btn card-btn">read more</button>
+                                </div>
+                            </div>
+                            <div class="col-sm-6 col-lg-4 col-xl-3">
+                                <div class="role-card">
+                                    <h6 class="role">Web Editor</h6>
+                                    <h6 class="company">
+                                        Company:
+                                        <span class="name">Code Life Solution</span>
+                                    </h6>
+                                    <h6 class="location">HYDD</h6>
+                                    <h6 class="rm">
+                                        <span>RM 75000</span> -
+                                        <span>RM 85000</span>
+                                    </h6>
+                                    <div class="summary-dets">
+                                        <h6 class="title">Summary</h6>
+                                        <p class="summary">Application Designer</p>
+                                    </div>
+                                    <h6 class="expire-dets">
+                                        Expires on :
+                                        <span class="date">2023-02-24</span>
+                                    </h6>
+                                    <button class="btn card-btn">read more</button>
+                                </div>
+                            </div>
+                            <div class="col-sm-6 col-lg-4 col-xl-3">
+                                <div class="role-card">
+                                    <h6 class="role">Web Editor</h6>
+                                    <h6 class="company">
+                                        Company:
+                                        <span class="name">Code Life Solution</span>
+                                    </h6>
+                                    <h6 class="location">HYDD</h6>
+                                    <h6 class="rm">
+                                        <span>RM 75000</span> -
+                                        <span>RM 85000</span>
+                                    </h6>
+                                    <div class="summary-dets">
+                                        <h6 class="title">Summary</h6>
+                                        <p class="summary">Application Designer</p>
+                                    </div>
+                                    <h6 class="expire-dets">
+                                        Expires on :
+                                        <span class="date">2023-02-24</span>
+                                    </h6>
+                                    <button class="btn card-btn">read more</button>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <!-- ends::user stats -->
-
-                <br />
-                <!-- talent profile card -->
-                <div class="talent-profile-card-container">
-                    <div class="talent-card p-4 d-flex flex-column justify-content-center align-items-center">
-                        <img src="<?= site_url() ?>app-assets/images/sample-user-img.PNG" alt="profile pic" class="profile-img" />
-                        <h6 class="username my-2 d-flex flex-column align-items-center">
-                            <span class="first">ra</span>
-                            <span class="last">shah alam</span>
-                            <span class="percent">80%</span>
-                        </h6>
-                        <div class="action-btns mt-2">
-                            <button class="btn get-talent-btn shortlist-talent-btn">
-                                Shortlist Talent
-                            </button>
-                            <button class="btn get-talent-btn purchase-profile-btn ms-2">
-                                purchase profile
-                            </button>
-                        </div>
-                        <div class="online-status mt-2">
-                            <button class="btn get-talent-btn online-btn">
-                                online
-                            </button>
-                        </div>
-                    </div>
-                </div>
-                <!-- ends::talent profile card -->
-
-                <br />
-                <!-- cart and payment -->
-                <div class="table-container cart-table-container">
-                    <table class="table table-striped table-hover table-bordered">
-                        <thead>
-                            <tr>
-                                <th scope="col">#</th>
-                                <th scope="col">Full Name</th>
-                                <th scope="col">Email</th>
-                                <th scope="col">Profile Level</th>
-                                <th scope="col">Amount</th>
-                                <th scope="col">Remove from Cart</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <th scope="row">1</th>
-                                <td>MISSHIRLEY ANAK MANAN</td>
-                                <td>misshirleyhailey@yahoo.com</td>
-                                <td>Profile Lvl 1</td>
-                                <td>20</td>
-                                <td>
-                                    <button class="btn karya-btn remove-cart-btn">
-                                        Remove Cart
-                                    </button>
-                                </td>
-                            </tr>
-                            <tr>
-                                <th scope="row">2</th>
-                                <td>MISSHIRLEY ANAK MANAN</td>
-                                <td>misshirleyhailey@yahoo.com</td>
-                                <td>Profile Lvl 1</td>
-                                <td>20</td>
-                                <td>
-                                    <button class="btn karya-btn remove-cart-btn">
-                                        Remove Cart
-                                    </button>
-                                </td>
-                            </tr>
-                            <tr>
-                                <th scope="row">3</th>
-                                <td>MISSHIRLEY ANAK MANAN</td>
-                                <td>misshirleyhailey@yahoo.com</td>
-                                <td>Profile Lvl 1</td>
-                                <td>20</td>
-                                <td>
-                                    <button class="btn karya-btn remove-cart-btn">
-                                        Remove Cart
-                                    </button>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td colspan="4" class="ttl-amnt">
-                                    <span class="amnt-txt"> Total Amount </span>
-                                </td>
-                                <td colspan="2" class="amnt">
-                                    <span class="amnt-val"> 60 </span>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                    <div class="d-flex justify-content-center">
-                        <button class="btn karya-btn prcd-payment-btn">
-                            proceed to payment
-                        </button>
-                    </div>
-                </div>
-                <!-- ends::cart and payment -->
-
-                <br />
-                <!-- selected profile card -->
-                <div class="selected-profile-card-container">
-                    <div class="talent-card p-4 d-flex flex-column justify-content-center align-items-center">
-                        <img src="<?= site_url() ?>app-assets/images/sample-user-img.PNG" alt="profile pic" class="profile-img" />
-                        <h6 class="username my-2 d-flex flex-column align-items-center">
-                            <span class="first">ra</span>
-                            <span class="last">shah alam</span>
-                            <span class="percent">80%</span>
-                        </h6>
-                        <div class="action-btns mt-2">
-                            <button class="btn get-talent-btn view-profile-btn">
-                                view profile
-                            </button>
-                        </div>
-                        <div class="online-status mt-2">
-                            <button class="btn get-talent-btn online-btn">
-                                online
-                            </button>
+            </div>
+        </div>
+        <div class="accordion-item">
+            <h2 class="accordion-header" id="suitable-jobs-hdr">
+                <button class="accordion-button collapsed text-uppercase" type="button" data-bs-toggle="collapse" data-bs-target="#suitable-jobs-collapse" aria-expanded="false" aria-controls="suitable-jobs-collapse">
+                    potentially suitable jobs
+                </button>
+            </h2>
+            <div id="suitable-jobs-collapse" class="accordion-collapse collapse" aria-labelledby="suitable-jobs-hdr" data-bs-parent="#jobs-accordion">
+                <div class="accordion-body p-0">
+                    <div class="jobs-container bg-white">
+                        <div class="row gx-0">
+                            <div class="col-sm-6 col-lg-4 col-xl-3">
+                                <div class="role-card">
+                                    <h6 class="role">Web Editor</h6>
+                                    <h6 class="company">
+                                        Company:
+                                        <span class="name">Code Life Solution</span>
+                                    </h6>
+                                    <h6 class="location">HYDD</h6>
+                                    <h6 class="rm">
+                                        <span>RM 75000</span> -
+                                        <span>RM 85000</span>
+                                    </h6>
+                                    <div class="summary-dets">
+                                        <h6 class="title">Summary</h6>
+                                        <p class="summary">Application Designer</p>
+                                    </div>
+                                    <h6 class="expire-dets">
+                                        Expires on :
+                                        <span class="date">2023-02-24</span>
+                                    </h6>
+                                    <button class="btn card-btn">read more</button>
+                                </div>
+                            </div>
+                            <div class="col-sm-6 col-lg-4 col-xl-3">
+                                <div class="role-card">
+                                    <h6 class="role">Web Editor</h6>
+                                    <h6 class="company">
+                                        Company:
+                                        <span class="name">Code Life Solution</span>
+                                    </h6>
+                                    <h6 class="location">HYDD</h6>
+                                    <h6 class="rm">
+                                        <span>RM 75000</span> -
+                                        <span>RM 85000</span>
+                                    </h6>
+                                    <div class="summary-dets">
+                                        <h6 class="title">Summary</h6>
+                                        <p class="summary">Application Designer</p>
+                                    </div>
+                                    <h6 class="expire-dets">
+                                        Expires on :
+                                        <span class="date">2023-02-24</span>
+                                    </h6>
+                                    <button class="btn card-btn">read more</button>
+                                </div>
+                            </div>
+                            <div class="col-sm-6 col-lg-4 col-xl-3">
+                                <div class="role-card">
+                                    <h6 class="role">Web Editor</h6>
+                                    <h6 class="company">
+                                        Company:
+                                        <span class="name">Code Life Solution</span>
+                                    </h6>
+                                    <h6 class="location">HYDD</h6>
+                                    <h6 class="rm">
+                                        <span>RM 75000</span> -
+                                        <span>RM 85000</span>
+                                    </h6>
+                                    <div class="summary-dets">
+                                        <h6 class="title">Summary</h6>
+                                        <p class="summary">Application Designer</p>
+                                    </div>
+                                    <h6 class="expire-dets">
+                                        Expires on :
+                                        <span class="date">2023-02-24</span>
+                                    </h6>
+                                    <button class="btn card-btn">read more</button>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <!-- ends::selected profile card -->
             </div>
         </div>
     </div>
-    <div class="accordion profile-accordion explore-talents-accordion mobile-only" id="explore-talents-accordion">
-        <div class="accordion-item">
-            <h2 class="accordion-header" id="suitable-talents-hdr">
-                <button class="accordion-button collapsed text-uppercase" type="button" data-bs-toggle="collapse" data-bs-target="#suitable-talents-collapse" aria-expanded="false" aria-controls="suitable-talents-collapse">
-                    suitable talents
+    <!-- ends::vacant & suitable jobs -->
+    <br>
+    <!-- web editor -->
+    <div class="web-editor d-none-mobile">
+        <ul class="nav nav-pills profile-nav-pills mb-3 d-flex justify-content-center mb-4" id="web-editor-tab" role="tablist">
+            <li class="nav-item me-1" role="presentation">
+                <button class="nav-link active text-uppercase w-100" id="web-editor-CLS-tab" data-bs-toggle="pill" data-bs-target="#web-editor-CLS" type="button" role="tab" aria-controls="web-editor-CLS" aria-selected="true">
+                    web editor-code life solutions sdn bhd
                 </button>
-            </h2>
-            <div id="suitable-talents-collapse" class="accordion-collapse collapse" aria-labelledby="suitable-talents-hdr" data-bs-parent="#explore-talents-accordion">
-                <div class="accordion-body p-2">
-                    <div class="explore-talents-content">
-                        <div class="filter">
-                            <div class="vacant-role-container d-flex align-items-center justify-content-center">
-                                <div class="dropdown roles-dropdown p-1 d-flex align-items-center">
-                                    <button class="btn get-talent-btn dropdown-toggle roles-dropdown-btn mx-1" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                        Vacant Role
-                                    </button>
-                                    <span class="label mb-1">
-                                        Select a role based on the job posting
-                                    </span>
-                                    <ul class="dropdown-menu">
-                                        <li>
-                                            <a class="dropdown-item" href="#">Corporate Finance Advisor</a>
-                                        </li>
-                                        <li>
-                                            <a class="dropdown-item" href="#">Equity Analyst</a>
-                                        </li>
-                                        <li>
-                                            <a class="dropdown-item" href="#">Marketing Manager</a>
-                                        </li>
-                                        <li>
-                                            <a class="dropdown-item" href="#">Events Coordinator</a>
-                                        </li>
-                                        <li>
-                                            <a class="dropdown-item" href="#">Marketing Executive</a>
-                                        </li>
-                                    </ul>
+            </li>
+        </ul>
+        <div class="tab-content" id="web-editor-tabContent">
+            <div class="tab-pane fade show active" id="web-editor-CLS" role="tabpanel" aria-labelledby="web-editor-CLS-tab" tabindex="0">
+                <div class="web-editor-container bg-white">
+                    <div class="row gx-0">
+                        <div class="col-6">
+                            <div class="editor-item">
+                                <div class="job-details">
+                                    <div class="content-left">
+                                        <h6 class="job">Corporate Finanace Adviser</h6>
+                                        <h6 class="company">Code Life Solution</h6>
+                                        <h6 class="location">Kuala Lumpur</h6>
+                                    </div>
+                                    <div class="content-right">
+                                        <h6 class="job">Corporate Finanace Adviser</h6>
+                                        <h6 class="rm">RM 10000 - RM 20000</h6>
+                                        <h6 class="expire-date">
+                                            Last date to Apply:
+                                            <span class="date">2023-04-30</span>
+                                        </h6>
+                                    </div>
+                                </div>
+                                <div class="job-desc">
+                                    <h6 class="title">JOB DESCRIPTION</h6>
+                                    <p class="desc mb-0">
+                                        A generally-accepted distinction between corporate
+                                        finance roles and investment banking roles is that
+                                        a corporate finance professional deals with
+                                        day-to-day financial operations and handles short-
+                                        and long-term business goals, while an investment
+                                        banker focuses on raising capital in the public
+                                        markets. An investment banker also runs private
+                                        placements of equity and debt capital and conducts
+                                        merger and acquisition (M&A) deals.It could also
+                                        be said that investment banking roles are tasked
+                                        with growing a company from a capital perspective,
+                                        while the corporate finance industry is employed
+                                        in order to manage a company's capital and
+                                        strategic finance-related decisions.Investment
+                                        banks raise capital for other companies through
+                                        securities operations in the debt and equity
+                                        markets. Investment banks also help coordinate and
+                                        execute mergers and acquisitions (M&A). They offer
+                                        advisory services to big clients and perform
+                                        complex financial analyses. Investment banking is
+                                        considered one of the premier fields in the
+                                        financial industry. There are two standard paths
+                                        to an investment banking career: attend a noted
+                                        undergraduate university and enter on the ground
+                                        level as an analyst, or go to business school,
+                                        earn a Master of Business Administration (MBA)
+                                        graduate degree, and break through as an
+                                        associate.
+                                    </p>
                                 </div>
                             </div>
                         </div>
-                        <div class="talent-cards-container mt-0 pb-0">
-                            <div class="row m-0 gx-2 gy-2">
-                                <div class="col-12 col-md-6 col-xl-4">
-                                    <div class="talent-card p-2 d-flex flex-column justify-content-center align-items-center">
-                                        <img src="<?= site_url() ?>app-assets/images/sample-user-img.PNG" alt="profile pic" class="profile-img" />
-                                        <h6 class="username mt-1 mb-0 d-flex flex-column align-items-center">
-                                            <span class="first">ahba</span>
-                                            <span class="last">seremban</span>
-                                            <span class="percent">55%</span>
-                                        </h6>
-                                        <div class="action-btns mt-1">
-                                            <button class="btn get-talent-btn snap-btn">
-                                                Snapshot
-                                            </button>
-                                            <button class="btn get-talent-btn add-btn mx-1">
-                                                Add Cart
-                                            </button>
-                                            <button class="btn get-talent-btn save-btn">
-                                                Save for later
-                                            </button>
-                                        </div>
-                                        <div class="offline-status mt-1">
-                                            <button class="btn get-talent-btn offline-btn">
-                                                Offline
-                                            </button>
-                                        </div>
+                        <div class="col-6">
+                            <div class="editor-item">
+                                <div class="job-details">
+                                    <div class="content">
+                                        <h6 class="summary-hdr">Summary</h6>
+                                        <p class="desc mb-0">
+                                            Responsible for investment planning, analysis
+                                            and forecasting future investment returns.
+                                        </p>
                                     </div>
                                 </div>
-
-                                <div class="col-12 col-md-6 col-xl-4">
-                                    <div class="talent-card p-2 d-flex flex-column justify-content-center align-items-center">
-                                        <img src="<?= site_url() ?>app-assets/images/sample-user-img.PNG" alt="profile pic" class="profile-img" />
-                                        <h6 class="username mt-1 mb-0 d-flex flex-column align-items-center">
-                                            <span class="first">ahba</span>
-                                            <span class="last">seremban</span>
-                                            <span class="percent">55%</span>
-                                        </h6>
-                                        <div class="action-btns mt-1">
-                                            <button class="btn get-talent-btn snap-btn">
-                                                Snapshot
-                                            </button>
-                                            <button class="btn get-talent-btn add-btn mx-1">
-                                                Add Cart
-                                            </button>
-                                            <button class="btn get-talent-btn save-btn">
-                                                Save for later
-                                            </button>
+                                <div class="job-desc">
+                                    <h6 class="title">JOB REQUIREMENTS</h6>
+                                    <p class="desc mb-0">
+                                        A generally-accepted distinction between corporate
+                                        finance roles and investment banking roles is that
+                                        a corporate finance professional deals with
+                                        day-to-day financial operations and handles short-
+                                        and long-term business goals, while an investment
+                                        banker focuses on raising capital in the public
+                                        markets. An investment banker also runs private
+                                        placements of equity and debt capital and conducts
+                                        merger and acquisition (M&A) deals.It could also
+                                        be said that investment banking roles are tasked
+                                        with growing a company from a capital perspective,
+                                        while the corporate finance industry is employed
+                                        in order to manage a company's capital and
+                                        strategic finance-related decisions.Investment
+                                        banks raise capital for other companies through
+                                        securities operations in the debt and equity
+                                        markets. Investment banks also help coordinate and
+                                        execute mergers and acquisitions (M&A). They offer
+                                        advisory services to big clients and perform
+                                        complex financial analyses. Investment banking is
+                                        considered one of the premier fields in the
+                                        financial industry. There are two standard paths
+                                        to an investment banking career: attend a noted
+                                        undergraduate university and enter on the ground
+                                        level as an analyst, or go to business school,
+                                        earn a Master of Business Administration (MBA)
+                                        graduate degree, and break through as an
+                                        associate.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="intervoew-qstns">
+                                <h5 class="hdr">Video Job Interview Questions</h5>
+                                <ol>
+                                    <li>What are your strengths?</li>
+                                    <li>
+                                        Are you an effective leader? State past
+                                        experiences.
+                                    </li>
+                                    <li>
+                                        How can you contribute to this role you are
+                                        applying to?
+                                    </li>
+                                    <li>What do you do in your spare time?</li>
+                                    <li>How do you overcome pressure and stress?</li>
+                                </ol>
+                                <div class="apply-btn-container">
+                                    <button class="btn karya-btn apply-btn">
+                                        Apply
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="intervoew-qstns">
+                                <video controls class="w-100 hoverable">
+                                    <source src="<?= site_url() ?>app-assets/images/video.mp4" type="video/mp4">
+                                    Your browser does not support the video tag.
+                                </video>
+                                <h5 class="hdr">Your Video Job Application</h5>
+                                <p class="note">
+                                    Apply for job vacancy through a video application
+                                    and get better and faster results.
+                                </p>
+                                <input type="file" class="form-control" id="job-application-video-upload">
+                                <span class="video-note">
+                                    Allowed &lt; 30 MB size Video
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="accordion profile-accordion editor-accordion mobile-only" id="editor-accordion">
+        <div class="accordion-item">
+            <h2 class="accordion-header" id="editor-hdr">
+                <button class="accordion-button collapsed text-uppercase" type="button" data-bs-toggle="collapse" data-bs-target="#editor-collapse" aria-expanded="false" aria-controls="editor-collapse">
+                    web editor-code life solutions sdn bhd
+                </button>
+            </h2>
+            <div id="editor-collapse" class="accordion-collapse collapse" aria-labelledby="editor-hdr" data-bs-parent="#editor-accordion">
+                <div class="accordion-body p-0">
+                    <div class="web-editor-container bg-white">
+                        <div class="row gx-0 gy-1">
+                            <div class="col-12">
+                                <div class="editor-item">
+                                    <div class="job-details">
+                                        <div class="content-left pe-2">
+                                            <h6 class="job">Corporate Finanace Adviser</h6>
+                                            <h6 class="company">Code Life Solution</h6>
+                                            <h6 class="location">Kuala Lumpur</h6>
                                         </div>
-                                        <div class="offline-status mt-1">
-                                            <button class="btn get-talent-btn offline-btn">
-                                                Offline
-                                            </button>
+                                        <div class="content-right">
+                                            <h6 class="job">Corporate Finanace Adviser</h6>
+                                            <h6 class="rm">RM 10000 - RM 20000</h6>
+                                            <h6 class="expire-date">
+                                                Last date to Apply:
+                                                <span class="date">2023-04-30</span>
+                                            </h6>
                                         </div>
+                                    </div>
+                                    <div class="job-desc">
+                                        <h6 class="title">JOB DESCRIPTION</h6>
+                                        <p class="desc mb-0">
+                                            A generally-accepted distinction between
+                                            corporate finance roles and investment banking
+                                            roles is that a corporate finance professional
+                                            deals with day-to-day financial operations and
+                                            handles short- and long-term business goals,
+                                            while an investment banker focuses on raising
+                                            capital in the public markets. An investment
+                                            banker also runs private placements of equity
+                                            and debt capital and conducts merger and
+                                            acquisition (M&A) deals.It could also be said
+                                            that investment banking roles are tasked with
+                                            growing a company from a capital perspective,
+                                            while the corporate finance industry is employed
+                                            in order to manage a company's capital and
+                                            strategic finance-related decisions.Investment
+                                            banks raise capital for other companies through
+                                            securities operations in the debt and equity
+                                            markets. Investment banks also help coordinate
+                                            and execute mergers and acquisitions (M&A). They
+                                            offer advisory services to big clients and
+                                            perform complex financial analyses. Investment
+                                            banking is considered one of the premier fields
+                                            in the financial industry. There are two
+                                            standard paths to an investment banking career:
+                                            attend a noted undergraduate university and
+                                            enter on the ground level as an analyst, or go
+                                            to business school, earn a Master of Business
+                                            Administration (MBA) graduate degree, and break
+                                            through as an associate.
+                                        </p>
                                     </div>
                                 </div>
-
-                                <div class="col-12 col-md-6 col-xl-4">
-                                    <div class="talent-card p-2 d-flex flex-column justify-content-center align-items-center">
-                                        <img src="<?= site_url() ?>app-assets/images/sample-user-img.PNG" alt="profile pic" class="profile-img" />
-                                        <h6 class="username mt-1 mb-0 d-flex flex-column align-items-center">
-                                            <span class="first">ahba</span>
-                                            <span class="last">seremban</span>
-                                            <span class="percent">55%</span>
-                                        </h6>
-                                        <div class="action-btns mt-1">
-                                            <button class="btn get-talent-btn snap-btn">
-                                                Snapshot
-                                            </button>
-                                            <button class="btn get-talent-btn add-btn mx-1">
-                                                Add Cart
-                                            </button>
-                                            <button class="btn get-talent-btn save-btn">
-                                                Save for later
-                                            </button>
+                            </div>
+                            <div class="col-12">
+                                <div class="editor-item">
+                                    <div class="job-details">
+                                        <div class="content">
+                                            <h6 class="summary-hdr">Summary</h6>
+                                            <p class="desc mb-0">
+                                                Responsible for investment planning, analysis
+                                                and forecasting future investment returns.
+                                            </p>
                                         </div>
-                                        <div class="offline-status mt-1">
-                                            <button class="btn get-talent-btn offline-btn">
-                                                Offline
-                                            </button>
-                                        </div>
+                                    </div>
+                                    <div class="job-desc">
+                                        <h6 class="title">JOB REQUIREMENTS</h6>
+                                        <p class="desc mb-0">
+                                            A generally-accepted distinction between
+                                            corporate finance roles and investment banking
+                                            roles is that a corporate finance professional
+                                            deals with day-to-day financial operations and
+                                            handles short- and long-term business goals,
+                                            while an investment banker focuses on raising
+                                            capital in the public markets. An investment
+                                            banker also runs private placements of equity
+                                            and debt capital and conducts merger and
+                                            acquisition (M&A) deals.It could also be said
+                                            that investment banking roles are tasked with
+                                            growing a company from a capital perspective,
+                                            while the corporate finance industry is employed
+                                            in order to manage a company's capital and
+                                            strategic finance-related decisions.Investment
+                                            banks raise capital for other companies through
+                                            securities operations in the debt and equity
+                                            markets. Investment banks also help coordinate
+                                            and execute mergers and acquisitions (M&A). They
+                                            offer advisory services to big clients and
+                                            perform complex financial analyses. Investment
+                                            banking is considered one of the premier fields
+                                            in the financial industry. There are two
+                                            standard paths to an investment banking career:
+                                            attend a noted undergraduate university and
+                                            enter on the ground level as an analyst, or go
+                                            to business school, earn a Master of Business
+                                            Administration (MBA) graduate degree, and break
+                                            through as an associate.
+                                        </p>
                                     </div>
                                 </div>
-
-                                <div class="col-12 col-md-6 col-xl-4">
-                                    <div class="talent-card p-2 d-flex flex-column justify-content-center align-items-center">
-                                        <img src="<?= site_url() ?>app-assets/images/sample-user-img.PNG" alt="profile pic" class="profile-img" />
-                                        <h6 class="username mt-1 mb-0 d-flex flex-column align-items-center">
-                                            <span class="first">ahba</span>
-                                            <span class="last">seremban</span>
-                                            <span class="percent">55%</span>
-                                        </h6>
-                                        <div class="action-btns mt-1">
-                                            <button class="btn get-talent-btn snap-btn">
-                                                Snapshot
-                                            </button>
-                                            <button class="btn get-talent-btn add-btn mx-1">
-                                                Add Cart
-                                            </button>
-                                            <button class="btn get-talent-btn save-btn">
-                                                Save for later
-                                            </button>
-                                        </div>
-                                        <div class="offline-status mt-1">
-                                            <button class="btn get-talent-btn offline-btn">
-                                                Offline
-                                            </button>
-                                        </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="intervoew-qstns">
+                                    <h5 class="hdr">Video Job Interview Questions</h5>
+                                    <ol>
+                                        <li>What are your strengths?</li>
+                                        <li>
+                                            Are you an effective leader? State past
+                                            experiences.
+                                        </li>
+                                        <li>
+                                            How can you contribute to this role you are
+                                            applying to?
+                                        </li>
+                                        <li>What do you do in your spare time?</li>
+                                        <li>How do you overcome pressure and stress?</li>
+                                    </ol>
+                                    <div class="apply-btn-container">
+                                        <button class="btn karya-btn apply-btn">
+                                            Apply
+                                        </button>
                                     </div>
                                 </div>
-
-                                <div class="col-12 col-md-6 col-xl-4">
-                                    <div class="talent-card p-2 d-flex flex-column justify-content-center align-items-center">
-                                        <img src="<?= site_url() ?>app-assets/images/sample-user-img.PNG" alt="profile pic" class="profile-img" />
-                                        <h6 class="username mt-1 mb-0 d-flex flex-column align-items-center">
-                                            <span class="first">ahba</span>
-                                            <span class="last">seremban</span>
-                                            <span class="percent">55%</span>
-                                        </h6>
-                                        <div class="action-btns mt-1">
-                                            <button class="btn get-talent-btn snap-btn">
-                                                Snapshot
-                                            </button>
-                                            <button class="btn get-talent-btn add-btn mx-1">
-                                                Add Cart
-                                            </button>
-                                            <button class="btn get-talent-btn save-btn">
-                                                Save for later
-                                            </button>
-                                        </div>
-                                        <div class="offline-status mt-1">
-                                            <button class="btn get-talent-btn offline-btn">
-                                                Offline
-                                            </button>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="col-12 col-md-6 col-xl-4">
-                                    <div class="talent-card p-2 d-flex flex-column justify-content-center align-items-center">
-                                        <img src="<?= site_url() ?>app-assets/images/sample-user-img.PNG" alt="profile pic" class="profile-img" />
-                                        <h6 class="username mt-1 mb-0 d-flex flex-column align-items-center">
-                                            <span class="first">ahba</span>
-                                            <span class="last">seremban</span>
-                                            <span class="percent">55%</span>
-                                        </h6>
-                                        <div class="action-btns mt-1">
-                                            <button class="btn get-talent-btn snap-btn">
-                                                Snapshot
-                                            </button>
-                                            <button class="btn get-talent-btn add-btn mx-1">
-                                                Add Cart
-                                            </button>
-                                            <button class="btn get-talent-btn save-btn">
-                                                Save for later
-                                            </button>
-                                        </div>
-                                        <div class="offline-status mt-1">
-                                            <button class="btn get-talent-btn offline-btn">
-                                                Offline
-                                            </button>
-                                        </div>
-                                    </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="intervoew-qstns">
+                                    <video controls class="w-100 hoverable">
+                                        <source src="<?= site_url() ?>app-assets/images/video.mp4" type="video/mp4">
+                                        Your browser does not support the video tag.
+                                    </video>
+                                    <h5 class="hdr">Your Video Job Application</h5>
+                                    <p class="note">
+                                        Apply for job vacancy through a video application
+                                        and get better and faster results.
+                                    </p>
+                                    <input type="file" class="form-control" id="job-application-video-upload">
+                                    <span class="video-note">
+                                        Allowed &lt; 30 MB size Video
+                                    </span>
                                 </div>
                             </div>
                         </div>
@@ -868,1156 +1224,235 @@
                 </div>
             </div>
         </div>
-        <div class="accordion-item">
-            <h2 class="accordion-header" id="applicants-hdr">
-                <button class="accordion-button collapsed text-uppercase" type="button" data-bs-toggle="collapse" data-bs-target="#applicants-collapse" aria-expanded="false" aria-controls="applicants-collapse">
-                    applicants
+    </div>
+    <!-- ends::web editor -->
+    <br>
+    <!-- technology -->
+    <div class="technology d-none-mobile">
+        <ul class="nav nav-pills profile-nav-pills mb-3 d-flex justify-content-center mb-4" id="technology-tab" role="tablist">
+            <li class="nav-item me-1" role="presentation">
+                <button class="nav-link active text-uppercase w-100" id="technology-jobs-tab" data-bs-toggle="pill" data-bs-target="#technology-jobs" type="button" role="tab" aria-controls="technology-jobs" aria-selected="true">
+                    technology
                 </button>
-            </h2>
-            <div id="applicants-collapse" class="accordion-collapse collapse" aria-labelledby="applicants-hdr" data-bs-parent="#explore-talents-accordion">
-                <div class="accordion-body p-2">
-                    <div class="explore-talents-content">
-                        <div class="filter">
-                            <div class="vacant-role-container d-flex align-items-center justify-content-center">
-                                <div class="dropdown roles-dropdown p-1 d-flex align-items-center">
-                                    <button class="btn get-talent-btn dropdown-toggle roles-dropdown-btn mx-1" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                        Vacant Role
-                                    </button>
-                                    <span class="label mb-1">
-                                        Select a role based on the job posting
-                                    </span>
-                                    <ul class="dropdown-menu">
-                                        <li>
-                                            <a class="dropdown-item" href="#">Corporate Finance Advisor</a>
-                                        </li>
-                                        <li>
-                                            <a class="dropdown-item" href="#">Equity Analyst</a>
-                                        </li>
-                                        <li>
-                                            <a class="dropdown-item" href="#">Marketing Manager</a>
-                                        </li>
-                                        <li>
-                                            <a class="dropdown-item" href="#">Events Coordinator</a>
-                                        </li>
-                                        <li>
-                                            <a class="dropdown-item" href="#">Marketing Executive</a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="talent-cards-container mt-0 pb-0">
-                            <div class="row m-0 gx-2 gy-2">
-                                <div class="col-12 col-md-6 col-xl-4">
-                                    <div class="talent-card p-2 d-flex flex-column justify-content-center align-items-center">
-                                        <img src="<?= site_url() ?>app-assets/images/sample-user-img.PNG" alt="profile pic" class="profile-img" />
-                                        <h6 class="username mt-1 mb-0 d-flex flex-column align-items-center">
-                                            <span class="first">ahba</span>
-                                            <span class="last">seremban</span>
-                                            <span class="percent">55%</span>
-                                        </h6>
-                                        <div class="action-btns mt-1">
-                                            <button class="btn get-talent-btn snap-btn">
-                                                Snapshot
-                                            </button>
-                                            <button class="btn get-talent-btn view-btn ms-1">
-                                                view
-                                            </button>
-                                        </div>
-                                        <div class="offline-status mt-1">
-                                            <button class="btn get-talent-btn offline-btn">
-                                                Offline
-                                            </button>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="col-12 col-md-6 col-xl-4">
-                                    <div class="talent-card p-2 d-flex flex-column justify-content-center align-items-center">
-                                        <img src="<?= site_url() ?>app-assets/images/sample-user-img.PNG" alt="profile pic" class="profile-img" />
-                                        <h6 class="username mt-1 mb-0 d-flex flex-column align-items-center">
-                                            <span class="first">ahba</span>
-                                            <span class="last">seremban</span>
-                                            <span class="percent">55%</span>
-                                        </h6>
-                                        <div class="action-btns mt-1">
-                                            <button class="btn get-talent-btn snap-btn">
-                                                Snapshot
-                                            </button>
-                                            <button class="btn get-talent-btn view-btn ms-1">
-                                                view
-                                            </button>
-                                        </div>
-                                        <div class="offline-status mt-1">
-                                            <button class="btn get-talent-btn offline-btn">
-                                                Offline
-                                            </button>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="col-12 col-md-6 col-xl-4">
-                                    <div class="talent-card p-2 d-flex flex-column justify-content-center align-items-center">
-                                        <img src="<?= site_url() ?>app-assets/images/sample-user-img.PNG" alt="profile pic" class="profile-img" />
-                                        <h6 class="username mt-1 mb-0 d-flex flex-column align-items-center">
-                                            <span class="first">ahba</span>
-                                            <span class="last">seremban</span>
-                                            <span class="percent">55%</span>
-                                        </h6>
-                                        <div class="action-btns mt-1">
-                                            <button class="btn get-talent-btn snap-btn">
-                                                Snapshot
-                                            </button>
-                                            <button class="btn get-talent-btn view-btn ms-1">
-                                                view
-                                            </button>
-                                        </div>
-                                        <div class="offline-status mt-1">
-                                            <button class="btn get-talent-btn offline-btn">
-                                                Offline
-                                            </button>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="col-12 col-md-6 col-xl-4">
-                                    <div class="talent-card p-2 d-flex flex-column justify-content-center align-items-center">
-                                        <img src="<?= site_url() ?>app-assets/images/sample-user-img.PNG" alt="profile pic" class="profile-img" />
-                                        <h6 class="username mt-1 mb-0 d-flex flex-column align-items-center">
-                                            <span class="first">ahba</span>
-                                            <span class="last">seremban</span>
-                                            <span class="percent">55%</span>
-                                        </h6>
-                                        <div class="action-btns mt-1">
-                                            <button class="btn get-talent-btn snap-btn">
-                                                Snapshot
-                                            </button>
-                                            <button class="btn get-talent-btn view-btn ms-1">
-                                                view
-                                            </button>
-                                        </div>
-                                        <div class="offline-status mt-1">
-                                            <button class="btn get-talent-btn offline-btn">
-                                                Offline
-                                            </button>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="col-12 col-md-6 col-xl-4">
-                                    <div class="talent-card p-2 d-flex flex-column justify-content-center align-items-center">
-                                        <img src="<?= site_url() ?>app-assets/images/sample-user-img.PNG" alt="profile pic" class="profile-img" />
-                                        <h6 class="username mt-1 mb-0 d-flex flex-column align-items-center">
-                                            <span class="first">ahba</span>
-                                            <span class="last">seremban</span>
-                                            <span class="percent">55%</span>
-                                        </h6>
-                                        <div class="action-btns mt-1">
-                                            <button class="btn get-talent-btn snap-btn">
-                                                Snapshot
-                                            </button>
-                                            <button class="btn get-talent-btn view-btn ms-1">
-                                                view
-                                            </button>
-                                        </div>
-                                        <div class="offline-status mt-1">
-                                            <button class="btn get-talent-btn offline-btn">
-                                                Offline
-                                            </button>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="col-12 col-md-6 col-xl-4">
-                                    <div class="talent-card p-2 d-flex flex-column justify-content-center align-items-center">
-                                        <img src="<?= site_url() ?>app-assets/images/sample-user-img.PNG" alt="profile pic" class="profile-img" />
-                                        <h6 class="username mt-1 mb-0 d-flex flex-column align-items-center">
-                                            <span class="first">ahba</span>
-                                            <span class="last">seremban</span>
-                                            <span class="percent">55%</span>
-                                        </h6>
-                                        <div class="action-btns mt-1">
-                                            <button class="btn get-talent-btn snap-btn">
-                                                Snapshot
-                                            </button>
-                                            <button class="btn get-talent-btn view-btn ms-1">
-                                                view
-                                            </button>
-                                        </div>
-                                        <div class="offline-status mt-1">
-                                            <button class="btn get-talent-btn offline-btn">
-                                                Offline
-                                            </button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <br />
-                        <!-- user stats -->
-                        <div class="user-stats">
-                            <h6 class="snapshot-txt mb-0">(Snapshot)</h6>
-                            <div class="ratings">
-                                <div class="row m-0 g-2">
-                                    <div class="col-6">
-                                        <div class="ratings-card">
-                                            <h6 class="title">skills</h6>
-                                            <div class="rating high">
-                                                <span class="rate-block block1"></span>
-                                                <span class="rate-block block2"></span>
-                                                <span class="rate-block block3"></span>
-                                                <span class="rate-block block4"></span>
-                                            </div>
-                                            <span class="percent"> 100% </span>
-                                        </div>
-                                    </div>
-                                    <div class="col-6">
-                                        <div class="ratings-card">
-                                            <h6 class="title">experience</h6>
-                                            <div class="rating medium">
-                                                <span class="rate-block block1"></span>
-                                                <span class="rate-block block2"></span>
-                                                <span class="rate-block block3"></span>
-                                                <span class="rate-block block4"></span>
-                                            </div>
-                                            <span class="percent"> 75% </span>
-                                        </div>
-                                    </div>
-                                    <div class="col-6">
-                                        <div class="ratings-card">
-                                            <h6 class="title">qualification</h6>
-                                            <div class="rating average">
-                                                <span class="rate-block block1"></span>
-                                                <span class="rate-block block2"></span>
-                                                <span class="rate-block block3"></span>
-                                                <span class="rate-block block4"></span>
-                                            </div>
-                                            <span class="percent"> 50% </span>
-                                        </div>
-                                    </div>
-                                    <div class="col-6">
-                                        <div class="ratings-card">
-                                            <h6 class="title">personality</h6>
-                                            <div class="rating low">
-                                                <span class="rate-block block1"></span>
-                                                <span class="rate-block block2"></span>
-                                                <span class="rate-block block3"></span>
-                                                <span class="rate-block block4"></span>
-                                            </div>
-                                            <span class="percent"> 25% </span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="profile-and-graphs mt-2">
-                                <div class="row m-0 gx-2">
-                                    <div class="col-12">
-                                        <div class="user-image">
-                                            <img src="<?= site_url() ?>app-assets/images/sample-user-img.PNG" alt="user img" />
-                                            <span class="username">A.R</span>
-                                        </div>
-                                    </div>
-                                    <div class="col-12">
-                                        <div class="graph-container">
-                                            <div class="graph-card px-2">
-                                                <!-- add graph here -->
-                                                <img src="<?= site_url() ?>app-assets/images/intuition.PNG" alt="graph" />
-                                                <!-- ends::add graph here -->
-                                                <span class="title"> Intuition </span>
-                                            </div>
-                                            <div class="graph-card">
-                                                <!-- add graph here -->
-                                                <img src="<?= site_url() ?>app-assets/images/ambition.PNG" alt="graph" />
-                                                <!-- ends::add graph here -->
-                                                <span class="title"> Ambition </span>
-                                            </div>
-                                            <div class="graph-card">
-                                                <!-- add graph here -->
-                                                <img src="<?= site_url() ?>app-assets/images/persistence.PNG" alt="graph" />
-                                                <!-- ends::add graph here -->
-                                                <span class="title"> Persistence </span>
-                                            </div>
-                                            <div class="graph-card">
-                                                <!-- add graph here -->
-                                                <img src="<?= site_url() ?>app-assets/images/criticalThinking.PNG" alt="graph" />
-                                                <!-- ends::add graph here -->
-                                                <span class="title"> Critical Thinking </span>
-                                            </div>
-                                            <div class="graph-card">
-                                                <!-- add graph here -->
-                                                <img src="<?= site_url() ?>app-assets/images/growthMindset.PNG" alt="graph" />
-                                                <!-- ends::add graph here -->
-                                                <span class="title"> Growth Mindset </span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="user-info">
-                                <div class="row m-0 gx-2 gy-2">
-                                    <div class="col-12">
-                                        <div class="user-info-card">
-                                            <ul class="mb-0 pb-0">
-                                                <li>Available for work</li>
-                                                <li>Top management level</li>
-                                                <li>20 years of experience</li>
-                                                <li>RM25,000/month</li>
-                                                <li>Full time position</li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                    <div class="col-12">
-                                        <div class="user-info-card">
-                                            <ul class="mb-0 pb-0">
-                                                <li>Imaginar Sdn Bhd - Chief Strategist</li>
-                                                <li>
-                                                    Innovatis Sdn Bhd - Director/Co-Founder
-                                                </li>
-                                                <li>PCM Sdn Bhd - Director/Fund Manager</li>
-                                                <li>
-                                                    TA Futures & Options Sdn Bhd - Futures
-                                                    Dealer Representative
-                                                </li>
-                                                <li>
-                                                    PFM Capital Sdn Bhd - Investment Analyst
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                    <div class="col-12">
-                                        <div class="graph-container ep-graph-container">
-                                            <div class="graph-card ep-graph">
-                                                <!-- add graph here -->
-                                                <img src="<?= site_url() ?>app-assets/images/englishProficiency.PNG" alt="graph" />
-                                                <!-- ends::add graph here -->
-                                                <span class="title text-center">
-                                                    English Proficiency
-                                                </span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- ends::user stats -->
-
-                        <br />
-                        <!-- talent profile card -->
-                        <div class="talent-profile-card-container">
-                            <div class="talent-card p-3 d-flex flex-column justify-content-center align-items-center">
-                                <img src="<?= site_url() ?>app-assets/images/sample-user-img.PNG" alt="profile pic" class="profile-img" />
-                                <h6 class="username my-2 d-flex flex-column align-items-center">
-                                    <span class="first">ra</span>
-                                    <span class="last">shah alam</span>
-                                    <span class="percent">80%</span>
+            </li>
+        </ul>
+        <div class="tab-content" id="technology-tabContent">
+            <div class="tab-pane fade show active" id="technology-jobs" role="tabpanel" aria-labelledby="technology-jobs-tab" tabindex="0">
+                <div class="technology-container">
+                    <div class="row g-2">
+                        <div class="col-sm-6 col-lg-4 col-xl-3">
+                            <div class="tech-card">
+                                <img src="<?= site_url() ?>app-assets/images/company.jpg" alt="image">
+                                <h6 class="company">code life solution</h6>
+                                <h6 class="location">
+                                    Kuala Lumpur, Wilayah Persekutuan
                                 </h6>
-                                <div class="action-btns mt-2">
-                                    <button class="btn get-talent-btn shortlist-talent-btn">
-                                        Shortlist Talent
-                                    </button>
-                                    <button class="btn get-talent-btn purchase-profile-btn ms-1">
-                                        purchase profile
-                                    </button>
-                                </div>
-                                <div class="online-status mt-1">
-                                    <button class="btn get-talent-btn online-btn">
-                                        online
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- ends::talent profile card -->
-
-                        <br />
-                        <!-- cart and payment -->
-                        <div class="table-container cart-table-container">
-                            <table class="table table-striped table-hover table-bordered">
-                                <thead>
-                                    <tr>
-                                        <th scope="col">#</th>
-                                        <th scope="col">Full Name</th>
-                                        <th scope="col">Email</th>
-                                        <th scope="col">Profile Level</th>
-                                        <th scope="col">Amount</th>
-                                        <th scope="col">Remove from Cart</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <th scope="row">1</th>
-                                        <td>MISSHIRLEY ANAK MANAN</td>
-                                        <td>misshirleyhailey@yahoo.com</td>
-                                        <td>Profile Lvl 1</td>
-                                        <td>20</td>
-                                        <td>
-                                            <button class="btn karya-btn remove-cart-btn">
-                                                Remove Cart
-                                            </button>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">2</th>
-                                        <td>MISSHIRLEY ANAK MANAN</td>
-                                        <td>misshirleyhailey@yahoo.com</td>
-                                        <td>Profile Lvl 1</td>
-                                        <td>20</td>
-                                        <td>
-                                            <button class="btn karya-btn remove-cart-btn">
-                                                Remove Cart
-                                            </button>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">3</th>
-                                        <td>MISSHIRLEY ANAK MANAN</td>
-                                        <td>misshirleyhailey@yahoo.com</td>
-                                        <td>Profile Lvl 1</td>
-                                        <td>20</td>
-                                        <td>
-                                            <button class="btn karya-btn remove-cart-btn">
-                                                Remove Cart
-                                            </button>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td colspan="4" class="ttl-amnt">
-                                            <span class="amnt-txt"> Total Amount </span>
-                                        </td>
-                                        <td colspan="2" class="amnt">
-                                            <span class="amnt-val"> 60 </span>
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                            <div class="d-flex justify-content-center">
-                                <button class="btn karya-btn prcd-payment-btn">
-                                    proceed to payment
+                                <h6 class="strength">
+                                    <span>Conglomerate</span>
+                                    -
+                                    <span class="members">1000</span>
+                                    and above
+                                    personnel
+                                </h6>
+                                <button class="btn karya-btn get-btn">
+                                    get to know the employer
                                 </button>
                             </div>
                         </div>
-                        <!-- ends::cart and payment -->
-
-                        <br />
-                        <!-- selected profile card -->
-                        <div class="selected-profile-card-container">
-                            <div class="talent-card px-5 py-3 d-flex flex-column justify-content-center align-items-center">
-                                <img src="<?= site_url() ?>app-assets/images/sample-user-img.PNG" alt="profile pic" class="profile-img" />
-                                <h6 class="username my-2 d-flex flex-column align-items-center">
-                                    <span class="first">ra</span>
-                                    <span class="last">shah alam</span>
-                                    <span class="percent">80%</span>
+                        <div class="col-sm-6 col-lg-4 col-xl-3">
+                            <div class="tech-card">
+                                <img src="<?= site_url() ?>app-assets/images/no-profile.png" alt="image">
+                                <h6 class="company">code life solution</h6>
+                                <h6 class="location">
+                                    Kuala Lumpur, Wilayah Persekutuan
                                 </h6>
-                                <div class="action-btns mt-2">
-                                    <button class="btn get-talent-btn view-profile-btn">
-                                        view profile
-                                    </button>
-                                </div>
-                                <div class="online-status mt-1">
-                                    <button class="btn get-talent-btn online-btn">
-                                        online
-                                    </button>
-                                </div>
+                                <h6 class="strength">
+                                    <span>Conglomerate</span>
+                                    -
+                                    <span class="members">1000</span>
+                                    and above
+                                    personnel
+                                </h6>
+                                <button class="btn karya-btn get-btn">
+                                    get to know the employer
+                                </button>
                             </div>
                         </div>
-                        <!-- ends::selected profile card -->
+                        <div class="col-sm-6 col-lg-4 col-xl-3">
+                            <div class="tech-card">
+                                <img src="<?= site_url() ?>app-assets/images/company.jpg" alt="image">
+                                <h6 class="company">code life solution</h6>
+                                <h6 class="location">
+                                    Kuala Lumpur, Wilayah Persekutuan
+                                </h6>
+                                <h6 class="strength">
+                                    <span>Conglomerate</span>
+                                    -
+                                    <span class="members">1000</span>
+                                    and above
+                                    personnel
+                                </h6>
+                                <button class="btn karya-btn get-btn">
+                                    get to know the employer
+                                </button>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-lg-4 col-xl-3">
+                            <div class="tech-card">
+                                <img src="<?= site_url() ?>app-assets/images/company.jpg" alt="image">
+                                <h6 class="company">code life solution</h6>
+                                <h6 class="location">
+                                    Kuala Lumpur, Wilayah Persekutuan
+                                </h6>
+                                <h6 class="strength">
+                                    <span>Conglomerate</span>
+                                    -
+                                    <span class="members">1000</span>
+                                    and above
+                                    personnel
+                                </h6>
+                                <button class="btn karya-btn get-btn">
+                                    get to know the employer
+                                </button>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-lg-4 col-xl-3">
+                            <div class="tech-card">
+                                <img src="<?= site_url() ?>app-assets/images/no-profile.png" alt="image">
+                                <h6 class="company">code life solution</h6>
+                                <h6 class="location">
+                                    Kuala Lumpur, Wilayah Persekutuan
+                                </h6>
+                                <h6 class="strength">
+                                    <span>Conglomerate</span>
+                                    -
+                                    <span class="members">1000</span>
+                                    and above
+                                    personnel
+                                </h6>
+                                <button class="btn karya-btn get-btn">
+                                    get to know the employer
+                                </button>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <!-- ends::explore talents content -->
-
-    <br />
-    <!-- my profile content -->
-    <div class="my-profile-content d-none-mobile">
-        <ul class="nav nav-pills profile-nav-pills mb-3 d-flex justify-content-center mb-4" id="my-profile-tab" role="tablist">
-            <li class="nav-item me-1" role="presentation">
-                <button class="nav-link active text-uppercase w-100" id="my-resume-tab" data-bs-toggle="pill" data-bs-target="#my-resume" type="button" role="tab" aria-controls="my-resume" aria-selected="true">
-                    resume
-                </button>
-            </li>
-            <li class="nav-item me-1" role="presentation">
-                <button class="nav-link text-uppercase w-100" id="profiling-tab" data-bs-toggle="pill" data-bs-target="#profiling" type="button" role="tab" aria-controls="profiling" aria-selected="false">
-                    profiling
-                </button>
-            </li>
-            <li class="nav-item me-1" role="presentation">
-                <button class="nav-link text-uppercase w-100" id="video-pitch-tab" data-bs-toggle="pill" data-bs-target="#video-pitch" type="button" role="tab" aria-controls="video-pitch" aria-selected="false">
-                    video pitch
-                </button>
-            </li>
-            <li class="nav-item me-1" role="presentation">
-                <button class="nav-link text-uppercase w-100" id="achievements-tab" data-bs-toggle="pill" data-bs-target="#achievements" type="button" role="tab" aria-controls="achievements" aria-selected="false">
-                    achievements
-                </button>
-            </li>
-            <li class="nav-item" role="presentation">
-                <button class="nav-link text-uppercase w-100" id="potential-tab" data-bs-toggle="pill" data-bs-target="#potential" type="button" role="tab" aria-controls="potential" aria-selected="false">
-                    Performance & potential
-                </button>
-            </li>
-        </ul>
-        <div class="tab-content" id="my-profile-tabContent">
-            <div class="tab-pane fade show active" id="my-resume" role="tabpanel" aria-labelledby="my-resume-tab" tabindex="0">
-                <div class="resume-container">
-                    <!-- load resume here -->
-                    <img src="<?= site_url() ?>app-assets/images/resume.PNG" alt="resume" class="w-100" />
-                    <!-- ends::load resume here -->
-                </div>
-            </div>
-            <div class="tab-pane fade profiling-tab-content" id="profiling" role="tabpanel" aria-labelledby="profiling-tab" tabindex="0">
-                <div class="dominant-data">
-                    <div class="row gx-0">
-                        <div class="col-6">
-                            <div class="content">
-                                <h5 class="hdr mb-0 text-uppercase">
-                                    primary character
-                                </h5>
-                                <h2 class="sub-hdr mb-3 text-uppercase">
-                                    - dominant (d)
-                                </h2>
-                                <h6 class="sub-sub-hdr mb-3">
-                                    Commanding & Task Oriented
-                                </h6>
-                                <dl class="row">
-                                    <dt class="col-sm-5 col-md-4 col-lg-3 title">
-                                        FOCUS
-                                    </dt>
-                                    <dd class="col-sm-7 col-md-8 col-lg-9">
-                                        <p class="mb-0 txt">
-                                            Take care of circumstances by persuading others
-                                            to have a common vision.
-                                        </p>
-                                    </dd>
-
-                                    <dt class="col-sm-5 col-md-4 col-lg-3 title">
-                                        ACTIONS
-                                    </dt>
-                                    <dd class="col-sm-7 col-md-8 col-lg-9">
-                                        <p class="mb-0 txt">
-                                            Look at the bigger picture, assert for results,
-                                            take risks and loves adventures.
-                                        </p>
-                                    </dd>
-
-                                    <dt class="col-sm-5 col-md-4 col-lg-3 title">
-                                        APPROACH
-                                    </dt>
-                                    <dd class="col-sm-7 col-md-8 col-lg-9">
-                                        <p class="mb-0 txt">Am direct and blunt.</p>
-                                    </dd>
-
-                                    <dt class="col-sm-5 col-md-4 col-lg-3 title">
-                                        TENDENCIES
-                                    </dt>
-                                    <dd class="col-sm-7 col-md-8 col-lg-9">
-                                        <p class="mb-0 txt">
-                                            Innovate, crave for results, creates commotion
-                                            and loves challenges.
-                                        </p>
-                                    </dd>
-
-                                    <dt class="col-sm-5 col-md-4 col-lg-3 title">
-                                        RESPONSE
-                                    </dt>
-                                    <dd class="col-sm-7 col-md-8 col-lg-9">
-                                        <p class="mb-0 txt">
-                                            Give short answers and makes fast decisions.
-                                        </p>
-                                    </dd>
-
-                                    <dt class="col-sm-5 col-md-4 col-lg-3 title">
-                                        MOTIVATION
-                                    </dt>
-                                    <dd class="col-sm-7 col-md-8 col-lg-9">
-                                        <p class="mb-0 txt">
-                                            Thirive for authority, opportunity and prestige.
-                                        </p>
-                                    </dd>
-                                </dl>
-                            </div>
-                        </div>
-                        <div class="col-6">
-                            <div class="content content-right">
-                                <h5 class="hdr mb-3 text-uppercase">
-                                    a dominant person
-                                </h5>
-                                <p class="txt">
-                                    Is not afraid to confront tough issues and
-                                    situations and can make a decision when no one else
-                                    wants to.
-                                </p>
-                                <p class="txt">
-                                    Accept change as a personal challenge and keeps the
-                                    team focused and on task.
-                                </p>
-                                <p class="txt">
-                                    May come across as unapproachable and insensitive.
-                                </p>
-                                <p class="txt">
-                                    Is objective driven and results oriented hence
-                                    impatient with others and doesn't favour intricate
-                                    details.
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="competency-data">
-                    <h1 class="hdr mt-4 mb-2">
-                        COMPETENCY ASSESSMENT: Fund Manager
-                    </h1>
-                    <div class="content">
-                        <div class="row gx-0">
-                            <div class="col-6">
-                                <div class="graph-data h-100 me-4">
-                                    <h5 class="title">Competency Assessment</h5>
-                                    <div class="graph">
-                                        <!-- add graph here -->
-                                        <img src="<?= site_url() ?>app-assets/images/competency-graph.PNG" alt="graph" class="w-100" />
-                                        <!-- ends::add graph here -->
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-6">
-                                <div class="graph-data h-100 ms-4">
-                                    <h5 class="title">RATING</h5>
-                                    <div class="graph">
-                                        <!-- add graph here -->
-                                        <img src="<?= site_url() ?>app-assets/images/rating-graph.PNG" alt="graph" class="w-100" />
-                                        <!-- ends::add graph here -->
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-12">
-                                <ol class="list text-white fw-500">
-                                    <li>
-                                        <p class="ms-2">
-                                            Have you successfully managed diversified
-                                            investment portfolios across different asset
-                                            classes, such as equities, fixed income, and
-                                            alternative investments?
-                                        </p>
-                                    </li>
-                                    <li>
-                                        <p class="ms-2">
-                                            Are you proficient in utilizing financial
-                                            analysis techniques, such as ratio analysis,
-                                            discounted cash flow (DCF) analysis, or relative
-                                            valuation methods?
-                                        </p>
-                                    </li>
-                                    <li>
-                                        <p class="ms-2">
-                                            Have you actively employed risk management
-                                            strategies, such as setting stop-loss orders or
-                                            implementing hedging techniques, to mitigate
-                                            investment risks?
-                                        </p>
-                                    </li>
-                                    <li>
-                                        <p class="ms-2">
-                                            Are you familiar with regulatory compliance
-                                            requirements related to fund management, such as
-                                            reporting obligations or investor disclosure
-                                            obligations?
-                                        </p>
-                                    </li>
-                                    <li>
-                                        <p class="ms-2 mb-0">
-                                            Have you actively monitored and evaluated
-                                            performance metrics of investment portfolios
-                                            such as Sharpe ratio, alpha, or tracking error?
-                                        </p>
-                                    </li>
-                                </ol>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="tab-pane fade" id="video-pitch" role="tabpanel" aria-labelledby="video-pitch-tab" tabindex="0">
-                <div class="video-container">
-                    <video controls poster="<?= site_url() ?>app-assets/images/poster.jpg" class="w-100 hoverable">
-                        <source src="<?= site_url() ?>app-assets/images/video.mp4" type="video/mp4" />
-                        Your browser does not support the video tag.
-                    </video>
-                </div>
-            </div>
-            <div class="tab-pane fade" id="achievements" role="tabpanel" aria-labelledby="achievements" tabindex="0">
-                <div class="achievements-container bg-white px-2 pt-1 pb-3">
-                    <div class="row g-2 m-0">
-                        <div class="col-6">
-                            <img src="<?= site_url() ?>app-assets/images/achievement-1.PNG" alt="achievement" class="w-100 h-100" />
-                        </div>
-                        <div class="col-6">
-                            <img src="<?= site_url() ?>app-assets/images/achievement-2.PNG" alt="achievement" class="w-100 h-100" />
-                        </div>
-                        <div class="col-6">
-                            <img src="<?= site_url() ?>app-assets/images/achievement-3.PNG" alt="achievement" class="w-100 h-100" />
-                        </div>
-                        <div class="col-6">
-                            <img src="<?= site_url() ?>app-assets/images/achievement-4.PNG" alt="achievement" class="w-100 h-100" />
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="tab-pane fade" id="potential" role="tabpanel" aria-labelledby="potential" tabindex="0">
-                <div class="potential-container">
-                    <div class="text-content mb-5">
-                        <h6 class="hdr mb-5">Performance</h6>
-                        <p class="info mb-4">
-                            <span class="title"> Strategic Expertise: </span>
-                            <span class="txt">
-                                With 25 years of experience in strategy, business
-                                development, and sales, this jobseeker brings deep
-                                expertise in developing and executing business
-                                strategies. They can provide valuable insights and
-                                guidance to clients in the banking industry, helping
-                                them navigate challenges and identify growth
-                                opportunities.
-                            </span>
-                        </p>
-                        <p class="info mb-3">
-                            <span class="title"> Strategic Expertise: </span>
-                            <span class="txt">
-                                With 25 years of experience in strategy, business
-                                development, and sales, this jobseeker brings deep
-                                expertise in developing and executing business
-                                strategies. They can provide valuable insights and
-                                guidance to clients in the banking industry, helping
-                                them navigate challenges and identify growth
-                                opportunities.
-                            </span>
-                        </p>
-                        <p class="info mb-3">
-                            <span class="title"> Strategic Expertise: </span>
-                            <span class="txt">
-                                With 25 years of experience in strategy, business
-                                development, and sales, this jobseeker brings deep
-                                expertise in developing and executing business
-                                strategies. They can provide valuable insights and
-                                guidance to clients in the banking industry, helping
-                                them navigate challenges and identify growth
-                                opportunities.
-                            </span>
-                        </p>
-                        <p class="info mb-3">
-                            <span class="title"> Strategic Expertise: </span>
-                            <span class="txt">
-                                With 25 years of experience in strategy, business
-                                development, and sales, this jobseeker brings deep
-                                expertise in developing and executing business
-                                strategies. They can provide valuable insights and
-                                guidance to clients in the banking industry, helping
-                                them navigate challenges and identify growth
-                                opportunities.
-                            </span>
-                        </p>
-                    </div>
-                    <div class="text-content">
-                        <h6 class="hdr mb-5">Potential Roles</h6>
-                        <p class="info mb-4">
-                            <span class="title"> Strategic Expertise: </span>
-                            <span class="txt">
-                                With 25 years of experience in strategy, business
-                                development, and sales, this jobseeker brings deep
-                                expertise in developing and executing business
-                                strategies. They can provide valuable insights and
-                                guidance to clients in the banking industry, helping
-                                them navigate challenges and identify growth
-                                opportunities.
-                            </span>
-                        </p>
-                        <p class="info mb-3">
-                            <span class="title"> Strategic Expertise: </span>
-                            <span class="txt">
-                                With 25 years of experience in strategy, business
-                                development, and sales, this jobseeker brings deep
-                                expertise in developing and executing business
-                                strategies. They can provide valuable insights and
-                                guidance to clients in the banking industry, helping
-                                them navigate challenges and identify growth
-                                opportunities.
-                            </span>
-                        </p>
-                        <p class="info mb-3">
-                            <span class="title"> Strategic Expertise: </span>
-                            <span class="txt">
-                                With 25 years of experience in strategy, business
-                                development, and sales, this jobseeker brings deep
-                                expertise in developing and executing business
-                                strategies. They can provide valuable insights and
-                                guidance to clients in the banking industry, helping
-                                them navigate challenges and identify growth
-                                opportunities.
-                            </span>
-                        </p>
-                        <p class="info mb-3">
-                            <span class="title"> Strategic Expertise: </span>
-                            <span class="txt">
-                                With 25 years of experience in strategy, business
-                                development, and sales, this jobseeker brings deep
-                                expertise in developing and executing business
-                                strategies. They can provide valuable insights and
-                                guidance to clients in the banking industry, helping
-                                them navigate challenges and identify growth
-                                opportunities.
-                            </span>
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="accordion profile-accordion my-profile-accordion mobile-only" id="my-profile-accordion">
+    <div class="accordion profile-accordion technology-accordion mobile-only" id="technology-accordion">
         <div class="accordion-item">
-            <h2 class="accordion-header" id="resume-hdr">
-                <button class="accordion-button text-uppercase" type="button" data-bs-toggle="collapse" data-bs-target="#resume-collapse" aria-expanded="true" aria-controls="resume-collapse">
-                    resume
+            <h2 class="accordion-header" id="technology-hdr">
+                <button class="accordion-button collapsed text-uppercase" type="button" data-bs-toggle="collapse" data-bs-target="#technology-collapse" aria-expanded="false" aria-controls="technology-collapse">
+                    technology
                 </button>
             </h2>
-            <div id="resume-collapse" class="accordion-collapse collapse show" aria-labelledby="resume-hdr" data-bs-parent="#my-profile-accordion">
+            <div id="technology-collapse" class="accordion-collapse collapse" aria-labelledby="technology-hdr" data-bs-parent="#technology-accordion">
                 <div class="accordion-body p-0">
-                    <!-- load resume here -->
-                    <div class="resume-container">
-                        <img src="<?= site_url() ?>app-assets/images/resume.PNG" alt="resume" class="w-100" />
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="accordion-item">
-            <h2 class="accordion-header" id="profiling-hdr">
-                <button class="accordion-button collapsed text-uppercase" type="button" data-bs-toggle="collapse" data-bs-target="#profiling-collapse" aria-expanded="false" aria-controls="profiling-collapse">
-                    profiling
-                </button>
-            </h2>
-            <div id="profiling-collapse" class="accordion-collapse collapse" aria-labelledby="profiling-hdr" data-bs-parent="#my-profile-accordion">
-                <div class="accordion-body p-0">
-                    <div class="dominant-data">
-                        <div class="row gx-0">
-                            <div class="col-12">
-                                <div class="content">
-                                    <h5 class="hdr mb-0 text-uppercase">
-                                        primary character
-                                    </h5>
-                                    <h2 class="sub-hdr mb-3 text-uppercase">
-                                        - dominant (d)
-                                    </h2>
-                                    <h6 class="sub-sub-hdr mb-3">
-                                        Commanding & Task Oriented
+                    <div class="technology-container">
+                        <div class="row g-2">
+                            <div class="col-sm-6 col-lg-4 col-xl-3">
+                                <div class="tech-card">
+                                    <img src="<?= site_url() ?>app-assets/images/company.jpg" alt="image">
+                                    <h6 class="company">code life solution</h6>
+                                    <h6 class="location">
+                                        Kuala Lumpur, Wilayah Persekutuan
                                     </h6>
-                                    <dl class="row mb-0">
-                                        <dt class="col-3 title">FOCUS</dt>
-                                        <dd class="col-9">
-                                            <p class="mb-0 txt">
-                                                Take care of circumstances by persuading
-                                                others to have a common vision.
-                                            </p>
-                                        </dd>
-
-                                        <dt class="col-3 title">ACTIONS</dt>
-                                        <dd class="col-9">
-                                            <p class="mb-0 txt">
-                                                Look at the bigger picture, assert for
-                                                results, take risks and loves adventures.
-                                            </p>
-                                        </dd>
-
-                                        <dt class="col-3 title">APPROACH</dt>
-                                        <dd class="col-9">
-                                            <p class="mb-0 txt">Am direct and blunt.</p>
-                                        </dd>
-
-                                        <dt class="col-3 title">TENDENCIES</dt>
-                                        <dd class="col-9">
-                                            <p class="mb-0 txt">
-                                                Innovate, crave for results, creates commotion
-                                                and loves challenges.
-                                            </p>
-                                        </dd>
-
-                                        <dt class="col-3 title">RESPONSE</dt>
-                                        <dd class="col-9">
-                                            <p class="mb-0 txt">
-                                                Give short answers and makes fast decisions.
-                                            </p>
-                                        </dd>
-
-                                        <dt class="col-3 title">MOTIVATION</dt>
-                                        <dd class="col-9">
-                                            <p class="mb-0 txt">
-                                                Thirive for authority, opportunity and
-                                                prestige.
-                                            </p>
-                                        </dd>
-                                    </dl>
+                                    <h6 class="strength">
+                                        <span>Conglomerate</span>
+                                        -
+                                        <span class="members">1000</span>
+                                        and above
+                                        personnel
+                                    </h6>
+                                    <button class="btn karya-btn get-btn">
+                                        get to know the employer
+                                    </button>
                                 </div>
                             </div>
-                            <div class="col-12">
-                                <div class="content content-right">
-                                    <h5 class="hdr mb-3 text-uppercase">
-                                        a dominant person
-                                    </h5>
-                                    <p class="txt">
-                                        Is not afraid to confront tough issues and
-                                        situations and can make a decision when no one
-                                        else wants to.
-                                    </p>
-                                    <p class="txt">
-                                        Accept change as a personal challenge and keeps
-                                        the team focused and on task.
-                                    </p>
-                                    <p class="txt">
-                                        May come across as unapproachable and insensitive.
-                                    </p>
-                                    <p class="txt mb-0">
-                                        Is objective driven and results oriented hence
-                                        impatient with others and doesn't favour intricate
-                                        details.
-                                    </p>
+                            <div class="col-sm-6 col-lg-4 col-xl-3">
+                                <div class="tech-card">
+                                    <img src="<?= site_url() ?>app-assets/images/no-profile.png" alt="image">
+                                    <h6 class="company">code life solution</h6>
+                                    <h6 class="location">
+                                        Kuala Lumpur, Wilayah Persekutuan
+                                    </h6>
+                                    <h6 class="strength">
+                                        <span>Conglomerate</span>
+                                        -
+                                        <span class="members">1000</span>
+                                        and above
+                                        personnel
+                                    </h6>
+                                    <button class="btn karya-btn get-btn">
+                                        get to know the employer
+                                    </button>
                                 </div>
                             </div>
-                        </div>
-                    </div>
-                    <div class="competency-data">
-                        <h1 class="hdr mt-4 mb-2 mx-3">
-                            COMPETENCY ASSESSMENT: Fund Manager
-                        </h1>
-                        <div class="content">
-                            <div class="row gx-0">
-                                <div class="col-6">
-                                    <div class="graph-data h-100 me-4">
-                                        <h5 class="title">Competency Assessment</h5>
-                                        <div class="graph">
-                                            <!-- add graph here -->
-                                            <img src="<?= site_url() ?>app-assets/images/competency-graph.PNG" alt="graph" class="w-100" />
-                                            <!-- ends::add graph here -->
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-6">
-                                    <div class="graph-data h-100 ms-4">
-                                        <h5 class="title">RATING</h5>
-                                        <div class="graph">
-                                            <!-- add graph here -->
-                                            <img src="<?= site_url() ?>app-assets/images/rating-graph.PNG" alt="graph" class="w-100" />
-                                            <!-- ends::add graph here -->
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-12">
-                                    <ol class="list text-white fw-500">
-                                        <li>
-                                            <p class="ms-2 mb-1">
-                                                Have you successfully managed diversified
-                                                investment portfolios across different asset
-                                                classes, such as equities, fixed income, and
-                                                alternative investments?
-                                            </p>
-                                        </li>
-                                        <li>
-                                            <p class="ms-2 mb-1">
-                                                Are you proficient in utilizing financial
-                                                analysis techniques, such as ratio analysis,
-                                                discounted cash flow (DCF) analysis, or
-                                                relative valuation methods?
-                                            </p>
-                                        </li>
-                                        <li>
-                                            <p class="ms-2 mb-1">
-                                                Have you actively employed risk management
-                                                strategies, such as setting stop-loss orders
-                                                or implementing hedging techniques, to
-                                                mitigate investment risks?
-                                            </p>
-                                        </li>
-                                        <li>
-                                            <p class="ms-2 mb-1">
-                                                Are you familiar with regulatory compliance
-                                                requirements related to fund management, such
-                                                as reporting obligations or investor
-                                                disclosure obligations?
-                                            </p>
-                                        </li>
-                                        <li>
-                                            <p class="ms-2 mb-0">
-                                                Have you actively monitored and evaluated
-                                                performance metrics of investment portfolios
-                                                such as Sharpe ratio, alpha, or tracking
-                                                error?
-                                            </p>
-                                        </li>
-                                    </ol>
+                            <div class="col-sm-6 col-lg-4 col-xl-3">
+                                <div class="tech-card">
+                                    <img src="<?= site_url() ?>app-assets/images/no-profile.png" alt="image">
+                                    <h6 class="company">code life solution</h6>
+                                    <h6 class="location">
+                                        Kuala Lumpur, Wilayah Persekutuan
+                                    </h6>
+                                    <h6 class="strength">
+                                        <span>Conglomerate</span>
+                                        -
+                                        <span class="members">1000</span>
+                                        and above
+                                        personnel
+                                    </h6>
+                                    <button class="btn karya-btn get-btn">
+                                        get to know the employer
+                                    </button>
                                 </div>
                             </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="accordion-item">
-            <h2 class="accordion-header" id="video-pitch-hdr">
-                <button class="accordion-button collapsed text-uppercase" type="button" data-bs-toggle="collapse" data-bs-target="#video-pitch-collapse" aria-expanded="false" aria-controls="video-pitch-collapse">
-                    video pitch
-                </button>
-            </h2>
-            <div id="video-pitch-collapse" class="accordion-collapse collapse" aria-labelledby="video-pitch-hdr" data-bs-parent="#my-profile-accordion">
-                <div class="accordion-body p-0">
-                    <div class="video-container">
-                        <video controls poster="<?= site_url() ?>app-assets/images/poster.jpg" class="w-100 hoverable">
-                            <source src="<?= site_url() ?>app-assets/images/video.mp4" type="video/mp4" />
-                            Your browser does not support the video tag.
-                        </video>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="accordion-item">
-            <h2 class="accordion-header" id="achievements-hdr">
-                <button class="accordion-button collapsed text-uppercase" type="button" data-bs-toggle="collapse" data-bs-target="#achievements-collapse" aria-expanded="false" aria-controls="achievements-collapse">
-                    achievements
-                </button>
-            </h2>
-            <div id="achievements-collapse" class="accordion-collapse collapse" aria-labelledby="achievements-hdr" data-bs-parent="#my-profile-accordion">
-                <div class="accordion-body p-0">
-                    <div class="achievements-container bg-dark px-1 pb-2">
-                        <div class="row g-2 m-0">
-                            <div class="col-12">
-                                <img src="<?= site_url() ?>app-assets/images/achievement-1.PNG" alt="achievement" class="w-100 h-100" />
+                            <div class="col-sm-6 col-lg-4 col-xl-3">
+                                <div class="tech-card">
+                                    <img src="<?= site_url() ?>app-assets/images/company.jpg" alt="image">
+                                    <h6 class="company">code life solution</h6>
+                                    <h6 class="location">
+                                        Kuala Lumpur, Wilayah Persekutuan
+                                    </h6>
+                                    <h6 class="strength">
+                                        <span>Conglomerate</span>
+                                        -
+                                        <span class="members">1000</span>
+                                        and above
+                                        personnel
+                                    </h6>
+                                    <button class="btn karya-btn get-btn">
+                                        get to know the employer
+                                    </button>
+                                </div>
                             </div>
-                            <div class="col-12">
-                                <img src="<?= site_url() ?>app-assets/images/achievement-2.PNG" alt="achievement" class="w-100 h-100" />
+                            <div class="col-sm-6 col-lg-4 col-xl-3">
+                                <div class="tech-card">
+                                    <img src="<?= site_url() ?>app-assets/images/company.jpg" alt="image">
+                                    <h6 class="company">code life solution</h6>
+                                    <h6 class="location">
+                                        Kuala Lumpur, Wilayah Persekutuan
+                                    </h6>
+                                    <h6 class="strength">
+                                        <span>Conglomerate</span>
+                                        -
+                                        <span class="members">1000</span>
+                                        and above
+                                        personnel
+                                    </h6>
+                                    <button class="btn karya-btn get-btn">
+                                        get to know the employer
+                                    </button>
+                                </div>
                             </div>
-                            <div class="col-12">
-                                <img src="<?= site_url() ?>app-assets/images/achievement-3.PNG" alt="achievement" class="w-100 h-100" />
-                            </div>
-                            <div class="col-12">
-                                <img src="<?= site_url() ?>app-assets/images/achievement-4.PNG" alt="achievement" class="w-100 h-100" />
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="accordion-item">
-            <h2 class="accordion-header" id="potential-hdr">
-                <button class="accordion-button collapsed text-uppercase" type="button" data-bs-toggle="collapse" data-bs-target="#potential-collapse" aria-expanded="false" aria-controls="potential-collapse">
-                    performance & potential
-                </button>
-            </h2>
-            <div id="potential-collapse" class="accordion-collapse collapse" aria-labelledby="potential-hdr" data-bs-parent="#my-profile-accordion">
-                <div class="accordion-body p-2">
-                    <div class="potential-container">
-                        <div class="text-content mb-4">
-                            <h6 class="hdr mb-2">Performance</h6>
-                            <p class="info mb-1">
-                                <span class="title"> Strategic Expertise: </span>
-                                <span class="txt">
-                                    With 25 years of experience in strategy, business
-                                    development, and sales, this jobseeker brings deep
-                                    expertise in developing and executing business
-                                    strategies. They can provide valuable insights and
-                                    guidance to clients in the banking industry, helping
-                                    them navigate challenges and identify growth
-                                    opportunities.
-                                </span>
-                            </p>
-                            <p class="info mb-3">
-                                <span class="title"> Strategic Expertise: </span>
-                                <span class="txt">
-                                    With 25 years of experience in strategy, business
-                                    development, and sales, this jobseeker brings deep
-                                    expertise in developing and executing business
-                                    strategies. They can provide valuable insights and
-                                    guidance to clients in the banking industry, helping
-                                    them navigate challenges and identify growth
-                                    opportunities.
-                                </span>
-                            </p>
-                            <p class="info mb-3">
-                                <span class="title"> Strategic Expertise: </span>
-                                <span class="txt">
-                                    With 25 years of experience in strategy, business
-                                    development, and sales, this jobseeker brings deep
-                                    expertise in developing and executing business
-                                    strategies. They can provide valuable insights and
-                                    guidance to clients in the banking industry, helping
-                                    them navigate challenges and identify growth
-                                    opportunities.
-                                </span>
-                            </p>
-                            <p class="info mb-3">
-                                <span class="title"> Strategic Expertise: </span>
-                                <span class="txt">
-                                    With 25 years of experience in strategy, business
-                                    development, and sales, this jobseeker brings deep
-                                    expertise in developing and executing business
-                                    strategies. They can provide valuable insights and
-                                    guidance to clients in the banking industry, helping
-                                    them navigate challenges and identify growth
-                                    opportunities.
-                                </span>
-                            </p>
-                        </div>
-                        <div class="text-content">
-                            <h6 class="hdr mb-2">Potential Roles</h6>
-                            <p class="info mb-1">
-                                <span class="title"> Strategic Expertise: </span>
-                                <span class="txt">
-                                    With 25 years of experience in strategy, business
-                                    development, and sales, this jobseeker brings deep
-                                    expertise in developing and executing business
-                                    strategies. They can provide valuable insights and
-                                    guidance to clients in the banking industry, helping
-                                    them navigate challenges and identify growth
-                                    opportunities.
-                                </span>
-                            </p>
-                            <p class="info mb-3">
-                                <span class="title"> Strategic Expertise: </span>
-                                <span class="txt">
-                                    With 25 years of experience in strategy, business
-                                    development, and sales, this jobseeker brings deep
-                                    expertise in developing and executing business
-                                    strategies. They can provide valuable insights and
-                                    guidance to clients in the banking industry, helping
-                                    them navigate challenges and identify growth
-                                    opportunities.
-                                </span>
-                            </p>
-                            <p class="info mb-3">
-                                <span class="title"> Strategic Expertise: </span>
-                                <span class="txt">
-                                    With 25 years of experience in strategy, business
-                                    development, and sales, this jobseeker brings deep
-                                    expertise in developing and executing business
-                                    strategies. They can provide valuable insights and
-                                    guidance to clients in the banking industry, helping
-                                    them navigate challenges and identify growth
-                                    opportunities.
-                                </span>
-                            </p>
-                            <p class="info mb-3">
-                                <span class="title"> Strategic Expertise: </span>
-                                <span class="txt">
-                                    With 25 years of experience in strategy, business
-                                    development, and sales, this jobseeker brings deep
-                                    expertise in developing and executing business
-                                    strategies. They can provide valuable insights and
-                                    guidance to clients in the banking industry, helping
-                                    them navigate challenges and identify growth
-                                    opportunities.
-                                </span>
-                            </p>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <!-- ends:: my profile content -->
+    <!-- ends::technology -->
 </div>
-<!-- ends::explore talents tab -->
+<!-- ends::explore jobs tab -->
 <?= $this->endSection() ?>

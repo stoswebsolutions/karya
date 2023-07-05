@@ -1,4 +1,4 @@
-<?= $this->extend("layouts/talent") ?>
+<?= $this->extend("layouts/company") ?>
 <?= $this->section("body") ?>
 <!-- cart tab -->
 <div class="data cart-data">

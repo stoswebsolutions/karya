@@ -8,71 +8,61 @@ class Talent extends BaseController
 {
     public function dashboard()
     {
-        $data['pageTitle'] = 'Karya | Talent Home';
+        $data['pageTitle'] = 'Karya | Dashboard';
         $data['logo'] = 'app-assets/images/logo_karya.png';
         $data['active'] = 'dashboard';
         $data['css'] = array(
-            base_url('app-assets/talent/style.css')
+            base_url('app-assets/hired/style.css')
         );
         return view('talent/dashboard', $data);
     }
-    public function profile()
-    {
-        $data['pageTitle'] = 'Karya | Talent Home';
-        $data['logo'] = 'app-assets/images/logo_karya.png';
-        $data['active'] = 'profile';
-        $data['css'] = array(
-            base_url('app-assets/talent/style.css')
-        );
-        return view('talent/profile', $data);
-    }
-    public function cart()
-    {
-        $data['pageTitle'] = 'Karya | Talent Home';
-        $data['logo'] = 'app-assets/images/logo_karya.png';
-        $data['active'] = 'cart';
-        $data['css'] = array(
-            base_url('app-assets/talent/style.css')
-        );
-        return view('talent/cart', $data);
-    }
     public function status()
     {
-        $data['pageTitle'] = 'Karya | Talent Home';
+        $data['pageTitle'] = 'Karya | Dashboard';
         $data['logo'] = 'app-assets/images/logo_karya.png';
         $data['active'] = 'status';
         $data['css'] = array(
-            base_url('app-assets/talent/style.css')
+            base_url('app-assets/hired/style.css')
         );
         return view('talent/status', $data);
     }
-    public function vacancies()
+    public function profile()
     {
-        $data['pageTitle'] = 'Karya | Talent Home';
+        $data['pageTitle'] = 'Karya | Dashboard';
         $data['logo'] = 'app-assets/images/logo_karya.png';
-        $data['active'] = 'vacancies';
+        $data['active'] = 'profile';
         $data['css'] = array(
-            base_url('app-assets/talent/style.css')
+            base_url('app-assets/hired/style.css')
         );
-        return view('talent/vacancies', $data);
+        return view('talent/profile', $data);
     }
     public function explore()
     {
-        $data['pageTitle'] = 'Karya | Talent Home';
+        $data['pageTitle'] = 'Karya | Dashboard';
         $data['logo'] = 'app-assets/images/logo_karya.png';
         $data['active'] = 'explore';
         $data['css'] = array(
-            base_url('app-assets/talent/style.css')
+            base_url('app-assets/hired/style.css')
         );
         return view('talent/explore', $data);
     }
+    public function companies()
+    {
+        $data['pageTitle'] = 'Karya | Dashboard';
+        $data['logo'] = 'app-assets/images/logo_karya.png';
+        $data['active'] = 'companies';
+        $data['css'] = array(
+            base_url('app-assets/hired/style.css')
+        );
+        return view('talent/companies', $data);
+    }
     public function myaccount()
     {
-        $data['pageTitle'] = 'Karya | Talent Home';
+        $data['pageTitle'] = 'Karya | Dashboard';
         $data['logo'] = 'app-assets/images/logo_karya.png';
         $data['active'] = 'myaccount';
         $data['css'] = array(
-            base_url('app-assets/talent/style.css')
+            base_url('app-assets/hired/style.css')
         );
         return view('talent/myaccount', $data);
     }
