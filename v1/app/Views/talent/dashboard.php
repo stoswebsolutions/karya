@@ -3,17 +3,7 @@
 <!-- dashboard tab -->
 <div class="data dashboard-data">
     <h5 class="black-clr fw-600 info">
-        Welcome! We are thrilled that you have decided to take the first
-        step towards finding your dream job. Karya is designed to connect
-        you with the right employers and opportunities that match your
-        strengths, skills and experience. To ensure that we can help you,
-        we ask that you take a few moments to complete your profile and
-        provide us with all the necessary information. This will enable us
-        to accurately match you with potential employers and job openings
-        that meet your preferences. So don't wait any longer, take the
-        time to complete your profile today and get started on your
-        journey to a fulfilling career. We're excited to help you find
-        your dream job!
+        <?= $loggedTalent['aboutme'] ?>
     </h5>
     <div class="row gx-5rem m-0">
         <div class="col-4">

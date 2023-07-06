@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>karya | get hired</title>
+    <title><?= $pageTitle ?></title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- bootstrap -->
@@ -25,16 +25,16 @@
                         <a href="#"> Get Hired</a>
                     </li>
                     <li class="ms-4">
-                        <a href=""> Get Talent</a>
+                        <a href="#"> Get Talent</a>
                     </li>
                     <li class="ms-4">
-                        <a href=""> Pricing Plans</a>
+                        <a href="#"> Pricing Plans</a>
                     </li>
                     <li class="ms-4">
-                        <a href=""> Log In</a>
+                        <a href="#"> Log In</a>
                     </li>
                     <li class="ms-4">
-                        <a href=""> Join</a>
+                        <a href="#"> Join</a>
                     </li>
                 </ul>
                 <i class="fa fa-bars menu-icon" aria-hidden="true" data-bs-toggle="offcanvas" href="#offcanvasMenu" aria-controls="offcanvasMenu"></i>
@@ -43,12 +43,12 @@
                 <div class="user-greet d-flex align-items-center">
                     <h1 class="mb-0 pri-clr fw-600 greeting">HELLO</h1>
                     <h2 class="mb-0 text-white fw-600 username">
-                        Azamin Iskandar Yeop Rashidi
+                        <?= $loggedTalent['fullname'] ?>
                     </h2>
                 </div>
                 <div class="status d-flex align-items-center">
                     <div class="switchToggle me-2">
-                        <input type="checkbox" id="switch">
+                        <input type="checkbox" id="switch" <?= $loggedTalent['is_online'] == 2 ? 'checked' : '' ?>>
                         <label for="switch">Toggle</label>
                     </div>
                     <span class="text-white status-txt fw-500">Online Status</span>
@@ -66,16 +66,16 @@
                             <a href="#"> Get Hired</a>
                         </li>
                         <li class="">
-                            <a href=""> Get Talent</a>
+                            <a href="#"> Get Talent</a>
                         </li>
                         <li class="">
-                            <a href=""> Pricing Plans</a>
+                            <a href="#"> Pricing Plans</a>
                         </li>
                         <li class="">
-                            <a href=""> Log In</a>
+                            <a href="#"> Log In</a>
                         </li>
                         <li class="">
-                            <a href=""> Join</a>
+                            <a href="#"> Join</a>
                         </li>
                     </ul>
                 </div>

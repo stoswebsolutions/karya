@@ -6,6 +6,15 @@ use App\Controllers\BaseController;
 
 class Talent extends BaseController
 {
+    private $loggedTalent;
+    public function __construct()
+    {
+        $this->loggedTalent = session()->get('TalentData');
+        if ($this->loggedTalent['user_role'] != 7) {
+            echo "Your Not Correct User";
+            exit;
+        }
+    }
     public function dashboard()
     {
         $data['pageTitle'] = 'Karya | Dashboard';
@@ -14,6 +23,7 @@ class Talent extends BaseController
         $data['css'] = array(
             base_url('app-assets/hired/style.css')
         );
+        $data['loggedTalent'] = $this->loggedTalent;
         return view('talent/dashboard', $data);
     }
     public function status()
@@ -24,6 +34,7 @@ class Talent extends BaseController
         $data['css'] = array(
             base_url('app-assets/hired/style.css')
         );
+        $data['loggedTalent'] = $this->loggedTalent;
         return view('talent/status', $data);
     }
     public function profile()
@@ -34,6 +45,7 @@ class Talent extends BaseController
         $data['css'] = array(
             base_url('app-assets/hired/style.css')
         );
+        $data['loggedTalent'] = $this->loggedTalent;
         return view('talent/profile', $data);
     }
     public function explore()
@@ -44,6 +56,7 @@ class Talent extends BaseController
         $data['css'] = array(
             base_url('app-assets/hired/style.css')
         );
+        $data['loggedTalent'] = $this->loggedTalent;
         return view('talent/explore', $data);
     }
     public function companies()
@@ -54,6 +67,7 @@ class Talent extends BaseController
         $data['css'] = array(
             base_url('app-assets/hired/style.css')
         );
+        $data['loggedTalent'] = $this->loggedTalent;
         return view('talent/companies', $data);
     }
     public function myaccount()
@@ -64,6 +78,7 @@ class Talent extends BaseController
         $data['css'] = array(
             base_url('app-assets/hired/style.css')
         );
+        $data['loggedTalent'] = $this->loggedTalent;
         return view('talent/myaccount', $data);
     }
 }
