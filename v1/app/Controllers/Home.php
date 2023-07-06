@@ -2,14 +2,17 @@
 
 namespace App\Controllers;
 
+use App\Models\UserlogsModel;
 use App\Models\UsersModel;
 
 class Home extends BaseController
 {
     private $usersModel;
+    private $userlogsModel;
     public function __construct()
     {
         $this->usersModel = new UsersModel();
+        $this->userlogsModel = new UserlogsModel();
     }
     public function login()
     {
@@ -45,6 +48,33 @@ class Home extends BaseController
             if (!$this->passwordHash->CheckPassword($password, $row['password'])) {
                 return  redirect()->back()->with('fail', 'Incorect password.')->withInput();
             } else {
+                $talentID = $row['ID'];
+                if (empty($row['token'])) {
+                    // Generate a token
+                    $token = rand(1, 100000) . $email;
+                    $token = md5(sha1($token));
+                    // Store it
+                    $this->usersModel->update($talentID, array('token' => $token));
+                } else {
+                    if ($row['online_timestamp'] + (3600 * 24 * 30 * 2) < time()) {
+                        // Generate a token
+                        $token = rand(1, 100000) . $email;
+                        $token = md5(sha1($token));
+                        // Store it
+                        $this->usersModel->update($talentID, array('token' => $token));
+                    } else {
+                        $token = $row['token'];
+                    }
+                }
+                $logData = array(
+                    "userid" => $talentID,
+                    "IP" => $_SERVER['REMOTE_ADDR'],
+                    "user_agent" => $_SERVER['HTTP_USER_AGENT'],
+                    "timestamp" => time(),
+                    "message" => lang("ctn_435")
+                );
+                $log = $this->userlogsModel->insert($logData);
+                $this->usersModel->update($talentID, array('is_online' => 2));
                 session()->set('TalentData', $row);
                 return  redirect()->to('talent/dashboard');
             }
