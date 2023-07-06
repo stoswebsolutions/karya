@@ -48,7 +48,7 @@
                 </div>
                 <div class="status d-flex align-items-center">
                     <div class="switchToggle me-2">
-                        <input type="checkbox" id="switch" <?= $loggedTalent['is_online'] == 2 ? 'checked' : '' ?>>
+                        <input type="checkbox" id="switch" <?= $is_online == 2 ? 'checked' : '' ?>>
                         <label for="switch">Toggle</label>
                     </div>
                     <span class="text-white status-txt fw-500">Online Status</span>

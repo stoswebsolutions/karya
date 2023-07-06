@@ -75,7 +75,6 @@ class Home extends BaseController
                 );
                 $log = $this->userlogsModel->insert($logData);
                 $this->usersModel->update($talentID, array('is_online' => 2));
-                $row = $this->usersModel->where('email', $email)->first();
                 session()->set('TalentData', $row);
                 return  redirect()->to('talent/dashboard');
             }
