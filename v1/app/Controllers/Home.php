@@ -20,7 +20,7 @@ class Home extends BaseController
         $data['logo'] = 'app-assets/images/logo_karya.png';
         return view('login', $data);
     }
-    public function talentLogin()
+    public function hiredLogin()
     {
         $validation = $this->validate([
             'email' => [
@@ -75,8 +75,8 @@ class Home extends BaseController
                 );
                 $log = $this->userlogsModel->insert($logData);
                 $this->usersModel->update($talentID, array('is_online' => 2));
-                session()->set('TalentData', $row);
-                return  redirect()->to('talent/dashboard');
+                session()->set('HiredData', $row);
+                return  redirect()->to('hired/dashboard');
             }
         }
     }
@@ -85,7 +85,7 @@ class Home extends BaseController
         $number = $this->request->getVar('number');
         if ($number == 'talent') {
             session()->set('isLoggedIn', $number);
-            return redirect()->to(base_url('talent/dashboard'));
+            return redirect()->to(base_url('hired/dashboard'));
         } else if ($number == 'company') {
             session()->set('isLoggedIn', $number);
             return redirect()->to(base_url('company/dashboard'));
@@ -95,8 +95,8 @@ class Home extends BaseController
     }
     public function logout()
     {
-        if (session()->has('TalentData')) {
-            session()->remove('TalentData');
+        if (session()->has('HiredData')) {
+            session()->remove('HiredData');
             return  redirect()->to('login')->with('fail', 'You are now logged out.');
         }
     }

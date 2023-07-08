@@ -10,7 +10,7 @@ class Auth implements FilterInterface
 {
     public function before(RequestInterface $request, $arguments = null)
     {
-        if (!session()->get('TalentData')) {
+        if (!session()->get('HiredData')) {
             return  redirect()->to('login')->with('fail', 'You must be logged in first.');
         }
     }

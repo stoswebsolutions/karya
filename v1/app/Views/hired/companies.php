@@ -1,4 +1,4 @@
-<?= $this->extend("layouts/talent") ?>
+<?= $this->extend("layouts/hired") ?>
 <?= $this->section("body") ?>
 <!-- explore companies tab -->
 <div class="data explore-companies-data">

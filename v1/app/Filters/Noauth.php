@@ -10,7 +10,7 @@ class Noauth implements FilterInterface
 {
     public function before(RequestInterface $request, $arguments = null)
     {
-        if (session()->get('TalentData')) {
+        if (session()->get('HiredData')) {
             return redirect()->back();
         }
     }

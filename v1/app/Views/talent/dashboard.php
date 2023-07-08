@@ -3,7 +3,17 @@
 <!-- dashboard tab -->
 <div class="data dashboard-data">
     <h5 class="black-clr fw-600 info">
-        <?= $loggedTalent['aboutme'] ?>
+        Welcome! We are thrilled that you have decided to take the first
+        step towards finding the most suitable talent to fill up your
+        vacancy. Karya is designed to connect you with the right talents
+        with the strengths, skills and experience suited to fill your
+        vacancy. To ensure that we can help you, we ask that you take a
+        few moments to complete your profile and provide us with all the
+        necessary information. This will enable us to accurately match you
+        with potential talents that meet your preferences. So don't wait
+        any longer, take the time to complete your profile today and get
+        started on your journey to finding the best candidate to fill your
+        vacancy. We're excited to help you find you!
     </h5>
     <div class="row gx-5rem m-0">
         <div class="col-4">
@@ -12,11 +22,10 @@
                     <span class="step-num">STEP 1</span>
                     <i class="fa fa-comments-o" aria-hidden="true"></i>
                 </div>
-                <h5 class="title">Discover Strengths</h5>
+                <h5 class="title">Brand Your Company</h5>
                 <p class="step-info">
-                    Provide us with a few details of yourself do a personality
-                    assessment and upload your resume. We will reveal your
-                    unique strengths.
+                    Provide information about your company and complete the
+                    value metrics assessment.
                 </p>
             </div>
         </div>
@@ -26,11 +35,10 @@
                     <span class="step-num">STEP 2</span>
                     <i class="fa fa-tags" aria-hidden="true"></i>
                 </div>
-                <h5 class="title">Showcase Yourself</h5>
+                <h5 class="title">Post Jobs</h5>
                 <p class="step-info">
-                    With our customised interview preparation module, you will
-                    be able to produce a video pitch to showcase to prospective
-                    employers.
+                    Select the role you wish to fill and we will suggest you the
+                    job descriptions and requirements for you.
                 </p>
             </div>
         </div>
@@ -40,10 +48,10 @@
                     <span class="step-num">STEP 3</span>
                     <i class="fa fa-users" aria-hidden="true"></i>
                 </div>
-                <h5 class="title">Contact Employers</h5>
+                <h5 class="title">Explore Talents</h5>
                 <p class="step-info">
-                    Explore the current and suggested job vacancies and connect
-                    seamlessly with employers via text, Voice and video calls.
+                    Explore suitable talents and video pitch applicants and
+                    connect with them via text, voice and video calls.
                 </p>
             </div>
         </div>

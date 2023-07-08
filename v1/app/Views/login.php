@@ -4,8 +4,8 @@
 <div class="container">
     <div class="row">
         <div class="col">
-            <h1 class="text-center">Hello, Talent!</h1>
-            <form class="" id="talentform" action="<?= base_url('talentLogin') ?>" method="post">
+            <h1 class="text-center">Hello, Hired!</h1>
+            <form class="" id="hiredform" action="<?= base_url('hiredLogin') ?>" method="post">
                 <?= csrf_field(); ?>
                 <?php if (!empty(session()->getFlashdata('fail'))) : ?>
                     <div class="alert alert-danger"><?= session()->getFlashdata('fail'); ?></div>

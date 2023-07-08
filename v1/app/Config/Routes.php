@@ -36,26 +36,26 @@ $routes->group('/', ['filter' => 'noauth'], function ($routes) {
     $routes->get('price', 'Home::price');
     $routes->get('login', 'Home::login');
     $routes->post('action', 'Home::action');
-    $routes->post('talentLogin', 'Home::talentLogin');
+    $routes->post('hiredLogin', 'Home::hiredLogin');
 });
 
 $routes->group('/', ['filter' => 'auth'], function ($routes) {
+    $routes->group('hired/', static function ($routes) {
+        $routes->get('dashboard', 'Hired::dashboard');
+        $routes->get('status', 'Hired::status');
+        $routes->get('profile', 'Hired::profile');
+        $routes->get('explore', 'Hired::explore');
+        $routes->get('companies', 'Hired::companies');
+        $routes->get('myaccount', 'Hired::myaccount');
+    });
     $routes->group('talent/', static function ($routes) {
         $routes->get('dashboard', 'Talent::dashboard');
         $routes->get('status', 'Talent::status');
         $routes->get('profile', 'Talent::profile');
+        $routes->get('cart', 'Talent::cart');
+        $routes->get('vacancies', 'Talent::vacancies');
         $routes->get('explore', 'Talent::explore');
-        $routes->get('companies', 'Talent::companies');
         $routes->get('myaccount', 'Talent::myaccount');
-    });
-    $routes->group('company/', static function ($routes) {
-        $routes->get('dashboard', 'Company::dashboard');
-        $routes->get('status', 'Company::status');
-        $routes->get('profile', 'Company::profile');
-        $routes->get('cart', 'Company::cart');
-        $routes->get('vacancies', 'Company::vacancies');
-        $routes->get('explore', 'Company::explore');
-        $routes->get('myaccount', 'Company::myaccount');
     });
 });
 
