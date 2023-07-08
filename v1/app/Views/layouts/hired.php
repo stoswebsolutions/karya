@@ -134,13 +134,10 @@
                             <a href="explore" class="text-decoration-none">explore jobs</a>
                         </li>
                         <li class="text-uppercase menu-item black-clr exploreCompanies <?= $active == 'companies' ? 'active' : '' ?>" name="exploreCompanies">
-                            <a href="companies" class="text-decoration-none">explore companies</a>
-                        </li>
-                        <li class="text-uppercase menu-item black-clr myAccount <?= $active == 'myaccount' ? 'active' : '' ?>" name="myAccount">
-                            <!-- my account -->
-                            <div class="dropend myAcc-dropdown">
-                                <button class="btn btn-secondary dropdown-toggle text-uppercase myAcc-dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                    my account
+                            <!-- explore companies -->
+                            <div class="dropend exCom-dropdown">
+                                <button class="btn btn-secondary dropdown-toggle text-uppercase exCom-dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    explore companies
                                 </button>
                                 <ul class="dropdown-menu">
                                     <li>
@@ -170,6 +167,9 @@
                                     </li>
                                 </ul>
                             </div>
+                        </li>
+                        <li class="text-uppercase menu-item black-clr myAccount <?= $active == 'myaccount' ? 'active' : '' ?>" name="myAccount">
+                            <a href="myaccount" class="text-decoration-none">my account</a>
                         </li>
                         <li class="text-uppercase menu-item black-clr logout" name="logout">
                             <a href="../logout" class="text-decoration-none"> log out</a>

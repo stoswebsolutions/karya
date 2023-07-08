@@ -1677,7 +1677,7 @@ label {
 }
 
 .get-hired-section .dashboard .menu .menu-items .profile,
-.get-hired-section .dashboard .menu .menu-items .myAccount {
+.get-hired-section .dashboard .menu .menu-items .exploreCompanies {
   padding: 0;
 }
 
@@ -1704,9 +1704,9 @@ label {
 }
 
 .get-hired-section .dashboard .menu .menu-items .profile-dropdown .profile-dropdown-toggle,
-.get-hired-section .dashboard .menu .menu-items .profile-dropdown .myAcc-dropdown-toggle,
-.get-hired-section .dashboard .menu .menu-items .myAcc-dropdown .profile-dropdown-toggle,
-.get-hired-section .dashboard .menu .menu-items .myAcc-dropdown .myAcc-dropdown-toggle {
+.get-hired-section .dashboard .menu .menu-items .profile-dropdown .exCom-dropdown-toggle,
+.get-hired-section .dashboard .menu .menu-items .exCom-dropdown .profile-dropdown-toggle,
+.get-hired-section .dashboard .menu .menu-items .exCom-dropdown .exCom-dropdown-toggle {
   width: 100%;
   background: transparent;
   padding: 1rem 0;
@@ -1719,9 +1719,9 @@ label {
 }
 
 .get-hired-section .dashboard .menu .menu-items .profile-dropdown .profile-dropdown-toggle::after,
-.get-hired-section .dashboard .menu .menu-items .profile-dropdown .myAcc-dropdown-toggle::after,
-.get-hired-section .dashboard .menu .menu-items .myAcc-dropdown .profile-dropdown-toggle::after,
-.get-hired-section .dashboard .menu .menu-items .myAcc-dropdown .myAcc-dropdown-toggle::after {
+.get-hired-section .dashboard .menu .menu-items .profile-dropdown .exCom-dropdown-toggle::after,
+.get-hired-section .dashboard .menu .menu-items .exCom-dropdown .profile-dropdown-toggle::after,
+.get-hired-section .dashboard .menu .menu-items .exCom-dropdown .exCom-dropdown-toggle::after {
   position: absolute;
   top: 38%;
   left: 90%;
@@ -1729,14 +1729,14 @@ label {
 }
 
 .get-hired-section .dashboard .menu .menu-items .profile-dropdown ul,
-.get-hired-section .dashboard .menu .menu-items .myAcc-dropdown ul {
+.get-hired-section .dashboard .menu .menu-items .exCom-dropdown ul {
   border: 0px;
   padding: 0;
   border-radius: 0;
 }
 
 .get-hired-section .dashboard .menu .menu-items .profile-dropdown ul button,
-.get-hired-section .dashboard .menu .menu-items .myAcc-dropdown ul button {
+.get-hired-section .dashboard .menu .menu-items .exCom-dropdown ul button {
   border-bottom: 1px solid #c4c4c4;
   padding: 1rem 0.5rem;
   font-size: 0.8rem;

@@ -18,7 +18,7 @@ if (rangeSlider) {
 
 // for menu
 // $('.dashboard .menu li').click(function () {
-$('.dashboard-item, .status, .exploreJobs, .exploreCompanies, .logout').click(
+$('.dashboard-item, .status, .exploreJobs, .myAccount, .logout').click(
     function () {
         $('.dashboard .menu li').removeClass('active forDashboard');
         const selectedItem = $(this).attr('name');
