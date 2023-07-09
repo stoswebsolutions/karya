@@ -85,7 +85,7 @@
                 <div class="menu">
                     <ul class="menu-items m-0 p-0">
                         <li class="text-uppercase menu-item dashboard-item forDashboard <?= $active == 'dashboard' ? 'active' : '' ?>" name="dashboard">
-                            <a href="dashboard" class="text-decoration-none">dashboard</a>
+                            <a href="<?= site_url() ?>hired/dashboard" class="text-decoration-none">dashboard</a>
                         </li>
                         <li class="text-uppercase menu-item black-clr status <?= $active == 'status' ? 'active' : '' ?>" name="status">
                             <a href="status" class="text-decoration-none"> status</a>
@@ -142,37 +142,37 @@
                                 <ul class="dropdown-menu">
                                     <li>
                                         <button class="dropdown-item" type="button">
-                                            <a href="myaccount" class="text-decoration-none">Technology</a>
+                                            <a href="<?= site_url() ?>hired/companies/9" class="text-decoration-none">Technology</a>
                                         </button>
                                     </li>
                                     <li>
                                         <button class="dropdown-item" type="button">
-                                            Manufacturing & Construction
+                                            <a href="<?= site_url() ?>hired/companies/2" class="text-decoration-none">Manufacturing & Construction</a>
                                         </button>
                                     </li>
                                     <li>
                                         <button class="dropdown-item" type="button">
-                                            Healthcare
+                                            <a href="<?= site_url() ?>hired/companies/2" class="text-decoration-none">Healthcare</a>
                                         </button>
                                     </li>
                                     <li>
                                         <button class="dropdown-item" type="button">
-                                            Lifestyle & Services
+                                            <a href="<?= site_url() ?>hired/companies/2" class="text-decoration-none">Lifestyle & Services</a>
                                         </button>
                                     </li>
                                     <li>
                                         <button class="dropdown-item" type="button">
-                                            Business & Finance
+                                            <a href="<?= site_url() ?>hired/companies/7" class="text-decoration-none">Business & Finance</a>
                                         </button>
                                     </li>
                                 </ul>
                             </div>
                         </li>
                         <li class="text-uppercase menu-item black-clr myAccount <?= $active == 'myaccount' ? 'active' : '' ?>" name="myAccount">
-                            <a href="myaccount" class="text-decoration-none">my account</a>
+                            <a href="<?= site_url() ?>hired/myaccount" class="text-decoration-none">my account</a>
                         </li>
                         <li class="text-uppercase menu-item black-clr logout" name="logout">
-                            <a href="../logout" class="text-decoration-none"> log out</a>
+                            <a href="<?= site_url() ?>logout" class="text-decoration-none"> log out</a>
                         </li>
                     </ul>
                 </div>

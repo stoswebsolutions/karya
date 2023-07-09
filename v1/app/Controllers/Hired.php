@@ -5,6 +5,11 @@ namespace App\Controllers;
 use App\Controllers\BaseController;
 use App\Models\ApplypostsModel;
 use App\Models\BoughtModel;
+use App\Models\CompanyModel;
+use App\Models\CompanyphotoModel;
+use App\Models\CompanysectorModel;
+use App\Models\CompassessmentModel;
+use App\Models\CompgalleryModel;
 use App\Models\UsersModel;
 use App\Models\UsersviewerModel;
 
@@ -15,6 +20,11 @@ class Hired extends BaseController
     private $usersviewerModel;
     private $applypostsModel;
     private $boughtModel;
+    private $companyModel;
+    private $companyphotoModel;
+    private $compgalleryModel;
+    private $companysectorModel;
+    private $compassessmentModel;
     private $user;
     public function __construct()
     {
@@ -28,6 +38,11 @@ class Hired extends BaseController
         $this->usersviewerModel = new UsersviewerModel();
         $this->applypostsModel = new ApplypostsModel();
         $this->boughtModel = new BoughtModel();
+        $this->companyModel = new CompanyModel();
+        $this->companyphotoModel = new CompanyphotoModel();
+        $this->compgalleryModel = new CompgalleryModel();
+        $this->companysectorModel = new CompanysectorModel();
+        $this->compassessmentModel = new CompassessmentModel();
     }
     public function dashboard()
     {
@@ -77,7 +92,7 @@ class Hired extends BaseController
         $data['is_online'] = $this->user['is_online'];
         return view('hired/explore', $data);
     }
-    public function companies()
+    public function companies($sector_id)
     {
         $data['pageTitle'] = 'Karya | Companies';
         $data['logo'] = 'app-assets/images/logo_karya.png';
@@ -87,7 +102,34 @@ class Hired extends BaseController
         );
         $data['loggedHired'] = $this->loggedHired;
         $data['is_online'] = $this->user['is_online'];
+        $companyDetails = $this->companyModel->where(array('sector' => $sector_id))->findAll();
+        $companyName = $this->companysectorModel->where(array('sector_id' => $sector_id))->first();
+        $data['companyDetails'] = $companyDetails;
+        $data['companyName'] = $companyName['sector_name'];
         return view('hired/companies', $data);
+    }
+    public function exploreCompanies($company_id)
+    {
+        $data['pageTitle'] = 'Karya | Companies';
+        $data['logo'] = 'app-assets/images/logo_karya.png';
+        $data['active'] = 'companies';
+        $data['css'] = array(
+            base_url('app-assets/hired/style.css')
+        );
+        $data['loggedHired'] = $this->loggedHired;
+        $data['is_online'] = $this->user['is_online'];
+        $companyDetails = $this->companyModel->select('*')
+            ->join('tb_company_user', 'tb_company_user.tb_company_user_id = tb_company.tb_company_id')
+            ->where(array('tb_company_id' => $company_id))
+            ->first();
+        $companyPhotos = $this->companyphotoModel->where(array('tb_company_id' => $company_id))->first();
+        $compGallery = $this->compgalleryModel->where(array('company_id' => $company_id))->findAll();
+        $compAssessment = $this->compassessmentModel->where(array('comp_id' => $company_id))->findAll();
+        $data['companyDetails'] = $companyDetails;
+        $data['companyPhotos'] = $companyPhotos;
+        $data['compGallery'] = $compGallery;
+        $data['compAssessment'] = $compAssessment;
+        return view('hired/exploreCompanies', $data);
     }
     public function myaccount()
     {
