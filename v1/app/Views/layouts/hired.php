@@ -4,7 +4,7 @@
 <head>
     <title><?= $pageTitle ?></title>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
     <!-- bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
@@ -22,19 +22,19 @@
                 <img src="<?= site_url() ?>app-assets/images/logo_karya.png" alt="logo" class="brand">
                 <ul class="m-0 p-0">
                     <li class="">
-                        <a href="#"> Get Hired</a>
+                        <a href="<?= site_url() ?>hired/dashboard"> Get Hired </a>
                     </li>
-                    <li class="ms-4">
-                        <a href="#"> Get Talent</a>
+                    <li class="">
+                        <a href="<?= site_url() ?>talent/dashboard"> Get Talent </a>
                     </li>
-                    <li class="ms-4">
-                        <a href="#"> Pricing Plans</a>
+                    <li class="">
+                        <a href="<?= site_url() ?>price"> Pricing Plans </a>
                     </li>
-                    <li class="ms-4">
-                        <a href="#"> Log In</a>
+                    <li class="">
+                        <a href="<?= site_url() ?>login"> Log In </a>
                     </li>
-                    <li class="ms-4">
-                        <a href="#"> Join</a>
+                    <li class="">
+                        <a href="<?= site_url() ?>login"> Join </a>
                     </li>
                 </ul>
                 <i class="fa fa-bars menu-icon" aria-hidden="true" data-bs-toggle="offcanvas" href="#offcanvasMenu" aria-controls="offcanvasMenu"></i>
@@ -63,19 +63,19 @@
                 <div class="offcanvas-body">
                     <ul class="m-0 p-0">
                         <li class="">
-                            <a href="#"> Get Hired</a>
+                            <a href="<?= site_url() ?>hired/dashboard"> Get Hired </a>
                         </li>
                         <li class="">
-                            <a href="#"> Get Talent</a>
+                            <a href="<?= site_url() ?>talent/dashboard"> Get Talent </a>
                         </li>
                         <li class="">
-                            <a href="#"> Pricing Plans</a>
+                            <a href="<?= site_url() ?>price"> Pricing Plans </a>
                         </li>
                         <li class="">
-                            <a href="#"> Log In</a>
+                            <a href="<?= site_url() ?>login"> Log In </a>
                         </li>
                         <li class="">
-                            <a href="#"> Join</a>
+                            <a href="<?= site_url() ?>login"> Join </a>
                         </li>
                     </ul>
                 </div>
@@ -88,7 +88,10 @@
                             <a href="<?= site_url() ?>hired/dashboard" class="text-decoration-none">dashboard</a>
                         </li>
                         <li class="text-uppercase menu-item black-clr status <?= $active == 'status' ? 'active' : '' ?>" name="status">
-                            <a href="status" class="text-decoration-none"> status</a>
+                            <a href="<?= site_url() ?>hired/status" class="text-decoration-none"> status</a>
+                        </li>
+                        <li class="text-uppercase menu-item black-clr per-assessment <?= $active == 'perAssessment' ? 'active' : '' ?>" name="perAssessment">
+                            <a href="<?= site_url() ?>hired/perAssessment" class="text-decoration-none"> Personality Assessment</a>
                         </li>
                         <li class="text-uppercase menu-item black-clr profile <?= $active == 'profile' ? 'active' : '' ?>" name="profile">
                             <!-- profile -->
@@ -99,39 +102,34 @@
                                 <ul class="dropdown-menu">
                                     <li>
                                         <button class="dropdown-item" type="button">
-                                            <a href="profile" class="text-decoration-none">Update Personal Information</a>
+                                            <a href="<?= site_url() ?>hired/updatePerInfo" class="text-decoration-none">Update Personal Information</a>
                                         </button>
                                     </li>
                                     <li>
                                         <button class="dropdown-item" type="button">
-                                            Personality Assessment
+                                            <a href="<?= site_url() ?>hired/uploadResume" class="text-decoration-none">Upload Resume</a>
                                         </button>
                                     </li>
                                     <li>
                                         <button class="dropdown-item" type="button">
-                                            Upload Resume
+                                            <a href="<?= site_url() ?>hired/interviewPrep" class="text-decoration-none">Interview Preparation</a>
                                         </button>
                                     </li>
                                     <li>
                                         <button class="dropdown-item" type="button">
-                                            Interview Preparation
+                                            <a href="<?= site_url() ?>hired/uploadVideo" class="text-decoration-none">Upload Video</a>
                                         </button>
                                     </li>
                                     <li>
                                         <button class="dropdown-item" type="button">
-                                            Upload Video
-                                        </button>
-                                    </li>
-                                    <li>
-                                        <button class="dropdown-item" type="button">
-                                            My Profile
+                                            <a href="<?= site_url() ?>hired/myProfile" class="text-decoration-none">My Profile</a>
                                         </button>
                                     </li>
                                 </ul>
                             </div>
                         </li>
                         <li class="text-uppercase menu-item black-clr exploreJobs <?= $active == 'explore' ? 'active' : '' ?>" name="exploreJobs">
-                            <a href="explore" class="text-decoration-none">explore jobs</a>
+                            <a href="<?= site_url() ?>hired/explore" class="text-decoration-none">explore jobs</a>
                         </li>
                         <li class="text-uppercase menu-item black-clr exploreCompanies <?= $active == 'companies' ? 'active' : '' ?>" name="exploreCompanies">
                             <!-- explore companies -->
@@ -177,14 +175,16 @@
                     </ul>
                 </div>
                 <div class="select-menu">
-                    <select class="form-select menu-item-select karya-select">
-                        <option selected value="dashboard">Dashboard</option>
-                        <option value="status">Status</option>
-                        <option value="profile">Profile</option>
-                        <option value="exploreJobs">Explore Jobs</option>
-                        <option value="exploreCompanies">Explore Companies</option>
-                        <option value="myAccount">My Account</option>
-                        <option value="logout">Log out</option>
+                    <select class="form-select menu-item-select karya-select" name="menu1" id="menu1">
+                        <option value="" selected disabled> --Select-- </option>
+                        <option value="dashboard"> Dashboard</option>
+                        <option value="status"> Status</option>
+                        <option value="perAssessment"> Personality Assessment</option>
+                        <option value="profile"> Profile</option>
+                        <option value="explore"> Explore Jobs</option>
+                        <option value="exploreCompanies"> Explore Companies</option>
+                        <option value="myaccount"> My Account</option>
+                        <option value="logout"> Log out</option>
                     </select>
                 </div>
                 <?= $this->renderSection("body") ?>
@@ -193,5 +193,29 @@
     </div>
 </body>
 <script src="<?= site_url() ?>app-assets/js/script.js"></script>
+<script src="<?= site_url() ?>app-assets/js/jquery.min.js"></script>
+<script>
+    $(document).ready(function() {
+        $(document).on("change", "#menu1", function(e) {
+            var data = $(this).val();
+            if (data == "dashboard")
+                location.replace("<?= site_url() ?>hired/dashboard");
+            else if (data == "status")
+                location.replace("<?= site_url() ?>hired/status");
+            else if (data == "perAssessment")
+                location.replace("<?= site_url() ?>hired/perAssessment");
+            else if (data == "myProfile")
+                location.replace("<?= site_url() ?>hired/myProfile");
+            else if (data == "explore")
+                location.replace("<?= site_url() ?>hired/explore");
+            else if (data == "exploreCompanies")
+                location.replace("<?= site_url() ?>hired/companies/9");
+            else if (data == "myaccount")
+                location.replace("<?= site_url() ?>hired/myaccount");
+            else if (data == "logout")
+                location.replace("<?= site_url() ?>logout");
+        });
+    });
+</script>
 
 </html>

@@ -1,9 +1,9 @@
 <?= $this->extend("layouts/app") ?>
 <?= $this->section("body") ?>
-<img src="<?= site_url() ?>app-assets/images/logo_karya.png" alt="logo" class="" />
 <div class="container">
     <div class="row">
-        <div class="col">
+        <div class="col-sm-12">
+            <img src="<?= site_url() ?>app-assets/images/logo_karya.png" alt="logo" class="img-fluid mx-auto d-block" />
             <h1 class="text-center">Hello, Hired!</h1>
             <form class="" id="hiredform" action="<?= base_url('hiredLogin') ?>" method="post">
                 <?= csrf_field(); ?>
@@ -13,7 +13,7 @@
                     <div class="alert alert-success"><?= session()->getFlashdata('success'); ?></div>
                 <?php endif ?>
                 <div class="row">
-                    <div class="col-6 offset-3 p-5 shadow bg-default rounded">
+                    <div class="col-sm-6 p-5 shadow bg-default rounded">
                         <div class="form-group mb-3">
                             <input type="email" class="form-control form-control-lg" id="email" name="email" value="<?= set_value('email') ?>" placeholder="Email Address" aria-label="Username" />
                             <div class="text-danger"><?= !empty(session()->getFlashdata('validation')) ? error(session()->getFlashdata('validation'), 'email') : '' ?></div>

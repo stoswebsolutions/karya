@@ -19,19 +19,19 @@ if (isset($css) && $css != NULL) {
                         <img src="<?= site_url() ?>app-assets/images/logo_karya.png" alt="logo" class="brand" />
                         <ul class="m-0 p-0">
                             <li class="">
-                                <a href="#"> Get Hired </a>
+                                <a href="<?= site_url() ?>hired/dashboard"> Get Hired </a>
                             </li>
                             <li class="ms-4">
-                                <a href=""> Get Talent </a>
+                                <a href="<?= site_url() ?>talent/dashboard"> Get Talent </a>
                             </li>
                             <li class="ms-4">
-                                <a href="price"> Pricing Plans </a>
+                                <a href="<?= site_url() ?>price"> Pricing Plans </a>
                             </li>
                             <li class="ms-4">
-                                <a href="login"> Log In </a>
+                                <a href="<?= site_url() ?>login"> Log In </a>
                             </li>
                             <li class="ms-4">
-                                <a href=""> Join </a>
+                                <a href="<?= site_url() ?>login"> Join </a>
                             </li>
                         </ul>
                         <i class="fa fa-bars menu-icon" aria-hidden="true" data-bs-toggle="offcanvas" href="#offcanvasMenu" aria-controls="offcanvasMenu"></i>
@@ -53,19 +53,19 @@ if (isset($css) && $css != NULL) {
                         <img src="<?= site_url() ?>app-assets/images/logo_karya_light.png" alt="logo" class="brand" />
                         <ul class="m-0 p-0">
                             <li class="">
-                                <a href="#"> Get Hired </a>
+                                <a href="<?= site_url() ?>hired/dashboard"> Get Hired </a>
                             </li>
                             <li class="ms-4">
-                                <a href=""> Get Talent </a>
+                                <a href="<?= site_url() ?>talent/dashboard"> Get Talent </a>
                             </li>
                             <li class="ms-4">
-                                <a href=""> Pricing Plans </a>
+                                <a href="<?= site_url() ?>price"> Pricing Plans </a>
                             </li>
                             <li class="ms-4">
-                                <a href=""> Log In </a>
+                                <a href="<?= site_url() ?>login"> Log In </a>
                             </li>
                             <li class="ms-4">
-                                <a href=""> Join </a>
+                                <a href="<?= site_url() ?>login"> Join </a>
                             </li>
                         </ul>
                         <i class="fa fa-bars menu-icon" aria-hidden="true" data-bs-toggle="offcanvas" href="#offcanvasMenu" aria-controls="offcanvasMenu"></i>
@@ -97,19 +97,19 @@ if (isset($css) && $css != NULL) {
             <div class="offcanvas-body">
                 <ul class="m-0 p-0">
                     <li class="">
-                        <a href="#"> Get Hired </a>
+                        <a href="<?= site_url() ?>hired/dashboard"> Get Hired </a>
                     </li>
                     <li class="">
-                        <a href=""> Get Talent </a>
+                        <a href="<?= site_url() ?>talent/dashboard"> Get Talent </a>
                     </li>
                     <li class="">
-                        <a href=""> Pricing Plans </a>
+                        <a href="<?= site_url() ?>price"> Pricing Plans </a>
                     </li>
                     <li class="">
-                        <a href=""> Log In </a>
+                        <a href="<?= site_url() ?>login"> Log In </a>
                     </li>
                     <li class="">
-                        <a href=""> Join </a>
+                        <a href="<?= site_url() ?>login"> Join </a>
                     </li>
                 </ul>
             </div>
