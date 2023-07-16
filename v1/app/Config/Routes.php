@@ -49,6 +49,7 @@ $routes->group('/', ['filter' => 'auth'], function ($routes) {
         $routes->get('exploreCompanies/(:any)', 'Hired::exploreCompanies/$1');
         $routes->get('updatePerInfo', 'Hired::updatePerInfo');
         $routes->get('uploadResume', 'Hired::uploadResume');
+        $routes->get('interviewPrep', 'Hired::interviewPrep');
         $routes->get('status', 'Hired::status');
         $routes->get('profile', 'Hired::profile');
         $routes->get('explore', 'Hired::explore');

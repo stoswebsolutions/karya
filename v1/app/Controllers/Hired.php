@@ -524,6 +524,18 @@ class Hired extends BaseController
         $data['is_online'] = $this->user['is_online'];
         return view('hired/uploadResume', $data);
     }
+    public function interviewPrep()
+    {
+        $data['pageTitle'] = 'Karya | Profile';
+        $data['logo'] = 'app-assets/images/logo_karya.png';
+        $data['active'] = 'profile';
+        $data['css'] = array(
+            base_url('app-assets/hired/style.css')
+        );
+        $data['loggedHired'] = $this->loggedHired;
+        $data['is_online'] = $this->user['is_online'];
+        return view('hired/interviewPrep', $data);
+    }
     public function companies($sector_id)
     {
         $data['pageTitle'] = 'Karya | Companies';
