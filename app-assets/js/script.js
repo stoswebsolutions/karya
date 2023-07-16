@@ -18,7 +18,7 @@ if (rangeSlider) {
 
 // for menu
 // $('.dashboard .menu li').click(function () {
-$('.dashboard-item, .status, .exploreJobs, .myAccount, .logout').click(
+$('.dashboard-item, .status, .per-assessment, .exploreJobs, .myAccount, .logout').click(
     function () {
         $('.dashboard .menu li').removeClass('active forDashboard');
         const selectedItem = $(this).attr('name');
@@ -49,10 +49,10 @@ $('.menu-item-select').on('change', function () {
 });
 
 // for assessment
-$('.discover-btn').click(function () {
-    $('.discover-details').addClass('d-none');
-    $('.assessment-qstn').removeClass('d-none');
-});
+// $('.discover-btn').click(function () {
+//     $('.discover-details').addClass('d-none');
+//     $('.assessment-qstn').removeClass('d-none');
+// });
 
 $('.assessment-qstn .qstn-choices label').click(function () {
     const selectedChoice = $(this).attr('for');

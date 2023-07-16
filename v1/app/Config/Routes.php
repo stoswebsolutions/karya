@@ -42,6 +42,8 @@ $routes->group('/', ['filter' => 'noauth'], function ($routes) {
 $routes->group('/', ['filter' => 'auth'], function ($routes) {
     $routes->group('hired/', static function ($routes) {
         $routes->get('dashboard', 'Hired::dashboard');
+        $routes->get('perAssessment', 'Hired::perAssessment');
+        $routes->post('perAssessmentSubmit', 'Hired::perAssessmentSubmit');
         $routes->get('myaccount', 'Hired::myaccount');
         $routes->get('companies/(:any)', 'Hired::companies/$1');
         $routes->get('exploreCompanies/(:any)', 'Hired::exploreCompanies/$1');

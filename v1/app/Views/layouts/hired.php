@@ -13,6 +13,7 @@
     <!-- jQuery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
     <link rel="stylesheet" href="<?= site_url() ?>app-assets/hired/style.css">
+    <link rel="stylesheet" href="<?= site_url() ?>app-assets/hired/questions.css">
 </head>
 
 <body>
@@ -193,6 +194,7 @@
     </div>
 </body>
 <script src="<?= site_url() ?>app-assets/js/script.js"></script>
+<script src="<?= site_url() ?>app-assets/hired/questions.js"></script>
 <script src="<?= site_url() ?>app-assets/js/jquery.min.js"></script>
 <script>
     $(document).ready(function() {
