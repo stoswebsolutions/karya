@@ -1261,7 +1261,7 @@ label {
 }
 
 .stepper-container .personality-assessment:after {
-  content: "Personality\a Assessment";
+  content: "";
   position: absolute;
   top: 1.5rem;
   left: 59%;

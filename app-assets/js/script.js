@@ -82,11 +82,11 @@ $('.assessment-back').click(function () {
     $('.personality-assessment-section').addClass('d-none');
     $('.upload-resume-form').removeClass('d-none');
 });
-$('.assessment-next').click(function () {
-    $('.personality-assessment-section').addClass('d-none');
-    $('.interview-prep-section').removeClass('d-none');
-    $('.personality-assessment .progress-lines').addClass('completed');
-});
+// $('.assessment-next').click(function () {
+//     $('.personality-assessment-section').addClass('d-none');
+//     $('.interview-prep-section').removeClass('d-none');
+//     $('.personality-assessment .progress-lines').addClass('completed');
+// });
 
 $('.interview-prep-back').click(function () {
     $('.interview-prep-section').addClass('d-none');

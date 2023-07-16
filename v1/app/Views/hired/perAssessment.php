@@ -10,9 +10,9 @@
                 <span class="circle"></span>
             </div>
             <div class="personality-assessment position-relative">
-                <div class="progress-lines d-flex align-items-center">
+                <div class="progress-lines d-flex align-items-center start">
                     <span class="hor-line"></span>
-                    <span class="ver-line"></span>
+                    <span class="circle"></span>
                 </div>
             </div>
             <div class="personal-info position-relative">
@@ -333,37 +333,13 @@
                     personal information. This information is crucial in matching
                     you with the job vacancy available.
                 </h1>
-                <div class="to-fro-btns">
-                    <button class="btn back-btn assessment-back">Go Back</button>
-                    <button class="btn next-btn assessment-next" type="submit">Next</button>
-                </div>
+                <button class="btn profile-forms-btn assessment-next" type="submit">
+                    Showcase Yourself
+                </button>
             </div>
         </form>
     </div>
     <!-- ends::personality assessment -->
-    <!-- congrats note -->
-    <div class="congrats-note-section d-none">
-        <div class="intro">
-            <h1 class="pri-clr congrats-hdr py-3 py-sm-4 py-xl-5 mb-0">
-                <p class="mb-3">
-                    Congratulations on completing your job seeker profile! You
-                    have taken an important step towards finding your dream job.
-                    By filling out your profile, you have made it easier for
-                    potential employers to learn about your skills and
-                    qualifications, which will increase your chances of getting
-                    hired. Keep up the good work and stay focused on your job
-                    search. The right opportunity is out there, and you're now
-                    one step closer to finding it! Best of luck in your job
-                    search!
-                </p>
-                <p class="mb-0">You may now view your complete profile.</p>
-            </h1>
-            <button class="btn profile-forms-btn my-profile-btn">
-                MY PROFILE
-            </button>
-        </div>
-    </div>
-    <!-- ends::congrats note -->
 </div>
 <!-- ends::profile tab -->
 <?= $this->endSection() ?>

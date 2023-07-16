@@ -498,15 +498,7 @@ class Hired extends BaseController
         }
         $usersupdate = $this->usersModel->update(array('email' => $email, 'ID' => $ID), array('test_attempt' => '1', 'disc_progress' => 100));
 
-        $data['pageTitle'] = 'Karya | Profile';
-        $data['logo'] = 'app-assets/images/logo_karya.png';
-        $data['active'] = 'profile';
-        $data['css'] = array(
-            base_url('app-assets/hired/style.css')
-        );
-        $data['loggedHired'] = $this->loggedHired;
-        $data['is_online'] = $this->user['is_online'];
-        return view('hired/updatePerInfo', $data);
+        return redirect()->back()->withInput();
     }
     
     public function profile()

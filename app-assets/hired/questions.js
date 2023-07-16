@@ -4,13 +4,6 @@ $('.discover-btn').click(function () {
     $('.disc-qstn1').removeClass('d-none');
 });
 
-// $('.disc-qstn9 .qstn-choices label').click(function () {
-//     const selectedChoice = $(this).attr('for');
-//     alert('user opted - ' + selectedChoice);
-//     $('.disc-qstn9').addClass('d-none');
-//     $('.thanks-note').removeClass('d-none');
-// });
-
 for (let i = 1; i < 10; i++) {
     $('.disc-qstn' + i).click(function () {
         const selectedChoice = $(this).attr('for');
@@ -83,7 +76,14 @@ for (let i = 37; i < 42; i++) {
         $("#".selectedChoice).prop('checked', true);
         $('.appt-qstn' + i).addClass('d-none');
         $('.appt-qstn' + (i + 1)).removeClass('d-none');
-        if (i == 41)
+        if (i == 41){
             $('.thanks-note').removeClass('d-none');
+            $('.personality-assessment .progress-lines').addClass('completed');
+        }
     });
 }
+
+$('.assessment-next').click(function () {
+    $('.personality-assessment-section').addClass('d-none');
+    $('.personal-info-form').removeClass('d-none');
+});
