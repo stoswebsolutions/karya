@@ -500,8 +500,7 @@ class Hired extends BaseController
 
         return redirect()->back()->withInput();
     }
-    
-    public function profile()
+    public function updatePerInfo()
     {
         $data['pageTitle'] = 'Karya | Profile';
         $data['logo'] = 'app-assets/images/logo_karya.png';
@@ -511,19 +510,7 @@ class Hired extends BaseController
         );
         $data['loggedHired'] = $this->loggedHired;
         $data['is_online'] = $this->user['is_online'];
-        return view('hired/profile', $data);
-    }
-    public function explore()
-    {
-        $data['pageTitle'] = 'Karya | Explore';
-        $data['logo'] = 'app-assets/images/logo_karya.png';
-        $data['active'] = 'explore';
-        $data['css'] = array(
-            base_url('app-assets/hired/style.css')
-        );
-        $data['loggedHired'] = $this->loggedHired;
-        $data['is_online'] = $this->user['is_online'];
-        return view('hired/explore', $data);
+        return view('hired/updatePerInfo', $data);
     }
     public function companies($sector_id)
     {
@@ -590,5 +577,30 @@ class Hired extends BaseController
             ->findAll();
         $data['profileSold'] = $profileSold;
         return view('hired/myaccount', $data);
+    }
+
+    public function profile()
+    {
+        $data['pageTitle'] = 'Karya | Profile';
+        $data['logo'] = 'app-assets/images/logo_karya.png';
+        $data['active'] = 'profile';
+        $data['css'] = array(
+            base_url('app-assets/hired/style.css')
+        );
+        $data['loggedHired'] = $this->loggedHired;
+        $data['is_online'] = $this->user['is_online'];
+        return view('hired/profile', $data);
+    }
+    public function explore()
+    {
+        $data['pageTitle'] = 'Karya | Explore';
+        $data['logo'] = 'app-assets/images/logo_karya.png';
+        $data['active'] = 'explore';
+        $data['css'] = array(
+            base_url('app-assets/hired/style.css')
+        );
+        $data['loggedHired'] = $this->loggedHired;
+        $data['is_online'] = $this->user['is_online'];
+        return view('hired/explore', $data);
     }
 }
