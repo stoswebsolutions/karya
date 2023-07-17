@@ -203,9 +203,11 @@
                 </p>
                 <p class="mb-0">You may now view your complete profile.</p>
             </h1>
-            <button class="btn profile-forms-btn my-profile-btn">
-                MY PROFILE
-            </button>
+            <a href="<?= site_url() ?>hired/myProfile" class="text-decoration-none">
+                <button class="btn profile-forms-btn my-profile-btn">
+                    MY PROFILE
+                </button>
+            </a>
         </div>
     </div>
     <!-- ends::congrats note -->
