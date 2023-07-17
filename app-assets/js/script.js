@@ -54,12 +54,12 @@ $('.menu-item-select').on('change', function () {
 //     $('.assessment-qstn').removeClass('d-none');
 // });
 
-$('.assessment-qstn .qstn-choices label').click(function () {
-    const selectedChoice = $(this).attr('for');
-    alert('user opted - ' + selectedChoice);
-    $('.assessment-qstn').addClass('d-none');
-    $('.thanks-note').removeClass('d-none');
-});
+// $('.assessment-qstn .qstn-choices label').click(function () {
+//     const selectedChoice = $(this).attr('for');
+//     alert('user opted - ' + selectedChoice);
+//     $('.assessment-qstn').addClass('d-none');
+//     $('.thanks-note').removeClass('d-none');
+// });
 
 // to-fro btns
 $('.personal-info-next').click(function () {
@@ -78,10 +78,10 @@ $('.resume-next').click(function () {
     $('.upload-resume .progress-lines').addClass('completed');
 });
 
-$('.assessment-back').click(function () {
-    $('.personality-assessment-section').addClass('d-none');
-    $('.upload-resume-form').removeClass('d-none');
-});
+// $('.assessment-back').click(function () {
+//     $('.personality-assessment-section').addClass('d-none');
+//     $('.upload-resume-form').removeClass('d-none');
+// });
 // $('.assessment-next').click(function () {
 //     $('.personality-assessment-section').addClass('d-none');
 //     $('.interview-prep-section').removeClass('d-none');
@@ -127,10 +127,8 @@ $('.eval-next').click(function () {
 });
 
 $('.interview-prep-section .okay-btn').click(function () {
-    $('.interview-prep-section .intro, .for-stepper').addClass('d-none');
-    $(
-        '.interview-prep-section .interview-pitches, .interview-pitches-accordion'
-    ).removeClass('d-none');
+    $('.interview-prep-section .intro').addClass('d-none');
+    $('.interview-prep-section .interview-pitches, .interview-pitches-accordion').removeClass('d-none');
 });
 
 $('.generate-eval-section .generate-btn').click(function () {
