@@ -4,16 +4,29 @@ namespace App\Controllers;
 
 use App\Controllers\BaseController;
 
+use function PHPUnit\Framework\isNull;
+
 class Talent extends BaseController
 {
+    private $loggedData;
+    private $loggedTalent;
+    public function __construct()
+    {
+        $this->loggedData = session()->get('LoggedData');
+        $this->loggedTalent = $this->loggedData['talent'];
+    }
     public function dashboard()
     {
+        if (empty($this->loggedData['talent'])) {
+            return  redirect()->back();
+        }
         $data['pageTitle'] = 'Karya | Dashboard';
         $data['logo'] = 'app-assets/images/logo_karya.png';
         $data['active'] = 'dashboard';
         $data['css'] = array(
             base_url('app-assets/talent/style.css')
         );
+        $data['loggedTalent'] = $this->loggedTalent;
         return view('talent/dashboard', $data);
     }
     public function profile()

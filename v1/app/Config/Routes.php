@@ -37,6 +37,7 @@ $routes->group('/', ['filter' => 'noauth'], function ($routes) {
     $routes->get('login', 'Home::login');
     $routes->post('action', 'Home::action');
     $routes->post('hiredLogin', 'Home::hiredLogin');
+    $routes->post('talentLogin', 'Home::talentLogin');
 });
 
 $routes->group('/', ['filter' => 'auth'], function ($routes) {

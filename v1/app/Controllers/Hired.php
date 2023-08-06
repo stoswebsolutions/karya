@@ -33,8 +33,11 @@ use App\Models\UsersModel;
 use App\Models\UsersviewerModel;
 use App\Models\UseruploadsModel;
 
+use function PHPUnit\Framework\isNull;
+
 class Hired extends BaseController
 {
+    private $loggedData;
     private $loggedHired;
     private $usersModel;
     private $usersviewerModel;
@@ -68,13 +71,12 @@ class Hired extends BaseController
     private $skillsModel;
     public function __construct()
     {
-        $this->loggedHired = session()->get('HiredData');
-        if ($this->loggedHired['user_role'] != 7) {
-            echo "Your Not Correct User";
-            exit;
-        }
+        $this->loggedData = session()->get('LoggedData');
+        $this->loggedHired = $this->loggedData['hired'];
         $this->usersModel = new UsersModel();
-        $this->user = $this->usersModel->where('ID', $this->loggedHired['ID'])->first();
+        if($this->loggedHired){
+            $this->user = $this->usersModel->where('ID', $this->loggedHired['ID'])->first();
+        }
         $this->usersviewerModel = new UsersviewerModel();
         $this->applypostsModel = new ApplypostsModel();
         $this->boughtModel = new BoughtModel();
@@ -106,6 +108,12 @@ class Hired extends BaseController
     }
     public function dashboard()
     {
+        if (empty($this->loggedData['hired'])) {
+            return  redirect()->back();
+        }
+        if ($this->loggedHired['user_role'] != 7) {
+            return  redirect()->back()->with('fail', 'Your Not Correct User');
+        }
         $data['pageTitle'] = 'Karya | Dashboard';
         $data['logo'] = 'app-assets/images/logo_karya.png';
         $data['active'] = 'dashboard';
