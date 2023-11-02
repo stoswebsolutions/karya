@@ -1,4 +1,24 @@
 <?= $this->extend("layouts/talent") ?>
+<script>
+    function bought_type(bought_type) {
+        var pt = bought_type.value;
+        var myArray = pt.split("@");
+        var tb_bought_id = myArray[0];
+        var bought_type = myArray[1];
+        $.ajax({
+            url: "<?= base_url() ?>talent/bought_update",
+            type: "POST",
+            data: {
+                tb_bought_id: tb_bought_id,
+                bought_type: bought_type
+            },
+            dataType: 'JSON',
+            complete: function(data) {
+                alert(data.responseText);
+            }
+        });
+    }
+</script>
 <?= $this->section("body") ?>
 <!-- my account tab -->
 <div class="data my-account-data">
@@ -51,210 +71,52 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <th scope="row">1</th>
-                                <td>syifasulaiman1691@gmail.com</td>
-                                <td>2022-12-16 05:51:04</td>
-                                <td>
-                                    <select id="profile-status" class="form-select profile-status-slct py-1">
-                                        <option selected disabled>--select--</option>
-                                        <option value="s1">Status 1</option>
-                                        <option value="s2">Status 2</option>
-                                    </select>
-                                </td>
-                                <td>
-                                    <button class="btn view-prfl-btn">
-                                        view profile
-                                    </button>
-                                </td>
-                                <td>
-                                    <button class="btn vid-applicant-btn">
-                                        video applicant
-                                    </button>
-                                </td>
-                            </tr>
-                            <tr>
-                                <th scope="row">2</th>
-                                <td>syifasulaiman1691@gmail.com</td>
-                                <td>2022-12-16 05:51:04</td>
-                                <td>
-                                    <select id="profile-status" class="form-select profile-status-slct py-1">
-                                        <option selected disabled>--select--</option>
-                                        <option value="s1">Status 1</option>
-                                        <option value="s2">Status 2</option>
-                                    </select>
-                                </td>
-                                <td>
-                                    <button class="btn view-prfl-btn">
-                                        view profile
-                                    </button>
-                                </td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <th scope="row">3</th>
-                                <td>syifasulaiman1691@gmail.com</td>
-                                <td>2022-12-16 05:51:04</td>
-                                <td>
-                                    <select id="profile-status" class="form-select profile-status-slct py-1">
-                                        <option selected disabled>--select--</option>
-                                        <option value="s1">Status 1</option>
-                                        <option value="s2">Status 2</option>
-                                    </select>
-                                </td>
-                                <td>
-                                    <button class="btn view-prfl-btn">
-                                        view profile
-                                    </button>
-                                </td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <th scope="row">4</th>
-                                <td>syifasulaiman1691@gmail.com</td>
-                                <td>2022-12-16 05:51:04</td>
-                                <td>
-                                    <select id="profile-status" class="form-select profile-status-slct py-1">
-                                        <option selected disabled>--select--</option>
-                                        <option value="s1">Status 1</option>
-                                        <option value="s2">Status 2</option>
-                                    </select>
-                                </td>
-                                <td>
-                                    <button class="btn view-prfl-btn">
-                                        view profile
-                                    </button>
-                                </td>
-                                <td>
-                                    <button class="btn vid-applicant-btn">
-                                        video applicant
-                                    </button>
-                                </td>
-                            </tr>
-                            <tr>
-                                <th scope="row">5</th>
-                                <td>syifasulaiman1691@gmail.com</td>
-                                <td>2022-12-16 05:51:04</td>
-                                <td>
-                                    <select id="profile-status" class="form-select profile-status-slct py-1">
-                                        <option selected disabled>--select--</option>
-                                        <option value="s1">Status 1</option>
-                                        <option value="s2">Status 2</option>
-                                    </select>
-                                </td>
-                                <td>
-                                    <button class="btn view-prfl-btn">
-                                        view profile
-                                    </button>
-                                </td>
-                                <td>
-                                    <button class="btn vid-applicant-btn">
-                                        video applicant
-                                    </button>
-                                </td>
-                            </tr>
-                            <tr>
-                                <th scope="row">6</th>
-                                <td>syifasulaiman1691@gmail.com</td>
-                                <td>2022-12-16 05:51:04</td>
-                                <td>
-                                    <select id="profile-status" class="form-select profile-status-slct py-1">
-                                        <option selected disabled>--select--</option>
-                                        <option value="s1">Status 1</option>
-                                        <option value="s2">Status 2</option>
-                                    </select>
-                                </td>
-                                <td>
-                                    <button class="btn view-prfl-btn">
-                                        view profile
-                                    </button>
-                                </td>
-                                <td>
-                                    <button class="btn vid-applicant-btn">
-                                        video applicant
-                                    </button>
-                                </td>
-                            </tr>
-                            <tr>
-                                <th scope="row">7</th>
-                                <td>syifasulaiman1691@gmail.com</td>
-                                <td>2022-12-16 05:51:04</td>
-                                <td>
-                                    <select id="profile-status" class="form-select profile-status-slct py-1">
-                                        <option selected disabled>--select--</option>
-                                        <option value="s1">Status 1</option>
-                                        <option value="s2">Status 2</option>
-                                    </select>
-                                </td>
-                                <td>
-                                    <button class="btn view-prfl-btn">
-                                        view profile
-                                    </button>
-                                </td>
-                                <td>
-                                    <button class="btn vid-applicant-btn">
-                                        video applicant
-                                    </button>
-                                </td>
-                            </tr>
-                            <tr>
-                                <th scope="row">8</th>
-                                <td>syifasulaiman1691@gmail.com</td>
-                                <td>2022-12-16 05:51:04</td>
-                                <td>
-                                    <select id="profile-status" class="form-select profile-status-slct py-1">
-                                        <option selected disabled>--select--</option>
-                                        <option value="s1">Status 1</option>
-                                        <option value="s2">Status 2</option>
-                                    </select>
-                                </td>
-                                <td>
-                                    <button class="btn view-prfl-btn">
-                                        view profile
-                                    </button>
-                                </td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <th scope="row">9</th>
-                                <td>syifasulaiman1691@gmail.com</td>
-                                <td>2022-12-16 05:51:04</td>
-                                <td>
-                                    <select id="profile-status" class="form-select profile-status-slct py-1">
-                                        <option selected disabled>--select--</option>
-                                        <option value="s1">Status 1</option>
-                                        <option value="s2">Status 2</option>
-                                    </select>
-                                </td>
-                                <td>
-                                    <button class="btn view-prfl-btn">
-                                        view profile
-                                    </button>
-                                </td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <th scope="row">10</th>
-                                <td>syifasulaiman1691@gmail.com</td>
-                                <td>2022-12-16 05:51:04</td>
-                                <td>
-                                    <select id="profile-status" class="form-select profile-status-slct py-1">
-                                        <option selected disabled>--select--</option>
-                                        <option value="s1">Status 1</option>
-                                        <option value="s2">Status 2</option>
-                                    </select>
-                                </td>
-                                <td>
-                                    <button class="btn view-prfl-btn">
-                                        view profile
-                                    </button>
-                                </td>
-                                <td>
-                                    <button class="btn vid-applicant-btn">
-                                        video applicant
-                                    </button>
-                                </td>
-                            </tr>
+                            <?php
+                            if (!empty($boughtDetails)) {
+                                foreach ($boughtDetails as $index => $row) {
+                            ?>
+                                    <tr>
+                                        <th scope="row"><?= $index + 1 ?></th>
+                                        <td><?= $row['user_email'] ?></td>
+                                        <td><?= $row['date'] ?></td>
+                                        <td>
+                                            <?php
+                                            $s = '';
+                                            $s1 = '';
+                                            $s2 = '';
+                                            $s3 = '';
+                                            if ($row['bought_type'] == "KIV") {
+                                                $s1 = 'selected';
+                                            } else if ($row['bought_type'] == "Selected for Interview") {
+                                                $s2 = 'selected';
+                                            } else if ($row['bought_type'] == "Hired") {
+                                                $s3 = 'selected';
+                                            } else {
+                                                $s = 'selected';
+                                            }
+                                            ?>
+                                            <select name="bought_type" id="bought_type" onchange="bought_type(this)">
+                                                <option value=0 <?= $s ?>>--select--</option>
+                                                <option value="<?= $row['tb_bought_id'] ?>@KIV" <?= $s1 ?>>KIV</option>
+                                                <option value="<?= $row['tb_bought_id'] ?>@Selected for Interview" <?= $s2 ?>>Selected for Interview</option>
+                                                <option value="<?= $row['tb_bought_id'] ?>@Hired" <?= $s3 ?>>Hired</option>
+                                            </select>
+                                        </td>
+                                        <td>
+                                            <button class="btn view-prfl-btn">
+                                                view profile
+                                            </button>
+                                        </td>
+                                        <td>
+                                            <button class="btn vid-applicant-btn">
+                                                video applicant
+                                            </button>
+                                        </td>
+                                    </tr>
+                            <?php
+                                }
+                            }
+                            ?>
                         </tbody>
                     </table>
                     <div class="pagination-dets">
@@ -314,73 +176,29 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <th scope="row">1</th>
-                                <td>wxqinxw@gmail.com</td>
-                                <td>2022-12-16 05:51:00</td>
-                                <td>
-                                    <button class="btn view-prfl-btn">
-                                        view profile
-                                    </button>
-                                </td>
-                                <td>
-                                    <button class="btn remove-cart-btn">
-                                        remove cart
-                                    </button>
-                                </td>
-                            </tr>
-                            <tr>
-                                <th scope="row">2</th>
-                                <td>wxqinxw@gmail.com</td>
-                                <td>2022-12-16 05:51:00</td>
-                                <td>
-                                    <button class="btn view-prfl-btn">
-                                        view profile
-                                    </button>
-                                </td>
-                                <td>
-                                    <button class="btn add-cart-btn">add cart</button>
-                                </td>
-                            </tr>
-                            <tr>
-                                <th scope="row">3</th>
-                                <td>wxqinxw@gmail.com</td>
-                                <td>2022-12-16 05:51:00</td>
-                                <td>
-                                    <button class="btn view-prfl-btn">
-                                        view profile
-                                    </button>
-                                </td>
-                                <td>
-                                    <button class="btn add-cart-btn">add cart</button>
-                                </td>
-                            </tr>
-                            <tr>
-                                <th scope="row">4</th>
-                                <td>wxqinxw@gmail.com</td>
-                                <td>2022-12-16 05:51:00</td>
-                                <td>
-                                    <button class="btn view-prfl-btn">
-                                        view profile
-                                    </button>
-                                </td>
-                                <td>
-                                    <button class="btn add-cart-btn">add cart</button>
-                                </td>
-                            </tr>
-                            <tr>
-                                <th scope="row">5</th>
-                                <td>wxqinxw@gmail.com</td>
-                                <td>2022-12-16 05:51:00</td>
-                                <td>
-                                    <button class="btn view-prfl-btn">
-                                        view profile
-                                    </button>
-                                </td>
-                                <td>
-                                    <button class="btn add-cart-btn">add cart</button>
-                                </td>
-                            </tr>
+                            <?php
+                            if (!empty($shortlistDetails)) {
+                                foreach ($shortlistDetails as $index => $row) {
+                            ?>
+                                    <tr>
+                                        <th scope="row"><?= $index + 1 ?></th>
+                                        <td><?= $row['candidate_email'] ?></td>
+                                        <td><?= $row['created_t'] ?></td>
+                                        <td>
+                                            <button class="btn view-prfl-btn">
+                                                view profile
+                                            </button>
+                                        </td>
+                                        <td>
+                                            <button class="btn remove-cart-btn">
+                                                remove cart
+                                            </button>
+                                        </td>
+                                    </tr>
+                            <?php
+                                }
+                            }
+                            ?>
                         </tbody>
                     </table>
                     <div class="pagination-dets">
@@ -434,48 +252,30 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr class="debited-row">
-                                <th scope="row">1</th>
-                                <td>50</td>
-                                <td>2022-12-06 20:20:38</td>
-                                <td>Debited</td>
-                                <td>Purchased User Profile</td>
-                            </tr>
-                            <tr class="debited-row">
-                                <th scope="row">2</th>
-                                <td>50</td>
-                                <td>2022-12-06 20:20:38</td>
-                                <td>Debited</td>
-                                <td>Purchased User Profile</td>
-                            </tr>
-                            <tr class="debited-row">
-                                <th scope="row">3</th>
-                                <td>50</td>
-                                <td>2022-12-06 20:20:38</td>
-                                <td>Debited</td>
-                                <td>Purchased User Profile</td>
-                            </tr>
-                            <tr class="debited-row">
-                                <th scope="row">4</th>
-                                <td>50</td>
-                                <td>2022-12-06 20:20:38</td>
-                                <td>Debited</td>
-                                <td>Purchased User Profile</td>
-                            </tr>
-                            <tr class="credited-row">
-                                <th scope="row">5</th>
-                                <td>150</td>
-                                <td>2022-08-15 18:40:10</td>
-                                <td>Credited</td>
-                                <td>Added Money to Wallet</td>
-                            </tr>
-                            <tr class="credited-row">
-                                <th scope="row">6</th>
-                                <td>150</td>
-                                <td>2022-08-15 18:40:10</td>
-                                <td>Credited</td>
-                                <td>Added Money to Wallet</td>
-                            </tr>
+                            <?php
+                            if (!empty($transactionsDetails)) {
+                                foreach ($transactionsDetails as $index => $row) {
+                                    $trans_type = $row['trans_type'];
+                                    if ($trans_type == 1) $clr = "green";
+                                    else $clr = "red";
+                                    ?>
+                                    <tr class="debited-row" style="color: <?php echo $clr; ?>">
+                                        <th scope="row"><?= $index+1 ?></th>
+                                        <td><?= $row['trans_amount'] ?></td>
+                                        <td><?= $row['created_at'] ?></td>
+                                        <td>
+                                            <?php 
+                                                if ($trans_type == 1) 
+                                                    echo "Credited";
+                                                else 
+                                                    echo "Debited"; ?>
+                                        </td>
+                                        <td><?= $row['trans_reason'] ?></td>
+                                    </tr>
+                                    <?php
+                                }
+                            }
+                            ?>
                         </tbody>
                     </table>
                     <div class="pagination-dets">

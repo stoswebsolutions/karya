@@ -7,6 +7,7 @@ use App\Models\BoughtModel;
 use App\Models\CartModel;
 use App\Models\CompanyModel;
 use App\Models\OrdertransactionModel;
+use App\Models\ShortlistModel;
 use App\Models\UsersModel;
 use App\Models\WalletModel;
 use App\Models\WalletTransactionsModel;
@@ -22,6 +23,7 @@ class Talent extends BaseController
     private $boughtModel;
     private $walletModel;
     private $walletTransactionsModel;
+    private $shortlistModel;
     public function __construct()
     {
         $this->loggedData = session()->get('LoggedData');
@@ -33,6 +35,7 @@ class Talent extends BaseController
         $this->boughtModel = new BoughtModel();
         $this->walletModel = new WalletModel();
         $this->walletTransactionsModel = new WalletTransactionsModel();
+        $this->shortlistModel = new ShortlistModel();
     }
     public function dashboard()
     {
@@ -131,14 +134,14 @@ class Talent extends BaseController
         $url = '';
         $url .= "https://sandbox.merchant.razer.com/RMS/pay/SB_talentlounge/?";
         $url .= "amount=" . $amount . "&";
-		$url .= "orderid=" . urlencode($orderid) . "&";
-		$url .= "bill_name=" . urlencode($name) . "&";
-		$url .= "bill_email=" . urlencode($email) . "&";
-		$url .= "bill_mobile=" . urlencode($mobile) . "&";
-		$url .= "bill_desc=" . urlencode($description) . "&";
-		$url .= "country=" . $country . "&";
-		$url .= "treq=1&";
-		$url .= "vcode=" . $vcode;
+        $url .= "orderid=" . urlencode($orderid) . "&";
+        $url .= "bill_name=" . urlencode($name) . "&";
+        $url .= "bill_email=" . urlencode($email) . "&";
+        $url .= "bill_mobile=" . urlencode($mobile) . "&";
+        $url .= "bill_desc=" . urlencode($description) . "&";
+        $url .= "country=" . $country . "&";
+        $url .= "treq=1&";
+        $url .= "vcode=" . $vcode;
         return redirect()->to($url);
         $candidate_ids = $this->request->getPost('candidate_id');
         $array = explode('@', $candidate_ids);
@@ -242,12 +245,25 @@ class Talent extends BaseController
     }
     public function myaccount()
     {
+        $company_id = $this->loggedTalent['tb_company_user_id'];
         $data['pageTitle'] = 'Karya | MyAccount';
         $data['logo'] = 'app-assets/images/logo_karya.png';
         $data['active'] = 'myaccount';
         $data['css'] = array(
             base_url('app-assets/talent/style.css')
         );
+        $data['boughtDetails'] = $this->boughtModel->where(array('company_id' => $company_id, 'status' => '1'))->orderBy('date','desc')->findAll();
+        $data['shortlistDetails'] = $this->shortlistModel->where(array('company_id' => $company_id))->groupBy('candidate_id')->orderBy('tb_shortlist_id')->findAll();
+        $data['transactionsDetails'] = $this->walletTransactionsModel->where(array('comp_id' => $company_id, 'status' => '2'))->orderBy('trans_id','desc')->findAll();
         return view('talent/myaccount', $data);
+    }
+    public function bought_update()
+    {
+        $tb_bought_id = $this->request->getPost('tb_bought_id');
+        $bought_type = $this->request->getPost('bought_type');
+        $data = array(
+            "bought_type" => $bought_type
+        );
+        $this->boughtModel->update(array('tb_bought_id' => $tb_bought_id), $data);
     }
 }
