@@ -6,6 +6,9 @@ use App\Controllers\BaseController;
 use App\Models\BoughtModel;
 use App\Models\CartModel;
 use App\Models\CompanyModel;
+use App\Models\CompanyrequirementsModel;
+use App\Models\CoursemanagementModel;
+use App\Models\OccupationsModel;
 use App\Models\OrdertransactionModel;
 use App\Models\ShortlistModel;
 use App\Models\UsersModel;
@@ -24,6 +27,9 @@ class Talent extends BaseController
     private $walletModel;
     private $walletTransactionsModel;
     private $shortlistModel;
+    private $companyrequirementsModel;
+    private $coursemanagementModel;
+    private $occupationsModel;
     public function __construct()
     {
         $this->loggedData = session()->get('LoggedData');
@@ -36,6 +42,9 @@ class Talent extends BaseController
         $this->walletModel = new WalletModel();
         $this->walletTransactionsModel = new WalletTransactionsModel();
         $this->shortlistModel = new ShortlistModel();
+        $this->companyrequirementsModel = new CompanyrequirementsModel();
+        $this->coursemanagementModel = new CoursemanagementModel();
+        $this->occupationsModel = new OccupationsModel();
     }
     public function dashboard()
     {
@@ -225,12 +234,17 @@ class Talent extends BaseController
     }
     public function vacancies()
     {
+        $company_id = $this->loggedTalent['tb_company_user_id'];
+        $email = $this->loggedTalent['company_email'];
         $data['pageTitle'] = 'Karya | Vacancies';
         $data['logo'] = 'app-assets/images/logo_karya.png';
         $data['active'] = 'vacancies';
         $data['css'] = array(
             base_url('app-assets/talent/style.css')
         );
+        $data['jobDetails'] = $this->companyrequirementsModel->where(array("companyId" => $company_id))->orderBy('id','desc')->findAll();
+        $data['coursemanagementModel'] = $this->coursemanagementModel;
+        $data['occupationsModel'] = $this->occupationsModel;
         return view('talent/vacancies', $data);
     }
     public function explore()

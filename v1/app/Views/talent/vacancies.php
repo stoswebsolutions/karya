@@ -402,129 +402,63 @@
                                 <th scope="col">Experience</th>
                                 <th scope="col">Positions</th>
                                 <th scope="col">Created Date</th>
+                                <th scope="col">Expires Date</th>
+                                <th scope="col">Status</th>
+                                <th scope="col">Applicants</th>
+                                <th scope="col">Actions</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <th scope="row">1</th>
-                                <td>Corporate Finance Adviser</td>
-                                <td>
-                                    Lifestyle (Fashion, beauty, home, gastronomy,
-                                    retail, hospotality & travel)
-                                </td>
-                                <td>Social Media Coordinator</td>
-                                <td>0 to 4 years</td>
-                                <td>2</td>
-                                <td>2023-02-10</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">2</th>
-                                <td>Corporate Finance Adviser</td>
-                                <td>
-                                    Lifestyle (Fashion, beauty, home, gastronomy,
-                                    retail, hospotality & travel)
-                                </td>
-                                <td>Social Media Coordinator</td>
-                                <td>0 to 4 years</td>
-                                <td>2</td>
-                                <td>2023-02-10</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">3</th>
-                                <td>Corporate Finance Adviser</td>
-                                <td>
-                                    Lifestyle (Fashion, beauty, home, gastronomy,
-                                    retail, hospotality & travel)
-                                </td>
-                                <td>Social Media Coordinator</td>
-                                <td>0 to 4 years</td>
-                                <td>2</td>
-                                <td>2023-02-10</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">4</th>
-                                <td>Corporate Finance Adviser</td>
-                                <td>
-                                    Lifestyle (Fashion, beauty, home, gastronomy,
-                                    retail, hospotality & travel)
-                                </td>
-                                <td>Social Media Coordinator</td>
-                                <td>0 to 4 years</td>
-                                <td>2</td>
-                                <td>2023-02-10</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">5</th>
-                                <td>Corporate Finance Adviser</td>
-                                <td>
-                                    Lifestyle (Fashion, beauty, home, gastronomy,
-                                    retail, hospotality & travel)
-                                </td>
-                                <td>Social Media Coordinator</td>
-                                <td>0 to 4 years</td>
-                                <td>2</td>
-                                <td>2023-02-10</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">6</th>
-                                <td>Corporate Finance Adviser</td>
-                                <td>
-                                    Lifestyle (Fashion, beauty, home, gastronomy,
-                                    retail, hospotality & travel)
-                                </td>
-                                <td>Social Media Coordinator</td>
-                                <td>0 to 4 years</td>
-                                <td>2</td>
-                                <td>2023-02-10</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">7</th>
-                                <td>Corporate Finance Adviser</td>
-                                <td>
-                                    Lifestyle (Fashion, beauty, home, gastronomy,
-                                    retail, hospotality & travel)
-                                </td>
-                                <td>Social Media Coordinator</td>
-                                <td>0 to 4 years</td>
-                                <td>2</td>
-                                <td>2023-02-10</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">8</th>
-                                <td>Corporate Finance Adviser</td>
-                                <td>
-                                    Lifestyle (Fashion, beauty, home, gastronomy,
-                                    retail, hospotality & travel)
-                                </td>
-                                <td>Social Media Coordinator</td>
-                                <td>0 to 4 years</td>
-                                <td>2</td>
-                                <td>2023-02-10</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">9</th>
-                                <td>Corporate Finance Adviser</td>
-                                <td>
-                                    Lifestyle (Fashion, beauty, home, gastronomy,
-                                    retail, hospotality & travel)
-                                </td>
-                                <td>Social Media Coordinator</td>
-                                <td>0 to 4 years</td>
-                                <td>2</td>
-                                <td>2023-02-10</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">10</th>
-                                <td>Corporate Finance Adviser</td>
-                                <td>
-                                    Lifestyle (Fashion, beauty, home, gastronomy,
-                                    retail, hospotality & travel)
-                                </td>
-                                <td>Social Media Coordinator</td>
-                                <td>0 to 4 years</td>
-                                <td>2</td>
-                                <td>2023-02-10</td>
-                            </tr>
+                            <?php
+                            if (!empty($jobDetails)) {
+                                foreach ($jobDetails as $index => $row) {
+                                    $course = $coursemanagementModel->where(array("id" => $row['cat_id']))->first();
+                                    $occupation = $occupationsModel->where(array("occ_id" => $row['role_id']))->first();
+                            ?>
+                                    <tr>
+                                        <th scope="row"><?= $index + 1 ?></th>
+                                        <td><?= $row['job_title'] ?></td>
+                                        <td><?= @$course['courseName'] ?></td>
+                                        <td><?= @$occupation['occ_role'] ?></td>
+                                        <td><?= $row['totalExperience'] ?></td>
+                                        <td><?= $row['pos_no'] ?></td>
+                                        <td><?= $row['createdAt'] ?></td>
+                                        <td><?= $row['expiry_date'] ?></td>
+                                        <td>
+                                            <?php
+                                            $date_now = date("Y-m-d");
+                                            $st = '';
+                                            if ($date_now <= $row['expiry_date']) {
+                                                $st = $row['post_status'];
+                                                if ($st == 'A'){
+                                                    ?><button type="button" class="btn  btn-sm btn-success">Active</button><?php
+                                                }
+                                                else{
+                                                    ?><button type="button" class="btn btn-sm btn-danger">Expired</button><?php
+                                                }
+                                            }
+                                            else{
+                                                ?><button type="button" class="btn btn-sm btn-danger">Expired</button><?php
+                                            }
+                                            ?>
+                                        </td>
+                                        <td><button type="button" class="btn btn-sm btn-info" onclick="javascript: location.href='<?php echo base_url('CompanyRequirement/viewjobapplicants/' . $row['id']); ?>';">View</button></td>
+                                        <td>
+                                            <?php
+                                            if ($st == 'A') {
+                                                ?><a title="Status is active please click to make expire" href="<?php echo base_url('CompanyRequirement/inactivate/' . $row['id']); ?>"><i class="fa fa-check" aria-hidden="true"></i></a><?php
+                                            }
+                                            else{
+                                                ?><a title="Status is expired please click to make active" href="<?php echo base_url('CompanyRequirement/activate/' . $row['id']); ?>"><i class="fa fa-times" aria-hidden="true"></i></a><?php
+                                            }
+                                            ?>
+                                            <a href="<?php echo base_url('CompanyRequirement/updatejobpost/' . base64_encode($row['id'])); ?>"><i class="fa fa-pencil"></i></a>
+                                        </td>
+                                    </tr>
+                            <?php
+                                }
+                            }
+                            ?>
                         </tbody>
                     </table>
                     <div class="pagination-dets">
