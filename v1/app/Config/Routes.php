@@ -63,6 +63,11 @@ $routes->group('/', ['filter' => 'auth'], function ($routes) {
         $routes->get('dashboard', 'Talent::dashboard');
         $routes->get('status', 'Talent::status');
         $routes->get('profile', 'Talent::profile');
+        $routes->post('companyInfoUpdate', 'Talent::companyInfoUpdate');
+        $routes->post('companyPhotosUpdate', 'Talent::companyPhotosUpdate');
+        $routes->post('companyVideoUpdate', 'Talent::companyVideoUpdate');
+        $routes->post('companyGalleryUpdate', 'Talent::companyGalleryUpdate');
+        $routes->get('removeGallery/(:any)', 'Talent::removeGallery/$1');
         $routes->get('cart', 'Talent::cart');
         $routes->get('removeCart/(:any)', 'Talent::removeCart/$1');
         $routes->post('ProcessPayAmount', 'Talent::ProcessPayAmount');

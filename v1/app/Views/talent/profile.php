@@ -42,7 +42,15 @@
         if (!empty($companyDetails)) {
             foreach ($companyDetails as $index => $row) {
         ?>
-                <form action="" method="post">
+                <form action="<?= base_url('talent/companyInfoUpdate') ?>" method="post" enctype="multipart/form-data">
+                    <?= csrf_field(); ?>
+                    <div class="row">
+                        <?php if (!empty(session()->getFlashdata('fail'))) : ?>
+                            <div class="alert alert-danger"><?= session()->getFlashdata('fail'); ?></div>
+                        <?php elseif (!empty(session()->getFlashdata('success'))) : ?>
+                            <div class="alert alert-success"><?= session()->getFlashdata('success'); ?></div>
+                        <?php endif ?>
+                    </div>
                     <div class="bg-white">
                         <h1 class="hdr">Company Info</h1>
                         <div class="row gx-3">
@@ -90,11 +98,11 @@
                                 <div class="input-group input-group-sm mb-2 mb-sm-3">
                                     <select id="gender" name="sector" class="form-select">
                                         <option disabled>Select Sector</option>
-                                        <option <? if($row['sector'] == 1) echo "selected" ?> value="1">Utilities and Energy</option>
-                                        <option <? if($row['sector'] == 2) echo "selected" ?> value="2">Technology and Media</option>
-                                        <option <? if($row['sector'] == 3) echo "selected" ?> value="3">Financial</option>
-                                        <option <? if($row['sector'] == 4) echo "selected" ?> value="4">Consumer</option>
-                                        <option <? if($row['sector'] == 5) echo "selected" ?> value="5">Industrial</option>
+                                        <option <? if ($row['sector'] == 1) echo "selected" ?> value="1">Utilities and Energy</option>
+                                        <option <? if ($row['sector'] == 2) echo "selected" ?> value="2">Technology and Media</option>
+                                        <option <? if ($row['sector'] == 3) echo "selected" ?> value="3">Financial</option>
+                                        <option <? if ($row['sector'] == 4) echo "selected" ?> value="4">Consumer</option>
+                                        <option <? if ($row['sector'] == 5) echo "selected" ?> value="5">Industrial</option>
                                     </select>
                                 </div>
                             </div>
@@ -102,9 +110,9 @@
                                 <div class="input-group input-group-sm mb-2 mb-sm-3">
                                     <select id="company_size" name="company_size" class="form-select">
                                         <option disabled>Company Size</option>
-                                        <option <? if(($row['company_size'] != '') && ($row['company_size'] == 'Small - less then100 personnel') ) echo "selected" ?> value="Small - less then100 personnel">Small - less then100 personnel</option>
-                                        <option <? if(($row['company_size'] != '') && ($row['company_size'] == 'Medium - 100 to 499 personnel') ) echo "selected" ?> value="Medium - 100 to 499 personnel">Medium - 100 to 499 personnel</option>
-                                        <option <? if(($row['company_size'] != '') && ($row['company_size'] == 'Conglomerate - 1000 and above personnel') ) echo "selected" ?> value="Conglomerate - 1000 and above personnel">Conglomerate - 1000 and above personnel</option>
+                                        <option <? if (($row['company_size'] != '') && ($row['company_size'] == 'Small - less then100 personnel')) echo "selected" ?> value="Small - less then100 personnel">Small - less then100 personnel</option>
+                                        <option <? if (($row['company_size'] != '') && ($row['company_size'] == 'Medium - 100 to 499 personnel')) echo "selected" ?> value="Medium - 100 to 499 personnel">Medium - 100 to 499 personnel</option>
+                                        <option <? if (($row['company_size'] != '') && ($row['company_size'] == 'Conglomerate - 1000 and above personnel')) echo "selected" ?> value="Conglomerate - 1000 and above personnel">Conglomerate - 1000 and above personnel</option>
                                     </select>
                                 </div>
                             </div>
@@ -194,7 +202,8 @@
                     </div>
                     <div class="to-fro-btns">
                         <button class="btn back-btn company-info-back">Go Back</button>
-                        <button class="btn next-btn company-info-next">Next</button>
+                        <button class="btn next-btn company-info-next" type="submit">Update</button>
+                        <button class="btn next-btn company-info-next" type="button" style="margin-left:20px;">Next</button>
                     </div>
                 </form>
         <?php
@@ -228,60 +237,93 @@
                 </div>
             </div>
             <div class="upload-files p-1 p-sm-2">
-                <div class="row align-items-center">
-                    <div class="col-6 col-sm-4">
-                        <input type="file" class="form-control file-upload" id="company_photo_formal" name="company_photo_formal" />
+                <form action="<?= base_url('talent/companyPhotosUpdate') ?>" method="post" enctype="multipart/form-data">
+                    <?= csrf_field(); ?>
+                    <div class="row">
+                        <?php if (!empty(session()->getFlashdata('fail'))) : ?>
+                            <div class="alert alert-danger"><?= session()->getFlashdata('fail'); ?></div>
+                        <?php elseif (!empty(session()->getFlashdata('success'))) : ?>
+                            <div class="alert alert-success"><?= session()->getFlashdata('success'); ?></div>
+                        <?php endif ?>
                     </div>
-                    <div class="col-6 col-sm-4">
-                        <input type="file" class="form-control file-upload" id="bgImage" name="bgImage" />
-                    </div>
-                    <div class="col-12 col-sm-4">
-                        <div class="d-flex justify-content-center justify-content-sm-end mt-1 mt-sm-0">
-                            <span class="hlpr-txt upload-pics-btn">
-                                upload pictures
-                            </span>
+                    <div class="row align-items-center">
+                        <div class="col-6 col-sm-4">
+                            <input type="file" class="form-control file-upload" id="company_photo_file_name" name="company_photo_file_name" />
+                        </div>
+                        <div class="col-6 col-sm-4">
+                            <input type="file" class="form-control file-upload" id="companyBgImage" name="companyBgImage" />
+                        </div>
+                        <div class="col-12 col-sm-4">
+                            <div class="d-flex justify-content-center justify-content-sm-end mt-1 mt-sm-0">
+                                <button class="hlpr-txt upload-pics-btn" type="submit">
+                                    upload pictures
+                                </button>
+                                <button class="hlpr-txt upload-pics-btn" type="button" style="margin-left:20px;">Next</button>
+                            </div>
                         </div>
                     </div>
-                </div>
+                </form>
             </div>
         </div>
         <!-- ends::upload images -->
         <!-- upload video -->
         <div class="upload-video-file d-none">
-            <div class="row">
-                <div class="col-12 col-lg-6">
-                    <div class="upload-video-section">
-                        <p class="abt mb-2">
-                            A corporate video is a powerful tool for showcasing your
-                            organization in a dynamic and engaging way. By visually
-                            highlighting your company's values, mission and culture,
-                            a corporate video can help to establish a strong brand
-                            identity, build credibility and trust with potential
-                            customers and investors, and differentiate your company
-                            from competitors.
-                        </p>
-                        <div class="upload-files upload-video-file-label p-1 p-sm-2 d-flex align-items-center">
-                            <input type="file" class="form-control file-upload me-0 me-sm-2" id="profile-pic-upload" />
-                            <span class="hlpr-txt mt-1 mt-sm-0 upload-vid-btn">upload video</span>
+            <form action="<?= base_url('talent/companyVideoUpdate') ?>" method="post" enctype="multipart/form-data">
+                <?= csrf_field(); ?>
+                <div class="row">
+                    <?php if (!empty(session()->getFlashdata('fail'))) : ?>
+                        <div class="alert alert-danger"><?= session()->getFlashdata('fail'); ?></div>
+                    <?php elseif (!empty(session()->getFlashdata('success'))) : ?>
+                        <div class="alert alert-success"><?= session()->getFlashdata('success'); ?></div>
+                    <?php endif ?>
+                </div>
+                <div class="row">
+                    <div class="col-12 col-lg-6">
+                        <div class="upload-video-section">
+                            <p class="abt mb-2">
+                                A corporate video is a powerful tool for showcasing your
+                                organization in a dynamic and engaging way. By visually
+                                highlighting your company's values, mission and culture,
+                                a corporate video can help to establish a strong brand
+                                identity, build credibility and trust with potential
+                                customers and investors, and differentiate your company
+                                from competitors.
+                            </p>
+                            <div class="upload-files upload-video-file-label p-1 p-sm-2 d-flex align-items-center">
+                                <input type="file" class="form-control file-upload me-0 me-sm-2" id="video_path" name="video_path" />
+                                <button class="hlpr-txt mt-1 mt-sm-0 upload-vid-btn" type="submit">upload</button>
+                                <button class="hlpr-txt mt-1 mt-sm-0 upload-vid-btn" type="button">Next</button>
+                            </div>
                         </div>
                     </div>
+                    <div class="col-12 col-lg-6">
+                        <video controls class="hoverable mt-2 mt-lg-0">
+                            <source src="<?= site_url() ?>assets/uploads/company/<?= $companyDetails[0]['tb_company_id'] ?>/<?= $companyDetails[0]['video_path'] ?>" type="video/mp4" />
+                            Your browser does not support the video tag.
+                        </video>
+                    </div>
                 </div>
-                <div class="col-12 col-lg-6">
-                    <video controls class="hoverable mt-2 mt-lg-0">
-                        <source src="<?= site_url() ?>assets/uploads/company/<?= $companyDetails[0]['tb_company_id'] ?>/<?= str_replace('./uploads/company/','',$companyDetails[0]['video_path']) ?>.mp4" type="video/mp4" />
-                        Your browser does not support the video tag.
-                    </video>
-                </div>
-            </div>
+            </form>
         </div>
         <!-- ends::upload video -->
         <!-- upload img table -->
         <div class="upload-img-table d-none">
-            <div class="image-upload mb-2">
-                <label for="">Choose Image</label>
-                <input type="file" class="form-control file-upload" id="profile-img-upload" />
-            </div>
-            <button class="btn karya-btn add-btn mb-2">add</button>
+            <form action="<?= base_url('talent/companyGalleryUpdate') ?>" method="post" enctype="multipart/form-data">
+                <?= csrf_field(); ?>
+                <div class="row">
+                    <?php if (!empty(session()->getFlashdata('fail'))) : ?>
+                        <div class="alert alert-danger"><?= session()->getFlashdata('fail'); ?></div>
+                    <?php elseif (!empty(session()->getFlashdata('success'))) : ?>
+                        <div class="alert alert-success"><?= session()->getFlashdata('success'); ?></div>
+                    <?php endif ?>
+                </div>
+                <div class="image-upload mb-2">
+                    <label for="">Choose Image</label>
+                    <input type="file" class="form-control file-upload" name="userfile[]" id="userfile" multiple />
+                </div>
+                <button class="btn karya-btn add-btn mb-2" type="submit">add</button>
+                <button class="btn karya-btn add-btn mb-2" type="button">Next</button>
+            </form>
             <div class="table-container">
                 <table class="table table-striped table-hover table-bordered">
                     <thead>
@@ -296,20 +338,20 @@
                         <?php
                         if (!empty($companyGallery)) {
                             foreach ($companyGallery as $index => $row) {
-                                ?>
+                        ?>
                                 <tr>
-                                    <th scope="row"><?= $index+1 ?></th>
+                                    <th scope="row"><?= $index + 1 ?></th>
                                     <td><?= $row['name'] ?></td>
                                     <td>
                                         <img src="<?= site_url() ?>assets/uploads/company/<?= $row['company_id'] ?>/<?= $row['path'] ?>" width="60" height="60" alt="user img" />
                                     </td>
                                     <td>
                                         <div class="delete-icon">
-                                            <i class="fa fa-trash-o" aria-hidden="true"></i>
+                                            <a href="<?= site_url() ?>talent/removeGallery/<?= $row['id'] ?>" class="text-decoration-none"><i class="fa fa-trash-o" aria-hidden="true"></i></a>
                                         </div>
                                     </td>
                                 </tr>
-                                <?php
+                        <?php
                             }
                         }
                         ?>

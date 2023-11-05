@@ -89,6 +89,157 @@ class Talent extends BaseController
         $data['companyGallery'] = $this->compgalleryModel->where(array("company_id" => $company_id))->findAll();
         return view('talent/profile', $data);
     }
+    public function companyInfoUpdate()
+    {
+        $company_id = $this->loggedTalent['tb_company_user_id'];
+        $email = $this->loggedTalent['company_email'];
+        $company_name = $this->request->getPost('company_name');
+        $website_url = $this->request->getPost('website_url');
+        $sector = $this->request->getPost('sector');
+        $sector_name = '';
+        if ($sector == 1) {
+            $sector_name = 'Utilities and Energy';
+        }
+        if ($sector == 2) {
+            $sector_name = 'Technology and Media';
+        }
+        if ($sector == 3) {
+            $sector_name = 'Financial';
+        }
+        if ($sector == 4) {
+            $sector_name = 'Consumer';
+        }
+        if ($sector == 5) {
+            $sector_name = 'Industrial';
+        }
+        if ($sector == 6) {
+            $sector_name = 'Law & Order';
+        }
+        if ($sector == 7) {
+            $sector_name = 'Business, Marketing & Sales';
+        }
+        if ($sector == 8) {
+            $sector_name = 'Education & Sports';
+        }
+        if ($sector == 9) {
+            $sector_name = 'Technology';
+        }
+        $company_size = $this->request->getPost('company_size');
+        $company_address1 = $this->request->getPost('company_address1');
+        $company_address2 = $this->request->getPost('company_address2');
+        $company_zip = $this->request->getPost('company_zip');
+        $company_city = $this->request->getPost('company_city');
+        $company_state = $this->request->getPost('company_state');
+        $company_location_coordinate = $this->request->getPost('company_location_coordinate');
+        $company_banefit = $this->request->getPost('company_banefit');
+        $company_growth = $this->request->getPost('company_growth');
+        $company_history = $this->request->getPost('company_history');
+        $culture_style = $this->request->getPost('culture_style');
+        $ssm_number = $this->request->getPost('ssm_number');
+        $contact_number = $this->request->getPost('contact_number');
+        $contact_email = $this->request->getPost('contact_email');
+        $updateData1 = array(
+            "company_name" => $company_name,
+            "culture_style" => $culture_style,
+            "website_url" => $website_url,
+            "sector" => $sector,
+            "sector_name" => $sector_name,
+            "company_size" => $company_size,
+            "company_address1" => $company_address1,
+            "company_address2" => $company_address2,
+            "company_zip" => $company_zip,
+            "company_city" => $company_city,
+            "company_state" => $company_state,
+            "company_location_coordinate" => $company_location_coordinate,
+            "company_banefit" => $company_banefit,
+            "company_growth" => $company_growth,
+            "company_history" => $company_history
+        );
+        $this->companyModel->update(array("tb_company_id" => $company_id), $updateData1);
+        $updateData2 = array(
+            "ssm_number" => $ssm_number,
+            "contact_number" => $contact_number,
+            "contact_email" => $contact_email,
+        );
+        $this->companyuserModel->update(array("tb_company_user_id" => $company_id), $updateData2);
+        return  redirect()->back()->with('success', 'Updated Company Information !');
+    }
+    public function companyPhotosUpdate()
+    {
+        $company_id = $this->loggedTalent['tb_company_user_id'];
+        $file = $this->request->getFile('company_photo_file_name');
+        if ($file->isValid()) {
+            $path_img = "assets/uploads/company/" . $company_id;
+            if (!file_exists($path_img)) {
+                mkdir($path_img, 0777, true);
+            }
+            if (!$file->hasMoved()) {
+                $file_path = $file->getRandomName();
+                $file->move($path_img, $file_path);
+                $this->companyphotoModel->set(array("company_photo_file_name" => $file_path))->where(array("tb_company_id" => $company_id))->update();
+            }
+        }
+        $file1 = $this->request->getFile('companyBgImage');
+        if ($file1->isValid()) {
+            $path_img1 = "assets/uploads/company/" . $company_id;
+            if (!file_exists($path_img1)) {
+                mkdir($path_img1, 0777, true);
+            }
+            if (!$file1->hasMoved()) {
+                $file_path1 = $file1->getRandomName();
+                $file1->move($path_img1, $file_path1);
+                $this->companyphotoModel->set(array("companyBgImage" => $file_path1))->where(array("tb_company_id" => $company_id))->update();
+            }
+        }
+        return  redirect()->back()->with('success', 'Updated Company Photos !');
+    }
+    public function companyVideoUpdate()
+    {
+        $company_id = $this->loggedTalent['tb_company_user_id'];
+        $file = $this->request->getFile('video_path');
+        if ($file->isValid()) {
+            $path_img = "assets/uploads/company/" . $company_id;
+            if (!file_exists($path_img)) {
+                mkdir($path_img, 0777, true);
+            }
+            if (!$file->hasMoved()) {
+                $file_path = $file->getRandomName();
+                $file->move($path_img, $file_path);
+                $this->companyModel->set(array("video_path" => $file_path))->where(array("tb_company_id" => $company_id))->update();
+            }
+        }
+        return  redirect()->back()->with('success', 'Updated Company Video !');
+    }
+    public function companyGalleryUpdate()
+    {
+        $company_id = $this->loggedTalent['tb_company_user_id'];
+        if ($this->request->getFileMultiple('userfile')) {
+            foreach ($this->request->getFileMultiple('userfile') as $file) {
+                if ($file->isValid()) {
+                    $path_img = "assets/uploads/company/" . $company_id;
+                    if (!file_exists($path_img)) {
+                        mkdir($path_img, 0777, true);
+                    }
+                    if (!$file->hasMoved()) {
+                        $file_path = $file->getRandomName();
+                        $file->move($path_img, $file_path);
+                        $insertGallery = array(
+                            'path' => $file_path,
+                            'name' => $file_path,
+                            'company_id' => $company_id
+                        );
+                        $this->compgalleryModel->insert($insertGallery);
+                    }
+                }
+            }
+        }
+        return  redirect()->back()->with('success', 'Updated Company Gallery !');
+    }
+    public function removeGallery($id)
+    {
+        $this->compgalleryModel->delete($id);
+        return  redirect()->back()->with('success', 'Remove Company Gallery !');
+    }
     public function cart()
     {
         $data['pageTitle'] = 'Karya | Cart';

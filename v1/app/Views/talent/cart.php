@@ -47,7 +47,7 @@
                             <td><?= $earning ?></td>
                             <td>
                                 <button class="btn karya-btn remove-cart-btn">
-                                    <a href="<?= site_url() ?>talent/removeCart/<?= $row['tb_cart_id'] ?>" class="text-decoration-none">Remove Cart<?= $row['tb_cart_id'] ?></a>
+                                    <a href="<?= site_url() ?>talent/removeCart/<?= $row['tb_cart_id'] ?>" class="text-decoration-none">Remove Cart</a>
                                 </button>
                             </td>
                         </tr>
