@@ -25,85 +25,88 @@
                             <div class="row gx-3">
                                 <div class="col-12 col-sm-6">
                                     <div class="input-group input-group-sm mb-2 mb-sm-3">
-                                        <select id="relocate" class="form-select relocate-slct">
+                                        <select id="relocate" name="data[relocate]" class="form-select relocate-slct">
                                             <option selected disabled>
-                                                Candidate must be willing to relocate to a
-                                                different city
+                                                Candidate must be willing to relocate to a different city or country
                                             </option>
-                                            <option value="y">Yes</option>
-                                            <option value="n">No</option>
+                                            <option value="Yes">Yes</option>
+                                            <option value="No">No</option>
                                         </select>
                                     </div>
                                 </div>
                                 <div class="col-12 col-sm-6">
                                     <div class="input-group input-group-sm mb-2 mb-sm-3">
-                                        <select id="emp-position" class="form-select position-slct">
+                                        <select id="occupationLevel" name="data[occupationLevel]" class="form-select position-slct">
                                             <option selected disabled>
                                                 Candidate most recent employment position
                                             </option>
-                                            <option value="p1">Position 1</option>
-                                            <option value="p2">Poition 2</option>
+                                            <option value="No Experience">No Experience</option>
+                                            <option value="Executive">Executive</option>
+                                            <option value="Managerial">Managerial</option>
                                         </select>
                                     </div>
                                 </div>
 
                                 <div class="col-12 col-sm-6">
                                     <div class="input-group input-group-sm mb-2 mb-sm-3">
-                                        <select id="edu-level" class="form-select edu-slct">
+                                        <select id="highestEducation" name="data[highestEducation]" class="form-select edu-slct">
                                             <option selected disabled>
                                                 Candidate highest level of education
                                             </option>
-                                            <option value="e1">Edu 1</option>
-                                            <option value="e2">Edu 2</option>
+                                            <option value="Certificate">Certificate</option>
+                                            <option value="Degree">Degree</option>
+                                            <option value="Post Graduate Degree">Post Graduate Degree</option>
+                                            <option value="Doctorate">Doctorate</option>
                                         </select>
                                     </div>
                                 </div>
                                 <div class="col-12 col-sm-6">
                                     <div class="input-group input-group-sm mb-2 mb-sm-3">
-                                        <select id="work-exp" class="form-select exp-slct">
+                                        <select id="totalExperience" name="data[totalExperience]" class="form-select exp-slct">
                                             <option selected disabled>
                                                 Candidate's year of work experience
                                             </option>
-                                            <option value="ex1">Exp 1</option>
-                                            <option value="ex2">Exp 2</option>
+                                            <option value="0 to 4 years">0 to 4 years</option>
+                                            <option value="5 to 9 years">5 to 9 years</option>
+                                            <option value="Above 10 years">Above 10 years</option>
                                         </select>
                                     </div>
                                 </div>
 
                                 <div class="col-12 col-sm-6">
                                     <div class="input-group input-group-sm mb-2 mb-sm-3">
-                                        <select id="work-beyond" class="form-select beyond-slct">
+                                        <select id="workTime" name="data[workTime]" class="form-select beyond-slct">
                                             <option selected disabled>
-                                                Will you prefer candidate that is willing to
-                                                work beyond working hours
+                                                Will you prefer candidate that is willing to work beyond the daily 8 hours of work?
                                             </option>
-                                            <option value="y">Yes</option>
-                                            <option value="n">No</option>
+                                            <option value="Yes">Yes</option>
+                                            <option value="No">No</option>
                                         </select>
                                     </div>
                                 </div>
                                 <div class="col-12 col-sm-6">
                                     <div class="input-group input-group-sm mb-2 mb-sm-3">
-                                        <select id="perform" class="form-select perform-slct">
+                                        <select id="jobRoleLimitation" name="data[jobRoleLimitation]" class="form-select perform-slct">
                                             <option selected disabled>
-                                                Will you prefer a candidate that is willing to
-                                                perform
+                                                Will you prefer a candidate that is willing to perform relevant duties beyond your job description scope of work?
                                             </option>
-                                            <option value="y">Yes</option>
-                                            <option value="n">No</option>
+                                            <option value="Yes">Yes</option>
+                                            <option value="No">No</option>
                                         </select>
                                     </div>
                                 </div>
 
                                 <div class="col-12 col-sm-6">
                                     <div class="input-group input-group-sm mb-2 mb-sm-3">
-                                        <select id="job-function" class="form-select job-function-slct">
+                                        <select id="jobCategory" name="data[jobCategory]" class="form-select job-function-slct">
                                             <option selected disabled>
                                                 What kind of job function category are you
                                                 offering?
                                             </option>
-                                            <option value="f1">Function 1</option>
-                                            <option value="f2">Function 2</option>
+                                            <option value="Technical and mechanical">Technical and mechanical</option>
+                                            <option value="Communications and marketing">Communications and marketing</option>
+                                            <option value="Organisational and administrative">Organisational and administrative</option>
+                                            <option value="Analytical and critical thinking">Analytical and critical thinking</option>
                                         </select>
                                     </div>
                                 </div>
@@ -114,7 +117,7 @@
                                             <span class="input-group-text bg-transparent pe-0 input-icon">
                                                 <i class="fa fa-comments" aria-hidden="true"></i>
                                             </span>
-                                            <textarea class="form-control border-start-0 skills-text" placeholder="Skills List" rows="1"></textarea>
+                                            <textarea class="form-control border-start-0 skills-text" placeholder="Skills List" name="data[keySkills]" rows="1"></textarea>
                                         </div>
 
                                         <div class="info-txt">
@@ -133,39 +136,39 @@
                                 <div class="col-12 col-sm-6">
                                     <div class="input-group input-group-sm mb-2 mb-sm-3 flex-column">
                                         <label for="" class="form-label mb-0">Job Title</label>
-                                        <input type="text" class="form-control job-title w-100" placeholder="Job Title" />
+                                        <input type="text" class="form-control job-title w-100" placeholder="Job Title" name="data[job_title]" required />
                                     </div>
                                 </div>
                                 <div class="col-12 col-sm-6">
                                     <div class="input-group input-group-sm mb-2 mb-sm-3 flex-column">
                                         <label for="" class="form-label mb-0">Number of Positions</label>
-                                        <input type="number" class="form-control job-positions w-100" placeholder="Number of Positions" />
+                                        <input type="number" class="form-control job-positions w-100" placeholder="Number of Positions" name="data[pos_no]" required />
                                     </div>
                                 </div>
 
                                 <div class="col-12 col-sm-6">
                                     <div class="input-group input-group-sm mb-2 mb-sm-3 flex-column">
                                         <label for="" class="form-label mb-0">Short Description</label>
-                                        <input type="number" class="form-control job-desc w-100" placeholder="Short Description" />
+                                        <input type="number" class="form-control job-desc w-100" placeholder="Short Description" name="data[short_desc]" required />
                                     </div>
                                 </div>
                                 <div class="col-12 col-sm-6">
                                     <div class="input-group input-group-sm mb-2 mb-sm-3 flex-column">
                                         <label for="" class="form-label mb-0">Expiry Date</label>
-                                        <input type="date" class="form-control exp-date w-100" placeholder="" />
+                                        <input type="date" class="form-control exp-date w-100" placeholder="" name="data[expiry_date]" required />
                                     </div>
                                 </div>
 
                                 <div class="col-12 col-sm-6">
                                     <div class="input-group input-group-sm mb-2 mb-sm-3 flex-column">
                                         <label for="" class="form-label mb-0">City</label>
-                                        <input type="text" class="form-control pref-city w-100" placeholder="Preferred City" />
+                                        <input type="text" class="form-control pref-city w-100" placeholder="Preferred City" name="data[int_city]" required />
                                     </div>
                                 </div>
                                 <div class="col-12 col-sm-6">
                                     <div class="input-group input-group-sm mb-2 mb-sm-3 flex-column">
                                         <label for="" class="form-label mb-0">Country</label>
-                                        <input type="text" class="form-control pref-country w-100" placeholder="Preferred Country" />
+                                        <input type="text" class="form-control pref-country w-100" placeholder="Preferred Country" name="data[int_country]" required />
                                     </div>
                                 </div>
 
@@ -177,37 +180,37 @@
                                 <div class="col-11">
                                     <div class="radio-options mb-2 mb-sm-3">
                                         <div class="radio-input d-flex align-items-center">
-                                            <input class="form-check-input mt-0 me-1" type="radio" name="job-type" id="ft" />
+                                            <input class="form-check-input mt-0 me-1" type="radio" name="job-type" id="ft" name="data[job_type]" value="1" />
                                             <label class="form-check-label mb-0" for="ft">
                                                 Full Time
                                             </label>
                                         </div>
                                         <div class="radio-input d-flex align-items-center">
-                                            <input class="form-check-input mt-0 me-1" type="radio" name="job-type" id="pt" />
+                                            <input class="form-check-input mt-0 me-1" type="radio" name="job-type" id="pt" name="data[job_type]" value="2" />
                                             <label class="form-check-label mb-0" for="pt">
                                                 Part Time
                                             </label>
                                         </div>
                                         <div class="radio-input d-flex align-items-center">
-                                            <input class="form-check-input mt-0 me-1" type="radio" name="job-type" id="intern" />
+                                            <input class="form-check-input mt-0 me-1" type="radio" name="job-type" id="intern" name="data[job_type]" value="3" />
                                             <label class="form-check-label mb-0" for="intern">
                                                 Internship
                                             </label>
                                         </div>
                                         <div class="radio-input d-flex align-items-center">
-                                            <input class="form-check-input mt-0 me-1" type="radio" name="job-type" id="temp" />
+                                            <input class="form-check-input mt-0 me-1" type="radio" name="job-type" id="temp" name="data[job_type]" value="4" />
                                             <label class="form-check-label mb-0" for="temp">
                                                 Temporary
                                             </label>
                                         </div>
                                         <div class="radio-input d-flex align-items-center">
-                                            <input class="form-check-input mt-0 me-1" type="radio" name="job-type" id="freelance" />
+                                            <input class="form-check-input mt-0 me-1" type="radio" name="job-type" id="freelance" name="data[job_type]" value="5" />
                                             <label class="form-check-label mb-0" for="freelance">
                                                 Freelance
                                             </label>
                                         </div>
                                         <div class="radio-input d-flex align-items-center">
-                                            <input class="form-check-input mt-0 me-1" type="radio" name="job-type" id="remote" />
+                                            <input class="form-check-input mt-0 me-1" type="radio" name="job-type" id="remote" name="data[job_type]" value="6" />
                                             <label class="form-check-label mb-0" for="remote">
                                                 Remote
                                             </label>
@@ -218,13 +221,13 @@
                                 <div class="col-12 col-sm-6">
                                     <div class="input-group input-group-sm flex-column mb-2 mb-sm-3">
                                         <label for="" class="form-label mb-0">Salary Range</label>
-                                        <input type="number" class="form-control range-from w-100" placeholder="Range From" />
+                                        <input type="number" class="form-control range-from w-100" placeholder="Range From" name="data[rng_from]" />
                                     </div>
                                 </div>
                                 <div class="col-12 col-sm-6">
                                     <div class="input-group input-group-sm flex-column mb-2 mb-sm-3">
                                         <label for="" class="form-label mb-0">To</label>
-                                        <input type="number" class="form-control range-to w-100" placeholder="Range To" />
+                                        <input type="number" class="form-control range-to w-100" placeholder="Range To" name="data[rng_to]" />
                                     </div>
                                 </div>
                             </div>
@@ -292,56 +295,56 @@
                     <div class="row gx-1 m-0">
                         <div class="col-12 col-sm-6">
                             <div class="input-group input-group-sm mb-2 mb-sm-3">
-                                <input type="text" class="form-control qstn" value="What are your strengths?" />
+                                <input type="text" class="form-control qstn" value="What are your strengths?" readonly />
                             </div>
                         </div>
                         <div class="col-12 col-sm-6">
                             <div class="input-group input-group-sm mb-2 mb-sm-3">
-                                <input type="text" class="form-control strengths-ansr" />
-                            </div>
-                        </div>
-
-                        <div class="col-12 col-sm-6">
-                            <div class="input-group input-group-sm mb-2 mb-sm-3">
-                                <input type="text" class="form-control qstn" value="Are you an effective leader? State past experiences." />
-                            </div>
-                        </div>
-                        <div class="col-12 col-sm-6">
-                            <div class="input-group input-group-sm mb-2 mb-sm-3">
-                                <input type="text" class="form-control past-exp-ansr" />
+                                <input type="text" class="form-control strengths-ansr" name="question1" required />
                             </div>
                         </div>
 
                         <div class="col-12 col-sm-6">
                             <div class="input-group input-group-sm mb-2 mb-sm-3">
-                                <input type="text" class="form-control qstn" value="How do you contribute to this role you are applying to?" />
+                                <input type="text" class="form-control qstn" value="Are you an effective leader? State past experiences." readonly />
                             </div>
                         </div>
                         <div class="col-12 col-sm-6">
                             <div class="input-group input-group-sm mb-2 mb-sm-3">
-                                <input type="text" class="form-control contribute-ansr" />
-                            </div>
-                        </div>
-
-                        <div class="col-12 col-sm-6">
-                            <div class="input-group input-group-sm mb-2 mb-sm-3">
-                                <input type="text" class="form-control qstn" value="What do you do in your spare time?" />
-                            </div>
-                        </div>
-                        <div class="col-12 col-sm-6">
-                            <div class="input-group input-group-sm mb-2 mb-sm-3">
-                                <input type="text" class="form-control spare-ansr" />
+                                <input type="text" class="form-control past-exp-ansr" name="question2" required />
                             </div>
                         </div>
 
                         <div class="col-12 col-sm-6">
                             <div class="input-group input-group-sm mb-2 mb-sm-3">
-                                <input type="text" class="form-control qstn" value="How do you overcome pressure and stress?" />
+                                <input type="text" class="form-control qstn" value="How do you contribute to this role you are applying to?" readonly />
                             </div>
                         </div>
                         <div class="col-12 col-sm-6">
                             <div class="input-group input-group-sm mb-2 mb-sm-3">
-                                <input type="text" class="form-control stress-ansr" />
+                                <input type="text" class="form-control contribute-ansr" name="question3" required />
+                            </div>
+                        </div>
+
+                        <div class="col-12 col-sm-6">
+                            <div class="input-group input-group-sm mb-2 mb-sm-3">
+                                <input type="text" class="form-control qstn" value="What do you do in your spare time?" readonly />
+                            </div>
+                        </div>
+                        <div class="col-12 col-sm-6">
+                            <div class="input-group input-group-sm mb-2 mb-sm-3">
+                                <input type="text" class="form-control spare-ansr" name="question4" required />
+                            </div>
+                        </div>
+
+                        <div class="col-12 col-sm-6">
+                            <div class="input-group input-group-sm mb-2 mb-sm-3">
+                                <input type="text" class="form-control qstn" value="How do you overcome pressure and stress?" readonly />
+                            </div>
+                        </div>
+                        <div class="col-12 col-sm-6">
+                            <div class="input-group input-group-sm mb-2 mb-sm-3">
+                                <input type="text" class="form-control stress-ansr" name="question5" required />
                             </div>
                         </div>
                     </div>
@@ -367,7 +370,7 @@
                                 <source src="<?= site_url() ?>app-assets/images/video.mp4" type="video/mp4" />
                                 Your browser does not support the video tag.
                             </video>
-                            <input type="file" class="form-control" id="video-job-post-file-upload" />
+                            <input type="file" class="form-control" name="question_video" id="question_video" />
                             <div class="note">Allowed &lt; 30 MB size Video</div>
                         </div>
                     </div>
@@ -430,28 +433,25 @@
                                             $st = '';
                                             if ($date_now <= $row['expiry_date']) {
                                                 $st = $row['post_status'];
-                                                if ($st == 'A'){
-                                                    ?><button type="button" class="btn  btn-sm btn-success">Active</button><?php
-                                                }
-                                                else{
-                                                    ?><button type="button" class="btn btn-sm btn-danger">Expired</button><?php
-                                                }
-                                            }
-                                            else{
-                                                ?><button type="button" class="btn btn-sm btn-danger">Expired</button><?php
-                                            }
-                                            ?>
+                                                if ($st == 'A') {
+                                            ?><button type="button" class="btn  btn-sm btn-success">Active</button><?php
+                                                                                                                        } else {
+                                                                                                                            ?><button type="button" class="btn btn-sm btn-danger">Expired</button><?php
+                                                                                                                        }
+                                                                                                                    } else {
+                                                                                                                            ?><button type="button" class="btn btn-sm btn-danger">Expired</button><?php
+                                                                                                                    }
+                                                                                                                        ?>
                                         </td>
                                         <td><button type="button" class="btn btn-sm btn-info" onclick="javascript: location.href='<?php echo base_url('CompanyRequirement/viewjobapplicants/' . $row['id']); ?>';">View</button></td>
                                         <td>
                                             <?php
                                             if ($st == 'A') {
-                                                ?><a title="Status is active please click to make expire" href="<?php echo base_url('CompanyRequirement/inactivate/' . $row['id']); ?>"><i class="fa fa-check" aria-hidden="true"></i></a><?php
-                                            }
-                                            else{
-                                                ?><a title="Status is expired please click to make active" href="<?php echo base_url('CompanyRequirement/activate/' . $row['id']); ?>"><i class="fa fa-times" aria-hidden="true"></i></a><?php
-                                            }
-                                            ?>
+                                            ?><a title="Status is active please click to make expire" href="<?php echo base_url('CompanyRequirement/inactivate/' . $row['id']); ?>"><i class="fa fa-check" aria-hidden="true"></i></a><?php
+                                                                                                                                                                                                                                        } else {
+                                                                                                                                                                                                                                            ?><a title="Status is expired please click to make active" href="<?php echo base_url('CompanyRequirement/activate/' . $row['id']); ?>"><i class="fa fa-times" aria-hidden="true"></i></a><?php
+                                                                                                                                                                                                                                        }
+                                                                                                                                                                                                                                            ?>
                                             <a href="<?php echo base_url('CompanyRequirement/updatejobpost/' . base64_encode($row['id'])); ?>"><i class="fa fa-pencil"></i></a>
                                         </td>
                                     </tr>
