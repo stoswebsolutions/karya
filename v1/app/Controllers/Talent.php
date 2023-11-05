@@ -6,7 +6,10 @@ use App\Controllers\BaseController;
 use App\Models\BoughtModel;
 use App\Models\CartModel;
 use App\Models\CompanyModel;
+use App\Models\CompanyphotoModel;
 use App\Models\CompanyrequirementsModel;
+use App\Models\CompanyuserModel;
+use App\Models\CompgalleryModel;
 use App\Models\CoursemanagementModel;
 use App\Models\OccupationsModel;
 use App\Models\OrdertransactionModel;
@@ -30,6 +33,9 @@ class Talent extends BaseController
     private $companyrequirementsModel;
     private $coursemanagementModel;
     private $occupationsModel;
+    private $companyuserModel;
+    private $companyphotoModel;
+    private $compgalleryModel;
     public function __construct()
     {
         $this->loggedData = session()->get('LoggedData');
@@ -45,6 +51,9 @@ class Talent extends BaseController
         $this->companyrequirementsModel = new CompanyrequirementsModel();
         $this->coursemanagementModel = new CoursemanagementModel();
         $this->occupationsModel = new OccupationsModel();
+        $this->companyuserModel = new CompanyuserModel();
+        $this->companyphotoModel = new CompanyphotoModel();
+        $this->compgalleryModel = new CompgalleryModel();
     }
     public function dashboard()
     {
@@ -62,12 +71,22 @@ class Talent extends BaseController
     }
     public function profile()
     {
+        $company_id = $this->loggedTalent['tb_company_user_id'];
+        $email = $this->loggedTalent['company_email'];
+
         $data['pageTitle'] = 'Karya | Profile';
         $data['logo'] = 'app-assets/images/logo_karya.png';
         $data['active'] = 'profile';
         $data['css'] = array(
             base_url('app-assets/talent/style.css')
         );
+        $data['companyProfile'] = $this->companyuserModel->where(array("tb_company_user_id" => $company_id))->findAll();
+        $data['companyDetails'] = $this->companyModel->select('*')
+            ->join('tb_company_user', 'tb_company.tb_company_id = tb_company_user.tb_company_user_id')
+            ->where(array('tb_company_id' => $company_id))
+            ->findAll();
+        $data['companyPhotos'] = $this->companyphotoModel->where(array("tb_company_id" => $company_id))->findAll();
+        $data['companyGallery'] = $this->compgalleryModel->where(array("company_id" => $company_id))->findAll();
         return view('talent/profile', $data);
     }
     public function cart()
@@ -242,7 +261,7 @@ class Talent extends BaseController
         $data['css'] = array(
             base_url('app-assets/talent/style.css')
         );
-        $data['jobDetails'] = $this->companyrequirementsModel->where(array("companyId" => $company_id))->orderBy('id','desc')->findAll();
+        $data['jobDetails'] = $this->companyrequirementsModel->where(array("companyId" => $company_id))->orderBy('id', 'desc')->findAll();
         $data['coursemanagementModel'] = $this->coursemanagementModel;
         $data['occupationsModel'] = $this->occupationsModel;
         return view('talent/vacancies', $data);
@@ -266,9 +285,9 @@ class Talent extends BaseController
         $data['css'] = array(
             base_url('app-assets/talent/style.css')
         );
-        $data['boughtDetails'] = $this->boughtModel->where(array('company_id' => $company_id, 'status' => '1'))->orderBy('date','desc')->findAll();
+        $data['boughtDetails'] = $this->boughtModel->where(array('company_id' => $company_id, 'status' => '1'))->orderBy('date', 'desc')->findAll();
         $data['shortlistDetails'] = $this->shortlistModel->where(array('company_id' => $company_id))->groupBy('candidate_id')->orderBy('tb_shortlist_id')->findAll();
-        $data['transactionsDetails'] = $this->walletTransactionsModel->where(array('comp_id' => $company_id, 'status' => '2'))->orderBy('trans_id','desc')->findAll();
+        $data['transactionsDetails'] = $this->walletTransactionsModel->where(array('comp_id' => $company_id, 'status' => '2'))->orderBy('trans_id', 'desc')->findAll();
         return view('talent/myaccount', $data);
     }
     public function bought_update()

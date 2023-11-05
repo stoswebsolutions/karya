@@ -38,159 +38,169 @@
     <!-- profile tab -->
     <!-- company info -->
     <div class="company-info-form">
-        <form action="" class="bg-white">
-            <h1 class="hdr">Company Info</h1>
-            <div class="row gx-3">
-                <div class="col-12 col-sm-6">
-                    <div class="input-group input-group-sm mb-2 mb-sm-3">
-                        <span class="input-group-text bg-transparent pe-0">
-                            <i class="fa fa-building" aria-hidden="true"></i>
-                        </span>
-                        <input type="text" class="form-control border-start-0 company-name" placeholder="Company name" value="Code Life Solution" />
-                    </div>
-                </div>
-                <div class="col-12 col-sm-6">
-                    <div class="input-group input-group-sm mb-2 mb-sm-3">
-                        <span class="input-group-text bg-transparent pe-0">
-                            <i class="fa fa-copyright" aria-hidden="true"></i>
-                        </span>
-                        <input type="text" class="form-control border-start-0 copyright" placeholder="Copyright" value="123456P" />
-                    </div>
-                </div>
-                <div class="col-12 col-sm-4">
-                    <div class="input-group input-group-sm mb-2 mb-sm-3">
-                        <span class="input-group-text bg-transparent pe-0">
-                            <i class="fa fa-phone" aria-hidden="true"></i>
-                        </span>
-                        <input type="text" class="form-control border-start-0 phone" placeholder="Phone" value="0199999999" />
-                    </div>
-                </div>
-                <div class="col-12 col-sm-4">
-                    <div class="input-group input-group-sm mb-2 mb-sm-3">
-                        <span class="input-group-text bg-transparent pe-0">
-                            <i class="fa fa-envelope" aria-hidden="true"></i>
-                        </span>
-                        <input type="text" class="form-control border-start-0 mail" placeholder="Mail" value="codeadmin@gmail.com" />
-                    </div>
-                </div>
-                <div class="col-12 col-sm-4">
-                    <div class="input-group input-group-sm mb-2 mb-sm-3">
-                        <span class="input-group-text bg-transparent pe-0">
-                            <i class="fa fa-globe" aria-hidden="true"></i>
-                        </span>
-                        <input type="text" class="form-control border-start-0 website" placeholder="Website" value="www.codelife.com" />
-                    </div>
-                </div>
-                <div class="col-12 col-sm-6">
-                    <div class="input-group input-group-sm mb-2 mb-sm-3">
-                        <select id="" class="form-select">
-                            <option disabled>Select</option>
-                            <option selected value="t&m">
-                                Technology and Media
-                            </option>
-                        </select>
-                    </div>
-                </div>
-                <div class="col-12 col-sm-6">
-                    <div class="input-group input-group-sm mb-2 mb-sm-3">
-                        <select id="" class="form-select">
-                            <option disabled>Select</option>
-                            <option selected value="1kAbove">
-                                Conglomerate - 1000 and above personnel
-                            </option>
-                        </select>
-                    </div>
-                </div>
-                <div class="col-12 col-sm-4">
-                    <div class="input-group input-group-sm mb-2 mb-sm-3">
-                        <span class="input-group-text bg-transparent pe-0">
-                            <i class="fa fa-globe" aria-hidden="true"></i>
-                        </span>
-                        <input type="text" class="form-control border-start-0 adrs-1" placeholder="Address" value="B-3-4, Block B, Plaza Damas" />
-                    </div>
-                </div>
-                <div class="col-12 col-sm-4">
-                    <div class="input-group input-group-sm mb-2 mb-sm-3">
-                        <span class="input-group-text bg-transparent pe-0">
-                            <i class="fa fa-globe" aria-hidden="true"></i>
-                        </span>
-                        <input type="text" class="form-control border-start-0 adrs-2" placeholder="Address" value="60 Jalan Sri Hartamas 1, Sri Hari" />
-                    </div>
-                </div>
-                <div class="col-12 col-sm-4">
-                    <div class="input-group input-group-sm mb-2 mb-sm-3">
-                        <span class="input-group-text bg-transparent pe-0">
-                            <i class="fa fa-globe" aria-hidden="true"></i>
-                        </span>
-                        <input type="text" class="form-control border-start-0 pin" placeholder="Pincode" value="40580" />
-                    </div>
-                </div>
-                <div class="col-12 col-sm-4">
-                    <div class="input-group input-group-sm mb-2 mb-sm-3">
-                        <span class="input-group-text bg-transparent pe-0">
-                            <i class="fa fa-globe" aria-hidden="true"></i>
-                        </span>
-                        <input type="text" class="form-control border-start-0 loc-1" placeholder="Location 1" value="Kuala Lumpur" />
-                    </div>
-                </div>
-                <div class="col-12 col-sm-4">
-                    <div class="input-group input-group-sm mb-2 mb-sm-3">
-                        <span class="input-group-text bg-transparent pe-0">
-                            <i class="fa fa-globe" aria-hidden="true"></i>
-                        </span>
-                        <input type="text" class="form-control border-start-0 loc-2" placeholder="Location 2" value="Wilayah Peresekutuan" />
-                    </div>
-                </div>
-                <div class="col-12 col-sm-4">
-                    <div class="input-group input-group-sm mb-2 mb-sm-3">
-                        <span class="input-group-text bg-transparent pe-0">
-                            <i class="fa fa-globe" aria-hidden="true"></i>
-                        </span>
-                        <input type="text" class="form-control border-start-0 loc-coordinate" placeholder="Location Coordinate" />
-                    </div>
-                </div>
-            </div>
-        </form>
-        <form action="" class="form-2 bg-white pt-0">
-            <div class="row gx-3">
-                <div class="col-12">
-                    <div class="input-group input-group-sm mb-2 mb-sm-3 d-flex flex-column">
-                        <div class="input-group input-group-sm">
-                            <span class="input-group-text bg-transparent pe-0 input-icon">
-                                <i class="fa fa-comments" aria-hidden="true"></i>
-                            </span>
-                            <textarea class="form-control border-start-0 details details-1" placeholder="Details 1">
-                                                In 2013, our founder start to create find design thinking from coder community and in 2015 CODE was born with passionate team members and now we experiences work for a variety of clients, from small and medium enterprises to multinational organizations.</textarea>
-                        </div>
-                        <div class="info-txt">
-                            More details about company:
-                            <span class="hlpr-txt">add more specific details about company, please write
-                                between 10 - 300 characters.</span>
+        <?php
+        if (!empty($companyDetails)) {
+            foreach ($companyDetails as $index => $row) {
+        ?>
+                <form action="" method="post">
+                    <div class="bg-white">
+                        <h1 class="hdr">Company Info</h1>
+                        <div class="row gx-3">
+                            <div class="col-12 col-sm-6">
+                                <div class="input-group input-group-sm mb-2 mb-sm-3">
+                                    <span class="input-group-text bg-transparent pe-0">
+                                        <i class="fa fa-building" aria-hidden="true"></i>
+                                    </span>
+                                    <input type="text" class="form-control border-start-0 company-name" placeholder="Company name" name="company_name" id="company_name" value="<?= $row['company_name'] ?>" required />
+                                </div>
+                            </div>
+                            <div class="col-12 col-sm-6">
+                                <div class="input-group input-group-sm mb-2 mb-sm-3">
+                                    <span class="input-group-text bg-transparent pe-0">
+                                        <i class="fa fa-copyright" aria-hidden="true"></i>
+                                    </span>
+                                    <input type="text" class="form-control border-start-0 copyright" placeholder="Copyright" name="ssm_number" id="ssm_number" value="<?= $row['ssm_number'] ?>" required />
+                                </div>
+                            </div>
+                            <div class="col-12 col-sm-4">
+                                <div class="input-group input-group-sm mb-2 mb-sm-3">
+                                    <span class="input-group-text bg-transparent pe-0">
+                                        <i class="fa fa-phone" aria-hidden="true"></i>
+                                    </span>
+                                    <input type="text" class="form-control border-start-0 phone" placeholder="Phone" name="contact_number" id="company_contact_phone" value="<?= $row['contact_number'] ?>" required />
+                                </div>
+                            </div>
+                            <div class="col-12 col-sm-4">
+                                <div class="input-group input-group-sm mb-2 mb-sm-3">
+                                    <span class="input-group-text bg-transparent pe-0">
+                                        <i class="fa fa-envelope" aria-hidden="true"></i>
+                                    </span>
+                                    <input type="text" class="form-control border-start-0 mail" placeholder="Mail" name="contact_email" id="company_contact_email" value="<?= $row['contact_email'] ?>" required />
+                                </div>
+                            </div>
+                            <div class="col-12 col-sm-4">
+                                <div class="input-group input-group-sm mb-2 mb-sm-3">
+                                    <span class="input-group-text bg-transparent pe-0">
+                                        <i class="fa fa-globe" aria-hidden="true"></i>
+                                    </span>
+                                    <input type="text" class="form-control border-start-0 website" placeholder="Website" name="website_url" id="website_url" value="<?= $row['website_url'] ?>" required />
+                                </div>
+                            </div>
+                            <div class="col-12 col-sm-6">
+                                <div class="input-group input-group-sm mb-2 mb-sm-3">
+                                    <select id="gender" name="sector" class="form-select">
+                                        <option disabled>Select Sector</option>
+                                        <option <? if($row['sector'] == 1) echo "selected" ?> value="1">Utilities and Energy</option>
+                                        <option <? if($row['sector'] == 2) echo "selected" ?> value="2">Technology and Media</option>
+                                        <option <? if($row['sector'] == 3) echo "selected" ?> value="3">Financial</option>
+                                        <option <? if($row['sector'] == 4) echo "selected" ?> value="4">Consumer</option>
+                                        <option <? if($row['sector'] == 5) echo "selected" ?> value="5">Industrial</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-12 col-sm-6">
+                                <div class="input-group input-group-sm mb-2 mb-sm-3">
+                                    <select id="company_size" name="company_size" class="form-select">
+                                        <option disabled>Company Size</option>
+                                        <option <? if(($row['company_size'] != '') && ($row['company_size'] == 'Small - less then100 personnel') ) echo "selected" ?> value="Small - less then100 personnel">Small - less then100 personnel</option>
+                                        <option <? if(($row['company_size'] != '') && ($row['company_size'] == 'Medium - 100 to 499 personnel') ) echo "selected" ?> value="Medium - 100 to 499 personnel">Medium - 100 to 499 personnel</option>
+                                        <option <? if(($row['company_size'] != '') && ($row['company_size'] == 'Conglomerate - 1000 and above personnel') ) echo "selected" ?> value="Conglomerate - 1000 and above personnel">Conglomerate - 1000 and above personnel</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-12 col-sm-4">
+                                <div class="input-group input-group-sm mb-2 mb-sm-3">
+                                    <span class="input-group-text bg-transparent pe-0">
+                                        <i class="fa fa-globe" aria-hidden="true"></i>
+                                    </span>
+                                    <input type="text" class="form-control border-start-0 adrs-1" placeholder="Address" name="company_address1" id="company_address1" value="<?= $row['company_address1'] ?>" required />
+                                </div>
+                            </div>
+                            <div class="col-12 col-sm-4">
+                                <div class="input-group input-group-sm mb-2 mb-sm-3">
+                                    <span class="input-group-text bg-transparent pe-0">
+                                        <i class="fa fa-globe" aria-hidden="true"></i>
+                                    </span>
+                                    <input type="text" class="form-control border-start-0 adrs-2" placeholder="Address" name="company_address2" id="company_address2" value="<?= $row['company_address2'] ?>" required />
+                                </div>
+                            </div>
+                            <div class="col-12 col-sm-4">
+                                <div class="input-group input-group-sm mb-2 mb-sm-3">
+                                    <span class="input-group-text bg-transparent pe-0">
+                                        <i class="fa fa-globe" aria-hidden="true"></i>
+                                    </span>
+                                    <input type="text" class="form-control border-start-0 pin" placeholder="Pincode" name="company_zip" id="company_zip" value="<?= $row['company_zip'] ?>" required />
+                                </div>
+                            </div>
+                            <div class="col-12 col-sm-4">
+                                <div class="input-group input-group-sm mb-2 mb-sm-3">
+                                    <span class="input-group-text bg-transparent pe-0">
+                                        <i class="fa fa-globe" aria-hidden="true"></i>
+                                    </span>
+                                    <input type="text" class="form-control border-start-0 loc-1" placeholder="Location 1" name="company_city" id="company_city" value="<?= $row['company_city'] ?>" required />
+                                </div>
+                            </div>
+                            <div class="col-12 col-sm-4">
+                                <div class="input-group input-group-sm mb-2 mb-sm-3">
+                                    <span class="input-group-text bg-transparent pe-0">
+                                        <i class="fa fa-globe" aria-hidden="true"></i>
+                                    </span>
+                                    <input type="text" class="form-control border-start-0 loc-2" placeholder="Location 2" name="company_state" id="company_state" value="<?= $row['company_state'] ?>" required />
+                                </div>
+                            </div>
+                            <div class="col-12 col-sm-4">
+                                <div class="input-group input-group-sm mb-2 mb-sm-3">
+                                    <span class="input-group-text bg-transparent pe-0">
+                                        <i class="fa fa-globe" aria-hidden="true"></i>
+                                    </span>
+                                    <input type="text" class="form-control border-start-0 loc-coordinate" placeholder="Location Coordinate" name="company_location_coordinate" id="company_location_coordinate" value="<?= $row['company_location_coordinate'] ?>" required />
+                                </div>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-12">
-                    <div class="input-group input-group-sm mb-2 mb-sm-3 d-flex flex-column">
-                        <div class="input-group input-group-sm">
-                            <span class="input-group-text bg-transparent pe-0 input-icon">
-                                <i class="fa fa-comments" aria-hidden="true"></i>
-                            </span>
-                            <textarea class="form-control border-start-0 details details-2" placeholder="Details 1">
-                                                In 2013, our founder start to create find design thinking from coder community and in 2015 CODE was born with passionate team members and now we experiences work for a variety of clients, from small and medium enterprises to multinational organizations.</textarea>
-                        </div>
-                        <div class="info-txt">
-                            More details about company:
-                            <span class="hlpr-txt">add more specific details about company, please write
-                                between 10 - 300 characters.</span>
+                    <div class="form-2 bg-white pt-0">
+                        <div class="row gx-3">
+                            <div class="col-12">
+                                <div class="input-group input-group-sm mb-2 mb-sm-3 d-flex flex-column">
+                                    <div class="input-group input-group-sm">
+                                        <span class="input-group-text bg-transparent pe-0 input-icon">
+                                            <i class="fa fa-comments" aria-hidden="true"></i>
+                                        </span>
+                                        <textarea class="form-control border-start-0 details details-1" placeholder="Details 1" id="company_history" name="company_history"><?= $row['company_history'] ?></textarea>
+                                    </div>
+                                    <div class="info-txt">
+                                        More details about company:
+                                        <span class="hlpr-txt">add more specific details about company, please write
+                                            between 10 - 300 characters.</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="input-group input-group-sm mb-2 mb-sm-3 d-flex flex-column">
+                                    <div class="input-group input-group-sm">
+                                        <span class="input-group-text bg-transparent pe-0 input-icon">
+                                            <i class="fa fa-comments" aria-hidden="true"></i>
+                                        </span>
+                                        <textarea class="form-control border-start-0 details details-2" placeholder="Details 1" id="company_banefit" name="company_banefit"><?= $row['company_banefit'] ?></textarea>
+                                    </div>
+                                    <div class="info-txt">
+                                        More details about company:
+                                        <span class="hlpr-txt">add more specific details about company, please write
+                                            between 10 - 300 characters.</span>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                </div>
-            </div>
-        </form>
-        <div class="to-fro-btns">
-            <button class="btn back-btn company-info-back">Go Back</button>
-            <button class="btn next-btn company-info-next">Next</button>
-        </div>
+                    <div class="to-fro-btns">
+                        <button class="btn back-btn company-info-back">Go Back</button>
+                        <button class="btn next-btn company-info-next">Next</button>
+                    </div>
+                </form>
+        <?php
+            }
+        }
+        ?>
     </div>
     <!-- ends::company info -->
     <!-- upload video gallery -->
@@ -200,10 +210,10 @@
             <div class="sample-pics">
                 <div class="row">
                     <div class="col-4">
-                        <img src="<?= site_url() ?>app-assets/images/sample-profile-pic.PNG" alt="profile" class="w-100" />
+                        <img src="<?= site_url() ?>assets/uploads/company/<?= $companyPhotos[0]['tb_company_id'] ?>/<?= $companyPhotos[0]['company_photo_file_name'] ?>" alt="profile" class="w-100" />
                     </div>
                     <div class="col-8">
-                        <img src="<?= site_url() ?>app-assets/images/sample-bg-img.PNG" alt="background image" class="w-100" />
+                        <img src="<?= site_url() ?>assets/uploads/company/<?= $companyPhotos[0]['tb_company_id'] ?>/<?= $companyPhotos[0]['companyBgImage'] ?>" alt="background image" class="w-100" />
                     </div>
                 </div>
             </div>
@@ -220,10 +230,10 @@
             <div class="upload-files p-1 p-sm-2">
                 <div class="row align-items-center">
                     <div class="col-6 col-sm-4">
-                        <input type="file" class="form-control file-upload" id="profile-pic-upload" />
+                        <input type="file" class="form-control file-upload" id="company_photo_formal" name="company_photo_formal" />
                     </div>
                     <div class="col-6 col-sm-4">
-                        <input type="file" class="form-control file-upload" id="bg-img-upload" />
+                        <input type="file" class="form-control file-upload" id="bgImage" name="bgImage" />
                     </div>
                     <div class="col-12 col-sm-4">
                         <div class="d-flex justify-content-center justify-content-sm-end mt-1 mt-sm-0">
@@ -258,7 +268,7 @@
                 </div>
                 <div class="col-12 col-lg-6">
                     <video controls class="hoverable mt-2 mt-lg-0">
-                        <source src="<?= site_url() ?>app-assets/images/video.mp4" type="video/mp4" />
+                        <source src="<?= site_url() ?>assets/uploads/company/<?= $companyDetails[0]['tb_company_id'] ?>/<?= str_replace('./uploads/company/','',$companyDetails[0]['video_path']) ?>.mp4" type="video/mp4" />
                         Your browser does not support the video tag.
                     </video>
                 </div>
@@ -283,66 +293,26 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <th scope="row">1</th>
-                            <td>ARRENLCARXY</td>
-                            <td>
-                                <img src="<?= site_url() ?>app-assets/images/sample-user-img.PNG" alt="user img" />
-                            </td>
-                            <td>
-                                <div class="delete-icon">
-                                    <i class="fa fa-trash-o" aria-hidden="true"></i>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <th scope="row">2</th>
-                            <td>hiring_asians</td>
-                            <td>
-                                <img src="<?= site_url() ?>app-assets/images/sample-user-img.PNG" alt="user img" />
-                            </td>
-                            <td>
-                                <div class="delete-icon">
-                                    <i class="fa fa-trash" aria-hidden="true"></i>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <th scope="row">3</th>
-                            <td>asia_business</td>
-                            <td>
-                                <img src="<?= site_url() ?>app-assets/images/sample-user-img.PNG" alt="user img" />
-                            </td>
-                            <td>
-                                <div class="delete-icon">
-                                    <i class="fa fa-trash" aria-hidden="true"></i>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <th scope="row">4</th>
-                            <td>JobInterview</td>
-                            <td>
-                                <img src="<?= site_url() ?>app-assets/images/sample-user-img.PNG" alt="user img" />
-                            </td>
-                            <td>
-                                <div class="delete-icon">
-                                    <i class="fa fa-trash" aria-hidden="true"></i>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <th scope="row">4</th>
-                            <td>Talent_lounge_21</td>
-                            <td>
-                                <img src="<?= site_url() ?>app-assets/images/sample-user-img.PNG" alt="user img" />
-                            </td>
-                            <td>
-                                <div class="delete-icon">
-                                    <i class="fa fa-trash" aria-hidden="true"></i>
-                                </div>
-                            </td>
-                        </tr>
+                        <?php
+                        if (!empty($companyGallery)) {
+                            foreach ($companyGallery as $index => $row) {
+                                ?>
+                                <tr>
+                                    <th scope="row"><?= $index+1 ?></th>
+                                    <td><?= $row['name'] ?></td>
+                                    <td>
+                                        <img src="<?= site_url() ?>assets/uploads/company/<?= $row['company_id'] ?>/<?= $row['path'] ?>" width="60" height="60" alt="user img" />
+                                    </td>
+                                    <td>
+                                        <div class="delete-icon">
+                                            <i class="fa fa-trash-o" aria-hidden="true"></i>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <?php
+                            }
+                        }
+                        ?>
                     </tbody>
                 </table>
             </div>
