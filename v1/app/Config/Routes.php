@@ -34,9 +34,9 @@ $routes->group('/', ['filter' => 'noauth'], function ($routes) {
     $routes->get('', 'Home::home');
     $routes->get('home', 'Home::home');
     $routes->get('price', 'Home::price');
-    $routes->get('login', 'Home::login');
-    $routes->post('action', 'Home::action');
+    $routes->get('hired', 'Home::hired');
     $routes->post('hiredLogin', 'Home::hiredLogin');
+    $routes->get('talent', 'Home::talent');
     $routes->post('talentLogin', 'Home::talentLogin');
 });
 
@@ -53,7 +53,9 @@ $routes->group('/', ['filter' => 'auth'], function ($routes) {
         $routes->get('uploadResume', 'Hired::uploadResume');
         $routes->post('uploadResumeSubmit', 'Hired::uploadResumeSubmit');
         $routes->get('interviewPrep', 'Hired::interviewPrep');
+        $routes->post('interviewPrepSubmit', 'Hired::interviewPrepSubmit');
         $routes->get('uploadVideo', 'Hired::uploadVideo');
+        $routes->post('uploadVideoSubmit', 'Hired::uploadVideoSubmit');
         $routes->get('myProfile', 'Hired::myProfile');
         $routes->get('status', 'Hired::status');
         $routes->get('profile', 'Hired::profile');
