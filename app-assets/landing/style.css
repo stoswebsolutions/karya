@@ -848,7 +848,7 @@ nav .menu-icon:hover {
 }
 
 .carousel-section .carousel-talent {
-  background: linear-gradient(rgba(50, 201, 194, 0.9), rgba(50, 201, 194, 0.9)), url(../images/hero-image-01.jpg);
+  background: linear-gradient(135deg, #8dcdcb 40%, #c9c3c2), url(../images/hero-image-01.jpg);
   background-size: cover;
   background-position: top right;
   background-repeat: no-repeat;
