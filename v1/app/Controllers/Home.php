@@ -33,15 +33,16 @@ class Home extends BaseController
         $data['logo'] = 'app-assets/images/logo_karya.png';
         $data['active'] = 'price';
         $data['css'] = array(
-            base_url('app-assets/pricing/style.css')
+            base_url('app-assets/pricing/style.css'),
+            base_url('app-assets/landing/style.css')
         );
         return view('price', $data);
     }
-    public function login()
+    public function hired()
     {
         $data['pageTitle'] = 'Karya | Security';
         $data['logo'] = 'app-assets/images/logo_karya.png';
-        return view('login', $data);
+        return view('hired', $data);
     }
     public function hiredLogin()
     {
@@ -63,7 +64,7 @@ class Home extends BaseController
             ],
         ]);
         if (!$validation) {
-            return  redirect()->back()->with('validation', $this->validator)->withInput();
+            return  redirect()->to('#hired-talent-form-section')->with('validation', $this->validator)->withInput();
         } else {
             $email = $this->request->getVar('email');
             $password = $this->request->getVar('password');
@@ -103,6 +104,12 @@ class Home extends BaseController
             }
         }
     }
+    public function talent()
+    {
+        $data['pageTitle'] = 'Karya | Security';
+        $data['logo'] = 'app-assets/images/logo_karya.png';
+        return view('talent', $data);
+    }
     public function talentLogin()
     {
         $validation = $this->validate([
@@ -141,10 +148,10 @@ class Home extends BaseController
     {
         if (session()->has('LoggedData')) {
             session()->remove('LoggedData');
-            return  redirect()->to('login')->with('fail', 'You are now logged out.');
+            return  redirect()->to('')->with('fail', 'You are now logged out.');
         }
         else{
-            return  redirect()->to('login');
+            return  redirect()->to('');
         }
     }
 }
