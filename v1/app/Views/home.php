@@ -19,16 +19,13 @@ if (isset($css) && $css != NULL) {
                         <img src="<?= site_url() ?>app-assets/images/logo_karya.png" alt="logo" class="brand" />
                         <ul class="m-0 p-0">
                             <li class="">
-                                <a href="<?= site_url() ?>hired/dashboard"> Get Hired </a>
+                                <a href="#hired-talent-form-section"> Get Hired </a>
                             </li>
                             <li class="ms-4">
-                                <a href="<?= site_url() ?>talent/dashboard"> Get Talent </a>
+                                <a href="#hired-talent-form-section"> Get Talent </a>
                             </li>
                             <li class="ms-4">
                                 <a href="<?= site_url() ?>price"> Pricing Plans </a>
-                            </li>
-                            <li class="ms-4">
-                                <a href="<?= site_url() ?>login"> Log In </a>
                             </li>
                             <li class="ms-4">
                                 <a href="<?= site_url() ?>login"> Join </a>
@@ -53,16 +50,13 @@ if (isset($css) && $css != NULL) {
                         <img src="<?= site_url() ?>app-assets/images/logo_karya_light.png" alt="logo" class="brand" />
                         <ul class="m-0 p-0">
                             <li class="">
-                                <a href="<?= site_url() ?>hired/dashboard"> Get Hired </a>
+                                <a href="#hired-talent-form-section"> Get Hired </a>
                             </li>
                             <li class="ms-4">
-                                <a href="<?= site_url() ?>talent/dashboard"> Get Talent </a>
+                                <a href="#hired-talent-form-section"> Get Talent </a>
                             </li>
                             <li class="ms-4">
                                 <a href="<?= site_url() ?>price"> Pricing Plans </a>
-                            </li>
-                            <li class="ms-4">
-                                <a href="<?= site_url() ?>login"> Log In </a>
                             </li>
                             <li class="ms-4">
                                 <a href="<?= site_url() ?>login"> Join </a>
@@ -97,16 +91,13 @@ if (isset($css) && $css != NULL) {
             <div class="offcanvas-body">
                 <ul class="m-0 p-0">
                     <li class="">
-                        <a href="<?= site_url() ?>hired/dashboard"> Get Hired </a>
+                        <a href="#hired-talent-form-section"> Get Hired </a>
                     </li>
                     <li class="">
-                        <a href="<?= site_url() ?>talent/dashboard"> Get Talent </a>
+                        <a href="#hired-talent-form-section"> Get Talent </a>
                     </li>
                     <li class="">
                         <a href="<?= site_url() ?>price"> Pricing Plans </a>
-                    </li>
-                    <li class="">
-                        <a href="<?= site_url() ?>login"> Log In </a>
                     </li>
                     <li class="">
                         <a href="<?= site_url() ?>login"> Join </a>
@@ -116,7 +107,7 @@ if (isset($css) && $css != NULL) {
         </div>
         <!-- ends::offcanvas menu -->
     </section>
-    <section class="karya-section hired-talent-form-section">
+    <section class="karya-section hired-talent-form-section" id="hired-talent-form-section">
         <div class="row h-100 gx-0">
             <div class="col-12 col-md-6">
                 <div class="hired-sub-section sec-bg h-100 position-relative">
@@ -128,21 +119,29 @@ if (isset($css) && $css != NULL) {
                             aspirations. Our tool will assist you in providing that
                             perfect pitch for your interview.
                         </h6>
-                        <form action="">
+                        <form class="" id="hiredform" action="<?= base_url('hiredLogin') ?>" method="post">
+                            <?= csrf_field(); ?>
+                            <?php if (!empty(session()->getFlashdata('fail'))) : ?>
+                                <div class="alert alert-danger"><?= session()->getFlashdata('fail'); ?></div>
+                            <?php elseif (!empty(session()->getFlashdata('success'))) : ?>
+                                <div class="alert alert-success"><?= session()->getFlashdata('success'); ?></div>
+                            <?php endif ?>
                             <div class="mb-3">
-                                <label for="career-role" class="form-label text-uppercase text-white">
-                                    career role
+                                <label for="email" class="form-label text-uppercase text-white">
+                                    Email
                                 </label>
-                                <input type="text" class="form-control" id="career-role" aria-describedby="careerRole" placeholder="Enter Targeted Job Role" />
+                                <input type="email" class="form-control" id="email" name="email" value="<?= set_value('email') ?>" aria-describedby="email" placeholder="Enter Registered Email" />
+                                <div class="text-danger"><?= !empty(session()->getFlashdata('validation')) ? error(session()->getFlashdata('validation'), 'email') : '' ?></div>
                             </div>
                             <div class="mb-3">
-                                <label for="location" class="form-label text-uppercase text-white">
-                                    location
+                                <label for="password" class="form-label text-uppercase text-white">
+                                    Password
                                 </label>
-                                <input type="text" class="form-control" id="location" aria-describedby="location" placeholder="Enter City" />
+                                <input type="password" class="form-control" id="password" name="password" value="<?= set_value('password') ?>" aria-describedby="password" placeholder="Enter Password" />
+                                <div class="text-danger"><?= !empty(session()->getFlashdata('validation')) ? error(session()->getFlashdata('validation'), 'password') : '' ?></div>
                             </div>
                             <button type="submit" class="btn karya-btn pri-bg text-white submit-btn">
-                                Search
+                                Sign In
                             </button>
                         </form>
                     </div>
@@ -158,21 +157,29 @@ if (isset($css) && $css != NULL) {
                             connect you with outstanding candidates who can materialise
                             your projects and plans.
                         </h6>
-                        <form action="">
+                        <form class="" id="talentform" action="<?= base_url('talentLogin') ?>" method="post">
+                            <?= csrf_field(); ?>
+                            <?php if (!empty(session()->getFlashdata('fail'))) : ?>
+                                <div class="alert alert-danger"><?= session()->getFlashdata('fail'); ?></div>
+                            <?php elseif (!empty(session()->getFlashdata('success'))) : ?>
+                                <div class="alert alert-success"><?= session()->getFlashdata('success'); ?></div>
+                            <?php endif ?>
                             <div class="mb-3">
-                                <label for="talent-career-role" class="form-label text-uppercase text-white">
-                                    career role
+                                <label for="email" class="form-label text-uppercase text-white">
+                                    Email
                                 </label>
-                                <input type="text" class="form-control" id="talent-career-role" aria-describedby="careerRole" placeholder="Enter Vacant Position" />
+                                <input type="email" class="form-control" id="email" name="email" value="<?= set_value('email') ?>" aria-describedby="careerRole" placeholder="Email Address" />
+                                <div class="text-danger"><?= !empty(session()->getFlashdata('validation')) ? error(session()->getFlashdata('validation'), 'email') : '' ?></div>
                             </div>
                             <div class="mb-3">
-                                <label for="talent-location" class="form-label text-uppercase text-white">
-                                    location
+                                <label for="password" class="form-label text-uppercase text-white">
+                                    Password
                                 </label>
-                                <input type="text" class="form-control" id="talent-location" aria-describedby="location" placeholder="Enter City" />
+                                <input type="password" class="form-control" id="password" name="password" value="<?= set_value('password') ?>" aria-describedby="location" placeholder="Password" />
+                                <div class="text-danger"><?= !empty(session()->getFlashdata('validation')) ? error(session()->getFlashdata('validation'), 'password') : '' ?></div>
                             </div>
                             <button type="submit" class="btn karya-btn sec-bg text-white submit-btn">
-                                Search
+                                Sign In
                             </button>
                         </form>
                     </div>
@@ -181,6 +188,7 @@ if (isset($css) && $css != NULL) {
         </div>
     </section>
     <section class="karya-section about-section pri-bg">
+        <div class="container">
         <div class="row h-100 gx-0">
             <div class="col-12 col-md-6">
                 <div class="etymology-sub-section pri-bg h-100 karya-py">
@@ -217,7 +225,7 @@ if (isset($css) && $css != NULL) {
                         intelligence, science, and art to connect job seekers with
                         employers.
                     </h6>
-                    <h6 class="text-white points">
+                    <h6 class="text-white points ">
                         Our mission is to revolutionise the way talent is discovered and
                         matched with the best opportunities. By harnessing the power of
                         Al in the GPT model and data-driven insights through personality
@@ -228,6 +236,7 @@ if (isset($css) && $css != NULL) {
                     </h6>
                 </div>
             </div>
+        </div>
         </div>
     </section>
     <section class="karya-section what-section bg-white">

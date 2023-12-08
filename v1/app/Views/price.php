@@ -211,5 +211,48 @@ if (isset($css) && $css != NULL) {
             </div>
         </div>
     </section>
+    <section class="karya-section employer-section pri-bg">
+        <div class="row gx-0">
+            <h1 class="font-kai yellow-clr karya-p mb-0 section-title">
+                Employer
+            </h1>
+            <div class="col-12 col-md-4">
+                <div class="info-card understanding-card">
+                    <div class="circle-icon">
+                        <div class="minus-icon"></div>
+                    </div>
+                    <h1 class="font-kai sec-clr">Understanding Your Needs</h1>
+                    <h6 class="">
+                        Using Al, we analyse your exact needs and generate the necessary
+                        details for your job posting and talent match.
+                    </h6>
+                </div>
+            </div>
+            <div class="col-12 col-md-4">
+                <div class="info-card talent-card">
+                    <div class="circle-icon">
+                        <div class="minus-icon"></div>
+                    </div>
+                    <h1 class="font-kai sec-clr">Talent Match and Recommendations</h1>
+                    <h6 class="pri-clr">
+                        Using Al, we will match the best talents suitable for the vacant
+                        role and suggest other possible roles where they could excel.
+                    </h6>
+                </div>
+            </div>
+            <div class="col-12 col-md-4">
+                <div class="info-card save-card">
+                    <div class="circle-icon">
+                        <div class="minus-icon"></div>
+                    </div>
+                    <h1 class="font-kai sec-clr">Save Time and Money</h1>
+                    <h6 class="pri-clr">
+                        View snapshot details of suitable talents prior to making
+                        payment and thereafter are able to seamlessly connect to them.
+                    </h6>
+                </div>
+            </div>
+        </div>
+    </section>
 </div>
 <?= $this->endSection() ?>
