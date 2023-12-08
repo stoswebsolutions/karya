@@ -11,7 +11,7 @@ class Auth implements FilterInterface
     public function before(RequestInterface $request, $arguments = null)
     {
         if (!session()->get('LoggedData')) {
-            return  redirect()->to('login')->with('fail', 'You must be logged in first.');
+            return  redirect()->to('home')->with('fail', 'You must be logged in first.');
         }
     }
 
