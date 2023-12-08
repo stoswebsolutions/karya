@@ -9,8 +9,8 @@
                 <span class="txt">Start</span>
                 <span class="circle"></span>
             </div>
-            <div class="personality-assessment position-relative">
-                <div class="progress-lines d-flex align-items-center start">
+            <div class="completed start position-relative">
+                <div class="progress-lines d-flex align-items-center">
                     <span class="hor-line"></span>
                     <span class="circle"></span>
                 </div>
@@ -185,9 +185,12 @@
                             <button class="btn activeBtn profile-forms-btn">
                                 Targeted Career
                             </button>
-                            <button class="btn inactiveBtn">
+                            <div class="input-group input-group-sm mb-2 mb-sm-3">
+                                <input type="text" class="form-control" name="" id="" value="" placeholder="">
+                            </div>
+                            <!-- <button class="btn inactiveBtn">
                                 Type in the job role
-                            </button>
+                            </button> -->
                         </div>
                     </div>
                 </div>
@@ -335,7 +338,7 @@
                 </div>
             </div>
             <div class="to-fro-btns">
-                <button class="btn back-btn personal-info-back">Go Back</button>
+                <a href="<?= site_url() ?>hired/perAssessment" class="btn back-btn personal-info-back"> Go Back </a>
                 <button class="btn next-btn personal-info-next" type="submit">Next</button>
             </div>
         </form>

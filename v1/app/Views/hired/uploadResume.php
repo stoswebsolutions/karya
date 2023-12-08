@@ -10,7 +10,7 @@
                 <span class="circle"></span>
             </div>
             <div class="personality-assessment position-relative">
-                <div class="progress-lines d-flex align-items-center start">
+                <div class="progress-lines d-flex align-items-center">
                     <span class="hor-line"></span>
                     <span class="circle"></span>
                 </div>

@@ -10,7 +10,7 @@
                 <span class="circle"></span>
             </div>
             <div class="personality-assessment position-relative">
-                <div class="progress-lines d-flex align-items-center start">
+                <div class="progress-lines d-flex align-items-center">
                     <span class="hor-line"></span>
                     <span class="circle"></span>
                 </div>
@@ -53,54 +53,13 @@
             <div class="row gx-0">
                 <div class="col-12">
                     <h6 class="mb-0 pri-clr personality-assessment-hdr">
-                        Thank you for taking the time to fill in your personal
-                        information. We invite you to upload your resume and also
-                        pictures of your work and achievements. This will allow us
-                        to analyse your skills and qualifications more thoroughly,
-                        and provide you with a selection of most suitable career
-                        roles that suit your personality, strengths, skills and
-                        experience.
+                        Everyone has unique strengths and talents that make them stand out from the crowd.
+                        By taking this 41 questions assessment, you will gain valuable insight into your personality,
+                        your behaviour traits, your attitude and aptitude, your ideal work environment,
+                        your skills and your abilities. This will enable you to make more informed decisions
+                        about your career path and help you find the job that's right for you.
+                        We're excited to help you on your journey to a fulfilling career!
                     </h6>
-                </div>
-                <div class="col-12 col-sm-6">
-                    <ul class="m-0 px-0 py-2 py-lg-3 list-style-none qstn-types-lst">
-                        <li>
-                            <span class="qstn-type">Core Personality Trait</span>
-                            <span class="qstn-cnt">5 questions</span>
-                        </li>
-                        <li>
-                            <span class="qstn-type">Principal Value</span>
-                            <span class="qstn-cnt">5 questions</span>
-                        </li>
-                        <li>
-                            <span class="qstn-type">Thinking Style</span>
-                            <span class="qstn-cnt">5 questions</span>
-                        </li>
-                        <li>
-                            <span class="qstn-type">Aptitude</span>
-                            <span class="qstn-cnt">5 questions</span>
-                        </li>
-                    </ul>
-                </div>
-                <div class="col-12 col-sm-6">
-                    <ul class="m-0 px-0 py-0 py-sm-2 py-lg-3 list-style-none qstn-types-lst">
-                        <li>
-                            <span class="qstn-type">Attitude</span>
-                            <span class="qstn-cnt">5 questions</span>
-                        </li>
-                        <li>
-                            <span class="qstn-type">English Proficiency</span>
-                            <span class="qstn-cnt">5 questions</span>
-                        </li>
-                        <li>
-                            <span class="qstn-type">Skills</span>
-                            <span class="qstn-cnt">7 questions</span>
-                        </li>
-                        <li>
-                            <span class="qstn-type">Competency</span>
-                            <span class="qstn-cnt">5 questions</span>
-                        </li>
-                    </ul>
                 </div>
                 <div class="col-12 d-flex align-items-center justify-content-center pt-2 pt-lg-3">
                     <button class="btn profile-forms-btn discover-btn">

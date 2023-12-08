@@ -21,7 +21,7 @@
         <section class="karya-section get-hired-section">
             <nav class="w-100 d-flex align-items-center justify-content-between karya-px sec-bg">
                 <img src="<?= site_url() ?>app-assets/images/logo_karya.png" alt="logo" class="brand">
-                <ul class="m-0 p-0">
+                <!-- <ul class="m-0 p-0">
                     <li class="">
                         <a href="<?= site_url() ?>hired/dashboard"> Get Hired </a>
                     </li>
@@ -37,7 +37,7 @@
                     <li class="">
                         <a href="<?= site_url() ?>login"> Join </a>
                     </li>
-                </ul>
+                </ul> -->
                 <i class="fa fa-bars menu-icon" aria-hidden="true" data-bs-toggle="offcanvas" href="#offcanvasMenu" aria-controls="offcanvasMenu"></i>
             </nav>
             <div class="user-details sec-bg karya-px d-flex align-items-center justify-content-between">
@@ -91,9 +91,9 @@
                         <li class="text-uppercase menu-item black-clr status <?= $active == 'status' ? 'active' : '' ?>" name="status">
                             <a href="<?= site_url() ?>hired/status" class="text-decoration-none"> status</a>
                         </li>
-                        <li class="text-uppercase menu-item black-clr per-assessment <?= $active == 'perAssessment' ? 'active' : '' ?>" name="perAssessment">
+                        <!-- <li class="text-uppercase menu-item black-clr per-assessment <?= $active == 'perAssessment' ? 'active' : '' ?>" name="perAssessment">
                             <a href="<?= site_url() ?>hired/perAssessment" class="text-decoration-none"> Personality Assessment</a>
-                        </li>
+                        </li> -->
                         <li class="text-uppercase menu-item black-clr profile <?= $active == 'profile' ? 'active' : '' ?>" name="profile">
                             <!-- profile -->
                             <div class="dropend profile-dropdown">
@@ -101,6 +101,11 @@
                                     profile
                                 </button>
                                 <ul class="dropdown-menu">
+                                    <li>
+                                        <button class="dropdown-item" type="button">
+                                            <a href="<?= site_url() ?>hired/perAssessment" class="text-decoration-none">Personality Assessment</a>
+                                        </button>
+                                    </li>
                                     <li>
                                         <button class="dropdown-item" type="button">
                                             <a href="<?= site_url() ?>hired/updatePerInfo" class="text-decoration-none">Update Personal Information</a>

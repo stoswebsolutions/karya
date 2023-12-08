@@ -273,76 +273,19 @@ if (isset($css) && $css != NULL) {
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <th scope="row">1</th>
-                                    <td>Public</td>
-                                    <td>2</td>
-                                    <td>01-Aug-2021</td>
-                                    <td>No detail available</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">2</th>
-                                    <td>Public</td>
-                                    <td>6</td>
-                                    <td>01-Aug-2022</td>
-                                    <td>No detail available</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">3</th>
-                                    <td>Public</td>
-                                    <td>6</td>
-                                    <td>01-Aug-2022</td>
-                                    <td>No detail available</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">4</th>
-                                    <td>Public</td>
-                                    <td>6</td>
-                                    <td>01-Aug-2022</td>
-                                    <td>No detail available</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">5</th>
-                                    <td>Public</td>
-                                    <td>6</td>
-                                    <td>01-Aug-2022</td>
-                                    <td>No detail available</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">6</th>
-                                    <td>Public</td>
-                                    <td>6</td>
-                                    <td>01-Aug-2022</td>
-                                    <td>No detail available</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">7</th>
-                                    <td>Public</td>
-                                    <td>6</td>
-                                    <td>01-Aug-2022</td>
-                                    <td>No detail available</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">8</th>
-                                    <td>Public</td>
-                                    <td>6</td>
-                                    <td>01-Aug-2022</td>
-                                    <td>No detail available</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">9</th>
-                                    <td>Public</td>
-                                    <td>6</td>
-                                    <td>01-Aug-2022</td>
-                                    <td>No detail available</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">10</th>
-                                    <td>Public</td>
-                                    <td>6</td>
-                                    <td>01-Aug-2022</td>
-                                    <td>No detail available</td>
-                                </tr>
+                                <?php
+                                foreach ($profileViews as $index => $row) {
+                                ?>
+                                    <tr>
+                                        <th scope="row"><?= $index + 1 ?></th>
+                                        <td><?= $row['viewer_name'] ?></td>
+                                        <td><?= $row['total'] ?></td>
+                                        <td><?= $row['created_date'] ?></td>
+                                        <td><?= $row['viewer_name'] == 'Public' ? 'No detail available' : 'View' ?></td>
+                                    </tr>
+                                <?php
+                                }
+                                ?>
                             </tbody>
                         </table>
                         <div class="pagination-dets">
@@ -429,106 +372,23 @@ if (isset($css) && $css != NULL) {
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <th scope="row">1</th>
-                                    <td>Cyber Operator</td>
-                                    <td></td>
-                                    <td></td>
-                                    <td>2021-07-03 13:06:43</td>
-                                    <td>
-                                        <span class="status">applied</span>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">2</th>
-                                    <td>Source Analyst</td>
-                                    <td></td>
-                                    <td>IT Analyst</td>
-                                    <td>2021-07-03 13:06:43</td>
-                                    <td>
-                                        <span class="status">applied</span>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">3</th>
-                                    <td>Test Source Analyst</td>
-                                    <td></td>
-                                    <td>IT Analyst</td>
-                                    <td>2021-07-03 13:06:43</td>
-                                    <td>
-                                        <span class="status">applied</span>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">4</th>
-                                    <td>Executive</td>
-                                    <td></td>
-                                    <td></td>
-                                    <td>2021-07-03 13:06:43</td>
-                                    <td>
-                                        <span class="status">applied</span>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">5</th>
-                                    <td>Executive</td>
-                                    <td>Business, Sales & Marketing</td>
-                                    <td>Equity Analyst</td>
-                                    <td>2021-07-03 13:06:43</td>
-                                    <td>
-                                        <span class="status">applied</span>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">6</th>
-                                    <td>Executive</td>
-                                    <td>Administrative, Organisation & Logistics</td>
-                                    <td>Administration Management</td>
-                                    <td>2021-07-03 13:06:43</td>
-                                    <td>
-                                        <span class="status">applied</span>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">7</th>
-                                    <td>Financial Analyst</td>
-                                    <td>Business, Sales & Marketing</td>
-                                    <td>Financial Analyst</td>
-                                    <td>2021-07-03 13:06:43</td>
-                                    <td>
-                                        <span class="status">applied</span>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">8</th>
-                                    <td>Corporate Finance Advisor</td>
-                                    <td>Business, Sales & Marketing</td>
-                                    <td>Corporate Finance Advisor</td>
-                                    <td>2021-07-03 13:06:43</td>
-                                    <td>
-                                        <span class="status">applied</span>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">9</th>
-                                    <td>Executive</td>
-                                    <td>Administrative, Organisation & Logistics</td>
-                                    <td>Office Administrative</td>
-                                    <td>2021-07-03 13:06:43</td>
-                                    <td>
-                                        <span class="status">applied</span>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">10</th>
-                                    <td>Fund Manager</td>
-                                    <td>Business, Sales & Marketing</td>
-                                    <td>Fund Manager</td>
-                                    <td>2021-07-03 13:06:43</td>
-                                    <td>
-                                        <span class="status">applied</span>
-                                    </td>
-                                </tr>
+                                <?php
+                                foreach ($jobApplications as $index => $row) {
+                                    $course = $coursemanagementModel->where('id', $row['cat_id'])->first();
+                                    $occupations = $occupationsModel->where('occ_id', $row['role_id'])->first();
+                                    $company = $companyrequirementsModel->where('id', $row['job_id'])->first();
+                                ?>
+                                    <tr>
+                                        <th scope="row"><?= $index + 1 ?></th>
+                                        <td><?= !empty($course) ? $course['courseName'] : '' ?></td>
+                                        <td><?= !empty($occupations) ? $occupations['occ_role'] : '' ?></td>
+                                        <td><?= !empty($company) ? $company['job_title'] : '' ?></td>
+                                        <td><?= $row['applied_on'] ?></td>
+                                        <td><?= $row['app_status'] == 'A' ? "Applied" : "Expired" ?></td>
+                                    </tr>
+                                <?php
+                                }
+                                ?>
                             </tbody>
                         </table>
                         <div class="pagination-dets">
@@ -602,126 +462,24 @@ if (isset($css) && $css != NULL) {
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <th scope="row">1</th>
-                                    <td>Code Life Solution</td>
-                                    <td>2020-03-12 11:35:56</td>
-                                    <td>RM20</td>
-                                    <td>RM10</td>
-                                    <td>RM10</td>
-                                    <td>Processing</td>
-                                    <td>
-                                        <span class="view-profile">view profile</span>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">2</th>
-                                    <td>Code Life Solution</td>
-                                    <td>2020-03-12 11:35:56</td>
-                                    <td>RM100</td>
-                                    <td>RM10</td>
-                                    <td>RM90</td>
-                                    <td>Processing</td>
-                                    <td>
-                                        <span class="view-profile">view profile</span>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">3</th>
-                                    <td>Code Life Solution</td>
-                                    <td>2020-03-12 11:35:56</td>
-                                    <td>RM100</td>
-                                    <td>RM10</td>
-                                    <td>RM90</td>
-                                    <td>Processing</td>
-                                    <td>
-                                        <span class="view-profile">view profile</span>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">4</th>
-                                    <td>Code Life Solution</td>
-                                    <td>2020-03-12 11:35:56</td>
-                                    <td>RM100</td>
-                                    <td>RM10</td>
-                                    <td>RM90</td>
-                                    <td>Processing</td>
-                                    <td>
-                                        <span class="view-profile">view profile</span>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">5</th>
-                                    <td>Code Life Solution</td>
-                                    <td>2020-03-12 11:35:56</td>
-                                    <td>RM100</td>
-                                    <td>RM10</td>
-                                    <td>RM90</td>
-                                    <td>Processing</td>
-                                    <td>
-                                        <span class="view-profile">view profile</span>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">6</th>
-                                    <td>Code Life Solution</td>
-                                    <td>2020-03-12 11:35:56</td>
-                                    <td>RM100</td>
-                                    <td>RM10</td>
-                                    <td>RM90</td>
-                                    <td>Processing</td>
-                                    <td>
-                                        <span class="view-profile">view profile</span>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">7</th>
-                                    <td>Imaginar</td>
-                                    <td>2020-03-12 11:35:56</td>
-                                    <td>RM100</td>
-                                    <td>RM10</td>
-                                    <td>RM90</td>
-                                    <td>Processing</td>
-                                    <td>
-                                        <span class="view-profile">view profile</span>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">8</th>
-                                    <td>Code Life Solution</td>
-                                    <td>2020-03-12 11:35:56</td>
-                                    <td>RM100</td>
-                                    <td>RM10</td>
-                                    <td>RM90</td>
-                                    <td>Processing</td>
-                                    <td>
-                                        <span class="view-profile">view profile</span>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">9</th>
-                                    <td>Code Life Solution</td>
-                                    <td>2020-03-12 11:35:56</td>
-                                    <td>RM100</td>
-                                    <td>RM10</td>
-                                    <td>RM90</td>
-                                    <td>Processing</td>
-                                    <td>
-                                        <span class="view-profile">view profile</span>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">10</th>
-                                    <td>Code Life Solution</td>
-                                    <td>2020-03-12 11:35:56</td>
-                                    <td>RM100</td>
-                                    <td>RM10</td>
-                                    <td>RM90</td>
-                                    <td>Processing</td>
-                                    <td>
-                                        <span class="view-profile">view profile</span>
-                                    </td>
-                                </tr>
+                                <?php
+                                foreach ($profileSold as $index => $row) {
+                                ?>
+                                    <tr>
+                                        <th scope="row"><?= $index + 1 ?></th>
+                                        <td><?= $row['company_name'] ?></td>
+                                        <td><?= $row['date'] ?></td>
+                                        <td>RM<?= $row['earning'] ?></td>
+                                        <td>RM10</td>
+                                        <td>RM<?= $row['earning'] - 10 ?></td>
+                                        <td><?= $row['transfered'] == 0 ? "Processing" : "Transfered to Bank Account" ?></td>
+                                        <td>
+                                            <span class="view-profile">view profile</span>
+                                        </td>
+                                    </tr>
+                                <?php
+                                }
+                                ?>
                             </tbody>
                         </table>
                         <div class="pagination-dets">
