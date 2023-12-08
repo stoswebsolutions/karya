@@ -542,7 +542,7 @@ class Hired extends BaseController
         }
         $usersupdate = $this->usersModel->update(array('email' => $email, 'ID' => $ID), array('test_attempt' => '1', 'disc_progress' => 100));
 
-        return  redirect()->back()->with('success', 'Assessment Submited !');
+        return  redirect()->to('hired/updatePerInfo')->with('success', 'Assessment Submited !');
     }
     public function updatePerInfo()
     {
@@ -763,7 +763,7 @@ class Hired extends BaseController
             'updatedAt' => date('Y-m-d H:i:s')
         );
         $this->employeeratingModel->insert($inputData1);
-        return  redirect()->back()->with('success', 'Your Profile Updated !');
+        return  redirect()->to('hired/uploadResume')->with('success', 'Your Profile Updated !');
     }
     public function uploadResume()
     {
@@ -777,6 +777,10 @@ class Hired extends BaseController
         $data['is_online'] = $this->user['is_online'];
         return view('hired/uploadResume', $data);
     }
+    public function uploadResumeSubmit()
+    {
+        return  redirect()->to('hired/interviewPrep')->with('success', 'Your Resume Upload !');
+    }
     public function interviewPrep()
     {
         $data['pageTitle'] = 'Karya | Profile';
@@ -789,6 +793,10 @@ class Hired extends BaseController
         $data['is_online'] = $this->user['is_online'];
         return view('hired/interviewPrep', $data);
     }
+    public function interviewPrepSubmit()
+    {
+        return  redirect()->to('hired/uploadVideo')->with('success', 'your interview preparation !');
+    }
     public function uploadVideo()
     {
         $data['pageTitle'] = 'Karya | Profile';
@@ -800,6 +808,10 @@ class Hired extends BaseController
         $data['loggedHired'] = $this->loggedHired;
         $data['is_online'] = $this->user['is_online'];
         return view('hired/uploadVideo', $data);
+    }
+    public function uploadVideoSubmit()
+    {
+        return  redirect()->to('hired/myProfile')->with('success', 'your interview preparation !');
     }
     public function myProfile()
     {
