@@ -48,6 +48,11 @@
             </div>
         </div>
     </div>
+    <div class="start-btn-container">
+        <button class="btn karya-btn start-btn">
+            Start Now
+        </button>
+    </div>
 </div>
 <!-- ends::dashboard tab -->
 <?= $this->endSection() ?>
