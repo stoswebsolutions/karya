@@ -43,86 +43,20 @@
                                     primary character
                                 </h5>
                                 <h2 class="sub-hdr mb-3 text-uppercase">
-                                    - dominant (d)
+                                    - <?= $discOne[0]['result_full_name'] ?>
                                 </h2>
                                 <h6 class="sub-sub-hdr mb-3">
-                                    Commanding & Task Oriented
+                                    <?= stripslashes($discOne[0]['tagline']) ?>
                                 </h6>
-                                <dl class="row">
-                                    <dt class="col-sm-5 col-md-4 col-lg-3 title">
-                                        FOCUS
-                                    </dt>
-                                    <dd class="col-sm-7 col-md-8 col-lg-9">
-                                        <p class="mb-0 txt">
-                                            Take care of circumstances by persuading others
-                                            to have a common vision.
-                                        </p>
-                                    </dd>
-                                    <dt class="col-sm-5 col-md-4 col-lg-3 title">
-                                        ACTIONS
-                                    </dt>
-                                    <dd class="col-sm-7 col-md-8 col-lg-9">
-                                        <p class="mb-0 txt">
-                                            Look at the bigger picture, assert for results,
-                                            take risks and loves adventures.
-                                        </p>
-                                    </dd>
-                                    <dt class="col-sm-5 col-md-4 col-lg-3 title">
-                                        APPROACH
-                                    </dt>
-                                    <dd class="col-sm-7 col-md-8 col-lg-9">
-                                        <p class="mb-0 txt">Am direct and blunt.</p>
-                                    </dd>
-                                    <dt class="col-sm-5 col-md-4 col-lg-3 title">
-                                        TENDENCIES
-                                    </dt>
-                                    <dd class="col-sm-7 col-md-8 col-lg-9">
-                                        <p class="mb-0 txt">
-                                            Innovate, crave for results, creates commotion
-                                            and loves challenges.
-                                        </p>
-                                    </dd>
-                                    <dt class="col-sm-5 col-md-4 col-lg-3 title">
-                                        RESPONSE
-                                    </dt>
-                                    <dd class="col-sm-7 col-md-8 col-lg-9">
-                                        <p class="mb-0 txt">
-                                            Give short answers and makes fast decisions.
-                                        </p>
-                                    </dd>
-                                    <dt class="col-sm-5 col-md-4 col-lg-3 title">
-                                        MOTIVATION
-                                    </dt>
-                                    <dd class="col-sm-7 col-md-8 col-lg-9">
-                                        <p class="mb-0 txt">
-                                            Thirive for authority, opportunity and prestige.
-                                        </p>
-                                    </dd>
-                                </dl>
+                                <span class="text-white"><?= stripslashes($discOne[0]['result_DISC_description']); ?></span>
                             </div>
                         </div>
                         <div class="col-6">
                             <div class="content content-right">
                                 <h5 class="hdr mb-3 text-uppercase">
-                                    a dominant person
+                                    <?= stripslashes($discOne[0]['style_title']) ?>
                                 </h5>
-                                <p class="txt">
-                                    Is not afraid to confront tough issues and
-                                    situations and can make a decision when no one else
-                                    wants to.
-                                </p>
-                                <p class="txt">
-                                    Accept change as a personal challenge and keeps the
-                                    team focused and on task.
-                                </p>
-                                <p class="txt">
-                                    May come across as unapproachable and insensitive.
-                                </p>
-                                <p class="txt">
-                                    Is objective driven and results oriented hence
-                                    impatient with others and doesn't favour intricate
-                                    details.
-                                </p>
+                                <span class="justify text-white"><?= stripslashes($discOne[0]['person_style']) ?></span>
                             </div>
                         </div>
                     </div>
@@ -201,28 +135,31 @@
                 </div>
             </div>
             <div class="tab-pane fade" id="video-pitch" role="tabpanel" aria-labelledby="video-pitch-tab" tabindex="0">
-                <div class="video-container">
-                    <video controls poster="<?= site_url() ?>app-assets/images/poster.jpg" class="w-100 hoverable">
-                        <source src="<?= site_url() ?>app-assets/images/video.mp4" type="video/mp4">
-                        Your browser does not support the video tag.
-                    </video>
-                </div>
+                <?php
+                foreach ($videos as $v1 => $vrow) {
+                    ?>
+                    <div class="video-container">
+                        <video controls poster="<?= site_url() ?>app-assets/images/poster.jpg" class="w-100 hoverable">
+                            <source src="<?= site_url() ?>assets/uploads/video_cv/<?= $vrow['video_path'] ?>" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                    </div>
+                    <?php
+                }
+                ?>
             </div>
             <div class="tab-pane fade" id="achievements" role="tabpanel" aria-labelledby="achievements" tabindex="0">
                 <div class="achievements-container bg-white px-2 pt-1 pb-3">
                     <div class="row g-2 m-0">
-                        <div class="col-6">
-                            <img src="<?= site_url() ?>app-assets/images/achievement-1.PNG" alt="achievement" class="w-100 h-100">
-                        </div>
-                        <div class="col-6">
-                            <img src="<?= site_url() ?>app-assets/images/achievement-2.PNG" alt="achievement" class="w-100 h-100">
-                        </div>
-                        <div class="col-6">
-                            <img src="<?= site_url() ?>app-assets/images/achievement-3.PNG" alt="achievement" class="w-100 h-100">
-                        </div>
-                        <div class="col-6">
-                            <img src="<?= site_url() ?>app-assets/images/achievement-4.PNG" alt="achievement" class="w-100 h-100">
-                        </div>
+                        <?php
+                        foreach ($portfolio as $p1 => $prow) {
+                            ?>
+                            <div class="col-6">
+                                <img src="<?= site_url() ?>assets/uploads/achievements/<?= $prow['image_path'] ?>" alt="image path not exist" class="w-100 h-100">
+                            </div>
+                            <?php
+                        }
+                        ?>
                     </div>
                 </div>
             </div>
