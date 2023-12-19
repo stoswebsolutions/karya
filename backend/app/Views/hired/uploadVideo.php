@@ -81,7 +81,7 @@
                     <div class="upload-btns">
                         <div class="video-btn mb-2 mb-sm-3">
                             <label class="custom-file-upload upload-video">
-                                <input type="file" class="form-control" name="video-file-upload" id="video-file-upload">
+                                <input type="file" class="form-control" name="video-file-upload" id="video-file-upload" required>
                                 <span class="btn profile-forms-btn">
                                     UPLOAD VIDEO PITCH
                                 </span>
