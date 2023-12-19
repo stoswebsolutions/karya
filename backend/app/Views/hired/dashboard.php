@@ -48,6 +48,11 @@
             </div>
         </div>
     </div>
+    <div class="start-btn-container">
+        <button class="btn karya-btn start-btn">
+            <a href="<?= site_url() ?>hired/perAssessment" class="text-decoration-none">Start Now</a>
+        </button>
+    </div>
 </div>
 <!-- ends::dashboard tab -->
 <?= $this->endSection() ?>
