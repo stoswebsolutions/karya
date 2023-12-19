@@ -12,7 +12,7 @@
             <div class="personality-assessment position-relative">
                 <div class="progress-lines d-flex align-items-center">
                     <span class="hor-line"></span>
-                    <span class="ver-line"></span>
+                    <span class="circle"></span>
                 </div>
             </div>
             <div class="personal-info position-relative">

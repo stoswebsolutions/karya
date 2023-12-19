@@ -50,14 +50,6 @@
     <!-- resume -->
     <div class="upload-resume-form">
         <form class="bg-white" id="upload-resume-form" action="<?= base_url('hired/uploadResumeSubmit') ?>" method="post" enctype="multipart/form-data">
-            <?= csrf_field(); ?>
-            <div class="row">
-                <?php if (!empty(session()->getFlashdata('fail'))) : ?>
-                    <div class="alert alert-danger"><?= session()->getFlashdata('fail'); ?></div>
-                <?php elseif (!empty(session()->getFlashdata('success'))) : ?>
-                    <div class="alert alert-success"><?= session()->getFlashdata('success'); ?></div>
-                <?php endif ?>
-            </div>
             <div class="row gx-0">
                 <div class="col-12 col-lg-6">
                     <h6 class="mb-0 pri-clr resume-hdr">
@@ -74,13 +66,13 @@
                     <div class="upload-btns">
                         <div class="resume-btn mb-2 mb-sm-3">
                             <label class="custom-file-upload upload-resume">
-                                <input type="file" class="form-control" multiple="multiple" name="resume[]" id="resume-file-upload">
+                                <input type="file" class="form-control" id="resume-file-upload">
                                 <span class="btn profile-forms-btn">UPLOAD RESUME</span>
                             </label>
                         </div>
                         <div class="achievement-btn">
                             <label class="custom-file-upload upload-achievements">
-                                <input type="file" class="form-control" multiple="multiple" name="achievements[]" id="achievements-file-upload">
+                                <input type="file" class="form-control" id="achievements-file-upload">
                                 <span class="btn profile-forms-btn">UPLOAD ACHIEVEMENTS
                                 </span>
                             </label>

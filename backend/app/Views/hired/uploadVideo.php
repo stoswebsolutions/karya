@@ -50,14 +50,6 @@
     <!-- upload video pitch -->
     <div class="upload-video-pitch-section">
         <form class="" id="" action="<?= base_url('hired/uploadVideoSubmit') ?>" method="post" enctype="multipart/form-data">
-        <?= csrf_field(); ?>
-            <div class="row">
-                <?php if (!empty(session()->getFlashdata('fail'))) : ?>
-                    <div class="alert alert-danger"><?= session()->getFlashdata('fail'); ?></div>
-                <?php elseif (!empty(session()->getFlashdata('success'))) : ?>
-                    <div class="alert alert-success"><?= session()->getFlashdata('success'); ?></div>
-                <?php endif ?>
-            </div>
             <div class="row gx-0">
                 <div class="col-12 col-lg-6">
                     <h6 class="mb-0 pri-clr video-pitch-hdr">
@@ -81,14 +73,11 @@
                     <div class="upload-btns">
                         <div class="video-btn mb-2 mb-sm-3">
                             <label class="custom-file-upload upload-video">
-                                <input type="file" class="form-control" name="video-file-upload" id="video-file-upload" required>
+                                <input type="file" class="form-control" id="video-file-upload">
                                 <span class="btn profile-forms-btn">
                                     UPLOAD VIDEO PITCH
                                 </span>
                             </label>
-                            <input type="hidden" value="PROFILE_PIC" name="PROFILE_PIC">
-                            <input type="hidden" value="from_profile" name="from_profile">
-                            <input type="hidden" name="event_title" value="Video CV">
                         </div>
                         <button class="btn profile-forms-btn publish-btn">
                             PUBLISH COMPLETE PROFILE
@@ -98,7 +87,7 @@
             </div>
             <div class="to-fro-btns">
                 <button class="btn back-btn upload-video-back">Go Back</button>
-                <button class="btn next-btn upload-video-next" type="submit">Next</button>
+                <button class="btn next-btn upload-video-next">Next</button>
             </div>
         </form>
     </div>
