@@ -1054,17 +1054,42 @@ class Hired extends BaseController
 		$data['occ_id'] = $id;
 		$data['email'] = $email;
 		$data['user_id'] = $user_id;
-        return  redirect()->to('hired/explore'); // Will Check some Issue
         $data['jobData'] = $this->companyrequirementsModel->where(array('id' => $id))->findAll();
         $data['applyData'] = $this->applypostsModel->where(array('job_id' => $id,'user_id' => $user_id))->findAll();
         $questionsData1 = $this->questionsModel->where(array('job_id' => $id))->findAll();
         $data['questionsData'] = $questionsData1;
         $data['answersData'] = '';
-        if(empty($questionsData1)){
-            return  redirect()->to('hired/explore');
+        if(!empty($questionsData1)){
+            $data['answersData'] = $this->answersModel->where(array('job_id' => $id,'user_id' => $user_id,'question_id' => $questionsData1[0]['question_id']))->findAll();
         }
-        $data['answersData'] = $this->answersModel->where(array('job_id' => $id,'user_id' => $user_id,'question_id' => $questionsData1[0]['question_id']))->findAll();
         return view('hired/exploreDetails', $data);
+    }
+    public function uploadVideoAns()
+    {
+        $email = $this->user['email'];
+        $ID = $this->user['ID'];
+
+        $question_id = $this->request->getPost('question_id');
+        $job_id = $this->request->getPost('job_id');
+        $user_id = $this->request->getPost('user_id');
+        
+        
+        $fileVideo = $this->request->getFile('jobVideoAns');
+        if ($fileVideo->isValid()) {
+            if (!$fileVideo->hasMoved()) {
+                $fileVideo_path = $fileVideo->getRandomName();
+                $fileVideo->move('assets/uploads/questions', $fileVideo_path);
+            }
+            
+            $inputData=array(
+                'question_id'   =>$question_id,
+                'job_id'         =>$job_id,
+                'user_id'          =>$user_id,
+                'answer_video'    =>'assets/uploads/questions/'.$fileVideo_path
+            );
+            $this->answersModel->insert($inputData);
+        }
+        return  redirect()->to('hired/exploreDetails/'.$job_id)->with('success', 'Video Uploaded !');
     }
     /* UnUsed Methods END */
 }

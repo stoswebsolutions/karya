@@ -62,6 +62,7 @@ $routes->group('/', ['filter' => 'auth'], function ($routes) {
         $routes->get('profile', 'Hired::profile');
         $routes->get('explore', 'Hired::explore');
         $routes->get('exploreDetails/(:any)', 'Hired::exploreDetails/$1');
+        $routes->post('uploadVideoAns', 'Hired::uploadVideoAns');
     });
     $routes->group('talent/', static function ($routes) {
         $routes->get('dashboard', 'Talent::dashboard');
