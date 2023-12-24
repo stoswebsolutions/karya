@@ -3,6 +3,7 @@
 namespace App\Controllers;
 
 use App\Controllers\BaseController;
+use App\Models\AnswersModel;
 use App\Models\ApplypostsModel;
 use App\Models\AptitudeModel;
 use App\Models\AvkModel;
@@ -34,6 +35,7 @@ use App\Models\UsersModel;
 use App\Models\UsersviewerModel;
 use App\Models\UseruploadsModel;
 use App\Models\PortfolioModel;
+use App\Models\QuestionsModel;
 use App\Models\ResultdiscModel;
 
 use function PHPUnit\Framework\isNull;
@@ -75,6 +77,8 @@ class Hired extends BaseController
     private $portfolioModel;
     private $resultdiscModel;
     private $companyrequirementsModel;
+    private $questionsModel;
+    private $answersModel;
     public function __construct()
     {
         $this->loggedData = session()->get('LoggedData');
@@ -114,6 +118,8 @@ class Hired extends BaseController
         $this->portfolioModel = new PortfolioModel();
         $this->resultdiscModel = new ResultdiscModel();
         $this->companyrequirementsModel = new CompanyrequirementsModel();
+        $this->questionsModel = new QuestionsModel();
+        $this->answersModel = new AnswersModel();
     }
     public function dashboard()
     {
@@ -1031,6 +1037,34 @@ class Hired extends BaseController
         $data['is_online'] = $this->user['is_online'];
         $data['explores'] = $this->companyrequirementsModel->findAll();
         return view('hired/explore', $data);
+    }
+    public function exploreDetails($id)
+    {
+        $email = $this->user['email'];
+        $user_id = $this->user['ID'];
+
+        $data['pageTitle'] = 'Karya | Explore Details';
+        $data['logo'] = 'app-assets/images/logo_karya.png';
+        $data['active'] = 'companies';
+        $data['css'] = array(
+            base_url('app-assets/hired/style.css')
+        );
+        $data['loggedHired'] = $this->loggedHired;
+        $data['is_online'] = $this->user['is_online'];
+		$data['occ_id'] = $id;
+		$data['email'] = $email;
+		$data['user_id'] = $user_id;
+        return  redirect()->to('hired/explore'); // Will Check some Issue
+        $data['jobData'] = $this->companyrequirementsModel->where(array('id' => $id))->findAll();
+        $data['applyData'] = $this->applypostsModel->where(array('job_id' => $id,'user_id' => $user_id))->findAll();
+        $questionsData1 = $this->questionsModel->where(array('job_id' => $id))->findAll();
+        $data['questionsData'] = $questionsData1;
+        $data['answersData'] = '';
+        if(empty($questionsData1)){
+            return  redirect()->to('hired/explore');
+        }
+        $data['answersData'] = $this->answersModel->where(array('job_id' => $id,'user_id' => $user_id,'question_id' => $questionsData1[0]['question_id']))->findAll();
+        return view('hired/exploreDetails', $data);
     }
     /* UnUsed Methods END */
 }

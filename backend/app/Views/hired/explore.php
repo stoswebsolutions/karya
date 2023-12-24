@@ -29,37 +29,37 @@ $companyModel = new CompanyModel();
                         <?php
                         foreach ($explores as $index => $row) {
                             $companyInfo = $companyModel->where('tb_company_id', $row['companyId'])->findAll();
-                            if (!empty($companyInfo[0]['company_name'])){
-                                ?>
-                                    <div class="col-sm-6 col-lg-4 col-xl-3">
-                                        <div class="role-card">
-                                            <!-- <h6 class="role"><?= $row['role_id'] ?></h6> -->
-                                            <h6 class="company">
-                                                Company:
-                                                <span class="name"><?= $companyInfo[0]['company_name'] ?></span>
-                                            </h6>
-                                            <h6 class="location"><?= $row['int_city'] ?></h6>
-                                            <h6 class="rm">
-                                                <span>RM <?= $row['rng_from'] ?></span> -
-                                                <span>RM <?= $row['rng_to'] ?></span>
-                                            </h6>
-                                            <div class="summary-dets">
-                                                <h6 class="title">Summary</h6>
-                                                <p class="summary">
-                                                    <?php
-                                                    $out = (strlen($row['short_desc']) > 20 ? substr($row['short_desc'],0,20)."..." :  (strlen($row['short_desc']) > 0 ? $row['short_desc'] : "<br>")); 
-                                                    echo $out;
-                                                    ?>
-                                                </p>
-                                            </div>
-                                            <h6 class="expire-dets">
-                                                Expires on :
-                                                <span class="date"><?= $row['expiry_date'] ?></span>
-                                            </h6>
-                                            <button class="btn card-btn">read more</button>
+                            if (!empty($companyInfo[0]['company_name']) && !empty($row['rng_from'])) {
+                        ?>
+                                <div class="col-sm-6 col-lg-4 col-xl-3">
+                                    <div class="role-card">
+                                        <!-- <h6 class="role"><?= $row['role_id'] ?></h6> -->
+                                        <h6 class="company">
+                                            Company:
+                                            <span class="name"><?= $companyInfo[0]['company_name'] ?></span>
+                                        </h6>
+                                        <h6 class="location"><?= $row['int_city'] ?></h6>
+                                        <h6 class="rm">
+                                            <span>RM <?= $row['rng_from'] ?></span> -
+                                            <span>RM <?= $row['rng_to'] ?></span>
+                                        </h6>
+                                        <div class="summary-dets">
+                                            <h6 class="title">Summary</h6>
+                                            <p class="summary">
+                                                <?php
+                                                $out = (strlen($row['short_desc']) > 20 ? substr($row['short_desc'], 0, 20) . "..." : (strlen($row['short_desc']) > 0 ? $row['short_desc'] : "<br>"));
+                                                echo $out;
+                                                ?>
+                                            </p>
                                         </div>
+                                        <h6 class="expire-dets">
+                                            Expires on :
+                                            <span class="date"><?= $row['expiry_date'] ?></span>
+                                        </h6>
+                                        <a href="<?= site_url() ?>hired/exploreDetails/<?= $row['id'] ?>" class="btn card-btn">read more</a>
                                     </div>
-                                <?php
+                                </div>
+                        <?php
                             }
                         }
                         ?>
@@ -71,34 +71,39 @@ $companyModel = new CompanyModel();
                     <div class="row gx-0">
                         <?php
                         foreach ($explores as $index => $row) {
+                            $companyInfo = $companyModel->where('tb_company_id', $row['companyId'])->findAll();
+                            if (!empty($companyInfo[0]['company_name']) && !empty($row['rng_from'])) {
                         ?>
-                            <div class="col-sm-6 col-lg-4 col-xl-3">
-                                <div class="role-card">
-                                    <h6 class="role">Corporate Finance Advisor</h6>
-                                    <h6 class="company">
-                                        Company:
-                                        <span class="name">Code Life Solution</span>
-                                    </h6>
-                                    <h6 class="location">Kuala Lumpur</h6>
-                                    <h6 class="rm">
-                                        <span>RM 10000</span> -
-                                        <span>RM 20000</span>
-                                    </h6>
-                                    <div class="summary-dets">
-                                        <h6 class="title">Summary</h6>
-                                        <p class="summary">
-                                            Responsible for investment planning, analysis And
-                                            forecasting future investment returns...
-                                        </p>
+                                <div class="col-sm-6 col-lg-4 col-xl-3">
+                                    <div class="role-card">
+                                        <!-- <h6 class="role"><?= $row['role_id'] ?></h6> -->
+                                        <h6 class="company">
+                                            Company:
+                                            <span class="name"><?= $companyInfo[0]['company_name'] ?></span>
+                                        </h6>
+                                        <h6 class="location"><?= $row['int_city'] ?></h6>
+                                        <h6 class="rm">
+                                            <span>RM <?= $row['rng_from'] ?></span> -
+                                            <span>RM <?= $row['rng_to'] ?></span>
+                                        </h6>
+                                        <div class="summary-dets">
+                                            <h6 class="title">Summary</h6>
+                                            <p class="summary">
+                                                <?php
+                                                $out = (strlen($row['short_desc']) > 20 ? substr($row['short_desc'], 0, 20) . "..." : (strlen($row['short_desc']) > 0 ? $row['short_desc'] : "<br>"));
+                                                echo $out;
+                                                ?>
+                                            </p>
+                                        </div>
+                                        <h6 class="expire-dets">
+                                            Expires on :
+                                            <span class="date"><?= $row['expiry_date'] ?></span>
+                                        </h6>
+                                        <a href="<?= site_url() ?>hired/exploreDetails/<?= $row['id'] ?>" class="btn card-btn">read more</a>
                                     </div>
-                                    <h6 class="expire-dets">
-                                        Expires on :
-                                        <span class="date">2023-04-30</span>
-                                    </h6>
-                                    <button class="btn card-btn">read more</button>
                                 </div>
-                            </div>
                         <?php
+                            }
                         }
                         ?>
                     </div>
@@ -119,34 +124,39 @@ $companyModel = new CompanyModel();
                         <div class="row gx-0">
                             <?php
                             foreach ($explores as $index => $row) {
+                                $companyInfo = $companyModel->where('tb_company_id', $row['companyId'])->findAll();
+                                if (!empty($companyInfo[0]['company_name']) && !empty($row['rng_from'])) {
                             ?>
-                                <div class="col-12">
-                                    <div class="role-card">
-                                        <h6 class="role">Corporate Finance Advisor</h6>
-                                        <h6 class="company">
-                                            Company:
-                                            <span class="name">Code Life Solution</span>
-                                        </h6>
-                                        <h6 class="location">Kuala Lumpur</h6>
-                                        <h6 class="rm">
-                                            <span>RM 10000</span> -
-                                            <span>RM 20000</span>
-                                        </h6>
-                                        <div class="summary-dets">
-                                            <h6 class="title">Summary</h6>
-                                            <p class="summary">
-                                                Responsible for investment planning, analysis
-                                                And forecasting future investment returns...
-                                            </p>
+                                    <div class="col-12">
+                                        <div class="role-card">
+                                            <!-- <h6 class="role"><?= $row['role_id'] ?></h6> -->
+                                            <h6 class="company">
+                                                Company:
+                                                <span class="name"><?= $companyInfo[0]['company_name'] ?></span>
+                                            </h6>
+                                            <h6 class="location"><?= $row['int_city'] ?></h6>
+                                            <h6 class="rm">
+                                                <span>RM <?= $row['rng_from'] ?></span> -
+                                                <span>RM <?= $row['rng_to'] ?></span>
+                                            </h6>
+                                            <div class="summary-dets">
+                                                <h6 class="title">Summary</h6>
+                                                <p class="summary">
+                                                    <?php
+                                                    $out = (strlen($row['short_desc']) > 20 ? substr($row['short_desc'], 0, 20) . "..." : (strlen($row['short_desc']) > 0 ? $row['short_desc'] : "<br>"));
+                                                    echo $out;
+                                                    ?>
+                                                </p>
+                                            </div>
+                                            <h6 class="expire-dets">
+                                                Expires on :
+                                                <span class="date"><?= $row['expiry_date'] ?></span>
+                                            </h6>
+                                            <a href="<?= site_url() ?>hired/exploreDetails/<?= $row['id'] ?>" class="btn card-btn">read more</a>
                                         </div>
-                                        <h6 class="expire-dets">
-                                            Expires on :
-                                            <span class="date">2023-04-30</span>
-                                        </h6>
-                                        <button class="btn card-btn">read more</button>
                                     </div>
-                                </div>
                             <?php
+                                }
                             }
                             ?>
                         </div>
@@ -166,34 +176,39 @@ $companyModel = new CompanyModel();
                         <div class="row gx-0">
                             <?php
                             foreach ($explores as $index => $row) {
+                                $companyInfo = $companyModel->where('tb_company_id', $row['companyId'])->findAll();
+                                if (!empty($companyInfo[0]['company_name']) && !empty($row['rng_from'])) {
                             ?>
-                                <div class="col-12">
-                                    <div class="role-card">
-                                        <h6 class="role">Corporate Finance Advisor</h6>
-                                        <h6 class="company">
-                                            Company:
-                                            <span class="name">Code Life Solution</span>
-                                        </h6>
-                                        <h6 class="location">Kuala Lumpur</h6>
-                                        <h6 class="rm">
-                                            <span>RM 10000</span> -
-                                            <span>RM 20000</span>
-                                        </h6>
-                                        <div class="summary-dets">
-                                            <h6 class="title">Summary</h6>
-                                            <p class="summary">
-                                                Responsible for investment planning, analysis
-                                                And forecasting future investment returns...
-                                            </p>
+                                    <div class="col-12">
+                                        <div class="role-card">
+                                            <!-- <h6 class="role"><?= $row['role_id'] ?></h6> -->
+                                            <h6 class="company">
+                                                Company:
+                                                <span class="name"><?= $companyInfo[0]['company_name'] ?></span>
+                                            </h6>
+                                            <h6 class="location"><?= $row['int_city'] ?></h6>
+                                            <h6 class="rm">
+                                                <span>RM <?= $row['rng_from'] ?></span> -
+                                                <span>RM <?= $row['rng_to'] ?></span>
+                                            </h6>
+                                            <div class="summary-dets">
+                                                <h6 class="title">Summary</h6>
+                                                <p class="summary">
+                                                    <?php
+                                                    $out = (strlen($row['short_desc']) > 20 ? substr($row['short_desc'], 0, 20) . "..." : (strlen($row['short_desc']) > 0 ? $row['short_desc'] : "<br>"));
+                                                    echo $out;
+                                                    ?>
+                                                </p>
+                                            </div>
+                                            <h6 class="expire-dets">
+                                                Expires on :
+                                                <span class="date"><?= $row['expiry_date'] ?></span>
+                                            </h6>
+                                            <a href="<?= site_url() ?>hired/exploreDetails/<?= $row['id'] ?>" class="btn card-btn">read more</a>
                                         </div>
-                                        <h6 class="expire-dets">
-                                            Expires on :
-                                            <span class="date">2023-04-30</span>
-                                        </h6>
-                                        <button class="btn card-btn">read more</button>
                                     </div>
-                                </div>
                             <?php
+                                }
                             }
                             ?>
                         </div>
