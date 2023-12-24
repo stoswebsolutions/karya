@@ -1232,15 +1232,27 @@ label {
   box-shadow: 0px 0px 0px 0.35rem #f4d552;
 }
 
+.stepper-container .personality-assessment:after {
+  content: "Personality \a Assessment";
+  position: absolute;
+  top: 1.5rem;
+  left: 63%;
+  text-align: center;
+  font-size: 0.75rem;
+  font-weight: 500;
+  line-height: 0.8rem;
+  color: #2e3c53;
+}
+
 .stepper-container .personal-info .progress-lines .hor-line {
-  width: 2.5rem;
+  width: 5.5rem;
 }
 
 .stepper-container .personal-info:after {
   content: "Personal\aInformation";
   position: absolute;
   top: 1.5rem;
-  left: 28%;
+  left: 70%;
   text-align: center;
   font-size: 0.75rem;
   font-weight: 500;
@@ -1253,18 +1265,6 @@ label {
   position: absolute;
   top: 1.5rem;
   left: 70%;
-  text-align: center;
-  font-size: 0.75rem;
-  font-weight: 500;
-  line-height: 0.8rem;
-  color: #2e3c53;
-}
-
-.stepper-container .personality-assessment:after {
-  content: "";
-  position: absolute;
-  top: 1.5rem;
-  left: 59%;
   text-align: center;
   font-size: 0.75rem;
   font-weight: 500;
@@ -1468,7 +1468,7 @@ label {
     font-size: 0.5rem;
     line-height: 0.6rem;
     top: 0.7rem;
-    left: 55%;
+    left: 59%;
   }
 
   .stepper-container .interview-prep:after {

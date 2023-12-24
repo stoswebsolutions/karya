@@ -56,10 +56,12 @@ $routes->group('/', ['filter' => 'auth'], function ($routes) {
         $routes->post('interviewPrepSubmit', 'Hired::interviewPrepSubmit');
         $routes->get('uploadVideo', 'Hired::uploadVideo');
         $routes->post('uploadVideoSubmit', 'Hired::uploadVideoSubmit');
+        $routes->get('evaluationGen', 'Hired::evaluationGen');
         $routes->get('myProfile', 'Hired::myProfile');
         $routes->get('status', 'Hired::status');
         $routes->get('profile', 'Hired::profile');
         $routes->get('explore', 'Hired::explore');
+        $routes->get('exploreDetails/(:any)', 'Hired::exploreDetails/$1');
     });
     $routes->group('talent/', static function ($routes) {
         $routes->get('dashboard', 'Talent::dashboard');

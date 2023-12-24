@@ -2,6 +2,7 @@
 $('.discover-btn').click(function () {
     $('.discover-details').addClass('d-none');
     $('.disc-qstn1').removeClass('d-none');
+    $('.discover-details .progress-lines').addClass('completed');
 });
 
 for (let i = 1; i < 10; i++) {
@@ -86,4 +87,9 @@ for (let i = 37; i < 42; i++) {
 $('.assessment-next').click(function () {
     $('.personality-assessment-section').addClass('d-none');
     $('.personal-info-form').removeClass('d-none');
+});
+
+$('.interview-prep-section .okay-btn').click(function () {
+    $('.interview-prep-section .intro').addClass('d-none');
+    $('.interview-prep-section .interview-pitches, .interview-pitches-accordion').removeClass('d-none');
 });

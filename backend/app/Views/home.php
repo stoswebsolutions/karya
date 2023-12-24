@@ -42,7 +42,7 @@ if (isset($css) && $css != NULL) {
                         </h4>
                     </div>
                     <div class="talent-card">
-                        <h6 class="font-kai text-white mb-0"># Get Talent</h6>
+                        <h6 class="font-kai text-white mb-0"><a href="#hired-talent-form-section" class="text-white"  style="text-decoration: none;"># Get Talent</a></h6>
                     </div>
                 </div>
                 <div class="carousel-item carousel-hired h-100" data-bs-interval="5000">
@@ -77,7 +77,7 @@ if (isset($css) && $css != NULL) {
                         </div>
                     </div>
                     <div class="hired-card">
-                        <h6 class="font-kai text-white mb-0"># Get Hired</h6>
+                        <h6 class="font-kai text-white mb-0"><a href="#hired-talent-form-section" class="text-white" style="text-decoration: none;"># Get Hired</a></h6>
                     </div>
                 </div>
             </div>

@@ -30,7 +30,7 @@
             <div class="tab-pane fade show active" id="my-resume" role="tabpanel" aria-labelledby="my-resume-tab" tabindex="0">
                 <div class="resume-container">
                     <!-- load resume here -->
-                    <img src="<?= site_url() ?>app-assets/images/resume.PNG" alt="resume" class="w-100">
+                    <iframe src="<?= site_url() ?>assets/uploads/resume/<?= $resume[0]['image_path'] ?>#toolbar=0" alt="resume" class="w-100" height="500px"></iframe>
                     <!-- ends::load resume here -->
                 </div>
             </div>
@@ -135,29 +135,25 @@
                 </div>
             </div>
             <div class="tab-pane fade" id="video-pitch" role="tabpanel" aria-labelledby="video-pitch-tab" tabindex="0">
-                <?php
-                foreach ($videos as $v1 => $vrow) {
-                    ?>
                     <div class="video-container">
                         <video controls poster="<?= site_url() ?>app-assets/images/poster.jpg" class="w-100 hoverable">
-                            <source src="<?= site_url() ?>assets/uploads/video_cv/<?= $vrow['video_path'] ?>" type="video/mp4">
+                            <source src="<?= site_url() ?>assets/uploads/video_cv/<?= $videos[0]['video_path'] ?>" type="video/mp4">
                             Your browser does not support the video tag.
                         </video>
                     </div>
-                    <?php
-                }
-                ?>
             </div>
             <div class="tab-pane fade" id="achievements" role="tabpanel" aria-labelledby="achievements" tabindex="0">
                 <div class="achievements-container bg-white px-2 pt-1 pb-3">
                     <div class="row g-2 m-0">
                         <?php
                         foreach ($portfolio as $p1 => $prow) {
-                            ?>
-                            <div class="col-6">
-                                <img src="<?= site_url() ?>assets/uploads/achievements/<?= $prow['image_path'] ?>" alt="image path not exist" class="w-100 h-100">
-                            </div>
-                            <?php
+                            if($prow['description']!='PDF Resume'){
+                                ?>
+                                <div class="col-6">
+                                    <img src="<?= site_url() ?>assets/uploads/achievements/<?= $prow['image_path'] ?>" alt="image path not exist" class="w-100 h-100">
+                                </div>
+                                <?php
+                            }
                         }
                         ?>
                     </div>

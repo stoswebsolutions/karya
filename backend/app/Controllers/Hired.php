@@ -9,6 +9,7 @@ use App\Models\AvkModel;
 use App\Models\BoughtModel;
 use App\Models\CompanyModel;
 use App\Models\CompanyphotoModel;
+use App\Models\CompanyrequirementsModel;
 use App\Models\CompanysectorModel;
 use App\Models\CompassessmentModel;
 use App\Models\CompetitionModel;
@@ -73,6 +74,7 @@ class Hired extends BaseController
     private $skillsModel;
     private $portfolioModel;
     private $resultdiscModel;
+    private $companyrequirementsModel;
     public function __construct()
     {
         $this->loggedData = session()->get('LoggedData');
@@ -111,6 +113,7 @@ class Hired extends BaseController
         $this->skillsModel = new SkillsModel();
         $this->portfolioModel = new PortfolioModel();
         $this->resultdiscModel = new ResultdiscModel();
+        $this->companyrequirementsModel = new CompanyrequirementsModel();
     }
     public function dashboard()
     {
@@ -789,20 +792,37 @@ class Hired extends BaseController
         $ID = $this->user['ID'];
         if ($this->request->getFileMultiple('achievements')) {
             foreach ($this->request->getFileMultiple('achievements') as $file) {
-                if (!$file->hasMoved()) {
-                    $file_path = $file->getRandomName();
-                    $file->move('assets/uploads/achievements', $file_path);
+                if ($file->isValid()) {
+                    if (!$file->hasMoved()) {
+                        $file_path = $file->getRandomName();
+                        $file->move('assets/uploads/achievements', $file_path);
+                        $values = [
+                            'user_email' => $email,
+                            'image_path' => $file_path,
+                            'description' => 'No Description',
+                            'created' => date("Y-m-d H:i:s")
+                        ];
+                        $this->portfolioModel->insert($values);
+                    }
                 }
-                $values[] = [
+            }
+        }
+        
+        $fileResume = $this->request->getFile('resume');
+        if ($fileResume->isValid()) {
+            if (!$fileResume->hasMoved()) {
+                $fileResume_path = $fileResume->getRandomName();
+                $fileResume->move('assets/uploads/resume', $fileResume_path);
+                $insert = [
                     'user_email' => $email,
-                    'image_path' => $file_path,
-                    'description' => 'No Description',
+                    'image_path' => $fileResume_path,
+                    'description' => 'PDF Resume',
                     'created' => date("Y-m-d H:i:s")
                 ];
+                $this->portfolioModel->insert($insert);
             }
-            $query = $this->portfolioModel->insertBatch($values);
-            return  redirect()->to('hired/interviewPrep')->with('success', 'Your Resume Upload !');
         }
+        return  redirect()->to('hired/interviewPrep')->with('success', 'Your Resume Achievements Upload !');
     }
     public function interviewPrep()
     {
@@ -848,36 +868,50 @@ class Hired extends BaseController
         $month = date("M-Y");
 
         $checkDuplicate = $this->eventsdetailsModel->where(array('user_email' => $email,'event_title' => $event_title))->findAll();
-        if(count($checkDuplicate) <=1){
+        if(count($checkDuplicate) <=5){
             $fileVideo = $this->request->getFile('video-file-upload');
-            if (!$fileVideo->hasMoved()) {
-                $fileVideo_path = $fileVideo->getRandomName();
-                $fileVideo->move('assets/uploads/video_cv', $fileVideo_path);
+            if ($fileVideo->isValid()) {
+                if (!$fileVideo->hasMoved()) {
+                    $fileVideo_path = $fileVideo->getRandomName();
+                    $fileVideo->move('assets/uploads/video_cv', $fileVideo_path);
+                }
+                
+                $inputData=array(
+                    'event_title'   =>$event_title,
+                    'batch'         =>$month,
+                    'name'          =>$name,
+                    'IC_no'         =>$IC_no,
+                    'contact_no'    =>$contact_no,
+                    'university'    =>$university,
+                    'courses'       =>'Talents',
+                    'user_email'    =>$email,
+                    'video_for'     =>$event_title,   
+                    'video_name'    =>$fileVideo_path,
+                    'video_path'    =>$fileVideo_path,
+                    'ext'           =>'',
+                    'submit_date'   =>date("d-m-Y h:i:s a")
+                );
+                $this->eventsdetailsModel->delete(array('user_email' => $email,'event_title' => $event_title));
+                $this->eventsdetailsModel->insert($inputData);
+                $this->usersModel->update(array('email' => $email,'ID' => $ID), array('video_progress' => 100));
             }
-            
-            $inputData=array(
-                'event_title'   =>$event_title,
-                'batch'         =>$month,
-                'name'          =>$name,
-                'IC_no'         =>$IC_no,
-                'contact_no'    =>$contact_no,
-                'university'    =>$university,
-                'courses'       =>'Talents',
-                'user_email'    =>$email,
-                'video_for'     =>$event_title,   
-                'video_name'    =>$fileVideo_path,
-                'video_path'    =>$fileVideo_path,
-                'ext'           =>'',
-                'submit_date'   =>date("d-m-Y h:i:s a")
-            );
-            $this->eventsdetailsModel->delete(array('user_email' => $email,'event_title' => $event_title));
-            $this->eventsdetailsModel->insert($inputData);
-            $this->usersModel->update(array('email' => $email,'ID' => $ID), array('video_progress' => 100));
-            return  redirect()->to('hired/myProfile')->with('success', 'your interview preparation !');
+            return  redirect()->to('hired/evaluationGen')->with('success', 'your interview preparation !');
         }
         else{
-            return  redirect()->back->with('fail', 'Sorry, your upload has exceed limit for this month, please contact admin for details');
+            return  redirect()->back()->with('fail', 'Sorry, your upload has exceed limit for this month, please contact admin for details');
         }
+    }
+    public function evaluationGen()
+    {
+        $data['pageTitle'] = 'Karya | Profile';
+        $data['logo'] = 'app-assets/images/logo_karya.png';
+        $data['active'] = 'Evaluation';
+        $data['css'] = array(
+            base_url('app-assets/hired/style.css')
+        );
+        $data['loggedHired'] = $this->loggedHired;
+        $data['is_online'] = $this->user['is_online'];
+        return view('hired/evaluationGen', $data);
     }
     public function myProfile()
     {
@@ -893,8 +927,9 @@ class Hired extends BaseController
         $data['loggedHired'] = $this->loggedHired;
         $data['is_online'] = $this->user['is_online'];
 
-        $data['videos'] = $this->eventsdetailsModel->where(array('user_email' => $email,'event_title' => 'Video CV'))->findAll();
+        $data['videos'] = $this->eventsdetailsModel->where(array('user_email' => $email,'event_title' => 'Video CV'))->orderBy('submit_date','DESC')->findAll();
         $data['portfolio'] = $this->portfolioModel->where(array('user_email' => $email))->findAll();
+        $data['resume'] = $this->portfolioModel->where(array('user_email' => $email,'description' => 'PDF Resume'))->orderBy('created','DESC')->findAll();
         $discData = $this->usersmarkModel->where(array("email" => $email))->findAll();
         $discResult = $discData[0]['DISC_result'];
         $arr1 = str_split($discResult);
@@ -994,6 +1029,7 @@ class Hired extends BaseController
         );
         $data['loggedHired'] = $this->loggedHired;
         $data['is_online'] = $this->user['is_online'];
+        $data['explores'] = $this->companyrequirementsModel->findAll();
         return view('hired/explore', $data);
     }
     /* UnUsed Methods END */
