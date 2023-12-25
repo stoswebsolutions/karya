@@ -84,7 +84,7 @@ class Hired extends BaseController
         $this->loggedData = session()->get('LoggedData');
         $this->loggedHired = $this->loggedData['hired'];
         $this->usersModel = new UsersModel();
-        if($this->loggedHired){
+        if ($this->loggedHired) {
             $this->user = $this->usersModel->where('ID', $this->loggedHired['ID'])->first();
         }
         $this->usersviewerModel = new UsersviewerModel();
@@ -813,7 +813,7 @@ class Hired extends BaseController
                 }
             }
         }
-        
+
         $fileResume = $this->request->getFile('resume');
         if ($fileResume->isValid()) {
             if (!$fileResume->hasMoved()) {
@@ -870,40 +870,39 @@ class Hired extends BaseController
         $event_title = $this->request->getPost('event_title');
         $from_profile = $this->request->getPost('from_profile');
         $PROFILE_PIC = $this->request->getPost('PROFILE_PIC');
-        
+
         $month = date("M-Y");
 
-        $checkDuplicate = $this->eventsdetailsModel->where(array('user_email' => $email,'event_title' => $event_title))->findAll();
-        if(count($checkDuplicate) <=5){
+        $checkDuplicate = $this->eventsdetailsModel->where(array('user_email' => $email, 'event_title' => $event_title))->findAll();
+        if (count($checkDuplicate) <= 5) {
             $fileVideo = $this->request->getFile('video-file-upload');
             if ($fileVideo->isValid()) {
                 if (!$fileVideo->hasMoved()) {
                     $fileVideo_path = $fileVideo->getRandomName();
                     $fileVideo->move('assets/uploads/video_cv', $fileVideo_path);
                 }
-                
-                $inputData=array(
-                    'event_title'   =>$event_title,
-                    'batch'         =>$month,
-                    'name'          =>$name,
-                    'IC_no'         =>$IC_no,
-                    'contact_no'    =>$contact_no,
-                    'university'    =>$university,
-                    'courses'       =>'Talents',
-                    'user_email'    =>$email,
-                    'video_for'     =>$event_title,   
-                    'video_name'    =>$fileVideo_path,
-                    'video_path'    =>$fileVideo_path,
-                    'ext'           =>'',
-                    'submit_date'   =>date("d-m-Y h:i:s a")
+
+                $inputData = array(
+                    'event_title'   => $event_title,
+                    'batch'         => $month,
+                    'name'          => $name,
+                    'IC_no'         => $IC_no,
+                    'contact_no'    => $contact_no,
+                    'university'    => $university,
+                    'courses'       => 'Talents',
+                    'user_email'    => $email,
+                    'video_for'     => $event_title,
+                    'video_name'    => $fileVideo_path,
+                    'video_path'    => $fileVideo_path,
+                    'ext'           => '',
+                    'submit_date'   => date("d-m-Y h:i:s a")
                 );
-                $this->eventsdetailsModel->delete(array('user_email' => $email,'event_title' => $event_title));
+                $this->eventsdetailsModel->delete(array('user_email' => $email, 'event_title' => $event_title));
                 $this->eventsdetailsModel->insert($inputData);
-                $this->usersModel->update(array('email' => $email,'ID' => $ID), array('video_progress' => 100));
+                $this->usersModel->update(array('email' => $email, 'ID' => $ID), array('video_progress' => 100));
             }
             return  redirect()->to('hired/evaluationGen')->with('success', 'your interview preparation !');
-        }
-        else{
+        } else {
             return  redirect()->back()->with('fail', 'Sorry, your upload has exceed limit for this month, please contact admin for details');
         }
     }
@@ -923,7 +922,7 @@ class Hired extends BaseController
     {
         $email = $this->user['email'];
         $ID = $this->user['ID'];
-        
+
         $data['pageTitle'] = 'Karya | Profile';
         $data['logo'] = 'app-assets/images/logo_karya.png';
         $data['active'] = 'profile';
@@ -933,9 +932,9 @@ class Hired extends BaseController
         $data['loggedHired'] = $this->loggedHired;
         $data['is_online'] = $this->user['is_online'];
 
-        $data['videos'] = $this->eventsdetailsModel->where(array('user_email' => $email,'event_title' => 'Video CV'))->orderBy('submit_date','DESC')->findAll();
+        $data['videos'] = $this->eventsdetailsModel->where(array('user_email' => $email, 'event_title' => 'Video CV'))->orderBy('submit_date', 'DESC')->findAll();
         $data['portfolio'] = $this->portfolioModel->where(array('user_email' => $email))->findAll();
-        $data['resume'] = $this->portfolioModel->where(array('user_email' => $email,'description' => 'PDF Resume'))->orderBy('created','DESC')->findAll();
+        $data['resume'] = $this->portfolioModel->where(array('user_email' => $email, 'description' => 'PDF Resume'))->orderBy('created', 'DESC')->findAll();
         $discData = $this->usersmarkModel->where(array("email" => $email))->findAll();
         $discResult = $discData[0]['DISC_result'];
         $arr1 = str_split($discResult);
@@ -1051,16 +1050,16 @@ class Hired extends BaseController
         );
         $data['loggedHired'] = $this->loggedHired;
         $data['is_online'] = $this->user['is_online'];
-		$data['occ_id'] = $id;
-		$data['email'] = $email;
-		$data['user_id'] = $user_id;
+        $data['occ_id'] = $id;
+        $data['email'] = $email;
+        $data['user_id'] = $user_id;
         $data['jobData'] = $this->companyrequirementsModel->where(array('id' => $id))->findAll();
-        $data['applyData'] = $this->applypostsModel->where(array('job_id' => $id,'user_id' => $user_id))->findAll();
+        $data['applyData'] = $this->applypostsModel->where(array('job_id' => $id, 'user_id' => $user_id))->findAll();
         $questionsData1 = $this->questionsModel->where(array('job_id' => $id))->findAll();
         $data['questionsData'] = $questionsData1;
         $data['answersData'] = '';
-        if(!empty($questionsData1)){
-            $data['answersData'] = $this->answersModel->where(array('job_id' => $id,'user_id' => $user_id,'question_id' => $questionsData1[0]['question_id']))->findAll();
+        if (!empty($questionsData1)) {
+            $data['answersData'] = $this->answersModel->where(array('job_id' => $id, 'user_id' => $user_id, 'question_id' => $questionsData1[0]['question_id']))->findAll();
         }
         return view('hired/exploreDetails', $data);
     }
@@ -1072,24 +1071,49 @@ class Hired extends BaseController
         $question_id = $this->request->getPost('question_id');
         $job_id = $this->request->getPost('job_id');
         $user_id = $this->request->getPost('user_id');
-        
-        
+
+
         $fileVideo = $this->request->getFile('jobVideoAns');
         if ($fileVideo->isValid()) {
             if (!$fileVideo->hasMoved()) {
                 $fileVideo_path = $fileVideo->getRandomName();
                 $fileVideo->move('assets/uploads/questions', $fileVideo_path);
             }
-            
-            $inputData=array(
-                'question_id'   =>$question_id,
-                'job_id'         =>$job_id,
-                'user_id'          =>$user_id,
-                'answer_video'    =>'assets/uploads/questions/'.$fileVideo_path
+
+            $inputData = array(
+                'question_id'   => $question_id,
+                'job_id'         => $job_id,
+                'user_id'          => $user_id,
+                'answer_video'    => 'assets/uploads/questions/' . $fileVideo_path
             );
             $this->answersModel->insert($inputData);
         }
-        return  redirect()->to('hired/exploreDetails/'.$job_id)->with('success', 'Video Uploaded !');
+        return  redirect()->to('hired/exploreDetails/' . $job_id)->with('success', 'Video Uploaded !');
+    }
+    public function applyJob()
+    {
+        $email = $this->user['email'];
+        $ID = $this->user['ID'];
+
+        $role_id = $this->request->getPost('role_id');
+        $cat_id = $this->request->getPost('cat_id');
+        $companyId = $this->request->getPost('companyId');
+        $user_email = $this->request->getPost('user_email');
+        $job_id = $this->request->getPost('job_id');
+        $user_id = $this->request->getPost('user_id');
+
+        $inputData = array(
+            'role_id'   => $role_id,
+            'cat_id'         => $cat_id,
+            'companyId'          => $companyId,
+            'user_email'   => $user_email,
+            'job_id'         => $job_id,
+            'user_id'          => $user_id,
+            'applied_on'         => date('Y-m-d H:i:s'),
+            'app_status'          => 'A'
+        );
+        $this->applypostsModel->insert($inputData);
+        return  redirect()->to('hired/exploreDetails/' . $job_id)->with('success', 'Successfully Applied !');
     }
     /* UnUsed Methods END */
 }
