@@ -1,5 +1,6 @@
 <?= $this->extend("layouts/hired") ?>
 <?= $this->section("body") ?>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <!-- profile tab -->
 <div class="data profile-data">
     <!-- my profile -->
@@ -62,33 +63,56 @@
                     </div>
                 </div>
                 <div class="competency-data">
-                    <h1 class="hdr mt-4 mb-2">
-                        COMPETENCY ASSESSMENT: Fund Manager
-                    </h1>
                     <div class="content">
                         <div class="row gx-0">
                             <div class="col-6">
-                                <div class="graph-data h-100 me-4">
-                                    <h5 class="title">Competency Assessment</h5>
-                                    <div class="graph">
+                                <div class="h-100 me-4"> <!-- class="graph-data h-100 me-4" -->
+                                    <h5 class="title">Competency Assessment: Fund Manager</h5>
+                                    <div> <!-- class="graph" -->
                                         <!-- add graph here -->
-                                        <img src="<?= site_url() ?>app-assets/images/competency-graph.PNG" alt="graph" class="w-100">
+                                        <!-- <img src="<?= site_url() ?>app-assets/images/competency-graph.PNG" alt="graph" class="w-100"> -->
+                                        <div>
+                                            <canvas id="workChart"></canvas>
+                                        </div>
                                         <!-- ends::add graph here -->
                                     </div>
                                 </div>
                             </div>
                             <div class="col-6">
-                                <div class="graph-data h-100 ms-4">
-                                    <h5 class="title">RATING</h5>
-                                    <div class="graph">
+                                <div class="h-100 me-4"> <!-- class="graph-data h-100 me-4" -->
+                                    <h5 class="title">RATING (<?= $RESULT_ENGLISH ?>%)</h5>
+                                    <div> <!-- class="graph" -->
                                         <!-- add graph here -->
-                                        <img src="<?= site_url() ?>app-assets/images/rating-graph.PNG" alt="graph" class="w-100">
+                                        <!-- <img src="<?= site_url() ?>app-assets/images/rating-graph.PNG" alt="graph" class="w-100"> -->
+                                        <div>
+                                            <div class="progress blue">
+                                                <span class="progress-left">
+                                                    <span class="progress-bar"></span>
+                                                </span>
+                                                <span class="progress-right">
+                                                    <span class="progress-bar"></span>
+                                                </span>
+                                                <div class="progress-value">
+                                                    <?php
+                                                    if ($RESULT_ENGLISH <= 33) {
+                                                        echo "Beginner";
+                                                    }
+                                                    if ($RESULT_ENGLISH > 33 && $RESULT_ENGLISH <= 66) {
+                                                        echo "Intermediate";
+                                                    }
+                                                    if ($RESULT_ENGLISH > 66) {
+                                                        echo "Advance";
+                                                    }
+                                                    ?>
+                                                </div>
+                                            </div>
+                                        </div>
                                         <!-- ends::add graph here -->
                                     </div>
                                 </div>
                             </div>
                             <div class="col-12">
-                                <ol class="list text-white fw-500">
+                                <ol class="list text-dark fw-500">
                                     <li>
                                         <p class="ms-2">
                                             Have you successfully managed diversified
@@ -135,24 +159,24 @@
                 </div>
             </div>
             <div class="tab-pane fade" id="video-pitch" role="tabpanel" aria-labelledby="video-pitch-tab" tabindex="0">
-                    <div class="video-container">
-                        <video controls poster="<?= site_url() ?>app-assets/images/poster.jpg" class="w-100 hoverable">
-                            <source src="<?= site_url() ?>assets/uploads/video_cv/<?= $videos[0]['video_path'] ?>" type="video/mp4">
-                            Your browser does not support the video tag.
-                        </video>
-                    </div>
+                <div class="video-container">
+                    <video controls poster="<?= site_url() ?>app-assets/images/poster.jpg" class="w-100 hoverable">
+                        <source src="<?= site_url() ?>assets/uploads/video_cv/<?= $videos[0]['video_path'] ?>" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
             </div>
             <div class="tab-pane fade" id="achievements" role="tabpanel" aria-labelledby="achievements" tabindex="0">
                 <div class="achievements-container bg-white px-2 pt-1 pb-3">
                     <div class="row g-2 m-0">
                         <?php
                         foreach ($portfolio as $p1 => $prow) {
-                            if($prow['description']!='PDF Resume'){
-                                ?>
+                            if ($prow['description'] != 'PDF Resume') {
+                        ?>
                                 <div class="col-6">
                                     <img src="<?= site_url() ?>assets/uploads/achievements/<?= $prow['image_path'] ?>" alt="image path not exist" class="w-100 h-100">
                                 </div>
-                                <?php
+                        <?php
                             }
                         }
                         ?>
@@ -390,4 +414,64 @@
     <!-- ends::my profile -->
 </div>
 <!-- ends::profile tab -->
+<script>
+    const ctx = document.getElementById("workChart");
+
+    new Chart(ctx, {
+        type: "radar",
+        data: {
+            labels: ["A","B","C","D","E"],
+            datasets: [
+                {
+                    label: "WORK COMPETENCY MAP",
+                    data: [<?php echo $ans[0]['q_one_res']; ?>, <?php echo $ans[0]['q_two_res']; ?>, <?php echo $ans[0]['q_three_res']; ?>, <?php echo $ans[0]['q_four_res']; ?>, <?php echo $ans[0]['q_five_res']; ?>],
+                    fill: false,
+                    radius: 5,
+                    backgroundColor: "rgba(0, 0, 0, 0.2)",
+                    borderColor: "rgb(255, 99, 132)",
+                    // pointBackgroundColor: "rgb(255, 99, 132)",
+                    pointBorderColor: "#fff",
+                    pointBorderWidth: 1,
+                    pointHoverBackgroundColor: "#000",
+                    pointHoverBorderColor: "rgb(255, 99, 132)",
+                    borderColor: "#dd158f",
+                    borderWidth: 2
+                },
+            ],
+        },
+        options: {
+            scale: {
+                angleLines: {
+                    display: false
+                },
+                gridLines: {
+                    display: true,
+                    color: "rgba(64, 161, 245, 5)",
+                    lineWidth: "0.5"
+                },
+                pointLabels: {
+                    display: true,
+                    fontSize: 10
+                },
+                ticks: {
+                    suggestedMin: 0,
+                    suggestedMax: 4,
+                    stepSize: 1,
+                    showLabelBackdrop: false
+                },
+                legend: {
+                    labels: {
+                        fontColor: "red"
+                    }
+                }
+            },
+            elements: {
+                line: {
+                    tension:0,
+                    borderWidth: 3,
+                },
+            },
+        },
+    });
+</script>
 <?= $this->endSection() ?>

@@ -37,6 +37,7 @@ use App\Models\UseruploadsModel;
 use App\Models\PortfolioModel;
 use App\Models\QuestionsModel;
 use App\Models\ResultdiscModel;
+use App\Models\UserassessrolesModel;
 
 use function PHPUnit\Framework\isNull;
 
@@ -79,6 +80,7 @@ class Hired extends BaseController
     private $companyrequirementsModel;
     private $questionsModel;
     private $answersModel;
+    private $userassessrolesModel;
     public function __construct()
     {
         $this->loggedData = session()->get('LoggedData');
@@ -120,6 +122,7 @@ class Hired extends BaseController
         $this->companyrequirementsModel = new CompanyrequirementsModel();
         $this->questionsModel = new QuestionsModel();
         $this->answersModel = new AnswersModel();
+        $this->userassessrolesModel = new UserassessrolesModel();
     }
     public function dashboard()
     {
@@ -903,7 +906,7 @@ class Hired extends BaseController
             }
             return  redirect()->to('hired/evaluationGen')->with('success', 'your interview preparation !');
         } else {
-            return  redirect()->back()->with('fail', 'Sorry, your upload has exceed limit for this month, please contact admin for details');
+            return  redirect()->to('hired/evaluationGen')->with('fail', 'Sorry, your upload has exceed limit for this month, please contact admin for details');
         }
     }
     public function evaluationGen()
@@ -942,6 +945,9 @@ class Hired extends BaseController
         $DISC_SECOND = $arr1[1];
         $data['discOne'] = $this->resultdiscModel->where(array("result_combination" => $DISC_FIRST))->findAll();
         $data['discTwo'] = $this->resultdiscModel->where(array("result_combination" => $DISC_SECOND))->findAll();
+        // var_dump($data);exit;
+        $data['ans'] = $this->userassessrolesModel->where(array("user_email" => $email,'is_primary' => 1))->findAll();
+        $data['RESULT_ENGLISH'] = $discData[0]['english_proficiecy']*2;
         return view('hired/myProfile', $data);
     }
     public function companies($sector_id)
