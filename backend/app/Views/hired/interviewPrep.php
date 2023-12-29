@@ -9,12 +9,6 @@
                 <span class="txt">Start</span>
                 <span class="circle"></span>
             </div>
-            <div class="personality-assessment completed position-relative">
-                <div class="progress-lines d-flex align-items-center">
-                    <span class="hor-line"></span>
-                    <span class="ver-line"></span>
-                </div>
-            </div>
             <div class="personal-info completed position-relative">
                 <div class="progress-lines d-flex align-items-center">
                     <span class="hor-line"></span>
@@ -27,7 +21,13 @@
                     <span class="ver-line"></span>
                 </div>
             </div>
-            <div class="interview-prep completed position-relative">
+            <div class="personality-assessment completed position-relative">
+                <div class="progress-lines d-flex align-items-center">
+                    <span class="hor-line"></span>
+                    <span class="ver-line"></span>
+                </div>
+            </div>
+            <div class="interview-prep position-relative">
                 <div class="progress-lines d-flex align-items-center">
                     <span class="hor-line"></span>
                     <span class="ver-line"></span>
@@ -190,7 +190,7 @@
                                 </li>
                             </ol>
                             <div class="to-fro-btns">
-                                <a href="<?= site_url() ?>hired/uploadResume" class="btn back-btn interview-prep-back"> Go Back </a>
+                                <a href="<?= site_url() ?>hired/perAssessment" class="btn back-btn interview-prep-back"> Go Back </a>
                                 <button class="btn next-btn interview-prep-next" type="submit" >
                                     Next
                                 </button>
@@ -333,7 +333,7 @@
                                     </li>
                                 </ol>
                                 <div class="to-fro-btns">
-                                    <a href="<?= site_url() ?>hired/uploadResume" class="btn back-btn interview-prep-back"> Go Back </a>
+                                    <a href="<?= site_url() ?>hired/perAssessment" class="btn back-btn interview-prep-back"> Go Back </a>
                                     <button class="btn next-btn interview-prep-next" type="button" >
                                         Next
                                     </button>

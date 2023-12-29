@@ -9,12 +9,6 @@
                 <span class="txt">Start</span>
                 <span class="circle"></span>
             </div>
-            <div class="personality-assessment completed position-relative">
-                <div class="progress-lines d-flex align-items-center">
-                    <span class="hor-line"></span>
-                    <span class="ver-line"></span>
-                </div>
-            </div>
             <div class="personal-info completed position-relative">
                 <div class="progress-lines d-flex align-items-center">
                     <span class="hor-line"></span>
@@ -27,13 +21,19 @@
                     <span class="ver-line"></span>
                 </div>
             </div>
+            <div class="personality-assessment completed position-relative">
+                <div class="progress-lines d-flex align-items-center">
+                    <span class="hor-line"></span>
+                    <span class="ver-line"></span>
+                </div>
+            </div>
             <div class="interview-prep completed position-relative">
                 <div class="progress-lines d-flex align-items-center">
                     <span class="hor-line"></span>
                     <span class="ver-line"></span>
                 </div>
             </div>
-            <div class="upload-vid completed position-relative">
+            <div class="upload-vid position-relative">
                 <div class="progress-lines d-flex align-items-center">
                     <span class="hor-line"></span>
                     <span class="ver-line"></span>

@@ -104,17 +104,17 @@
                                 <ul class="dropdown-menu">
                                     <li>
                                         <button class="dropdown-item" type="button">
-                                            <a href="<?= site_url() ?>hired/perAssessment" class="text-decoration-none">Personality Assessment</a>
-                                        </button>
-                                    </li>
-                                    <li>
-                                        <button class="dropdown-item" type="button">
                                             <a href="<?= site_url() ?>hired/updatePerInfo" class="text-decoration-none">Update Personal Information</a>
                                         </button>
                                     </li>
                                     <li>
                                         <button class="dropdown-item" type="button">
                                             <a href="<?= site_url() ?>hired/uploadResume" class="text-decoration-none">Upload Resume</a>
+                                        </button>
+                                    </li>
+                                    <li>
+                                        <button class="dropdown-item" type="button">
+                                            <a href="<?= site_url() ?>hired/perAssessment" class="text-decoration-none">Personality Assessment</a>
                                         </button>
                                     </li>
                                     <li>

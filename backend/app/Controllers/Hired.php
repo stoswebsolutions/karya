@@ -154,6 +154,277 @@ class Hired extends BaseController
         $data['is_online'] = $this->user['is_online'];
         return view('hired/status', $data);
     }
+    public function updatePerInfo()
+    {
+        $data['pageTitle'] = 'Karya | Profile';
+        $data['logo'] = 'app-assets/images/logo_karya.png';
+        $data['active'] = 'profile';
+        $data['css'] = array(
+            base_url('app-assets/hired/style.css')
+        );
+        $data['loggedHired'] = $this->loggedHired;
+        $data['is_online'] = $this->user['is_online'];
+        $ID = $this->user['ID'];
+        $email = $this->user['email'];
+        $profile_status = $this->user['profile_status'];
+        if ($profile_status == 3) {
+            $discResult = $this->usersmarkModel->where(array("email" => $email))->findAll();
+            if (!empty($discResult)) {
+                $getRoles = $this->occupationsModel->select('occ_id,cour_catid,cour_catname,occ_role, occ_status')->like('result_DISC', $discResult[0]['DISC_result'])->findAll();
+                $prefRoles = $this->userrolesModel->where(array("user_email" => $email))->findAll();
+                if (!empty($prefRoles)) {
+                    $data['prefRoles'] = explode(',', $prefRoles[0]['role_str']);
+                } else {
+                    $data['prefRoles'] = '';
+                }
+                $data['getRoles'] = $getRoles;
+            } else {
+                $data['getRoles'] = '';
+                $data['prefRoles'] = '';
+            }
+            $tgtRoles = $this->userrolesModel->where(array("user_email" => $email))->findAll();
+            if (!empty($tgtRoles)) {
+                $data['user_primary'] = $tgtRoles[0]['usr_prim'];
+                $data['user_roles'] = $tgtRoles[0]['user_roles'];
+            } else {
+                $data['user_roles'] =  '';
+                $data['user_primary'] = '';
+            }
+        } else {
+            $tgtRoles = $this->userrolesModel->where(array("user_email" => $email))->findAll();
+            if (!empty($tgtRoles)) {
+                $data['user_primary'] = $tgtRoles[0]['usr_prim'];
+                $data['user_roles'] = $tgtRoles[0]['user_roles'];
+            } else {
+                $data['user_roles'] =  '';
+                $data['user_primary'] = '';
+            }
+        }
+        $data['usersInfo'] = $this->usersmarkModel->where(array("email" => $email))->findAll();
+        $data['usersProfile'] = $this->usersModel->where(array("email" => $email))->findAll();
+        $jobDetails = $this->jobapplicationModel->select('*')
+            ->join('tb_company_job_posting', 'tb_company_job_posting.tb_company_job_posting_id = tb_job_application.tb_company_job_posting_id')
+            ->where(array("tb_job_application.email" => $email))
+            ->orderBy('date_application', 'DESC')->findAll();
+        $data['jobDetails'] = $jobDetails;
+        $data['jobTotalDetails'] = count($jobDetails);
+        $jobParttime = $this->jobapplicationModel->select('*')
+            ->join('tb_company_job_posting', 'tb_company_job_posting.tb_company_job_posting_id = tb_job_application.tb_company_job_posting_id')
+            ->where(array("tb_job_application.email" => $email, 'tb_job_application.job_status' => 'PartTime'))
+            ->orWhere(array('tb_job_application.job_status' => 'SemesterBrake'))
+            ->orderBy('date_application', 'DESC')->findAll();
+        $data['jobParttime'] = $jobParttime;
+        $jobInternship = $this->jobapplicationModel->select('*')
+            ->join('tb_company_job_posting', 'tb_company_job_posting.tb_company_job_posting_id = tb_job_application.tb_company_job_posting_id')
+            ->where(array("tb_job_application.email" => $email, 'tb_job_application.job_status' => 'Internship'))
+            ->orderBy('date_application', 'DESC')->findAll();
+        $data['jobInternship'] = $jobInternship;
+        $jobVolunteer = $this->jobapplicationModel->select('*')
+            ->join('tb_company_job_posting', 'tb_company_job_posting.tb_company_job_posting_id = tb_job_application.tb_company_job_posting_id')
+            ->where(array("tb_job_application.email" => $email, 'tb_job_application.job_status' => 'Volunteer'))
+            ->orderBy('date_application', 'DESC')->findAll();
+        $data['jobVolunteer'] = $jobVolunteer;
+        $universityDetails = $this->universityapplicationModel->where(array('email' => $email))->orderBy('date_application', 'DESC')->findAll();
+        $data['documentUpload'] = $this->useruploadsModel->where(array('user_email' => $email))->orderBy('upload_date', 'ASC')->findAll();
+        $competition = $this->competitionModel->where(array('submit_by' => $email))->orderBy('submit_date', 'ASC')->findAll();
+        $IC = $this->useruploadsModel->where(array('user_email' => $email, 'img_for' => 'IC', 'img_name!=' => 'N/A'))->orderBy('upload_date', 'ASC')->findAll();
+        $birth = $this->useruploadsModel->where(array('user_email' => $email, 'img_for' => 'BIRTH', 'img_name!=' => 'N/A'))->orderBy('upload_date', 'ASC')->findAll();
+        $academic = $this->useruploadsModel->where(array('user_email' => $email, 'img_for' => 'ACADEMIC', 'img_name!=' => 'N/A'))->orderBy('upload_date', 'ASC')->findAll();
+        $transcript = $this->useruploadsModel->where(array('user_email' => $email, 'img_for' => 'TRANSCRIPT', 'img_name!=' => 'N/A'))->orderBy('upload_date', 'ASC')->findAll();
+        $schoolLeaving = $this->useruploadsModel->where(array('user_email' => $email, 'img_for' => 'SCHOOL_LEAVING', 'img_name!=' => 'N/A'))->findAll();
+        $data['videoCV'] = $this->eventsdetailsModel->where(array('user_email' => $email, 'event_title' => 'Video CV'))->findAll();
+        $data['error'] = '';
+        $data['profileStatus'] = 'YES';
+        $IC = $this->useruploadsModel->where(array('user_email' => $email, 'img_for' => 'IC'))->orderBy('upload_date', 'ASC')->findAll();
+        $documents_upload = 0;
+        $university_application_total = 0;
+        $competition_application_total = 0;
+        if (count($IC) > 0) {
+            $documents_upload++;
+            $data['IC'] = $IC;
+        }
+        if (count($birth) > 0) {
+            $documents_upload++;
+            $data['birth'] = $birth;
+        }
+        if (count($academic) > 0) {
+            $documents_upload++;
+            $data['academic'] = $academic;
+        }
+        if (count($transcript) > 0) {
+            $documents_upload++;
+            $data['transcript'] = $transcript;
+        }
+        if (count($schoolLeaving) > 0) {
+            $documents_upload++;
+            $data['schoolLeaving'] = $schoolLeaving;
+        }
+        if (count($universityDetails) > 0) {
+            $university_application_total = count($universityDetails);
+            $data['universityDetails'] = $universityDetails;
+        }
+        if (count($competition) > 0) {
+            $competition_application_total = count($competition);
+            $data['competition'] = $competition;
+        }
+        $data['universityApplication'] = $university_application_total;
+        $data['competitionApplication'] = $competition_application_total;
+        $data['uploadRate'] = $conversation_rate = round((($documents_upload / 5) * 100), 2);
+        $personalData = $this->employeeratingModel->where(array('userId' => $ID))->orderBy('id', 'DESC')->findAll();
+        if (!empty($personalData)) {
+            $data['personalData'] = $personalData;
+        }
+        $keySkills = $this->employeeratingModel->where(array('userId' => $ID))->orderBy('id', 'DESC')->findAll();
+        if (!empty($keySkills)) {
+            $data['keySkills'] = $keySkills;
+        }
+        if (!empty($data['user_roles'])) {
+            $role_name = $data['user_roles'];
+            $role_name = explode($role_name, ',');
+            $pcID = $this->rolecertskillsModel->whereIn('occ_id', $role_name)->groupBy('pc_id')->findAll();
+            $pcID = explode($pcID[0]['pc_id'], ',');
+            $data['certs'] = $this->profcertificatesModel->whereIn('prof_id', $pcID)->findAll();
+            $skID = $this->rolecertskillsModel->whereIn('occ_id', $role_name)->groupBy('sk_id')->findAll();
+            $skID = explode($skID[0]['sk_id'], ',');
+            $data['skills'] = $this->skillsModel->whereIn('skill_id', $skID)->findAll();
+        } else {
+            $role_name = '-1';
+            $data['certs'] = $this->profcertificatesModel->findAll();
+            $data['skills'] = $this->skillsModel->findAll();
+        }
+        return view('hired/updatePerInfo', $data);
+    }
+    public function updatePerInfoSubmit()
+    {
+        $email = $this->user['email'];
+        $ID = $this->user['ID'];
+
+        $fullname = $this->request->getPost('fullname');
+        $IC = $this->request->getPost('IC');
+        $gender = $this->request->getPost('gender');
+        $phone = $this->request->getPost('phone');
+        $address_1 = $this->request->getPost('address_1');
+        $address_2 = $this->request->getPost('address_2');
+        $zipcode = $this->request->getPost('zipcode');
+        $city = $this->request->getPost('city');
+        $state = $this->request->getPost('state');
+        $country = $this->request->getPost('country');
+        $current_job = $this->request->getPost('current_job');
+        $current_company = $this->request->getPost('current_company');
+        $job_experience = $this->request->getPost('job_experience');
+        $work_type = $this->request->getPost('work_type');
+        $remote_work = $this->request->getPost('remote_work');
+        $preferred_location = $this->request->getPost('preferred_location');
+        $inputData = array(
+            "fullname" => $fullname,
+            "IC" => $IC,
+            "gender" => $gender,
+            "phone" => $phone,
+            "address_1" => $address_1,
+            "address_2" => $address_2,
+            "zipcode" => $zipcode,
+            "city" => $city,
+            "state" => $state,
+            "country" => $country,
+            "current_job" => $current_job,
+            "current_company" => $current_company,
+            "job_experience" => $job_experience,
+            "work_type" => $work_type,
+            "remote_work" => $remote_work,
+            "preferred_location" => $preferred_location,
+            "profile_progress" => 100
+        );
+        $this->usersModel->update(array("email" => $email, "ID" => $ID), $inputData);
+        $this->employeeratingModel->delete(array('userId' => $ID));
+        $total = 0;
+        if ($relocate = $this->request->getPost('relocate'))
+            $total += 4;
+        if ($occupationLevel = $this->request->getPost('occupationLevel'))
+            $total += 4;
+        if ($highestEducation = $this->request->getPost('highestEducation'))
+            $total += 2;
+        if ($totalExperience = $this->request->getPost('totalExperience'))
+            $total += 3;
+        if ($expectedSalary = $this->request->getPost('expectedSalary'))
+            $total += 3;
+        if ($workTime = $this->request->getPost('workTime'))
+            $total += 7;
+        if ($jobRoleLimitation = $this->request->getPost('jobRoleLimitation'))
+            $total += 7;
+        if ($preferredCulture = $this->request->getPost('preferredCulture'))
+            $total += 6;
+        if ($jobCategory = $this->request->getPost('jobCategory'))
+            $total += 4;
+        $inputData1 = array(
+            'userId' => $ID,
+            'careerRole' => '',
+            'relocate' => $relocate,
+            'occupationLevel' => $occupationLevel,
+            'highestEducation' => $highestEducation,
+            'totalExperience' => $totalExperience,
+            'keySkillIds' => '',
+            'expectedSalary' => $expectedSalary,
+            'workTime' => $workTime,
+            'jobRoleLimitation' => $jobRoleLimitation,
+            'preferredCulture' => $preferredCulture,
+            'jobCategory' => $jobCategory,
+            'totalPercentage' => $total,
+            'createdAt' => date('Y-m-d H:i:s'),
+            'updatedAt' => date('Y-m-d H:i:s')
+        );
+        $this->employeeratingModel->insert($inputData1);
+        return  redirect()->to('hired/uploadResume')->with('success', 'Your Profile Updated !');
+    }
+    public function uploadResume()
+    {
+        $data['pageTitle'] = 'Karya | Profile';
+        $data['logo'] = 'app-assets/images/logo_karya.png';
+        $data['active'] = 'profile';
+        $data['css'] = array(
+            base_url('app-assets/hired/style.css')
+        );
+        $data['loggedHired'] = $this->loggedHired;
+        $data['is_online'] = $this->user['is_online'];
+        return view('hired/uploadResume', $data);
+    }
+    public function uploadResumeSubmit()
+    {
+        $email = $this->user['email'];
+        $ID = $this->user['ID'];
+        if ($this->request->getFileMultiple('achievements')) {
+            foreach ($this->request->getFileMultiple('achievements') as $file) {
+                if ($file->isValid()) {
+                    if (!$file->hasMoved()) {
+                        $file_path = $file->getRandomName();
+                        $file->move('assets/uploads/achievements', $file_path);
+                        $values = [
+                            'user_email' => $email,
+                            'image_path' => $file_path,
+                            'description' => 'No Description',
+                            'created' => date("Y-m-d H:i:s")
+                        ];
+                        $this->portfolioModel->insert($values);
+                    }
+                }
+            }
+        }
+
+        $fileResume = $this->request->getFile('resume');
+        if ($fileResume->isValid()) {
+            if (!$fileResume->hasMoved()) {
+                $fileResume_path = $fileResume->getRandomName();
+                $fileResume->move('assets/uploads/resume', $fileResume_path);
+                $insert = [
+                    'user_email' => $email,
+                    'image_path' => $fileResume_path,
+                    'description' => 'PDF Resume',
+                    'created' => date("Y-m-d H:i:s")
+                ];
+                $this->portfolioModel->insert($insert);
+            }
+        }
+        return  redirect()->to('hired/perAssessment')->with('success', 'Your Resume Achievements Upload !');
+    }
     public function perAssessment()
     {
         $data['pageTitle'] = 'Karya | Personality Assessment';
@@ -560,278 +831,7 @@ class Hired extends BaseController
         }
         $usersupdate = $this->usersModel->update(array('email' => $email, 'ID' => $ID), array('test_attempt' => '1', 'disc_progress' => 100));
 
-        return  redirect()->to('hired/updatePerInfo')->with('success', 'Assessment Submited !');
-    }
-    public function updatePerInfo()
-    {
-        $data['pageTitle'] = 'Karya | Profile';
-        $data['logo'] = 'app-assets/images/logo_karya.png';
-        $data['active'] = 'profile';
-        $data['css'] = array(
-            base_url('app-assets/hired/style.css')
-        );
-        $data['loggedHired'] = $this->loggedHired;
-        $data['is_online'] = $this->user['is_online'];
-        $ID = $this->user['ID'];
-        $email = $this->user['email'];
-        $profile_status = $this->user['profile_status'];
-        if ($profile_status == 3) {
-            $discResult = $this->usersmarkModel->where(array("email" => $email))->findAll();
-            if (!empty($discResult)) {
-                $getRoles = $this->occupationsModel->select('occ_id,cour_catid,cour_catname,occ_role, occ_status')->like('result_DISC', $discResult[0]['DISC_result'])->findAll();
-                $prefRoles = $this->userrolesModel->where(array("user_email" => $email))->findAll();
-                if (!empty($prefRoles)) {
-                    $data['prefRoles'] = explode(',', $prefRoles[0]['role_str']);
-                } else {
-                    $data['prefRoles'] = '';
-                }
-                $data['getRoles'] = $getRoles;
-            } else {
-                $data['getRoles'] = '';
-                $data['prefRoles'] = '';
-            }
-            $tgtRoles = $this->userrolesModel->where(array("user_email" => $email))->findAll();
-            if (!empty($tgtRoles)) {
-                $data['user_primary'] = $tgtRoles[0]['usr_prim'];
-                $data['user_roles'] = $tgtRoles[0]['user_roles'];
-            } else {
-                $data['user_roles'] =  '';
-                $data['user_primary'] = '';
-            }
-        } else {
-            $tgtRoles = $this->userrolesModel->where(array("user_email" => $email))->findAll();
-            if (!empty($tgtRoles)) {
-                $data['user_primary'] = $tgtRoles[0]['usr_prim'];
-                $data['user_roles'] = $tgtRoles[0]['user_roles'];
-            } else {
-                $data['user_roles'] =  '';
-                $data['user_primary'] = '';
-            }
-        }
-        $data['usersInfo'] = $this->usersmarkModel->where(array("email" => $email))->findAll();
-        $data['usersProfile'] = $this->usersModel->where(array("email" => $email))->findAll();
-        $jobDetails = $this->jobapplicationModel->select('*')
-            ->join('tb_company_job_posting', 'tb_company_job_posting.tb_company_job_posting_id = tb_job_application.tb_company_job_posting_id')
-            ->where(array("tb_job_application.email" => $email))
-            ->orderBy('date_application', 'DESC')->findAll();
-        $data['jobDetails'] = $jobDetails;
-        $data['jobTotalDetails'] = count($jobDetails);
-        $jobParttime = $this->jobapplicationModel->select('*')
-            ->join('tb_company_job_posting', 'tb_company_job_posting.tb_company_job_posting_id = tb_job_application.tb_company_job_posting_id')
-            ->where(array("tb_job_application.email" => $email, 'tb_job_application.job_status' => 'PartTime'))
-            ->orWhere(array('tb_job_application.job_status' => 'SemesterBrake'))
-            ->orderBy('date_application', 'DESC')->findAll();
-        $data['jobParttime'] = $jobParttime;
-        $jobInternship = $this->jobapplicationModel->select('*')
-            ->join('tb_company_job_posting', 'tb_company_job_posting.tb_company_job_posting_id = tb_job_application.tb_company_job_posting_id')
-            ->where(array("tb_job_application.email" => $email, 'tb_job_application.job_status' => 'Internship'))
-            ->orderBy('date_application', 'DESC')->findAll();
-        $data['jobInternship'] = $jobInternship;
-        $jobVolunteer = $this->jobapplicationModel->select('*')
-            ->join('tb_company_job_posting', 'tb_company_job_posting.tb_company_job_posting_id = tb_job_application.tb_company_job_posting_id')
-            ->where(array("tb_job_application.email" => $email, 'tb_job_application.job_status' => 'Volunteer'))
-            ->orderBy('date_application', 'DESC')->findAll();
-        $data['jobVolunteer'] = $jobVolunteer;
-        $universityDetails = $this->universityapplicationModel->where(array('email' => $email))->orderBy('date_application', 'DESC')->findAll();
-        $data['documentUpload'] = $this->useruploadsModel->where(array('user_email' => $email))->orderBy('upload_date', 'ASC')->findAll();
-        $competition = $this->competitionModel->where(array('submit_by' => $email))->orderBy('submit_date', 'ASC')->findAll();
-        $IC = $this->useruploadsModel->where(array('user_email' => $email, 'img_for' => 'IC', 'img_name!=' => 'N/A'))->orderBy('upload_date', 'ASC')->findAll();
-        $birth = $this->useruploadsModel->where(array('user_email' => $email, 'img_for' => 'BIRTH', 'img_name!=' => 'N/A'))->orderBy('upload_date', 'ASC')->findAll();
-        $academic = $this->useruploadsModel->where(array('user_email' => $email, 'img_for' => 'ACADEMIC', 'img_name!=' => 'N/A'))->orderBy('upload_date', 'ASC')->findAll();
-        $transcript = $this->useruploadsModel->where(array('user_email' => $email, 'img_for' => 'TRANSCRIPT', 'img_name!=' => 'N/A'))->orderBy('upload_date', 'ASC')->findAll();
-        $schoolLeaving = $this->useruploadsModel->where(array('user_email' => $email, 'img_for' => 'SCHOOL_LEAVING', 'img_name!=' => 'N/A'))->findAll();
-        $data['videoCV'] = $this->eventsdetailsModel->where(array('user_email' => $email, 'event_title' => 'Video CV'))->findAll();
-        $data['error'] = '';
-        $data['profileStatus'] = 'YES';
-        $IC = $this->useruploadsModel->where(array('user_email' => $email, 'img_for' => 'IC'))->orderBy('upload_date', 'ASC')->findAll();
-        $documents_upload = 0;
-        $university_application_total = 0;
-        $competition_application_total = 0;
-        if (count($IC) > 0) {
-            $documents_upload++;
-            $data['IC'] = $IC;
-        }
-        if (count($birth) > 0) {
-            $documents_upload++;
-            $data['birth'] = $birth;
-        }
-        if (count($academic) > 0) {
-            $documents_upload++;
-            $data['academic'] = $academic;
-        }
-        if (count($transcript) > 0) {
-            $documents_upload++;
-            $data['transcript'] = $transcript;
-        }
-        if (count($schoolLeaving) > 0) {
-            $documents_upload++;
-            $data['schoolLeaving'] = $schoolLeaving;
-        }
-        if (count($universityDetails) > 0) {
-            $university_application_total = count($universityDetails);
-            $data['universityDetails'] = $universityDetails;
-        }
-        if (count($competition) > 0) {
-            $competition_application_total = count($competition);
-            $data['competition'] = $competition;
-        }
-        $data['universityApplication'] = $university_application_total;
-        $data['competitionApplication'] = $competition_application_total;
-        $data['uploadRate'] = $conversation_rate = round((($documents_upload / 5) * 100), 2);
-        $personalData = $this->employeeratingModel->where(array('userId' => $ID))->orderBy('id', 'DESC')->findAll();
-        if (!empty($personalData)) {
-            $data['personalData'] = $personalData;
-        }
-        $keySkills = $this->employeeratingModel->where(array('userId' => $ID))->orderBy('id', 'DESC')->findAll();
-        if (!empty($keySkills)) {
-            $data['keySkills'] = $keySkills;
-        }
-        if (!empty($data['user_roles'])) {
-            $role_name = $data['user_roles'];
-            $role_name = explode($role_name, ',');
-            $pcID = $this->rolecertskillsModel->whereIn('occ_id', $role_name)->groupBy('pc_id')->findAll();
-            $pcID = explode($pcID[0]['pc_id'], ',');
-            $data['certs'] = $this->profcertificatesModel->whereIn('prof_id', $pcID)->findAll();
-            $skID = $this->rolecertskillsModel->whereIn('occ_id', $role_name)->groupBy('sk_id')->findAll();
-            $skID = explode($skID[0]['sk_id'], ',');
-            $data['skills'] = $this->skillsModel->whereIn('skill_id', $skID)->findAll();
-        } else {
-            $role_name = '-1';
-            $data['certs'] = $this->profcertificatesModel->findAll();
-            $data['skills'] = $this->skillsModel->findAll();
-        }
-        return view('hired/updatePerInfo', $data);
-    }
-    public function updatePerInfoSubmit()
-    {
-        $email = $this->user['email'];
-        $ID = $this->user['ID'];
-
-        $fullname = $this->request->getPost('fullname');
-        $IC = $this->request->getPost('IC');
-        $gender = $this->request->getPost('gender');
-        $phone = $this->request->getPost('phone');
-        $address_1 = $this->request->getPost('address_1');
-        $address_2 = $this->request->getPost('address_2');
-        $zipcode = $this->request->getPost('zipcode');
-        $city = $this->request->getPost('city');
-        $state = $this->request->getPost('state');
-        $country = $this->request->getPost('country');
-        $current_job = $this->request->getPost('current_job');
-        $current_company = $this->request->getPost('current_company');
-        $job_experience = $this->request->getPost('job_experience');
-        $work_type = $this->request->getPost('work_type');
-        $remote_work = $this->request->getPost('remote_work');
-        $preferred_location = $this->request->getPost('preferred_location');
-        $inputData = array(
-            "fullname" => $fullname,
-            "IC" => $IC,
-            "gender" => $gender,
-            "phone" => $phone,
-            "address_1" => $address_1,
-            "address_2" => $address_2,
-            "zipcode" => $zipcode,
-            "city" => $city,
-            "state" => $state,
-            "country" => $country,
-            "current_job" => $current_job,
-            "current_company" => $current_company,
-            "job_experience" => $job_experience,
-            "work_type" => $work_type,
-            "remote_work" => $remote_work,
-            "preferred_location" => $preferred_location,
-            "profile_progress" => 100
-        );
-        $this->usersModel->update(array("email" => $email, "ID" => $ID), $inputData);
-        $this->employeeratingModel->delete(array('userId' => $ID));
-        $total = 0;
-        if ($relocate = $this->request->getPost('relocate'))
-            $total += 4;
-        if ($occupationLevel = $this->request->getPost('occupationLevel'))
-            $total += 4;
-        if ($highestEducation = $this->request->getPost('highestEducation'))
-            $total += 2;
-        if ($totalExperience = $this->request->getPost('totalExperience'))
-            $total += 3;
-        if ($expectedSalary = $this->request->getPost('expectedSalary'))
-            $total += 3;
-        if ($workTime = $this->request->getPost('workTime'))
-            $total += 7;
-        if ($jobRoleLimitation = $this->request->getPost('jobRoleLimitation'))
-            $total += 7;
-        if ($preferredCulture = $this->request->getPost('preferredCulture'))
-            $total += 6;
-        if ($jobCategory = $this->request->getPost('jobCategory'))
-            $total += 4;
-        $inputData1 = array(
-            'userId' => $ID,
-            'careerRole' => '',
-            'relocate' => $relocate,
-            'occupationLevel' => $occupationLevel,
-            'highestEducation' => $highestEducation,
-            'totalExperience' => $totalExperience,
-            'keySkillIds' => '',
-            'expectedSalary' => $expectedSalary,
-            'workTime' => $workTime,
-            'jobRoleLimitation' => $jobRoleLimitation,
-            'preferredCulture' => $preferredCulture,
-            'jobCategory' => $jobCategory,
-            'totalPercentage' => $total,
-            'createdAt' => date('Y-m-d H:i:s'),
-            'updatedAt' => date('Y-m-d H:i:s')
-        );
-        $this->employeeratingModel->insert($inputData1);
-        return  redirect()->to('hired/uploadResume')->with('success', 'Your Profile Updated !');
-    }
-    public function uploadResume()
-    {
-        $data['pageTitle'] = 'Karya | Profile';
-        $data['logo'] = 'app-assets/images/logo_karya.png';
-        $data['active'] = 'profile';
-        $data['css'] = array(
-            base_url('app-assets/hired/style.css')
-        );
-        $data['loggedHired'] = $this->loggedHired;
-        $data['is_online'] = $this->user['is_online'];
-        return view('hired/uploadResume', $data);
-    }
-    public function uploadResumeSubmit()
-    {
-        $email = $this->user['email'];
-        $ID = $this->user['ID'];
-        if ($this->request->getFileMultiple('achievements')) {
-            foreach ($this->request->getFileMultiple('achievements') as $file) {
-                if ($file->isValid()) {
-                    if (!$file->hasMoved()) {
-                        $file_path = $file->getRandomName();
-                        $file->move('assets/uploads/achievements', $file_path);
-                        $values = [
-                            'user_email' => $email,
-                            'image_path' => $file_path,
-                            'description' => 'No Description',
-                            'created' => date("Y-m-d H:i:s")
-                        ];
-                        $this->portfolioModel->insert($values);
-                    }
-                }
-            }
-        }
-
-        $fileResume = $this->request->getFile('resume');
-        if ($fileResume->isValid()) {
-            if (!$fileResume->hasMoved()) {
-                $fileResume_path = $fileResume->getRandomName();
-                $fileResume->move('assets/uploads/resume', $fileResume_path);
-                $insert = [
-                    'user_email' => $email,
-                    'image_path' => $fileResume_path,
-                    'description' => 'PDF Resume',
-                    'created' => date("Y-m-d H:i:s")
-                ];
-                $this->portfolioModel->insert($insert);
-            }
-        }
-        return  redirect()->to('hired/interviewPrep')->with('success', 'Your Resume Achievements Upload !');
+        return  redirect()->to('hired/interviewPrep')->with('success', 'Assessment Submited !');
     }
     public function interviewPrep()
     {

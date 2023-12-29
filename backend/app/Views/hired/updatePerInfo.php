@@ -9,19 +9,19 @@
                 <span class="txt">Start</span>
                 <span class="circle"></span>
             </div>
-            <div class="personality-assessment completed position-relative">
-                <div class="progress-lines d-flex align-items-center">
-                    <span class="hor-line"></span>
-                    <span class="ver-line"></span>
-                </div>
-            </div>
-            <div class="personal-info completed position-relative">
+            <div class="personal-info position-relative">
                 <div class="progress-lines d-flex align-items-center">
                     <span class="hor-line"></span>
                     <span class="ver-line"></span>
                 </div>
             </div>
             <div class="upload-resume position-relative">
+                <div class="progress-lines d-flex align-items-center">
+                    <span class="hor-line"></span>
+                    <span class="ver-line"></span>
+                </div>
+            </div>
+            <div class="personality-assessment position-relative">
                 <div class="progress-lines d-flex align-items-center">
                     <span class="hor-line"></span>
                     <span class="ver-line"></span>
@@ -338,7 +338,7 @@
                 </div>
             </div>
             <div class="to-fro-btns">
-                <a href="<?= site_url() ?>hired/perAssessment" class="btn back-btn personal-info-back"> Go Back </a>
+                <!-- <a href="<?= site_url() ?>hired/perAssessment" class="btn back-btn personal-info-back"> Go Back </a> -->
                 <button class="btn next-btn personal-info-next" type="submit">Next</button>
             </div>
         </form>
