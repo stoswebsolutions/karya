@@ -75,10 +75,13 @@ $routes->group('/', ['filter' => 'auth'], function ($routes) {
         $routes->get('removeGallery/(:any)', 'Talent::removeGallery/$1');
         $routes->get('cart', 'Talent::cart');
         $routes->get('removeCart/(:any)', 'Talent::removeCart/$1');
+        $routes->post('addCart', 'Talent::addCart');
         $routes->post('ProcessPayAmount', 'Talent::ProcessPayAmount');
         $routes->get('vacancies', 'Talent::vacancies');
         $routes->get('explore', 'Talent::explore');
         $routes->get('myaccount', 'Talent::myaccount');
+        $routes->get('hired_profile/(:any)', 'Talent::hired_profile/$1');
+        $routes->post('bought_update', 'Talent::bought_update');
     });
 });
 
