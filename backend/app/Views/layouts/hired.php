@@ -186,7 +186,7 @@
                         <option value="" selected disabled> --Select-- </option>
                         <option value="dashboard"> Dashboard</option>
                         <option value="status"> Status</option>
-                        <option value="perAssessment"> Personality Assessment</option>
+                        <!-- <option value="perAssessment"> Personality Assessment</option> -->
                         <option value="profile"> Profile</option>
                         <option value="explore"> Explore Jobs</option>
                         <option value="exploreCompanies"> Explore Companies</option>
