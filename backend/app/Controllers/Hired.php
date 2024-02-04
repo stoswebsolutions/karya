@@ -447,14 +447,16 @@ class Hired extends BaseController
         $data['avk'] = $this->avkModel->where(array('is_active' => "A"))->orderBy('avk_id', 'ASC')->findAll();
         $data['skill'] = $this->skillModel->where(array('is_active' => "A"))->orderBy('skill_id', 'ASC')->findAll();
         $data['aptitude'] = $this->aptitudeModel->where(array('is_active' => "A"))->orderBy('appt_id', 'ASC')->findAll();
-        $gptquestions = $this->gptQuestions();
+        $target_career = session()->get("target_career");
+        $gptquestions = $this->gptQuestions($target_career);
         $data['gptquestions'] = $gptquestions;
         return view('hired/perAssessment', $data);
     }
-    function gptQuestions()
+    function gptQuestions($target_career)
     {
         $target_career = session()->get("target_career");
-        $search1 = "any 5 questions on " . $target_career . " and with yes/no answers only";
+        $search1 = "Provide 5 questions that are closed-ended and limited to yes or partially or no to
+        evaluate the competency level of a jobseeker seeking to fill a position as a " . $target_career . ".";
         $data = array(
             "model" => "gpt-3.5-turbo",
             "messages" => [
@@ -479,7 +481,7 @@ class Hired extends BaseController
 
         $headers = array();
         $headers[] = 'Content-Type: application/json';
-        $headers[] = 'Authorization: Bearer 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';
+        $headers[] = 'Authorization: Bearer ' . getenv('keyGPT');
         curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
 
         $response = curl_exec($ch);
@@ -489,8 +491,7 @@ class Hired extends BaseController
         foreach (json_decode($response) as $key => $value) {
             if ($key == "choices") {
                 $choices = $value;
-                $gptquestions = explode('?', $choices[0]->message->content);
-                return $gptquestions;
+                return $choices[0]->message->content;
             }
         }
         curl_close($ch);
@@ -885,6 +886,9 @@ class Hired extends BaseController
     }
     public function interviewPrep()
     {
+        $email = $this->user['email'];
+        $ID = $this->user['ID'];
+
         $data['pageTitle'] = 'Karya | Profile';
         $data['logo'] = 'app-assets/images/logo_karya.png';
         $data['active'] = 'profile';
@@ -893,7 +897,148 @@ class Hired extends BaseController
         );
         $data['loggedHired'] = $this->loggedHired;
         $data['is_online'] = $this->user['is_online'];
+        $userInfo = $this->usersModel->where(array("email" => $email, "ID" => $ID))->findAll();
+        $data['fullname'] = $userInfo[0]["fullname"];
+        $job_experience = $userInfo[0]["job_experience"];
+        $target_career = session()->get("target_career");
+        $advancepitch = $this->advancePitch($job_experience, "Designer", "IT", "Javascript", $target_career);
+        $data['advancepitch'] = $advancepitch;
+        $sectorforecast = $this->sectorForecast($target_career);
+        $data['sectorforecast'] = $sectorforecast;
+        $spotqstns = $this->spotQstns($target_career);
+        $data['spotqstns'] = $spotqstns;
         return view('hired/interviewPrep', $data);
+    }
+    function advancePitch($years, $design, $sector, $skill, $target_career)
+    {
+        $search1 = "I have a DOMINANT primary personality trait and COMPLIANT
+        secondary personality trait, a LIBERAL  principal value system, a FACTUAL thinking style, having " . $years . " years of experience as " . $design . " and covering the " . $sector . "
+        sectors. I have high competencies in " . $skill . ". Generate 2 paragraphs
+        of not more than 200 words about how effective I can be for the job role of a " . $target_career . ". Word it in a 1st person narrative and subtly display qualities of problem
+        solving and innovation.";
+        $data = array(
+            "model" => "gpt-3.5-turbo",
+            "messages" => [
+                [
+                    "role" => "user",
+                    "content" => $search1
+                ]
+            ],
+            "temperature" => 0.9,
+            "max_tokens" => 150,
+            "top_p" => 1,
+            "frequency_penalty" => 0,
+            "presence_penalty" => 0.6,
+            "stop" => [" Human:", " AI:"]
+        );
+
+        $ch = curl_init();
+        curl_setopt($ch, CURLOPT_URL, 'https://api.openai.com/v1/chat/completions');
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+        curl_setopt($ch, CURLOPT_POST, 1);
+        curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($data));
+
+        $headers = array();
+        $headers[] = 'Content-Type: application/json';
+        $headers[] = 'Authorization: Bearer ' . getenv('keyGPT');
+        curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+
+        $response = curl_exec($ch);
+        if (curl_errno($ch)) {
+            echo 'Error:' . curl_error($ch);
+        }
+        foreach (json_decode($response) as $key => $value) {
+            if ($key == "choices") {
+                $choices = $value;
+                return $choices[0]->message->content;
+            }
+        }
+        curl_close($ch);
+    }
+    function sectorForecast($target_career)
+    {
+        $search1 = "What are the challenges and outlook for the " . $target_career . " sector in Malaysia. Generate a paragraph on this";
+        $data = array(
+            "model" => "gpt-3.5-turbo",
+            "messages" => [
+                [
+                    "role" => "user",
+                    "content" => $search1
+                ]
+            ],
+            "temperature" => 0.9,
+            "max_tokens" => 150,
+            "top_p" => 1,
+            "frequency_penalty" => 0,
+            "presence_penalty" => 0.6,
+            "stop" => [" Human:", " AI:"]
+        );
+
+        $ch = curl_init();
+        curl_setopt($ch, CURLOPT_URL, 'https://api.openai.com/v1/chat/completions');
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+        curl_setopt($ch, CURLOPT_POST, 1);
+        curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($data));
+
+        $headers = array();
+        $headers[] = 'Content-Type: application/json';
+        $headers[] = 'Authorization: Bearer ' . getenv('keyGPT');
+        curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+
+        $response = curl_exec($ch);
+        if (curl_errno($ch)) {
+            echo 'Error:' . curl_error($ch);
+        }
+        foreach (json_decode($response) as $key => $value) {
+            if ($key == "choices") {
+                $choices = $value;
+                return $choices[0]->message->content;
+            }
+        }
+        curl_close($ch);
+    }
+    function spotQstns($target_career)
+    {
+        $search1 = "Generate 10 potential questions that would be asked by a prospective employer
+        during an interview for the job post of a " . $target_career . ".";
+        $data = array(
+            "model" => "gpt-3.5-turbo",
+            "messages" => [
+                [
+                    "role" => "user",
+                    "content" => $search1
+                ]
+            ],
+            "temperature" => 0.9,
+            "max_tokens" => 150,
+            "top_p" => 1,
+            "frequency_penalty" => 0,
+            "presence_penalty" => 0.6,
+            "stop" => [" Human:", " AI:"]
+        );
+
+        $ch = curl_init();
+        curl_setopt($ch, CURLOPT_URL, 'https://api.openai.com/v1/chat/completions');
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+        curl_setopt($ch, CURLOPT_POST, 1);
+        curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($data));
+
+        $headers = array();
+        $headers[] = 'Content-Type: application/json';
+        $headers[] = 'Authorization: Bearer ' . getenv('keyGPT');
+        curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+
+        $response = curl_exec($ch);
+        if (curl_errno($ch)) {
+            echo 'Error:' . curl_error($ch);
+        }
+        foreach (json_decode($response) as $key => $value) {
+            if ($key == "choices") {
+                $choices = $value;
+                return $choices[0]->message->content;
+            }
+        }
+        curl_close($ch);
     }
     public function interviewPrepSubmit()
     {
@@ -1012,7 +1157,6 @@ class Hired extends BaseController
         $DISC_SECOND = $arr1[1];
         $data['discOne'] = $this->resultdiscModel->where(array("result_combination" => $DISC_FIRST))->findAll();
         $data['discTwo'] = $this->resultdiscModel->where(array("result_combination" => $DISC_SECOND))->findAll();
-        // var_dump($data);exit;
         $data['ans'] = $this->userassessrolesModel->where(array("user_email" => $email, 'is_primary' => 1))->findAll();
         $data['RESULT_ENGLISH'] = $discData[0]['english_proficiecy'] * 2;
         return view('hired/myProfile', $data);

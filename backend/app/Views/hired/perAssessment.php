@@ -285,6 +285,7 @@
             ?>
             <?php
             $index = 42;
+            $gptquestions = explode('?', $gptquestions);
             foreach ($gptquestions as $i => $row) {
                 $ques = trim($row);
                 if($index < 47){
