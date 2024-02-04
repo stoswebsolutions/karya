@@ -78,6 +78,18 @@ for (let i = 37; i < 42; i++) {
         $('.appt-qstn' + i).addClass('d-none');
         $('.appt-qstn' + (i + 1)).removeClass('d-none');
         if (i == 41){
+            $('.disc-qstn42').removeClass('d-none');
+        }
+    });
+}
+
+for (let i = 42; i < 47; i++) {
+    $('.disc-qstn' + i).click(function () {
+        const selectedChoice = $(this).attr('for');
+        $("#".selectedChoice).prop('checked', true);
+        $('.disc-qstn' + i).addClass('d-none');
+        $('.disc-qstn' + (i + 1)).removeClass('d-none');
+        if (i == 46){
             $('.thanks-note').removeClass('d-none');
             $('.personality-assessment .progress-lines').addClass('completed');
         }

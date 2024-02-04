@@ -283,6 +283,37 @@
                 $index = $index + 1;
             }
             ?>
+            <?php
+            $index = 42;
+            foreach ($gptquestions as $i => $row) {
+                $ques = trim($row);
+                if($index < 47){
+            ?>
+                <div class="disc-qstn disc-qstn<?= $index ?> d-none">
+                    <h1 class="qstn-title mb-0"><?= $ques ?></h1>
+                    <div class="btn-group qstn-choices" role="group" aria-label="Basic radio toggle button group">
+                        <input type="radio" class="btn-check qstn-choice choice-a" name="GPT<?= $index ?>" id="GPT1<?= $index ?>" value="YES" autocomplete="off">
+                        <label class="btn btn-outline-primary choice-a-lbl" for="GPT1<?= $index ?>">
+                            <span class="option">A</span>
+                            <span class="option-txt">YES</span>
+                        </label>
+                        <input type="radio" class="btn-check qstn-choice choice-b" name="GPT<?= $index ?>" id="GPT2<?= $index ?>" value="NO" autocomplete="off">
+                        <label class="btn btn-outline-primary choice-b-lbl" for="GPT2<?= $index ?>">
+                            <span class="option">B</span>
+                            <span class="option-txt">NO</span>
+                        </label>
+                        <input type="radio" class="btn-check qstn-choice choice-c" name="GPT<?= $index ?>" id="GPT3<?= $index ?>" value="PARTIALLY" autocomplete="off">
+                        <label class="btn btn-outline-primary choice-c-lbl" for="GPT3<?= $index ?>">
+                            <span class="option">C</span>
+                            <span class="option-txt">PARTIALLY</span>
+                        </label>
+                    </div>
+                </div>
+            <?php
+                $index = $index + 1;
+                }
+            }
+            ?>
             <div class="thanks-note d-none">
                 <h1 class="pri-clr thanks-hdr py-4 py-xl-5">
                     Thank you for taking the time to complete our personality

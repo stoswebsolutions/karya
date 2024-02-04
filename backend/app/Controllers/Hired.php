@@ -315,6 +315,10 @@ class Hired extends BaseController
         $work_type = $this->request->getPost('work_type');
         $remote_work = $this->request->getPost('remote_work');
         $preferred_location = $this->request->getPost('preferred_location');
+
+        session()->remove('target_career');
+        $target_career = $this->request->getPost('target_career');
+        session()->set('target_career', $target_career);
         $inputData = array(
             "fullname" => $fullname,
             "IC" => $IC,
@@ -443,7 +447,53 @@ class Hired extends BaseController
         $data['avk'] = $this->avkModel->where(array('is_active' => "A"))->orderBy('avk_id', 'ASC')->findAll();
         $data['skill'] = $this->skillModel->where(array('is_active' => "A"))->orderBy('skill_id', 'ASC')->findAll();
         $data['aptitude'] = $this->aptitudeModel->where(array('is_active' => "A"))->orderBy('appt_id', 'ASC')->findAll();
+        $gptquestions = $this->gptQuestions();
+        $data['gptquestions'] = $gptquestions;
         return view('hired/perAssessment', $data);
+    }
+    function gptQuestions()
+    {
+        $target_career = session()->get("target_career");
+        $search1 = "any 5 questions on " . $target_career . " and with yes/no answers only";
+        $data = array(
+            "model" => "gpt-3.5-turbo",
+            "messages" => [
+                [
+                    "role" => "user",
+                    "content" => $search1
+                ]
+            ],
+            "temperature" => 0.9,
+            "max_tokens" => 150,
+            "top_p" => 1,
+            "frequency_penalty" => 0,
+            "presence_penalty" => 0.6,
+            "stop" => [" Human:", " AI:"]
+        );
+
+        $ch = curl_init();
+        curl_setopt($ch, CURLOPT_URL, 'https://api.openai.com/v1/chat/completions');
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+        curl_setopt($ch, CURLOPT_POST, 1);
+        curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($data));
+
+        $headers = array();
+        $headers[] = 'Content-Type: application/json';
+        $headers[] = 'Authorization: Bearer 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';
+        curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+
+        $response = curl_exec($ch);
+        if (curl_errno($ch)) {
+            echo 'Error:' . curl_error($ch);
+        }
+        foreach (json_decode($response) as $key => $value) {
+            if ($key == "choices") {
+                $choices = $value;
+                $gptquestions = explode('?', $choices[0]->message->content);
+                return $gptquestions;
+            }
+        }
+        curl_close($ch);
     }
     public function perAssessmentSubmit()
     {
@@ -849,6 +899,23 @@ class Hired extends BaseController
     {
         return  redirect()->to('hired/uploadVideo')->with('success', 'your interview preparation !');
     }
+    public function gptquestion()
+    {
+        $data['pageTitle'] = 'Karya | Profile';
+        $data['logo'] = 'app-assets/images/logo_karya.png';
+        $data['active'] = 'profile';
+        $data['css'] = array(
+            base_url('app-assets/hired/style.css')
+        );
+        $data['loggedHired'] = $this->loggedHired;
+        $data['is_online'] = $this->user['is_online'];
+        $data['target_career'] = session()->get("target_career");
+        return view('hired/gptquestion', $data);
+    }
+    public function gptquestionSubmit()
+    {
+        return  redirect()->to('hired/uploadVideo')->with('success', 'your interview preparation !');
+    }
     public function uploadVideo()
     {
         $data['pageTitle'] = 'Karya | Profile';
@@ -946,8 +1013,8 @@ class Hired extends BaseController
         $data['discOne'] = $this->resultdiscModel->where(array("result_combination" => $DISC_FIRST))->findAll();
         $data['discTwo'] = $this->resultdiscModel->where(array("result_combination" => $DISC_SECOND))->findAll();
         // var_dump($data);exit;
-        $data['ans'] = $this->userassessrolesModel->where(array("user_email" => $email,'is_primary' => 1))->findAll();
-        $data['RESULT_ENGLISH'] = $discData[0]['english_proficiecy']*2;
+        $data['ans'] = $this->userassessrolesModel->where(array("user_email" => $email, 'is_primary' => 1))->findAll();
+        $data['RESULT_ENGLISH'] = $discData[0]['english_proficiecy'] * 2;
         return view('hired/myProfile', $data);
     }
     public function companies($sector_id)

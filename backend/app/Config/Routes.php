@@ -54,6 +54,8 @@ $routes->group('/', ['filter' => 'auth'], function ($routes) {
         $routes->post('uploadResumeSubmit', 'Hired::uploadResumeSubmit');
         $routes->get('interviewPrep', 'Hired::interviewPrep');
         $routes->post('interviewPrepSubmit', 'Hired::interviewPrepSubmit');
+        $routes->get('gptquestion', 'Hired::gptquestion');
+        $routes->post('gptquestionSubmit', 'Hired::gptquestionSubmit');
         $routes->get('uploadVideo', 'Hired::uploadVideo');
         $routes->post('uploadVideoSubmit', 'Hired::uploadVideoSubmit');
         $routes->get('evaluationGen', 'Hired::evaluationGen');

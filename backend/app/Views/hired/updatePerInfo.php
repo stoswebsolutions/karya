@@ -186,7 +186,7 @@
                                 Targeted Career
                             </button>
                             <div class="input-group input-group-sm mb-2 mb-sm-3">
-                                <input type="text" class="form-control" name="" id="" value="" placeholder="">
+                                <input type="text" class="form-control" name="target_career" id="target_career" placeholder="" required>
                             </div>
                             <!-- <button class="btn inactiveBtn">
                                 Type in the job role
