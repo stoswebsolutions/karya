@@ -9,31 +9,31 @@
                 <span class="txt">Start</span>
                 <span class="circle"></span>
             </div>
-            <div class="personal-info completed position-relative">
+            <div class="personal-info position-relative completed">
                 <div class="progress-lines d-flex align-items-center">
                     <span class="hor-line"></span>
                     <span class="ver-line"></span>
                 </div>
             </div>
-            <div class="upload-resume completed position-relative">
+            <div class="upload-resume position-relative completed">
                 <div class="progress-lines d-flex align-items-center">
                     <span class="hor-line"></span>
                     <span class="ver-line"></span>
                 </div>
             </div>
-            <div class="personality-assessment completed position-relative">
+            <div class="personality-assessment position-relative completed">
                 <div class="progress-lines d-flex align-items-center">
                     <span class="hor-line"></span>
                     <span class="ver-line"></span>
                 </div>
             </div>
-            <div class="interview-prep completed position-relative">
+            <div class="interview-prep position-relative completed">
                 <div class="progress-lines d-flex align-items-center">
                     <span class="hor-line"></span>
                     <span class="ver-line"></span>
                 </div>
             </div>
-            <div class="upload-vid position-relative">
+            <div class="upload-vid position-relative completed">
                 <div class="progress-lines d-flex align-items-center">
                     <span class="hor-line"></span>
                     <span class="ver-line"></span>
@@ -49,8 +49,8 @@
     <!-- ends::stepper -->
     <!-- upload video pitch -->
     <div class="upload-video-pitch-section">
-        <form class="" id="" action="<?= base_url('hired/uploadVideoSubmit') ?>" method="post" enctype="multipart/form-data">
-        <?= csrf_field(); ?>
+        <!-- <form class="" id="" action="<?= base_url('hired/uploadVideoSubmit') ?>" method="post" enctype="multipart/form-data">
+            <?= csrf_field(); ?>
             <div class="row">
                 <?php if (!empty(session()->getFlashdata('fail'))) : ?>
                     <div class="alert alert-danger"><?= session()->getFlashdata('fail'); ?></div>
@@ -100,7 +100,12 @@
                 <a href="<?= site_url() ?>hired/interviewPrep" class="btn back-btn upload-video-back"> Go Back </a>
                 <button class="btn next-btn upload-video-next" type="submit">Next</button>
             </div>
-        </form>
+        </form> -->
+        <a href="<?= site_url() ?>hired/evaluationGen" class="text-decoration-none">
+            <button class="btn profile-forms-btn publish-btn">
+                PUBLISH COMPLETE PROFILE
+            </button>
+        </a>
     </div>
     <!-- ends::upload video pitch -->
 </div>

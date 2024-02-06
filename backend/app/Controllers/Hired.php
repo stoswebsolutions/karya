@@ -901,6 +901,8 @@ class Hired extends BaseController
         $data['fullname'] = $userInfo[0]["fullname"];
         $job_experience = $userInfo[0]["job_experience"];
         $target_career = session()->get("target_career");
+        $trajectory = $this->trajectory($target_career);
+        $data['trajectory'] = $trajectory;
         $advancepitch = $this->advancePitch($job_experience, "Designer", "IT", "Javascript", $target_career);
         $data['advancepitch'] = $advancepitch;
         $sectorforecast = $this->sectorForecast($target_career);
@@ -908,6 +910,59 @@ class Hired extends BaseController
         $spotqstns = $this->spotQstns($target_career);
         $data['spotqstns'] = $spotqstns;
         return view('hired/interviewPrep', $data);
+    }
+    function trajectory($target_career)
+    {
+        $search1 = "I would like you to generate a very comprehensive and detailed (elaborated facts and
+        figures) key milestone timeline (potentially across 15 years) showing the projected
+        career progression trajectory (from entry to C-Suite level) as a " . $target_career . ". This timeline should elaborate in refined detail with specifics, the i) Role, ii)
+        Responsibilities, iii) Skills Required, iv) Current technology and tools, v) Potential
+        upskilling needs, vi) Vulnerability to disruptive technology innovations, market shifts
+        and industry volatility, vii) Salary Range RM 1000. Further to this,
+        utilise the following information on my personality profiling to enhance the projected
+        career progression trajectory and identify the skills gap and what I need to improve
+        and upgrade at every stage. I have a DOMINANT  dominant primary personality
+        trait and COMPLIANT secondary personality trait, a LIBERAL 
+        principal value system and a FACTUAL thinking style. I have high
+        competencies in html,bootstrap,javascript";
+        $data = array(
+            "model" => "gpt-3.5-turbo",
+            "messages" => [
+                [
+                    "role" => "user",
+                    "content" => $search1
+                ]
+            ],
+            "temperature" => 0.9,
+            "max_tokens" => 150,
+            "top_p" => 1,
+            "frequency_penalty" => 0,
+            "presence_penalty" => 0.6,
+            "stop" => [" Human:", " AI:"]
+        );
+
+        $ch = curl_init();
+        curl_setopt($ch, CURLOPT_URL, 'https://api.openai.com/v1/chat/completions');
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+        curl_setopt($ch, CURLOPT_POST, 1);
+        curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($data));
+
+        $headers = array();
+        $headers[] = 'Content-Type: application/json';
+        $headers[] = 'Authorization: Bearer ' . getenv('keyGPT');
+        curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+
+        $response = curl_exec($ch);
+        if (curl_errno($ch)) {
+            echo 'Error:' . curl_error($ch);
+        }
+        foreach (json_decode($response) as $key => $value) {
+            if ($key == "choices") {
+                $choices = $value;
+                return $choices[0]->message->content;
+            }
+        }
+        curl_close($ch);
     }
     function advancePitch($years, $design, $sector, $skill, $target_career)
     {

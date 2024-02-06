@@ -9,19 +9,19 @@
                 <span class="txt">Start</span>
                 <span class="circle"></span>
             </div>
-            <div class="personal-info completed position-relative">
+            <div class="personal-info position-relative completed">
                 <div class="progress-lines d-flex align-items-center">
                     <span class="hor-line"></span>
                     <span class="ver-line"></span>
                 </div>
             </div>
-            <div class="upload-resume completed position-relative">
+            <div class="upload-resume position-relative completed">
                 <div class="progress-lines d-flex align-items-center">
                     <span class="hor-line"></span>
                     <span class="ver-line"></span>
                 </div>
             </div>
-            <div class="personality-assessment position-relative">
+            <div class="personality-assessment position-relative completed">
                 <div class="progress-lines d-flex align-items-center">
                     <span class="hor-line"></span>
                     <span class="ver-line"></span>
@@ -288,30 +288,30 @@
             $gptquestions = explode('?', $gptquestions);
             foreach ($gptquestions as $i => $row) {
                 $ques = trim($row);
-                if($index < 47){
+                if ($index < 47) {
             ?>
-                <div class="disc-qstn disc-qstn<?= $index ?> d-none">
-                    <h1 class="qstn-title mb-0"><?= $ques ?></h1>
-                    <div class="btn-group qstn-choices" role="group" aria-label="Basic radio toggle button group">
-                        <input type="radio" class="btn-check qstn-choice choice-a" name="GPT<?= $index ?>" id="GPT1<?= $index ?>" value="YES" autocomplete="off">
-                        <label class="btn btn-outline-primary choice-a-lbl" for="GPT1<?= $index ?>">
-                            <span class="option">A</span>
-                            <span class="option-txt">YES</span>
-                        </label>
-                        <input type="radio" class="btn-check qstn-choice choice-b" name="GPT<?= $index ?>" id="GPT2<?= $index ?>" value="NO" autocomplete="off">
-                        <label class="btn btn-outline-primary choice-b-lbl" for="GPT2<?= $index ?>">
-                            <span class="option">B</span>
-                            <span class="option-txt">NO</span>
-                        </label>
-                        <input type="radio" class="btn-check qstn-choice choice-c" name="GPT<?= $index ?>" id="GPT3<?= $index ?>" value="PARTIALLY" autocomplete="off">
-                        <label class="btn btn-outline-primary choice-c-lbl" for="GPT3<?= $index ?>">
-                            <span class="option">C</span>
-                            <span class="option-txt">PARTIALLY</span>
-                        </label>
+                    <div class="disc-qstn disc-qstn<?= $index ?> d-none">
+                        <h1 class="qstn-title mb-0"><?= $ques ?></h1>
+                        <div class="btn-group qstn-choices" role="group" aria-label="Basic radio toggle button group">
+                            <input type="radio" class="btn-check qstn-choice choice-a" name="GPT<?= $index ?>" id="GPT1<?= $index ?>" value="YES" autocomplete="off">
+                            <label class="btn btn-outline-primary choice-a-lbl" for="GPT1<?= $index ?>">
+                                <span class="option">A</span>
+                                <span class="option-txt">YES</span>
+                            </label>
+                            <input type="radio" class="btn-check qstn-choice choice-b" name="GPT<?= $index ?>" id="GPT2<?= $index ?>" value="NO" autocomplete="off">
+                            <label class="btn btn-outline-primary choice-b-lbl" for="GPT2<?= $index ?>">
+                                <span class="option">B</span>
+                                <span class="option-txt">NO</span>
+                            </label>
+                            <input type="radio" class="btn-check qstn-choice choice-c" name="GPT<?= $index ?>" id="GPT3<?= $index ?>" value="PARTIALLY" autocomplete="off">
+                            <label class="btn btn-outline-primary choice-c-lbl" for="GPT3<?= $index ?>">
+                                <span class="option">C</span>
+                                <span class="option-txt">PARTIALLY</span>
+                            </label>
+                        </div>
                     </div>
-                </div>
             <?php
-                $index = $index + 1;
+                    $index = $index + 1;
                 }
             }
             ?>

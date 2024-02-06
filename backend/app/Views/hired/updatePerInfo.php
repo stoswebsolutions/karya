@@ -9,7 +9,7 @@
                 <span class="txt">Start</span>
                 <span class="circle"></span>
             </div>
-            <div class="personal-info position-relative">
+            <div class="personal-info position-relative completed">
                 <div class="progress-lines d-flex align-items-center">
                     <span class="hor-line"></span>
                     <span class="ver-line"></span>
@@ -182,7 +182,7 @@
                     </div>
                     <div class="col-12 col-sm-6">
                         <div class="vacancy-btns">
-                            <button class="btn activeBtn profile-forms-btn" type="button" >
+                            <button class="btn activeBtn profile-forms-btn" type="button">
                                 Targeted Career
                             </button>
                             <div class="input-group input-group-sm mb-2 mb-sm-3">

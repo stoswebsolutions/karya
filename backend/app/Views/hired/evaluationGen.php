@@ -9,31 +9,31 @@
                 <span class="txt">Start</span>
                 <span class="circle"></span>
             </div>
-            <div class="personality-assessment completed position-relative">
+            <div class="personality-assessment position-relative completed">
                 <div class="progress-lines d-flex align-items-center">
                     <span class="hor-line"></span>
                     <span class="ver-line"></span>
                 </div>
             </div>
-            <div class="personal-info completed position-relative">
+            <div class="personal-info position-relative completed">
                 <div class="progress-lines d-flex align-items-center">
                     <span class="hor-line"></span>
                     <span class="ver-line"></span>
                 </div>
             </div>
-            <div class="upload-resume completed position-relative">
+            <div class="upload-resume position-relative completed">
                 <div class="progress-lines d-flex align-items-center">
                     <span class="hor-line"></span>
                     <span class="ver-line"></span>
                 </div>
             </div>
-            <div class="interview-prep completed position-relative">
+            <div class="interview-prep position-relative completed">
                 <div class="progress-lines d-flex align-items-center">
                     <span class="hor-line"></span>
                     <span class="ver-line"></span>
                 </div>
             </div>
-            <div class="upload-vid completed position-relative">
+            <div class="upload-vid position-relative completed">
                 <div class="progress-lines d-flex align-items-center">
                     <span class="hor-line"></span>
                     <span class="ver-line"></span>
@@ -48,7 +48,7 @@
     </div>
     <!-- ends::stepper -->
     <!-- generate evaluation -->
-    <div class="generate-eval-section">
+    <!-- <div class="generate-eval-section">
         <div class="intro">
             <h1 class="pri-clr generate-eval-intro-hdr py-3 py-sm-4 py-xl-5 mb-0">
                 <p class="mb-0">
@@ -141,10 +141,10 @@
                 <button class="btn next-btn eval-next">Next</button>
             </div>
         </div>
-    </div>
+    </div> -->
     <!-- ends::generate evaluation -->
     <!-- congrats note -->
-    <div class="congrats-note-section d-none">
+    <div class="congrats-note-section">
         <div class="intro">
             <h1 class="pri-clr congrats-hdr py-3 py-sm-4 py-xl-5 mb-0">
                 <p class="mb-3">

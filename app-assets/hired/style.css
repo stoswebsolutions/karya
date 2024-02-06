@@ -1285,7 +1285,7 @@ label {
 }
 
 .stepper-container .upload-vid:after {
-  content: "Upload\aVideo";
+  content: "Publish\aProfile";
   position: absolute;
   top: 1.5rem;
   left: 75%;

@@ -9,13 +9,13 @@
                 <span class="txt">Start</span>
                 <span class="circle"></span>
             </div>
-            <div class="personal-info completed position-relative">
+            <div class="personal-info position-relative completed">
                 <div class="progress-lines d-flex align-items-center">
                     <span class="hor-line"></span>
                     <span class="ver-line"></span>
                 </div>
             </div>
-            <div class="upload-resume position-relative">
+            <div class="upload-resume position-relative completed">
                 <div class="progress-lines d-flex align-items-center">
                     <span class="hor-line"></span>
                     <span class="ver-line"></span>

@@ -9,25 +9,25 @@
                 <span class="txt">Start</span>
                 <span class="circle"></span>
             </div>
-            <div class="personal-info completed position-relative">
+            <div class="personal-info position-relative completed">
                 <div class="progress-lines d-flex align-items-center">
                     <span class="hor-line"></span>
                     <span class="ver-line"></span>
                 </div>
             </div>
-            <div class="upload-resume completed position-relative">
+            <div class="upload-resume position-relative completed">
                 <div class="progress-lines d-flex align-items-center">
                     <span class="hor-line"></span>
                     <span class="ver-line"></span>
                 </div>
             </div>
-            <div class="personality-assessment completed position-relative">
+            <div class="personality-assessment position-relative completed">
                 <div class="progress-lines d-flex align-items-center">
                     <span class="hor-line"></span>
                     <span class="ver-line"></span>
                 </div>
             </div>
-            <div class="interview-prep position-relative">
+            <div class="interview-prep position-relative completed">
                 <div class="progress-lines d-flex align-items-center">
                     <span class="hor-line"></span>
                     <span class="ver-line"></span>
@@ -72,7 +72,7 @@
                 <ul class="nav nav-pills profile-nav-pills mb-3 d-flex justify-content-center mb-4" id="interview-prep-tab" role="tablist">
                     <li class="nav-item me-1" role="presentation">
                         <button class="nav-link active text-uppercase w-100" id="general-pitch-tab" data-bs-toggle="pill" data-bs-target="#general-pitch" type="button" role="tab" aria-controls="general-pitch" aria-selected="true">
-                            general pitch
+                            career trajectory
                         </button>
                     </li>
                     <li class="nav-item me-1" role="presentation">
@@ -93,30 +93,15 @@
                 </ul>
                 <div class="tab-content" id="interview-prep-tabContent">
                     <div class="tab-pane fade show active" id="general-pitch" role="tabpanel" aria-labelledby="general-pitch-tab" tabindex="0">
-                        <p>
-                            I am <?= $fullname ?>. I would like to
-                            find a job as a Corporate Finance Adviser
-                        </p>
-                        <p>
-                            What I can provide for your company is that I am able to
-                            be direct, straight forward and communicate direct to the
-                            point.
-                        </p>
-                        <p>
-                            Being commanding & task oriented, I take control of
-                            circumstances by persuading others to have a common
-                            vision. I also look at the bigger picture, assert for
-                            results, take risks and love adventures, innovate, crave
-                            results, create commotion and loves challenges., give
-                            short answers and makes fast decisions, thrive for
-                            authority, opportunity and prestige.
-                        </p>
-                        <p>
-                            I am able to assist my team to solve problems as I trust
-                            the proven facts, and appreciate the value of examining
-                            and interpreting information which builds confidence in
-                            decision-making. I also tend to be attentive.
-                        </p>
+                        <?php
+                        $trajectory1 = explode("/\r\n|\n|\r/", $trajectory);
+                        foreach ($trajectory1 as $i => $row) {
+                            $traject = trim($row);
+                        ?>
+                            <p><?= $traject ?></p>
+                        <?php
+                        }
+                        ?>
                     </div>
                     <div class="tab-pane fade" id="advance-pitch" role="tabpanel" aria-labelledby="advance-pitch-tab" tabindex="0">
                         <?php
@@ -163,35 +148,20 @@
                 <div class="accordion-item">
                     <h2 class="accordion-header" id="general-pitch-hdr">
                         <button class="accordion-button text-uppercase" type="button" data-bs-toggle="collapse" data-bs-target="#general-pitch-collapse" aria-expanded="true" aria-controls="general-pitch-collapse">
-                            general pitch
+                            career trajectory
                         </button>
                     </h2>
                     <div id="general-pitch-collapse" class="accordion-collapse collapse show" aria-labelledby="general-pitch-hdr" data-bs-parent="#interview-pitches-accordion">
                         <div class="accordion-body">
-                            <p>
-                                I am <?= $fullname ?>. I would like to
-                                find a job as a Corporate Finance Adviser
-                            </p>
-                            <p>
-                                What I can provide for your company is that I am able to
-                                be direct, straight forward and communicate direct to
-                                the point.
-                            </p>
-                            <p>
-                                Being commanding & task oriented, I take control of
-                                circumstances by persuading others to have a common
-                                vision. I also look at the bigger picture, assert for
-                                results, take risks and love adventures, innovate, crave
-                                results, create commotion and loves challenges., give
-                                short answers and makes fast decisions, thrive for
-                                authority, opportunity and prestige.
-                            </p>
-                            <p>
-                                I am able to assist my team to solve problems as I trust
-                                the proven facts, and appreciate the value of examining
-                                and interpreting information which builds confidence in
-                                decision-making. I also tend to be attentive.
-                            </p>
+                            <?php
+                            $trajectory1 = explode("/\r\n|\n|\r/", $trajectory);
+                            foreach ($trajectory1 as $i => $row) {
+                                $traject = trim($row);
+                            ?>
+                                <p><?= $traject ?></p>
+                            <?php
+                            }
+                            ?>
                         </div>
                     </div>
                 </div>
