@@ -22,23 +22,6 @@
         <section class="karya-section get-hired-section">
             <nav class="w-100 d-flex align-items-center justify-content-between karya-px sec-bg">
                 <img src="<?= site_url() ?>app-assets/images/logo_karya.png" alt="logo" class="brand">
-                <!-- <ul class="m-0 p-0">
-                    <li class="">
-                        <a href="<?= site_url() ?>hired/dashboard"> Get Hired </a>
-                    </li>
-                    <li class="">
-                        <a href="<?= site_url() ?>talent/dashboard"> Get Talent </a>
-                    </li>
-                    <li class="">
-                        <a href="<?= site_url() ?>price"> Pricing Plans </a>
-                    </li>
-                    <li class="">
-                        <a href="<?= site_url() ?>login"> Log In </a>
-                    </li>
-                    <li class="">
-                        <a href="<?= site_url() ?>login"> Join </a>
-                    </li>
-                </ul> -->
                 <i class="fa fa-bars menu-icon" aria-hidden="true" data-bs-toggle="offcanvas" href="#offcanvasMenu" aria-controls="offcanvasMenu"></i>
             </nav>
             <div class="user-details sec-bg karya-px d-flex align-items-center justify-content-between">
@@ -50,8 +33,18 @@
                 </div>
                 <div class="status d-flex align-items-center">
                     <div class="switchToggle me-2">
-                        <input type="checkbox" id="switch" <?= $is_online == 2 ? 'checked' : '' ?>>
-                        <label for="switch">Toggle</label>
+                        <?php
+                        if ($is_online == 1) {
+                        ?>
+                            <input type="checkbox" id="switch" value="off">
+                        <?php
+                        } else if ($is_online == 2) {
+                        ?>
+                            <input type="checkbox" id="switch" value="on" checked>
+                        <?php
+                        }
+                        ?>
+                        <label for="switch" onchange="">Toggle</label>
                     </div>
                     <span class="text-white status-txt fw-500">Online Status</span>
                 </div>
@@ -61,25 +54,6 @@
                 <div class="offcanvas-header">
                     <h5 class="offcanvas-title" id="offcanvasMenuLabel"></h5>
                     <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-                </div>
-                <div class="offcanvas-body">
-                    <ul class="m-0 p-0">
-                        <li class="">
-                            <a href="<?= site_url() ?>hired/dashboard"> Get Hired </a>
-                        </li>
-                        <li class="">
-                            <a href="<?= site_url() ?>talent/dashboard"> Get Talent </a>
-                        </li>
-                        <li class="">
-                            <a href="<?= site_url() ?>price"> Pricing Plans </a>
-                        </li>
-                        <li class="">
-                            <a href="<?= site_url() ?>login"> Log In </a>
-                        </li>
-                        <li class="">
-                            <a href="<?= site_url() ?>login"> Join </a>
-                        </li>
-                    </ul>
                 </div>
             </div>
             <!-- ends::offcanvas menu -->
@@ -92,9 +66,6 @@
                         <li class="text-uppercase menu-item black-clr status <?= $active == 'status' ? 'active' : '' ?>" name="status">
                             <a href="<?= site_url() ?>hired/status" class="text-decoration-none"> status</a>
                         </li>
-                        <!-- <li class="text-uppercase menu-item black-clr per-assessment <?= $active == 'perAssessment' ? 'active' : '' ?>" name="perAssessment">
-                            <a href="<?= site_url() ?>hired/perAssessment" class="text-decoration-none"> Personality Assessment</a>
-                        </li> -->
                         <li class="text-uppercase menu-item black-clr profile <?= $active == 'profile' ? 'active' : '' ?>" name="profile">
                             <!-- profile -->
                             <div class="dropend profile-dropdown">
@@ -186,7 +157,6 @@
                         <option value="" selected disabled> --Select-- </option>
                         <option value="dashboard"> Dashboard</option>
                         <option value="status"> Status</option>
-                        <!-- <option value="perAssessment"> Personality Assessment</option> -->
                         <option value="profile"> Profile</option>
                         <option value="explore"> Explore Jobs</option>
                         <option value="exploreCompanies"> Explore Companies</option>
@@ -210,10 +180,8 @@
                 location.replace("<?= site_url() ?>hired/dashboard");
             else if (data == "status")
                 location.replace("<?= site_url() ?>hired/status");
-            else if (data == "perAssessment")
-                location.replace("<?= site_url() ?>hired/perAssessment");
-            else if (data == "myProfile")
-                location.replace("<?= site_url() ?>hired/myProfile");
+            else if (data == "profile")
+                location.replace("<?= site_url() ?>hired/updatePerInfo");
             else if (data == "explore")
                 location.replace("<?= site_url() ?>hired/explore");
             else if (data == "exploreCompanies")
@@ -222,6 +190,16 @@
                 location.replace("<?= site_url() ?>hired/myaccount");
             else if (data == "logout")
                 location.replace("<?= site_url() ?>logout");
+        });
+        $(document).on("change", "#switch", function(e) {
+            var data = $(this).val();
+            var switched;
+            if (data == "on") {
+                switched = 1
+            } else {
+                switched = 2
+            }
+            location.replace("<?= site_url() ?>hired/switch/" + switched);
         });
     });
 </script>

@@ -61,6 +61,7 @@ $routes->group('/', ['filter' => 'auth'], function ($routes) {
         $routes->get('evaluationGen', 'Hired::evaluationGen');
         $routes->get('myProfile', 'Hired::myProfile');
         $routes->get('status', 'Hired::status');
+        $routes->get('switch/(:any)', 'Hired::switch/$1');
         $routes->get('profile', 'Hired::profile');
         $routes->get('explore', 'Hired::explore');
         $routes->get('exploreDetails/(:any)', 'Hired::exploreDetails/$1');

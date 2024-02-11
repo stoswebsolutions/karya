@@ -1282,6 +1282,12 @@ class Hired extends BaseController
         $data['profileSold'] = $profileSold;
         return view('hired/myaccount', $data);
     }
+    public function switch($switched)
+    {
+        $userID = $this->user['ID'];
+        $this->usersModel->update($userID, array('is_online' => $switched));
+        return  redirect()->back();
+    }
 
     /* UnUsed Methods START */
     public function profile()
