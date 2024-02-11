@@ -61,7 +61,7 @@
             <div class="row gx-0">
                 <div class="col-12 col-lg-12">
                     <?php
-                    $search1 = "any 5 questions on " . $target_career . " and with yes/no answers only";
+                    $search1 = "any 5 questions on " . $targeted_career . " and with yes/no answers only";
                     $data = array(
                         "model" => "gpt-3.5-turbo",
                         "messages" => [

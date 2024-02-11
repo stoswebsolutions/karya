@@ -315,10 +315,7 @@ class Hired extends BaseController
         $work_type = $this->request->getPost('work_type');
         $remote_work = $this->request->getPost('remote_work');
         $preferred_location = $this->request->getPost('preferred_location');
-
-        session()->remove('target_career');
-        $target_career = $this->request->getPost('target_career');
-        session()->set('target_career', $target_career);
+        $targeted_career = $this->request->getPost('targeted_career');
         $inputData = array(
             "fullname" => $fullname,
             "IC" => $IC,
@@ -336,7 +333,8 @@ class Hired extends BaseController
             "work_type" => $work_type,
             "remote_work" => $remote_work,
             "preferred_location" => $preferred_location,
-            "profile_progress" => 100
+            "profile_progress" => 100,
+            "targeted_career" => $targeted_career
         );
         $this->usersModel->update(array("email" => $email, "ID" => $ID), $inputData);
         $this->employeeratingModel->delete(array('userId' => $ID));
@@ -440,6 +438,7 @@ class Hired extends BaseController
         );
         $data['loggedHired'] = $this->loggedHired;
         $data['is_online'] = $this->user['is_online'];
+        $targeted_career = $this->user['targeted_career'];
         $data['disc'] = $this->discModel->where(array('is_active' => "A"))->orderBy('disc_id', 'ASC')->findAll();
         $data['lite'] = $this->liteModel->where(array('is_active' => "A"))->orderBy('lite_id', 'ASC')->findAll();
         $data['mensa'] = $this->mensaModel->where(array('is_active' => "A"))->orderBy('mensa_id', 'ASC')->findAll();
@@ -447,16 +446,15 @@ class Hired extends BaseController
         $data['avk'] = $this->avkModel->where(array('is_active' => "A"))->orderBy('avk_id', 'ASC')->findAll();
         $data['skill'] = $this->skillModel->where(array('is_active' => "A"))->orderBy('skill_id', 'ASC')->findAll();
         $data['aptitude'] = $this->aptitudeModel->where(array('is_active' => "A"))->orderBy('appt_id', 'ASC')->findAll();
-        $target_career = session()->get("target_career");
-        $gptquestions = $this->gptQuestions($target_career);
+        $gptquestions = $this->gptQuestions();
         $data['gptquestions'] = $gptquestions;
         return view('hired/perAssessment', $data);
     }
-    function gptQuestions($target_career)
+    function gptQuestions()
     {
-        $target_career = session()->get("target_career");
+        $targeted_career = $this->user['targeted_career'];
         $search1 = "Provide 5 questions that are closed-ended and limited to yes or partially or no to
-        evaluate the competency level of a jobseeker seeking to fill a position as a " . $target_career . ".";
+        evaluate the competency level of a jobseeker seeking to fill a position as a " . $targeted_career . ".";
         $data = array(
             "model" => "gpt-3.5-turbo",
             "messages" => [
@@ -900,22 +898,22 @@ class Hired extends BaseController
         $userInfo = $this->usersModel->where(array("email" => $email, "ID" => $ID))->findAll();
         $data['fullname'] = $userInfo[0]["fullname"];
         $job_experience = $userInfo[0]["job_experience"];
-        $target_career = session()->get("target_career");
-        $trajectory = $this->trajectory($target_career);
+        $targeted_career = $this->user['targeted_career'];
+        $trajectory = $this->trajectory($targeted_career);
         $data['trajectory'] = $trajectory;
-        $advancepitch = $this->advancePitch($job_experience, "Designer", "IT", "Javascript", $target_career);
+        $advancepitch = $this->advancePitch($job_experience, "Designer", "IT", "Javascript", $targeted_career);
         $data['advancepitch'] = $advancepitch;
-        $sectorforecast = $this->sectorForecast($target_career);
+        $sectorforecast = $this->sectorForecast($targeted_career);
         $data['sectorforecast'] = $sectorforecast;
-        $spotqstns = $this->spotQstns($target_career);
+        $spotqstns = $this->spotQstns($targeted_career);
         $data['spotqstns'] = $spotqstns;
         return view('hired/interviewPrep', $data);
     }
-    function trajectory($target_career)
+    function trajectory($targeted_career)
     {
         $search1 = "I would like you to generate a very comprehensive and detailed (elaborated facts and
         figures) key milestone timeline (potentially across 15 years) showing the projected
-        career progression trajectory (from entry to C-Suite level) as a " . $target_career . ". This timeline should elaborate in refined detail with specifics, the i) Role, ii)
+        career progression trajectory (from entry to C-Suite level) as a " . $targeted_career . ". This timeline should elaborate in refined detail with specifics, the i) Role, ii)
         Responsibilities, iii) Skills Required, iv) Current technology and tools, v) Potential
         upskilling needs, vi) Vulnerability to disruptive technology innovations, market shifts
         and industry volatility, vii) Salary Range RM 1000. Further to this,
@@ -964,12 +962,12 @@ class Hired extends BaseController
         }
         curl_close($ch);
     }
-    function advancePitch($years, $design, $sector, $skill, $target_career)
+    function advancePitch($years, $design, $sector, $skill, $targeted_career)
     {
         $search1 = "I have a DOMINANT primary personality trait and COMPLIANT
         secondary personality trait, a LIBERAL  principal value system, a FACTUAL thinking style, having " . $years . " years of experience as " . $design . " and covering the " . $sector . "
         sectors. I have high competencies in " . $skill . ". Generate 2 paragraphs
-        of not more than 200 words about how effective I can be for the job role of a " . $target_career . ". Word it in a 1st person narrative and subtly display qualities of problem
+        of not more than 200 words about how effective I can be for the job role of a " . $targeted_career . ". Word it in a 1st person narrative and subtly display qualities of problem
         solving and innovation.";
         $data = array(
             "model" => "gpt-3.5-turbo",
@@ -1010,9 +1008,9 @@ class Hired extends BaseController
         }
         curl_close($ch);
     }
-    function sectorForecast($target_career)
+    function sectorForecast($targeted_career)
     {
-        $search1 = "What are the challenges and outlook for the " . $target_career . " sector in Malaysia. Generate a paragraph on this";
+        $search1 = "What are the challenges and outlook for the " . $targeted_career . " sector in Malaysia. Generate a paragraph on this";
         $data = array(
             "model" => "gpt-3.5-turbo",
             "messages" => [
@@ -1052,10 +1050,10 @@ class Hired extends BaseController
         }
         curl_close($ch);
     }
-    function spotQstns($target_career)
+    function spotQstns($targeted_career)
     {
         $search1 = "Generate 10 potential questions that would be asked by a prospective employer
-        during an interview for the job post of a " . $target_career . ".";
+        during an interview for the job post of a " . $targeted_career . ".";
         $data = array(
             "model" => "gpt-3.5-turbo",
             "messages" => [
@@ -1109,7 +1107,7 @@ class Hired extends BaseController
         );
         $data['loggedHired'] = $this->loggedHired;
         $data['is_online'] = $this->user['is_online'];
-        $data['target_career'] = session()->get("target_career");
+        $data['targeted_career'] = $this->user['targeted_career'];
         return view('hired/gptquestion', $data);
     }
     public function gptquestionSubmit()
