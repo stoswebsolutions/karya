@@ -152,6 +152,9 @@ class Hired extends BaseController
         );
         $data['loggedHired'] = $this->loggedHired;
         $data['is_online'] = $this->user['is_online'];
+        $user_id = $this->user['ID'];
+        $jobCount = $this->applypostsModel->where(array("user_id" => $user_id,"app_status" => "A"))->countAllResults();
+        $data['jobCount'] = $jobCount;
         return view('hired/status', $data);
     }
     public function updatePerInfo()
