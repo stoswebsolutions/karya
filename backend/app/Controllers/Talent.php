@@ -3,6 +3,7 @@
 namespace App\Controllers;
 
 use App\Controllers\BaseController;
+use App\Models\ApplypostsModel;
 use App\Models\BoughtModel;
 use App\Models\CartModel;
 use App\Models\CompanyModel;
@@ -39,11 +40,13 @@ class Talent extends BaseController
     private $compgalleryModel;
     private $portfolioModel;
     private $company_details;
+    private $applypostsModel;
     public function __construct()
     {
         $this->loggedData = session()->get('LoggedData');
         $this->loggedTalent = $this->loggedData['talent'];
         $this->cartModel = new CartModel();
+        $this->applypostsModel = new ApplypostsModel();
         $this->companyModel = new CompanyModel();
         $this->ordertransactionModel = new OrdertransactionModel();
         $this->usersModel = new UsersModel();
@@ -416,6 +419,7 @@ class Talent extends BaseController
     }
     public function status()
     {
+        $company_id1 = $this->loggedTalent['tb_company_user_id'];
         $company_name = $this->company_details[0]['company_name'];
         $data['company_name'] = $company_name;
         $data['pageTitle'] = 'Karya | Status';
@@ -424,6 +428,8 @@ class Talent extends BaseController
         $data['css'] = array(
             base_url('app-assets/talent/style.css')
         );
+        $jobCount = $this->applypostsModel->where(array("companyId" => $company_id1,"app_status" => "A"))->countAllResults();
+        $data['jobCount'] = $jobCount;
         return view('talent/status', $data);
     }
     public function vacancies()
