@@ -428,7 +428,56 @@ class Hired extends BaseController
                 $this->portfolioModel->insert($insert);
             }
         }
+        $resumeParser1 = $this->resumeParser($fileResume_path);
+        $resumeParser = json_decode($resumeParser1, true);
+        $first_name = $resumeParser['data']['profile']['basics']['first_name'];
+        $last_name = $resumeParser['data']['profile']['basics']['last_name'];
+        $gender = $resumeParser['data']['profile']['basics']['gender'];
+        $phone = $resumeParser['data']['profile']['basics']['phone_numbers'][0];
+        $address_1 = $resumeParser['data']['profile']['basics']['address'];
+        $job_experience = $resumeParser['data']['profile']['basics']['total_experience_in_years'];
+        $current_job = $resumeParser['data']['profile']['basics']['profession'];
+        $current_company = $resumeParser['data']['profile']['professional_experiences'][0]['company'];
+
+        $inputData = array(
+            "first_name" => $first_name,
+            "last_name" => $last_name,
+            "fullname" => $first_name.' '.$last_name,
+            "gender" => $gender,
+            "phone" => $phone,
+            "address_1" => $address_1,
+            "current_job" => $current_job,
+            "current_company" => $current_company,
+            "job_experience" => $job_experience,
+        );
+        $this->usersModel->update(array("ID" => $ID), $inputData);
         return  redirect()->to('hired/perAssessment')->with('success', 'Your Resume Achievements Upload !');
+    }
+    public function resumeParser($fileResume_path){
+        $url = 'https://cvparser.ai/api/v3/parse';
+        $api_key = 'f1c7d3d0eee038fee68867486730ee74';
+        $cv_url = site_url().'assets/uploads/resume/'.$fileResume_path;
+        $data = array(
+            'url' => $cv_url
+        );
+        $post_data = json_encode($data);
+        $ch = curl_init();
+        curl_setopt($ch, CURLOPT_URL, $url);
+        curl_setopt($ch, CURLOPT_POST, true);
+        curl_setopt($ch, CURLOPT_POSTFIELDS, $post_data);
+        curl_setopt($ch, CURLOPT_HTTPHEADER, array(
+            'Content-Type: application/json',
+            'X-API-Key: ' . $api_key
+        ));
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        $response = curl_exec($ch);
+        if ($response === false) {
+            return 'cURL error: ' . curl_error($ch);
+        } else {
+            // Display response
+            return $response;
+        }
+        curl_close($ch);
     }
     public function perAssessment()
     {
