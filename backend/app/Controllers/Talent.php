@@ -15,6 +15,7 @@ use App\Models\CoursemanagementModel;
 use App\Models\OccupationsModel;
 use App\Models\OrdertransactionModel;
 use App\Models\PortfolioModel;
+use App\Models\QuestionsModel;
 use App\Models\ShortlistModel;
 use App\Models\UsersModel;
 use App\Models\WalletModel;
@@ -41,6 +42,7 @@ class Talent extends BaseController
     private $portfolioModel;
     private $company_details;
     private $applypostsModel;
+    private $questionsModel;
     public function __construct()
     {
         $this->loggedData = session()->get('LoggedData');
@@ -61,6 +63,7 @@ class Talent extends BaseController
         $this->companyphotoModel = new CompanyphotoModel();
         $this->compgalleryModel = new CompgalleryModel();
         $this->portfolioModel = new PortfolioModel();
+        $this->questionsModel = new QuestionsModel();
 
         $company_id = $this->loggedTalent['tb_company_user_id'];
         $this->company_details = $this->companyModel->select('*')
@@ -428,7 +431,7 @@ class Talent extends BaseController
         $data['css'] = array(
             base_url('app-assets/talent/style.css')
         );
-        $jobCount = $this->applypostsModel->where(array("companyId" => $company_id1,"app_status" => "A"))->countAllResults();
+        $jobCount = $this->applypostsModel->where(array("companyId" => $company_id1, "app_status" => "A"))->countAllResults();
         $data['jobCount'] = $jobCount;
         return view('talent/status', $data);
     }
@@ -444,10 +447,102 @@ class Talent extends BaseController
         $data['css'] = array(
             base_url('app-assets/talent/style.css')
         );
+        $data['cat_list'] = $this->coursemanagementModel->orderBy("id", "asc")->findAll();
+        $data['role_list'] = $this->occupationsModel->orderBy("occ_id", "asc")->findAll();
         $data['jobDetails'] = $this->companyrequirementsModel->where(array("companyId" => $company_id))->orderBy('id', 'desc')->findAll();
         $data['coursemanagementModel'] = $this->coursemanagementModel;
         $data['occupationsModel'] = $this->occupationsModel;
+        $postjobs = $this->postjobs($this->company_details[0]['sector_name']);
+        $data['postjobs'] = $postjobs;
+        if ($crId = session()->get('crId')) {
+            $data['postdata'] = $this->companyrequirementsModel->where("id", $crId)->findAll();
+        }
         return view('talent/vacancies', $data);
+    }
+    public function vacanciespost()
+    {
+        $company_id = $this->loggedTalent['tb_company_user_id'];
+        $postData = $this->request->getPost();
+        $postData['data']['companyId'] = $company_id;
+        $this->companyrequirementsModel->insert($postData['data']);
+        $crId = $this->companyrequirementsModel->getInsertID();
+        session()->remove('crId');
+        session()->set('crId', $crId);
+        return  redirect()->back()->with('success', 'Job Generated !');
+    }
+    public function postjobs($sector_name)
+    {
+        $offered = "Technical and mechanical";
+        $activities = $sector_name;
+        $stakeholders = "an NGO";
+        $search1 = "Generate a job posting that consists of a position overview, company, position, job description, responsibilities and job requirements for a position of a " . $offered . " for an " . $sector_name . " that " . $activities . " for " . $stakeholders;
+        $data1 = array(
+            "model" => "gpt-3.5-turbo",
+            "messages" => [
+                [
+                    "role" => "user",
+                    "content" => $search1
+                ]
+            ],
+            "temperature" => 0.9,
+            "max_tokens" => 300,
+            "top_p" => 1,
+            "frequency_penalty" => 0,
+            "presence_penalty" => 0.6,
+            "stop" => [" Human:", " AI:"]
+        );
+
+        $ch = curl_init();
+        curl_setopt($ch, CURLOPT_URL, 'https://api.openai.com/v1/chat/completions');
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+        curl_setopt($ch, CURLOPT_POST, 1);
+        curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($data1));
+
+        $headers = array();
+        $headers[] = 'Content-Type: application/json';
+        $headers[] = 'Authorization: Bearer ' . getenv('keyGPT');
+        curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+
+        $response = curl_exec($ch);
+        if (curl_errno($ch)) {
+            echo 'Error:' . curl_error($ch);
+        }
+        foreach (json_decode($response) as $key => $value) {
+            if ($key == "choices") {
+                $choices = $value;
+                return $choices[0]->message->content;
+            }
+        }
+        curl_close($ch);
+    }
+    public function vacanciesvideo()
+    {
+        $company_id = $this->loggedTalent['tb_company_user_id'];
+        $job_id = $this->request->getPost('job_id');
+        $question1 = $this->request->getPost('question1');
+        $question2 = $this->request->getPost('question2');
+        $question3 = $this->request->getPost('question3');
+        $question4 = $this->request->getPost('question4');
+        $question5 = $this->request->getPost('question5');
+        $fileVideo = $this->request->getFile('question_video');
+        if ($fileVideo->isValid()) {
+            if (!$fileVideo->hasMoved()) {
+                $fileVideo_path = $fileVideo->getRandomName();
+                $fileVideo->move('assets/uploads/questions', $fileVideo_path);
+                $insert = [
+                    'job_id' => $job_id,
+                    'companyId' => $company_id,
+                    'question1' => $question1,
+                    'question2' => $question2,
+                    'question3' => $question3,
+                    'question4' => $question4,
+                    'question5' => $question5,
+                    'question_video' => 'assets/uploads/questions/' . $fileVideo_path
+                ];
+                $this->questionsModel->insert($insert);
+            }
+        }
+        return  redirect()->back()->with('success', 'Video Uploaded !');
     }
     public function explore()
     {
@@ -459,7 +554,105 @@ class Talent extends BaseController
         $data['css'] = array(
             base_url('app-assets/talent/style.css')
         );
+        $data['performance'] = $this->performance();
+        $data['potential'] = $this->potential();
         return view('talent/explore', $data);
+    }
+    public function performance()
+    {
+        $search1 = "A jobseeker has a (Primary Character) primary personality trait
+        and (Secondary Character) secondary personality trait, a (Principal
+        Value) principal value system, a (Thinking Style) thinking style,
+        having (Number of Years) years of experience as (Name of Various
+        Designations Held) and covering (Types of Markets/Industries
+        Sectors), and have high competencies in (List Types of
+        Responsibilities). Based on the information above, provide a 5
+        bullet point summary of how this person can be an effective in
+        performance as a (Job Position) at an (Company Type) which
+        serves the (Main Stakeholder) and carries out activities such as
+        (State Core Activities)";
+        $data1 = array(
+            "model" => "gpt-3.5-turbo",
+            "messages" => [
+                [
+                    "role" => "user",
+                    "content" => $search1
+                ]
+            ],
+            "temperature" => 0.9,
+            "max_tokens" => 150,
+            "top_p" => 1,
+            "frequency_penalty" => 0,
+            "presence_penalty" => 0.6,
+            "stop" => [" Human:", " AI:"]
+        );
+
+        $ch = curl_init();
+        curl_setopt($ch, CURLOPT_URL, 'https://api.openai.com/v1/chat/completions');
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+        curl_setopt($ch, CURLOPT_POST, 1);
+        curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($data1));
+
+        $headers = array();
+        $headers[] = 'Content-Type: application/json';
+        $headers[] = 'Authorization: Bearer ' . getenv('keyGPT');
+        curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+
+        $response = curl_exec($ch);
+        if (curl_errno($ch)) {
+            echo 'Error:' . curl_error($ch);
+        }
+        foreach (json_decode($response) as $key => $value) {
+            if ($key == "choices") {
+                $choices = $value;
+                return $choices[0]->message->content;
+            }
+        }
+        curl_close($ch);
+    }
+    public function potential()
+    {
+        $search1 = "Other than the role of a (Job Position), what other roles in this
+        industry would this candidate be suited for. State the role and how
+        this candidate would be effective.";
+        $data1 = array(
+            "model" => "gpt-3.5-turbo",
+            "messages" => [
+                [
+                    "role" => "user",
+                    "content" => $search1
+                ]
+            ],
+            "temperature" => 0.9,
+            "max_tokens" => 150,
+            "top_p" => 1,
+            "frequency_penalty" => 0,
+            "presence_penalty" => 0.6,
+            "stop" => [" Human:", " AI:"]
+        );
+
+        $ch = curl_init();
+        curl_setopt($ch, CURLOPT_URL, 'https://api.openai.com/v1/chat/completions');
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+        curl_setopt($ch, CURLOPT_POST, 1);
+        curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($data1));
+
+        $headers = array();
+        $headers[] = 'Content-Type: application/json';
+        $headers[] = 'Authorization: Bearer ' . getenv('keyGPT');
+        curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+
+        $response = curl_exec($ch);
+        if (curl_errno($ch)) {
+            echo 'Error:' . curl_error($ch);
+        }
+        foreach (json_decode($response) as $key => $value) {
+            if ($key == "choices") {
+                $choices = $value;
+                return $choices[0]->message->content;
+            }
+        }
+        curl_close($ch);
     }
     public function myaccount()
     {

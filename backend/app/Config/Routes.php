@@ -81,6 +81,8 @@ $routes->group('/', ['filter' => 'auth'], function ($routes) {
         $routes->post('addCart', 'Talent::addCart');
         $routes->post('ProcessPayAmount', 'Talent::ProcessPayAmount');
         $routes->get('vacancies', 'Talent::vacancies');
+        $routes->post('vacanciespost', 'Talent::vacanciespost');
+        $routes->post('vacanciesvideo', 'Talent::vacanciesvideo');
         $routes->get('explore', 'Talent::explore');
         $routes->get('myaccount', 'Talent::myaccount');
         $routes->get('hired_profile/(:any)', 'Talent::hired_profile/$1');
