@@ -1568,102 +1568,16 @@
                     <div class="text-content mb-5">
                         <h6 class="hdr mb-5">Performance</h6>
                         <p class="info mb-4">
-                            <span class="title"> Strategic Expertise: </span>
                             <span class="txt">
-                                With 25 years of experience in strategy, business
-                                development, and sales, this jobseeker brings deep
-                                expertise in developing and executing business
-                                strategies. They can provide valuable insights and
-                                guidance to clients in the banking industry, helping
-                                them navigate challenges and identify growth
-                                opportunities.
-                            </span>
-                        </p>
-                        <p class="info mb-3">
-                            <span class="title"> Strategic Expertise: </span>
-                            <span class="txt">
-                                With 25 years of experience in strategy, business
-                                development, and sales, this jobseeker brings deep
-                                expertise in developing and executing business
-                                strategies. They can provide valuable insights and
-                                guidance to clients in the banking industry, helping
-                                them navigate challenges and identify growth
-                                opportunities.
-                            </span>
-                        </p>
-                        <p class="info mb-3">
-                            <span class="title"> Strategic Expertise: </span>
-                            <span class="txt">
-                                With 25 years of experience in strategy, business
-                                development, and sales, this jobseeker brings deep
-                                expertise in developing and executing business
-                                strategies. They can provide valuable insights and
-                                guidance to clients in the banking industry, helping
-                                them navigate challenges and identify growth
-                                opportunities.
-                            </span>
-                        </p>
-                        <p class="info mb-3">
-                            <span class="title"> Strategic Expertise: </span>
-                            <span class="txt">
-                                With 25 years of experience in strategy, business
-                                development, and sales, this jobseeker brings deep
-                                expertise in developing and executing business
-                                strategies. They can provide valuable insights and
-                                guidance to clients in the banking industry, helping
-                                them navigate challenges and identify growth
-                                opportunities.
+                                <?= $performance ?>
                             </span>
                         </p>
                     </div>
                     <div class="text-content">
                         <h6 class="hdr mb-5">Potential Roles</h6>
                         <p class="info mb-4">
-                            <span class="title"> Strategic Expertise: </span>
                             <span class="txt">
-                                With 25 years of experience in strategy, business
-                                development, and sales, this jobseeker brings deep
-                                expertise in developing and executing business
-                                strategies. They can provide valuable insights and
-                                guidance to clients in the banking industry, helping
-                                them navigate challenges and identify growth
-                                opportunities.
-                            </span>
-                        </p>
-                        <p class="info mb-3">
-                            <span class="title"> Strategic Expertise: </span>
-                            <span class="txt">
-                                With 25 years of experience in strategy, business
-                                development, and sales, this jobseeker brings deep
-                                expertise in developing and executing business
-                                strategies. They can provide valuable insights and
-                                guidance to clients in the banking industry, helping
-                                them navigate challenges and identify growth
-                                opportunities.
-                            </span>
-                        </p>
-                        <p class="info mb-3">
-                            <span class="title"> Strategic Expertise: </span>
-                            <span class="txt">
-                                With 25 years of experience in strategy, business
-                                development, and sales, this jobseeker brings deep
-                                expertise in developing and executing business
-                                strategies. They can provide valuable insights and
-                                guidance to clients in the banking industry, helping
-                                them navigate challenges and identify growth
-                                opportunities.
-                            </span>
-                        </p>
-                        <p class="info mb-3">
-                            <span class="title"> Strategic Expertise: </span>
-                            <span class="txt">
-                                With 25 years of experience in strategy, business
-                                development, and sales, this jobseeker brings deep
-                                expertise in developing and executing business
-                                strategies. They can provide valuable insights and
-                                guidance to clients in the banking industry, helping
-                                them navigate challenges and identify growth
-                                opportunities.
+                                <?= $potential ?>
                             </span>
                         </p>
                     </div>
@@ -1913,102 +1827,14 @@
                         <div class="text-content mb-4">
                             <h6 class="hdr mb-2">Performance</h6>
                             <p class="info mb-1">
-                                <span class="title"> Strategic Expertise: </span>
-                                <span class="txt">
-                                    With 25 years of experience in strategy, business
-                                    development, and sales, this jobseeker brings deep
-                                    expertise in developing and executing business
-                                    strategies. They can provide valuable insights and
-                                    guidance to clients in the banking industry, helping
-                                    them navigate challenges and identify growth
-                                    opportunities.
-                                </span>
-                            </p>
-                            <p class="info mb-3">
-                                <span class="title"> Strategic Expertise: </span>
-                                <span class="txt">
-                                    With 25 years of experience in strategy, business
-                                    development, and sales, this jobseeker brings deep
-                                    expertise in developing and executing business
-                                    strategies. They can provide valuable insights and
-                                    guidance to clients in the banking industry, helping
-                                    them navigate challenges and identify growth
-                                    opportunities.
-                                </span>
-                            </p>
-                            <p class="info mb-3">
-                                <span class="title"> Strategic Expertise: </span>
-                                <span class="txt">
-                                    With 25 years of experience in strategy, business
-                                    development, and sales, this jobseeker brings deep
-                                    expertise in developing and executing business
-                                    strategies. They can provide valuable insights and
-                                    guidance to clients in the banking industry, helping
-                                    them navigate challenges and identify growth
-                                    opportunities.
-                                </span>
-                            </p>
-                            <p class="info mb-3">
-                                <span class="title"> Strategic Expertise: </span>
-                                <span class="txt">
-                                    With 25 years of experience in strategy, business
-                                    development, and sales, this jobseeker brings deep
-                                    expertise in developing and executing business
-                                    strategies. They can provide valuable insights and
-                                    guidance to clients in the banking industry, helping
-                                    them navigate challenges and identify growth
-                                    opportunities.
-                                </span>
+                                <?= $performance ?>
                             </p>
                         </div>
                         <div class="text-content">
                             <h6 class="hdr mb-2">Potential Roles</h6>
                             <p class="info mb-1">
-                                <span class="title"> Strategic Expertise: </span>
                                 <span class="txt">
-                                    With 25 years of experience in strategy, business
-                                    development, and sales, this jobseeker brings deep
-                                    expertise in developing and executing business
-                                    strategies. They can provide valuable insights and
-                                    guidance to clients in the banking industry, helping
-                                    them navigate challenges and identify growth
-                                    opportunities.
-                                </span>
-                            </p>
-                            <p class="info mb-3">
-                                <span class="title"> Strategic Expertise: </span>
-                                <span class="txt">
-                                    With 25 years of experience in strategy, business
-                                    development, and sales, this jobseeker brings deep
-                                    expertise in developing and executing business
-                                    strategies. They can provide valuable insights and
-                                    guidance to clients in the banking industry, helping
-                                    them navigate challenges and identify growth
-                                    opportunities.
-                                </span>
-                            </p>
-                            <p class="info mb-3">
-                                <span class="title"> Strategic Expertise: </span>
-                                <span class="txt">
-                                    With 25 years of experience in strategy, business
-                                    development, and sales, this jobseeker brings deep
-                                    expertise in developing and executing business
-                                    strategies. They can provide valuable insights and
-                                    guidance to clients in the banking industry, helping
-                                    them navigate challenges and identify growth
-                                    opportunities.
-                                </span>
-                            </p>
-                            <p class="info mb-3">
-                                <span class="title"> Strategic Expertise: </span>
-                                <span class="txt">
-                                    With 25 years of experience in strategy, business
-                                    development, and sales, this jobseeker brings deep
-                                    expertise in developing and executing business
-                                    strategies. They can provide valuable insights and
-                                    guidance to clients in the banking industry, helping
-                                    them navigate challenges and identify growth
-                                    opportunities.
+                                    <?= $potential ?>
                                 </span>
                             </p>
                         </div>
