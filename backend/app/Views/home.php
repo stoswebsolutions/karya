@@ -16,7 +16,7 @@ if (isset($css) && $css != NULL) {
             <div class="carousel-inner h-100">
                 <div class="carousel-item active carousel-talent h-100" data-bs-interval="5000">
                     <nav class="w-100 d-flex align-items-center justify-content-between karya-px">
-                        <img src="<?= site_url() ?>app-assets/images/logo_karya.png" alt="logo" class="brand" />
+                        <img src="<?= site_url() ?>app-assets/images/logo_pathafinder.png" alt="logo" class="brand" />
                         <ul class="m-0 p-0">
                             <li class="">
                                 <a href="#hired-talent-form-section"> Get Hired </a>
@@ -47,7 +47,7 @@ if (isset($css) && $css != NULL) {
                 </div>
                 <div class="carousel-item carousel-hired h-100" data-bs-interval="5000">
                     <nav class="w-100 d-flex align-items-center justify-content-between karya-px">
-                        <img src="<?= site_url() ?>app-assets/images/logo_karya_light.png" alt="logo" class="brand" />
+                        <img src="<?= site_url() ?>app-assets/images/logo_pathafinder.png" alt="logo" class="brand" />
                         <ul class="m-0 p-0">
                             <li class="">
                                 <a href="#hired-talent-form-section"> Get Hired </a>
@@ -551,7 +551,7 @@ if (isset($css) && $css != NULL) {
                     <div class="row">
                         <div class="col-12 col-sm-5">
                             <div class="abt-karya">
-                                <img src="<?= site_url() ?>app-assets/images/logo_karya_light.png" alt="logo" class="logo" />
+                                <img src="<?= site_url() ?>app-assets/images/logo_pathafinder.png" alt="logo" class="logo" />
                                 <p class="lite-white msg-txt">
                                     Karya is a talent marketplace platform that transcends the
                                     boundaries of artificial intelligence, science, and art to

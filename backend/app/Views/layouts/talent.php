@@ -26,7 +26,7 @@
     <div class="karya-container">
         <section class="karya-section get-talent-section">
             <nav class="w-100 d-flex align-items-center justify-content-between karya-px pri-bg">
-                <img src="<?= site_url() ?>app-assets/images/logo_karya_light.png" alt="logo" class="brand" />
+                <img src="<?= site_url() ?>app-assets/images/logo_pathafinder.png" alt="logo" class="brand" />
                 <!-- <ul class="m-0 p-0">
                     <li class="">
                         <a href="#"> Get Hired </a>

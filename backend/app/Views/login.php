@@ -1,7 +1,7 @@
 <?= $this->extend("layouts/app") ?>
 <?= $this->section("body") ?>
 <div class="container">
-    <img src="<?= site_url() ?>app-assets/images/logo_karya.png" alt="logo" class="img-fluid mx-auto d-block" />
+    <img src="<?= site_url() ?>app-assets/images/logo_pathafinder.png" alt="logo" class="img-fluid mx-auto d-block" />
     <div class="row">
         <div class="col-sm-6">
             <h1 class="text-center">Hello, Hired!</h1>

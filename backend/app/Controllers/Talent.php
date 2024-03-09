@@ -79,7 +79,7 @@ class Talent extends BaseController
         $company_name = $this->company_details[0]['company_name'];
         $data['company_name'] = $company_name;
         $data['pageTitle'] = 'Karya | Dashboard';
-        $data['logo'] = 'app-assets/images/logo_karya.png';
+        $data['logo'] = 'app-assets/images/logo_pathafinder.png';
         $data['active'] = 'dashboard';
         $data['css'] = array(
             base_url('app-assets/talent/style.css')
@@ -95,7 +95,7 @@ class Talent extends BaseController
         $email = $this->loggedTalent['company_email'];
 
         $data['pageTitle'] = 'Karya | Profile';
-        $data['logo'] = 'app-assets/images/logo_karya.png';
+        $data['logo'] = 'app-assets/images/logo_pathafinder.png';
         $data['active'] = 'profile';
         $data['css'] = array(
             base_url('app-assets/talent/style.css')
@@ -265,7 +265,7 @@ class Talent extends BaseController
         $company_name = $this->company_details[0]['company_name'];
         $data['company_name'] = $company_name;
         $data['pageTitle'] = 'Karya | Cart';
-        $data['logo'] = 'app-assets/images/logo_karya.png';
+        $data['logo'] = 'app-assets/images/logo_pathafinder.png';
         $data['active'] = 'cart';
         $data['css'] = array(
             base_url('app-assets/talent/style.css')
@@ -426,7 +426,7 @@ class Talent extends BaseController
         $company_name = $this->company_details[0]['company_name'];
         $data['company_name'] = $company_name;
         $data['pageTitle'] = 'Karya | Status';
-        $data['logo'] = 'app-assets/images/logo_karya.png';
+        $data['logo'] = 'app-assets/images/logo_pathafinder.png';
         $data['active'] = 'status';
         $data['css'] = array(
             base_url('app-assets/talent/style.css')
@@ -442,7 +442,7 @@ class Talent extends BaseController
         $company_id = $this->loggedTalent['tb_company_user_id'];
         $email = $this->loggedTalent['company_email'];
         $data['pageTitle'] = 'Karya | Vacancies';
-        $data['logo'] = 'app-assets/images/logo_karya.png';
+        $data['logo'] = 'app-assets/images/logo_pathafinder.png';
         $data['active'] = 'vacancies';
         $data['css'] = array(
             base_url('app-assets/talent/style.css')
@@ -549,7 +549,7 @@ class Talent extends BaseController
         $company_name = $this->company_details[0]['company_name'];
         $data['company_name'] = $company_name;
         $data['pageTitle'] = 'Karya | Explore';
-        $data['logo'] = 'app-assets/images/logo_karya.png';
+        $data['logo'] = 'app-assets/images/logo_pathafinder.png';
         $data['active'] = 'explore';
         $data['css'] = array(
             base_url('app-assets/talent/style.css')
@@ -660,7 +660,7 @@ class Talent extends BaseController
         $data['company_name'] = $company_name;
         $company_id = $this->loggedTalent['tb_company_user_id'];
         $data['pageTitle'] = 'Karya | MyAccount';
-        $data['logo'] = 'app-assets/images/logo_karya.png';
+        $data['logo'] = 'app-assets/images/logo_pathafinder.png';
         $data['active'] = 'myaccount';
         $data['css'] = array(
             base_url('app-assets/talent/style.css')
@@ -676,7 +676,7 @@ class Talent extends BaseController
         $data['company_name'] = $company_name;
         $company_id = $this->loggedTalent['tb_company_user_id'];
         $data['pageTitle'] = 'Karya | MyAccount';
-        $data['logo'] = 'app-assets/images/logo_karya.png';
+        $data['logo'] = 'app-assets/images/logo_pathafinder.png';
         $data['active'] = 'Hired Profile';
         $data['css'] = array(
             base_url('app-assets/talent/style.css')

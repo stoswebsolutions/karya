@@ -133,7 +133,7 @@ class Hired extends BaseController
             return  redirect()->back()->with('fail', 'Your Not Correct User');
         }
         $data['pageTitle'] = 'Karya | Dashboard';
-        $data['logo'] = 'app-assets/images/logo_karya.png';
+        $data['logo'] = 'app-assets/images/logo_pathafinder.png';
         $data['active'] = 'dashboard';
         $data['css'] = array(
             base_url('app-assets/hired/style.css')
@@ -145,7 +145,7 @@ class Hired extends BaseController
     public function status()
     {
         $data['pageTitle'] = 'Karya | Status';
-        $data['logo'] = 'app-assets/images/logo_karya.png';
+        $data['logo'] = 'app-assets/images/logo_pathafinder.png';
         $data['active'] = 'status';
         $data['css'] = array(
             base_url('app-assets/hired/style.css')
@@ -160,7 +160,7 @@ class Hired extends BaseController
     public function updatePerInfo()
     {
         $data['pageTitle'] = 'Karya | Profile';
-        $data['logo'] = 'app-assets/images/logo_karya.png';
+        $data['logo'] = 'app-assets/images/logo_pathafinder.png';
         $data['active'] = 'profile';
         $data['css'] = array(
             base_url('app-assets/hired/style.css')
@@ -383,7 +383,7 @@ class Hired extends BaseController
     public function uploadResume()
     {
         $data['pageTitle'] = 'Karya | Profile';
-        $data['logo'] = 'app-assets/images/logo_karya.png';
+        $data['logo'] = 'app-assets/images/logo_pathafinder.png';
         $data['active'] = 'profile';
         $data['css'] = array(
             base_url('app-assets/hired/style.css')
@@ -482,7 +482,7 @@ class Hired extends BaseController
     public function perAssessment()
     {
         $data['pageTitle'] = 'Karya | Personality Assessment';
-        $data['logo'] = 'app-assets/images/logo_karya.png';
+        $data['logo'] = 'app-assets/images/logo_pathafinder.png';
         $data['active'] = 'perAssessment';
         $data['css'] = array(
             base_url('app-assets/hired/style.css'),
@@ -940,7 +940,7 @@ class Hired extends BaseController
         $ID = $this->user['ID'];
 
         $data['pageTitle'] = 'Karya | Profile';
-        $data['logo'] = 'app-assets/images/logo_karya.png';
+        $data['logo'] = 'app-assets/images/logo_pathafinder.png';
         $data['active'] = 'profile';
         $data['css'] = array(
             base_url('app-assets/hired/style.css')
@@ -1152,7 +1152,7 @@ class Hired extends BaseController
     public function gptquestion()
     {
         $data['pageTitle'] = 'Karya | Profile';
-        $data['logo'] = 'app-assets/images/logo_karya.png';
+        $data['logo'] = 'app-assets/images/logo_pathafinder.png';
         $data['active'] = 'profile';
         $data['css'] = array(
             base_url('app-assets/hired/style.css')
@@ -1169,7 +1169,7 @@ class Hired extends BaseController
     public function uploadVideo()
     {
         $data['pageTitle'] = 'Karya | Profile';
-        $data['logo'] = 'app-assets/images/logo_karya.png';
+        $data['logo'] = 'app-assets/images/logo_pathafinder.png';
         $data['active'] = 'profile';
         $data['css'] = array(
             base_url('app-assets/hired/style.css')
@@ -1229,7 +1229,7 @@ class Hired extends BaseController
     public function evaluationGen()
     {
         $data['pageTitle'] = 'Karya | Profile';
-        $data['logo'] = 'app-assets/images/logo_karya.png';
+        $data['logo'] = 'app-assets/images/logo_pathafinder.png';
         $data['active'] = 'Evaluation';
         $data['css'] = array(
             base_url('app-assets/hired/style.css')
@@ -1244,7 +1244,7 @@ class Hired extends BaseController
         $ID = $this->user['ID'];
 
         $data['pageTitle'] = 'Karya | Profile';
-        $data['logo'] = 'app-assets/images/logo_karya.png';
+        $data['logo'] = 'app-assets/images/logo_pathafinder.png';
         $data['active'] = 'profile';
         $data['css'] = array(
             base_url('app-assets/hired/style.css')
@@ -1269,7 +1269,7 @@ class Hired extends BaseController
     public function companies($sector_id)
     {
         $data['pageTitle'] = 'Karya | Companies';
-        $data['logo'] = 'app-assets/images/logo_karya.png';
+        $data['logo'] = 'app-assets/images/logo_pathafinder.png';
         $data['active'] = 'companies';
         $data['css'] = array(
             base_url('app-assets/hired/style.css')
@@ -1285,7 +1285,7 @@ class Hired extends BaseController
     public function exploreCompanies($company_id)
     {
         $data['pageTitle'] = 'Karya | Companies';
-        $data['logo'] = 'app-assets/images/logo_karya.png';
+        $data['logo'] = 'app-assets/images/logo_pathafinder.png';
         $data['active'] = 'companies';
         $data['css'] = array(
             base_url('app-assets/hired/style.css')
@@ -1308,7 +1308,7 @@ class Hired extends BaseController
     public function myaccount()
     {
         $data['pageTitle'] = 'Karya | MyAccount';
-        $data['logo'] = 'app-assets/images/logo_karya.png';
+        $data['logo'] = 'app-assets/images/logo_pathafinder.png';
         $data['active'] = 'myaccount';
         $data['css'] = array(
             base_url('app-assets/hired/style.css'),
@@ -1343,7 +1343,7 @@ class Hired extends BaseController
     public function profile()
     {
         $data['pageTitle'] = 'Karya | Profile';
-        $data['logo'] = 'app-assets/images/logo_karya.png';
+        $data['logo'] = 'app-assets/images/logo_pathafinder.png';
         $data['active'] = 'profile';
         $data['css'] = array(
             base_url('app-assets/hired/style.css')
@@ -1355,7 +1355,7 @@ class Hired extends BaseController
     public function explore()
     {
         $data['pageTitle'] = 'Karya | Explore';
-        $data['logo'] = 'app-assets/images/logo_karya.png';
+        $data['logo'] = 'app-assets/images/logo_pathafinder.png';
         $data['active'] = 'explore';
         $data['css'] = array(
             base_url('app-assets/hired/style.css')
@@ -1371,7 +1371,7 @@ class Hired extends BaseController
         $user_id = $this->user['ID'];
 
         $data['pageTitle'] = 'Karya | Explore Details';
-        $data['logo'] = 'app-assets/images/logo_karya.png';
+        $data['logo'] = 'app-assets/images/logo_pathafinder.png';
         $data['active'] = 'companies';
         $data['css'] = array(
             base_url('app-assets/hired/style.css')

@@ -20,7 +20,7 @@ class Home extends BaseController
     public function home()
     {
         $data['pageTitle'] = 'Karya | Landing';
-        $data['logo'] = 'app-assets/images/logo_karya.png';
+        $data['logo'] = 'app-assets/images/logo_pathafinder.png';
         $data['active'] = 'home';
         $data['css'] = array(
             base_url('app-assets/landing/style.css')
@@ -30,7 +30,7 @@ class Home extends BaseController
     public function price()
     {
         $data['pageTitle'] = 'Karya | Pricing';
-        $data['logo'] = 'app-assets/images/logo_karya.png';
+        $data['logo'] = 'app-assets/images/logo_pathafinder.png';
         $data['active'] = 'price';
         $data['css'] = array(
             base_url('app-assets/pricing/style.css'),
@@ -41,7 +41,7 @@ class Home extends BaseController
     public function hired()
     {
         $data['pageTitle'] = 'Karya | Security';
-        $data['logo'] = 'app-assets/images/logo_karya.png';
+        $data['logo'] = 'app-assets/images/logo_pathafinder.png';
         return view('hired', $data);
     }
     public function hiredLogin()
@@ -107,7 +107,7 @@ class Home extends BaseController
     public function talent()
     {
         $data['pageTitle'] = 'Karya | Security';
-        $data['logo'] = 'app-assets/images/logo_karya.png';
+        $data['logo'] = 'app-assets/images/logo_pathafinder.png';
         return view('talent', $data);
     }
     public function talentLogin()

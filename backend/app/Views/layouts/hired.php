@@ -21,7 +21,7 @@
     <div class="karya-container">
         <section class="karya-section get-hired-section">
             <nav class="w-100 d-flex align-items-center justify-content-between karya-px sec-bg">
-                <img src="<?= site_url() ?>app-assets/images/logo_karya.png" alt="logo" class="brand">
+                <img src="<?= site_url() ?>app-assets/images/logo_pathafinder.png" alt="logo" class="brand">
                 <i class="fa fa-bars menu-icon" aria-hidden="true" data-bs-toggle="offcanvas" href="#offcanvasMenu" aria-controls="offcanvasMenu"></i>
             </nav>
             <div class="user-details sec-bg karya-px d-flex align-items-center justify-content-between">
