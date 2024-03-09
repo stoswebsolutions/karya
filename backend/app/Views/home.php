@@ -19,16 +19,16 @@ if (isset($css) && $css != NULL) {
                         <img src="<?= site_url() ?>app-assets/images/logo_pathafinder.png" alt="logo" class="brand" />
                         <ul class="m-0 p-0">
                             <li class="">
-                                <a href="#hired-talent-form-section"> Get Hired </a>
+                                <a href="<?= site_url() ?>hired"> Get Hired </a>
                             </li>
                             <li class="ms-4">
-                                <a href="#hired-talent-form-section"> Get Talent </a>
+                                <a href="<?= site_url() ?>talent"> Get Talent </a>
                             </li>
                             <li class="ms-4">
                                 <a href="<?= site_url() ?>price"> Pricing Plans </a>
                             </li>
                             <li class="ms-4">
-                                <a href="<?= site_url() ?>login"> Join </a>
+                                <a href="<?= site_url() ?>home"> Join </a>
                             </li>
                         </ul>
                         <i class="fa fa-bars menu-icon" aria-hidden="true" data-bs-toggle="offcanvas" href="#offcanvasMenu" aria-controls="offcanvasMenu"></i>
@@ -42,7 +42,7 @@ if (isset($css) && $css != NULL) {
                         </h4>
                     </div>
                     <div class="talent-card">
-                        <h6 class="font-kai text-white mb-0"><a href="#hired-talent-form-section" class="text-white"  style="text-decoration: none;"># Get Talent</a></h6>
+                        <h6 class="font-kai text-white mb-0"><a href="#hired-talent-form-section" class="text-white" style="text-decoration: none;"># Get Talent</a></h6>
                     </div>
                 </div>
                 <div class="carousel-item carousel-hired h-100" data-bs-interval="5000">
@@ -50,16 +50,16 @@ if (isset($css) && $css != NULL) {
                         <img src="<?= site_url() ?>app-assets/images/logo_pathafinder.png" alt="logo" class="brand" />
                         <ul class="m-0 p-0">
                             <li class="">
-                                <a href="#hired-talent-form-section"> Get Hired </a>
+                                <a href="<?= site_url() ?>hired"> Get Hired </a>
                             </li>
                             <li class="ms-4">
-                                <a href="#hired-talent-form-section"> Get Talent </a>
+                                <a href="<?= site_url() ?>talent"> Get Talent </a>
                             </li>
                             <li class="ms-4">
                                 <a href="<?= site_url() ?>price"> Pricing Plans </a>
                             </li>
                             <li class="ms-4">
-                                <a href="<?= site_url() ?>login"> Join </a>
+                                <a href="<?= site_url() ?>home"> Join </a>
                             </li>
                         </ul>
                         <i class="fa fa-bars menu-icon" aria-hidden="true" data-bs-toggle="offcanvas" href="#offcanvasMenu" aria-controls="offcanvasMenu"></i>
@@ -91,23 +91,23 @@ if (isset($css) && $css != NULL) {
             <div class="offcanvas-body">
                 <ul class="m-0 p-0">
                     <li class="">
-                        <a href="#hired-talent-form-section"> Get Hired </a>
+                        <a href="<?= site_url() ?>hired"> Get Hired </a>
                     </li>
                     <li class="">
-                        <a href="#hired-talent-form-section"> Get Talent </a>
+                        <a href="<?= site_url() ?>talent"> Get Talent </a>
                     </li>
                     <li class="">
                         <a href="<?= site_url() ?>price"> Pricing Plans </a>
                     </li>
                     <li class="">
-                        <a href="<?= site_url() ?>login"> Join </a>
+                        <a href="<?= site_url() ?>home"> Join </a>
                     </li>
                 </ul>
             </div>
         </div>
         <!-- ends::offcanvas menu -->
     </section>
-    <section class="karya-section hired-talent-form-section" id="hired-talent-form-section">
+    <!-- <section class="karya-section hired-talent-form-section" id="hired-talent-form-section">
         <div class="row h-100 gx-0">
             <div class="col-12 col-md-6">
                 <div class="hired-sub-section sec-bg h-100 position-relative">
@@ -186,57 +186,57 @@ if (isset($css) && $css != NULL) {
                 </div>
             </div>
         </div>
-    </section>
+    </section> -->
     <section class="karya-section about-section pri-bg">
         <div class="container">
-        <div class="row h-100 gx-0">
-            <div class="col-12 col-md-6">
-                <div class="etymology-sub-section pri-bg h-100 karya-py">
-                    <div class="etymology-dets mb-4 mb-md-5">
-                        <h6 class="yellow-clr">Etymology</h6>
-                        <h6 class="text-white d-flex flex-column points">
-                            <span> From Malay; (karya), </span>
-                            <span> From Old Malay; (karyya), </span>
-                            <span> From Sanskrit; (karya). </span>
-                        </h6>
+            <div class="row h-100 gx-0">
+                <div class="col-12 col-md-6">
+                    <div class="etymology-sub-section pri-bg h-100 karya-py">
+                        <div class="etymology-dets mb-4 mb-md-5">
+                            <h6 class="yellow-clr">Etymology</h6>
+                            <h6 class="text-white d-flex flex-column points">
+                                <span> From Malay; (karya), </span>
+                                <span> From Old Malay; (karyya), </span>
+                                <span> From Sanskrit; (karya). </span>
+                            </h6>
+                        </div>
+                        <div class="pronunciation-dets">
+                            <h6 class="yellow-clr">Pronunciation</h6>
+                            <h6 class="text-white points">
+                                IPA (key): Karia, karja, kariya.
+                            </h6>
+                        </div>
+                        <div class="noun-dets">
+                            <h6 class="text-white points">Noun</h6>
+                            <ul class="p-0 m-0 text-white">
+                                <li>Work, product; the result of effort.</li>
+                                <li>A literary, artistic, or intellectual production.</li>
+                                <li>Outcome of a particular action.</li>
+                                <li>To perform deeds.</li>
+                            </ul>
+                        </div>
                     </div>
-                    <div class="pronunciation-dets">
-                        <h6 class="yellow-clr">Pronunciation</h6>
-                        <h6 class="text-white points">
-                            IPA (key): Karia, karja, kariya.
+                </div>
+                <div class="col-12 col-md-6">
+                    <div class="about-sub-section pri-bg h-100 karya-py">
+                        <h6 class="text-white mb-4 mb-md-5 points">
+                            <span class="sec-clr">Karya.asia</span> is a talent marketplace
+                            platform that transcends the boundaries of artificial
+                            intelligence, science, and art to connect job seekers with
+                            employers.
                         </h6>
-                    </div>
-                    <div class="noun-dets">
-                        <h6 class="text-white points">Noun</h6>
-                        <ul class="p-0 m-0 text-white">
-                            <li>Work, product; the result of effort.</li>
-                            <li>A literary, artistic, or intellectual production.</li>
-                            <li>Outcome of a particular action.</li>
-                            <li>To perform deeds.</li>
-                        </ul>
+                        <h6 class="text-white points ">
+                            Our mission is to revolutionise the way talent is discovered and
+                            matched with the best opportunities. By harnessing the power of
+                            Al in the GPT model and data-driven insights through personality
+                            profiling and people skills evaluation, we assist individuals to
+                            unlock their full potential in their careers and enable
+                            organisations to build teams that are truly aligned with their
+                            values and vision.
+                        </h6>
                     </div>
                 </div>
             </div>
-            <div class="col-12 col-md-6">
-                <div class="about-sub-section pri-bg h-100 karya-py">
-                    <h6 class="text-white mb-4 mb-md-5 points">
-                        <span class="sec-clr">Karya.asia</span> is a talent marketplace
-                        platform that transcends the boundaries of artificial
-                        intelligence, science, and art to connect job seekers with
-                        employers.
-                    </h6>
-                    <h6 class="text-white points ">
-                        Our mission is to revolutionise the way talent is discovered and
-                        matched with the best opportunities. By harnessing the power of
-                        Al in the GPT model and data-driven insights through personality
-                        profiling and people skills evaluation, we assist individuals to
-                        unlock their full potential in their careers and enable
-                        organisations to build teams that are truly aligned with their
-                        values and vision.
-                    </h6>
-                </div>
-            </div>
-        </div>
         </div>
     </section>
     <section class="karya-section what-section bg-white">
