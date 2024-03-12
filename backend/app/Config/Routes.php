@@ -38,6 +38,10 @@ $routes->group('/', ['filter' => 'noauth'], function ($routes) {
     $routes->post('hiredLogin', 'Home::hiredLogin');
     $routes->get('talent', 'Home::talent');
     $routes->post('talentLogin', 'Home::talentLogin');
+    $routes->get('jobseeker', 'Home::jobseeker');
+    $routes->post('jobseekerSave', 'Home::jobseekerSave');
+    $routes->get('employer', 'Home::employer');
+    $routes->post('employerSave', 'Home::employerSave');
 });
 
 $routes->group('/', ['filter' => 'auth'], function ($routes) {

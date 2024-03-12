@@ -30,10 +30,10 @@
                 <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
                     <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
                         <li class="nav-item">
-                            <a class="nav-link" href="<?= site_url() ?>employer">Employer Register</a>
+                            <a class="nav-link active" href="<?= site_url() ?>employer">Employer Register</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link active" href="<?= site_url() ?>talent">Employer Login</a>
+                            <a class="nav-link" href="<?= site_url() ?>talent">Employer Login</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="<?= site_url() ?>jobseeker">Job Seeker Register</a>
@@ -50,7 +50,7 @@
 <div class="container">
     <div class="row mt-5">
         <div class="col-sm-6">
-            <form class="" id="talentform" action="<?= base_url('talentLogin') ?>" method="post">
+            <form class="" id="talentform" action="<?= base_url('employerSave') ?>" method="post">
                 <?= csrf_field(); ?>
                 <?php if (!empty(session()->getFlashdata('fail'))) : ?>
                     <div class="alert alert-danger"><?= session()->getFlashdata('fail'); ?></div>
@@ -59,17 +59,33 @@
                 <?php endif ?>
                 <div class="card border-light mt-5">
                     <div class="form-group mb-3">
-                        <input type="email" class="form-control form-control-lg" id="email" name="email" value="<?= set_value('email') ?>" placeholder="Email Address" aria-label="Username" />
-                        <div class="text-danger"><?= !empty(session()->getFlashdata('validation')) ? error(session()->getFlashdata('validation'), 'email') : '' ?></div>
+                        <input type="email" class="form-control form-control-lg" id="company_email" name="company_email" value="<?= set_value('company_email') ?>" placeholder="Company Email" aria-label="company_email" />
+                        <div class="text-danger"><?= !empty(session()->getFlashdata('validation')) ? error(session()->getFlashdata('validation'), 'company_email') : '' ?></div>
+                    </div>
+                    <div class="form-group mb-3">
+                        <input type="text" class="form-control form-control-lg" id="company_name" name="company_name" value="<?= set_value('company_name') ?>" placeholder="Company Name" aria-label="company_name" />
+                        <div class="text-danger"><?= !empty(session()->getFlashdata('validation')) ? error(session()->getFlashdata('validation'), 'company_name') : '' ?></div>
+                    </div>
+                    <div class="form-group mb-3">
+                        <input type="text" class="form-control form-control-lg" id="contact_number" name="contact_number" value="<?= set_value('contact_number') ?>" placeholder="Company Number" aria-label="contact_number" />
+                        <div class="text-danger"><?= !empty(session()->getFlashdata('validation')) ? error(session()->getFlashdata('validation'), 'contact_number') : '' ?></div>
+                    </div>
+                    <div class="form-group mb-3">
+                        <input type="text" class="form-control form-control-lg" id="ssm_number" name="ssm_number" value="<?= set_value('ssm_number') ?>" placeholder="SSM Number" aria-label="ssm_number" />
+                        <div class="text-danger"><?= !empty(session()->getFlashdata('validation')) ? error(session()->getFlashdata('validation'), 'ssm_number') : '' ?></div>
                     </div>
                     <div class="form-group mb-3">
                         <input type="password" class="form-control form-control-lg" id="password" name="password" value="<?= set_value('password') ?>" placeholder="Password" aria-label="Password" />
                         <div class="text-danger"><?= !empty(session()->getFlashdata('validation')) ? error(session()->getFlashdata('validation'), 'password') : '' ?></div>
                     </div>
+                    <div class="form-group mb-3">
+                        <input type="password" class="form-control form-control-lg" id="password2" name="password2" value="<?= set_value('password2') ?>" placeholder="Confirm Password" aria-label="password2" />
+                        <div class="text-danger"><?= !empty(session()->getFlashdata('validation')) ? error(session()->getFlashdata('validation'), 'email') : '' ?></div>
+                    </div>
                     <div class="d-flex align-items-center justify-content-end">
                         <a href="https://pathfinder.la/" class="btn btn-secondary text-uppercase text-white me-2">Home</a>
                         <button class="btn btn-success text-uppercase text-white me-2" type="submit">
-                            Sign In
+                            Sign Up
                         </button>
                     </div>
                 </div>

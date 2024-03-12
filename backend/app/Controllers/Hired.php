@@ -132,7 +132,7 @@ class Hired extends BaseController
         if ($this->loggedHired['user_role'] != 7) {
             return  redirect()->back()->with('fail', 'Your Not Correct User');
         }
-        $data['pageTitle'] = 'Karya | Dashboard';
+        $data['pageTitle'] = 'Pathfinder | Dashboard';
         $data['logo'] = 'app-assets/images/logo_pathafinder.png';
         $data['active'] = 'dashboard';
         $data['css'] = array(
@@ -144,7 +144,7 @@ class Hired extends BaseController
     }
     public function status()
     {
-        $data['pageTitle'] = 'Karya | Status';
+        $data['pageTitle'] = 'Pathfinder | Status';
         $data['logo'] = 'app-assets/images/logo_pathafinder.png';
         $data['active'] = 'status';
         $data['css'] = array(
@@ -159,7 +159,7 @@ class Hired extends BaseController
     }
     public function updatePerInfo()
     {
-        $data['pageTitle'] = 'Karya | Profile';
+        $data['pageTitle'] = 'Pathfinder | Profile';
         $data['logo'] = 'app-assets/images/logo_pathafinder.png';
         $data['active'] = 'profile';
         $data['css'] = array(
@@ -382,7 +382,7 @@ class Hired extends BaseController
     }
     public function uploadResume()
     {
-        $data['pageTitle'] = 'Karya | Profile';
+        $data['pageTitle'] = 'Pathfinder | Profile';
         $data['logo'] = 'app-assets/images/logo_pathafinder.png';
         $data['active'] = 'profile';
         $data['css'] = array(
@@ -481,7 +481,7 @@ class Hired extends BaseController
     }
     public function perAssessment()
     {
-        $data['pageTitle'] = 'Karya | Personality Assessment';
+        $data['pageTitle'] = 'Pathfinder | Personality Assessment';
         $data['logo'] = 'app-assets/images/logo_pathafinder.png';
         $data['active'] = 'perAssessment';
         $data['css'] = array(
@@ -939,7 +939,7 @@ class Hired extends BaseController
         $email = $this->user['email'];
         $ID = $this->user['ID'];
 
-        $data['pageTitle'] = 'Karya | Profile';
+        $data['pageTitle'] = 'Pathfinder | Profile';
         $data['logo'] = 'app-assets/images/logo_pathafinder.png';
         $data['active'] = 'profile';
         $data['css'] = array(
@@ -1151,7 +1151,7 @@ class Hired extends BaseController
     }
     public function gptquestion()
     {
-        $data['pageTitle'] = 'Karya | Profile';
+        $data['pageTitle'] = 'Pathfinder | Profile';
         $data['logo'] = 'app-assets/images/logo_pathafinder.png';
         $data['active'] = 'profile';
         $data['css'] = array(
@@ -1168,7 +1168,7 @@ class Hired extends BaseController
     }
     public function uploadVideo()
     {
-        $data['pageTitle'] = 'Karya | Profile';
+        $data['pageTitle'] = 'Pathfinder | Profile';
         $data['logo'] = 'app-assets/images/logo_pathafinder.png';
         $data['active'] = 'profile';
         $data['css'] = array(
@@ -1228,7 +1228,7 @@ class Hired extends BaseController
     }
     public function evaluationGen()
     {
-        $data['pageTitle'] = 'Karya | Profile';
+        $data['pageTitle'] = 'Pathfinder | Profile';
         $data['logo'] = 'app-assets/images/logo_pathafinder.png';
         $data['active'] = 'Evaluation';
         $data['css'] = array(
@@ -1243,7 +1243,7 @@ class Hired extends BaseController
         $email = $this->user['email'];
         $ID = $this->user['ID'];
 
-        $data['pageTitle'] = 'Karya | Profile';
+        $data['pageTitle'] = 'Pathfinder | Profile';
         $data['logo'] = 'app-assets/images/logo_pathafinder.png';
         $data['active'] = 'profile';
         $data['css'] = array(
@@ -1268,7 +1268,7 @@ class Hired extends BaseController
     }
     public function companies($sector_id)
     {
-        $data['pageTitle'] = 'Karya | Companies';
+        $data['pageTitle'] = 'Pathfinder | Companies';
         $data['logo'] = 'app-assets/images/logo_pathafinder.png';
         $data['active'] = 'companies';
         $data['css'] = array(
@@ -1284,7 +1284,7 @@ class Hired extends BaseController
     }
     public function exploreCompanies($company_id)
     {
-        $data['pageTitle'] = 'Karya | Companies';
+        $data['pageTitle'] = 'Pathfinder | Companies';
         $data['logo'] = 'app-assets/images/logo_pathafinder.png';
         $data['active'] = 'companies';
         $data['css'] = array(
@@ -1307,7 +1307,7 @@ class Hired extends BaseController
     }
     public function myaccount()
     {
-        $data['pageTitle'] = 'Karya | MyAccount';
+        $data['pageTitle'] = 'Pathfinder | MyAccount';
         $data['logo'] = 'app-assets/images/logo_pathafinder.png';
         $data['active'] = 'myaccount';
         $data['css'] = array(
@@ -1342,7 +1342,7 @@ class Hired extends BaseController
     /* UnUsed Methods START */
     public function profile()
     {
-        $data['pageTitle'] = 'Karya | Profile';
+        $data['pageTitle'] = 'Pathfinder | Profile';
         $data['logo'] = 'app-assets/images/logo_pathafinder.png';
         $data['active'] = 'profile';
         $data['css'] = array(
@@ -1354,7 +1354,7 @@ class Hired extends BaseController
     }
     public function explore()
     {
-        $data['pageTitle'] = 'Karya | Explore';
+        $data['pageTitle'] = 'Pathfinder | Explore';
         $data['logo'] = 'app-assets/images/logo_pathafinder.png';
         $data['active'] = 'explore';
         $data['css'] = array(
@@ -1370,7 +1370,7 @@ class Hired extends BaseController
         $email = $this->user['email'];
         $user_id = $this->user['ID'];
 
-        $data['pageTitle'] = 'Karya | Explore Details';
+        $data['pageTitle'] = 'Pathfinder | Explore Details';
         $data['logo'] = 'app-assets/images/logo_pathafinder.png';
         $data['active'] = 'companies';
         $data['css'] = array(

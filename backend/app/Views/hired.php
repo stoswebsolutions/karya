@@ -1,8 +1,54 @@
 <?= $this->extend("layouts/app") ?>
 <?= $this->section("body") ?>
+<style>
+    .menu-header {
+        background-color: #092e48;
+    }
+
+    .nav-link {
+        color: #54dcde;
+    }
+
+    .nav-link:hover {
+        color: #ffffff;
+    }
+
+    .navbar-nav .nav-link.active {
+        color: #f21058;
+    }
+</style>
+<div class="container-fluid menu-header">
+    <div class="row">
+        <div class="col-sm-8 offset-sm-2">
+            <nav class="navbar navbar-expand-lg">
+                <a class="navbar-brand" href="#">
+                    <img src="<?= site_url() ?>app-assets/images/logo_pathafinder.png" alt="logo" class="img-fluid">
+                </a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+                    <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+                    <li class="nav-item">
+                            <a class="nav-link" href="<?= site_url() ?>employer">Employer Register</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="<?= site_url() ?>talent">Employer Login</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="<?= site_url() ?>jobseeker">Job Seeker Register</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" href="<?= site_url() ?>hired">Job Seeker Login</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </div>
+</div>
 <div class="container">
     <div class="row mt-5">
-        <img src="<?= site_url() ?>app-assets/images/logo_pathafinder.png" alt="logo" class="img-fluid mx-auto d-block" />
         <div class="col-sm-6">
             <form class="" id="hiredform" action="<?= base_url('hiredLogin') ?>" method="post">
                 <?= csrf_field(); ?>
@@ -11,18 +57,18 @@
                 <?php elseif (!empty(session()->getFlashdata('success'))) : ?>
                     <div class="alert alert-success"><?= session()->getFlashdata('success'); ?></div>
                 <?php endif ?>
-                <div class="row">
-                    <div class="col-sm-12 p-5 shadow bg-default rounded">
-                        <div class="form-group mb-3">
-                            <input type="email" class="form-control form-control-lg" id="email" name="email" value="<?= set_value('email') ?>" placeholder="Email Address" aria-label="Username" />
-                            <div class="text-danger"><?= !empty(session()->getFlashdata('validation')) ? error(session()->getFlashdata('validation'), 'email') : '' ?></div>
-                        </div>
-                        <div class="form-group mb-3">
-                            <input type="password" class="form-control form-control-lg" id="password" name="password" value="<?= set_value('password') ?>" placeholder="Password" aria-label="Password" />
-                            <div class="text-danger"><?= !empty(session()->getFlashdata('validation')) ? error(session()->getFlashdata('validation'), 'password') : '' ?></div>
-                        </div>
-                        <a href="<?= site_url() ?>home" class="btn btn-secondary text-uppercase float-end text-white">Home</a>
-                        <button class="btn btn-success text-uppercase float-end text-white" type="submit">
+                <div class="card border-light mt-5">
+                    <div class="form-group mb-3">
+                        <input type="email" class="form-control form-control-lg" id="email" name="email" value="<?= set_value('email') ?>" placeholder="Email Address" aria-label="Username" />
+                        <div class="text-danger"><?= !empty(session()->getFlashdata('validation')) ? error(session()->getFlashdata('validation'), 'email') : '' ?></div>
+                    </div>
+                    <div class="form-group mb-3">
+                        <input type="password" class="form-control form-control-lg" id="password" name="password" value="<?= set_value('password') ?>" placeholder="Password" aria-label="Password" />
+                        <div class="text-danger"><?= !empty(session()->getFlashdata('validation')) ? error(session()->getFlashdata('validation'), 'password') : '' ?></div>
+                    </div>
+                    <div class="d-flex align-items-center justify-content-end">
+                        <a href="https://pathfinder.la/" class="btn btn-secondary text-uppercase text-white me-2">Home</a>
+                        <button class="btn btn-success text-uppercase text-white me-2" type="submit">
                             Sign In
                         </button>
                     </div>
@@ -30,15 +76,25 @@
             </form>
         </div>
         <div class="col-sm-6">
-            <div class="row">
-                <div class="col-sm-12 p-5 shadow bg-default rounded">
-                    <h1 class="text-center">Get Hired</h1>
-                    <p class="text-center">
-                        With our insights, we can assist you in finding the ideal
-                        position that matches your personality, skills and career
-                        aspirations. Our tool will assist you in providing that
-                        perfect pitch for your interview.</p>
-                </div>
+            <h2>Get Job Seeker</h2>
+            <div class="card" style="background-color: #272B40;">
+                <p class="text-white p-4 mb-5">With our insights, we can assist you in finding the ideal
+                    position that matches your personality, skills and career
+                    aspirations. Our tool will assist you in providing that
+                    perfect pitch for your interview.</p>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container-fluid menu-header mt-5">
+    <div class="row p-4 mt-5">
+        <div class="col-sm-8 offset-sm-2">
+            <div class="d-flex align-items-center justify-content-between">
+                <p class="nav-link">Copyright © 2024 Pathfinder.la</p>
+                <p class="nav-link">Powered by www.imaginar.my</p>
+                <a href="#" class="nav-link"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+                <a href="#" class="nav-link"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+                <a href="#" class="nav-link"><i class="fa fa-instagram" aria-hidden="true"></i></a>
             </div>
         </div>
     </div>

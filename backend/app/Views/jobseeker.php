@@ -33,10 +33,10 @@
                             <a class="nav-link" href="<?= site_url() ?>employer">Employer Register</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link active" href="<?= site_url() ?>talent">Employer Login</a>
+                            <a class="nav-link" href="<?= site_url() ?>talent">Employer Login</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="<?= site_url() ?>jobseeker">Job Seeker Register</a>
+                            <a class="nav-link active" href="<?= site_url() ?>jobseeker">Job Seeker Register</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="<?= site_url() ?>hired">Job Seeker Login</a>
@@ -50,7 +50,7 @@
 <div class="container">
     <div class="row mt-5">
         <div class="col-sm-6">
-            <form class="" id="talentform" action="<?= base_url('talentLogin') ?>" method="post">
+            <form class="" id="hiredform" action="<?= base_url('jobseekerSave') ?>" method="post">
                 <?= csrf_field(); ?>
                 <?php if (!empty(session()->getFlashdata('fail'))) : ?>
                     <div class="alert alert-danger"><?= session()->getFlashdata('fail'); ?></div>
@@ -59,29 +59,45 @@
                 <?php endif ?>
                 <div class="card border-light mt-5">
                     <div class="form-group mb-3">
-                        <input type="email" class="form-control form-control-lg" id="email" name="email" value="<?= set_value('email') ?>" placeholder="Email Address" aria-label="Username" />
+                        <input type="email" class="form-control form-control-lg" id="email" name="email" value="<?= set_value('email') ?>" placeholder="Email Address" aria-label="email" />
                         <div class="text-danger"><?= !empty(session()->getFlashdata('validation')) ? error(session()->getFlashdata('validation'), 'email') : '' ?></div>
+                    </div>
+                    <div class="form-group mb-3">
+                        <input type="text" class="form-control form-control-lg" id="username" name="username" value="<?= set_value('username') ?>" placeholder="Username" aria-label="username" />
+                        <div class="text-danger"><?= !empty(session()->getFlashdata('validation')) ? error(session()->getFlashdata('validation'), 'username') : '' ?></div>
+                    </div>
+                    <div class="form-group mb-3">
+                        <input type="text" class="form-control form-control-lg" id="fullname" name="fullname" value="<?= set_value('fullname') ?>" placeholder="Full Name" aria-label="fullname" />
+                        <div class="text-danger"><?= !empty(session()->getFlashdata('validation')) ? error(session()->getFlashdata('validation'), 'fullname') : '' ?></div>
+                    </div>
+                    <div class="form-group mb-3">
+                        <input type="text" class="form-control form-control-lg" id="mobile" name="mobile" value="<?= set_value('mobile') ?>" placeholder="Mobile No" aria-label="mobile" />
+                        <div class="text-danger"><?= !empty(session()->getFlashdata('validation')) ? error(session()->getFlashdata('validation'), 'mobile') : '' ?></div>
                     </div>
                     <div class="form-group mb-3">
                         <input type="password" class="form-control form-control-lg" id="password" name="password" value="<?= set_value('password') ?>" placeholder="Password" aria-label="Password" />
                         <div class="text-danger"><?= !empty(session()->getFlashdata('validation')) ? error(session()->getFlashdata('validation'), 'password') : '' ?></div>
                     </div>
+                    <div class="form-group mb-3">
+                        <input type="password" class="form-control form-control-lg" id="password2" name="password2" value="<?= set_value('password2') ?>" placeholder="Confirm Password" aria-label="password2" />
+                        <div class="text-danger"><?= !empty(session()->getFlashdata('validation')) ? error(session()->getFlashdata('validation'), 'password2') : '' ?></div>
+                    </div>
                     <div class="d-flex align-items-center justify-content-end">
                         <a href="https://pathfinder.la/" class="btn btn-secondary text-uppercase text-white me-2">Home</a>
                         <button class="btn btn-success text-uppercase text-white me-2" type="submit">
-                            Sign In
+                            Sign Up
                         </button>
                     </div>
                 </div>
             </form>
         </div>
         <div class="col-sm-6">
-            <h2>Get Employer</h2>
+            <h2>Get Job Seeker</h2>
             <div class="card" style="background-color: #272B40;">
-                <p class="text-white p-4 mb-5">With the right partner by your side, finding the right talent
-                    for your organisation is not a complex task. Our tool will
-                    connect you with outstanding candidates who can materialise
-                    your projects and plans.</p>
+                <p class="text-white p-4 mb-5">With our insights, we can assist you in finding the ideal
+                    position that matches your personality, skills and career
+                    aspirations. Our tool will assist you in providing that
+                    perfect pitch for your interview.</p>
             </div>
         </div>
     </div>
