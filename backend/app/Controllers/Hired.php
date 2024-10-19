@@ -153,7 +153,7 @@ class Hired extends BaseController
         $data['loggedHired'] = $this->loggedHired;
         $data['is_online'] = $this->user['is_online'];
         $user_id = $this->user['ID'];
-        $jobCount = $this->applypostsModel->where(array("user_id" => $user_id,"app_status" => "A"))->countAllResults();
+        $jobCount = $this->applypostsModel->where(array("user_id" => $user_id, "app_status" => "A"))->countAllResults();
         $data['jobCount'] = $jobCount;
         return view('hired/status', $data);
     }
@@ -301,6 +301,20 @@ class Hired extends BaseController
     {
         $email = $this->user['email'];
         $ID = $this->user['ID'];
+        if ($this->request->getMethod() == 'post') {
+            $validation = $this->validate([
+                'targeted_career' => [
+                    'rules'  => 'required|min_length[3]',
+                    'errors' => [
+                        'required' => 'Type is required.',
+                        'min_length' => 'Type must have atleast 3 characters in length.'
+                    ],
+                ]
+            ]);
+            if (!$validation) {
+                return  redirect()->back()->with('validation', $this->validator)->withInput();
+            }
+        }
 
         $fullname = $this->request->getPost('fullname');
         $IC = $this->request->getPost('IC');
@@ -426,37 +440,40 @@ class Hired extends BaseController
                     'created' => date("Y-m-d H:i:s")
                 ];
                 $this->portfolioModel->insert($insert);
+
+                $resumeParser1 = $this->resumeParser($fileResume_path);
+                $resumeParser = json_decode($resumeParser1, true);
+                $first_name = $resumeParser['data']['profile']['basics']['first_name'];
+                $last_name = $resumeParser['data']['profile']['basics']['last_name'];
+                $gender = $resumeParser['data']['profile']['basics']['gender'];
+                $phone = $resumeParser['data']['profile']['basics']['phone_numbers'][0];
+                $address_1 = $resumeParser['data']['profile']['basics']['address'];
+                $job_experience = $resumeParser['data']['profile']['basics']['total_experience_in_years'];
+                $current_job = $resumeParser['data']['profile']['basics']['profession'];
+                $current_company = $resumeParser['data']['profile']['professional_experiences'][0]['company'];
+
+                $inputData = array(
+                    "first_name" => $first_name,
+                    "last_name" => $last_name,
+                    "fullname" => $first_name . ' ' . $last_name,
+                    "gender" => $gender,
+                    "phone" => $phone,
+                    "address_1" => $address_1,
+                    "current_job" => $current_job,
+                    "current_company" => $current_company,
+                    "job_experience" => $job_experience,
+                );
+                $this->usersModel->update(array("ID" => $ID), $inputData);
+                return  redirect()->to('hired/perAssessment')->with('success', 'Your Resume Achievements Upload !');
             }
         }
-        $resumeParser1 = $this->resumeParser($fileResume_path);
-        $resumeParser = json_decode($resumeParser1, true);
-        $first_name = $resumeParser['data']['profile']['basics']['first_name'];
-        $last_name = $resumeParser['data']['profile']['basics']['last_name'];
-        $gender = $resumeParser['data']['profile']['basics']['gender'];
-        $phone = $resumeParser['data']['profile']['basics']['phone_numbers'][0];
-        $address_1 = $resumeParser['data']['profile']['basics']['address'];
-        $job_experience = $resumeParser['data']['profile']['basics']['total_experience_in_years'];
-        $current_job = $resumeParser['data']['profile']['basics']['profession'];
-        $current_company = $resumeParser['data']['profile']['professional_experiences'][0]['company'];
-
-        $inputData = array(
-            "first_name" => $first_name,
-            "last_name" => $last_name,
-            "fullname" => $first_name.' '.$last_name,
-            "gender" => $gender,
-            "phone" => $phone,
-            "address_1" => $address_1,
-            "current_job" => $current_job,
-            "current_company" => $current_company,
-            "job_experience" => $job_experience,
-        );
-        $this->usersModel->update(array("ID" => $ID), $inputData);
-        return  redirect()->to('hired/perAssessment')->with('success', 'Your Resume Achievements Upload !');
+        return  redirect()->to('hired/perAssessment');
     }
-    public function resumeParser($fileResume_path){
+    public function resumeParser($fileResume_path)
+    {
         $url = 'https://cvparser.ai/api/v3/parse';
         $api_key = 'f1c7d3d0eee038fee68867486730ee74';
-        $cv_url = site_url().'assets/uploads/resume/'.$fileResume_path;
+        $cv_url = site_url() . 'assets/uploads/resume/' . $fileResume_path;
         $data = array(
             'url' => $cv_url
         );

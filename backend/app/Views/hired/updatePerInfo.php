@@ -187,6 +187,7 @@
                             </button>
                             <div class="input-group input-group-sm mb-2 mb-sm-3">
                                 <input type="text" class="form-control" name="targeted_career" id="targeted_career" value="<?= $usersProfile[0]['targeted_career'] ?>" placeholder="" required>
+                                <span class="text-danger"><?= !empty(session()->getFlashdata('validation')) ? error(session()->getFlashdata('validation'), 'targeted_career') : '' ?></span>
                             </div>
                             <!-- <button class="btn inactiveBtn">
                                 Type in the job role
